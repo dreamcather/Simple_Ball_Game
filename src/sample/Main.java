@@ -35,7 +35,7 @@ public class Main extends Application {
         ArrayList<Circle> models = new ArrayList<Circle>();
 
 
-        scene = new Scene(layout , 600, 420);
+        scene = new Scene(layout , 700, 420);
         Circle player = new Circle(100,100,10);
         Circle enemy1 = new Circle(40,40,10,Color.RED);
         Circle enemy2 = new Circle(110,140,10,Color.GREEN);
@@ -52,7 +52,7 @@ public class Main extends Application {
         layout.getChildren().add(lb);
         models.add(player);
         KeyModule motion = new KeyModule();
-        Enemy_List enm = new Enemy_List(10,layout);
+        Enemy_List enm = new Enemy_List(10,layout,player,lb);
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
