@@ -8,100 +8,61 @@ import java.awt.event.KeyEvent;
 import static javafx.scene.input.KeyCode.*;
 
 public class KeyModule {
+    double R=1;
+    double RR = 150;
+    double x=1;
+    double y =0;
+    double curentx;
+    double curenty;
+    double arc=5;
+    Circle ln;
     private boolean[] presed = new boolean[4];
     private int presed_form;
 
-    KeyModule()
+    KeyModule(Circle ths)
     {
-        for (boolean i:presed
-             ) {i =false;
-
-        }
-        presed_form =0;
+        curentx = ths.getCenterX();
+        curenty = ths.getCenterY();
+        ln=ths;
     }
 
-    public void Presed(KeyCode _key)
+    void Collision_Wall(double _x,double _y)
     {
-        switch (_key) {
-            case LEFT:
-                presed[0] =true;
-                break;
-            case UP:
-                presed[1] = true;
-                break;
-            case RIGHT:
-                presed[2] =true;
-                break;
-            case DOWN:
-                presed[3] = true;
-                break;
+        double xk=0;
+        double yk=0;
+        if(_x<20){
+            xk=-1;
+            yk=0;
         }
-    }
-
-    public void Realesed(KeyCode _key)
-    {
-        switch (_key) {
-            case LEFT:
-                presed[0] =false;
-                break;
-            case UP:
-                presed[1] = false;
-                break;
-            case RIGHT:
-                presed[2] = false;
-                break;
-            case DOWN:
-                presed[3] = false;
-                break;
+        if(_y>380){
+            xk=0;
+            yk=1;
         }
+        if(_x>380){
+            xk=1;
+            yk=0;
+        }
+        if(_y<20){
+            xk=0;
+            yk=-1;
+        }
+        x=x-2*xk;
+        y=y-2*yk;
+        double len = Math.sqrt(x*x +y*y);
+        x=x/len;
+        y=y/len;
     }
 
     public void Move(Circle ths)
     {
-        if(presed[0]==true)
-            presed_form+=1;
-        if(presed[1]==true)
-            presed_form+=2;
-        if(presed[2]==true)
-            presed_form+=4;
-        if(presed[3]==true)
-            presed_form+=8;
-
-        switch (presed_form){
-            case 0:
-                break;
-            case 1:
-                ths.setCenterX(ths.getCenterX() - 5f);
-                break;
-            case 2:
-                ths.setCenterY(ths.getCenterY() - 5f);
-                break;
-            case 3:
-                ths.setCenterX(ths.getCenterX() - 5f);
-                ths.setCenterY(ths.getCenterY() - 5f);
-                break;
-            case 4:
-                ths.setCenterX(ths.getCenterX() + 5f);
-                break;
-            case 5:
-                break;
-            case 6:
-                ths.setCenterX(ths.getCenterX() + 5f);
-                ths.setCenterY(ths.getCenterY() - 5f);
-                break;
-            case 8:
-                ths.setCenterY(ths.getCenterY() + 5f);
-                break;
-            case 9:
-                ths.setCenterX(ths.getCenterX() - 5f);
-                ths.setCenterY(ths.getCenterY() + 5f);
-                break;
-            case 12:
-                ths.setCenterX(ths.getCenterX() + 5f);
-                ths.setCenterY(ths.getCenterY() + 5f);
-                break;
-        }
-        presed_form =0;
+        double tmpx = curentx+x*R;
+        double tmpy = curenty +y*R;
+        ln.setCenterX(tmpx);
+        ln.setCenterY(tmpy);
+        curentx = tmpx;
+        curenty = tmpy;
+        if((curentx>400)||(curentx<50)||(curenty>390)||(curenty<50))
+            Collision_Wall(curentx,curenty);
     }
 
     public void Show()

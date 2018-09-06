@@ -51,12 +51,20 @@ public class Main extends Application {
         layout.getChildren().add(player);
         layout.getChildren().add(lb);
         models.add(player);
-        KeyModule motion = new KeyModule();
+        KeyModule motion = new KeyModule(player);
         Enemy_List enm = new Enemy_List(10,layout,player,lb);
+        GameState gm = new GameState(layout);
+        //Ball tmp =new Ball(1,1,3,gm);
+        //tmp.model.setCenterX(100);
+        //tmp.model.setCenterY(100);
+        //tmp.model.setFill(Color.GREEN);
+        //tmp.model.setRadius(10);
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 enm.Move();
+                //tmp.Move();
+                motion.Move(player);
             }
         };
         window.setScene(scene);
@@ -66,9 +74,29 @@ public class Main extends Application {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                motion.Presed(event.getCode());
-                motion.Move(player);
-                motion.Show();
+                if(event.getCode().equals(KeyCode.UP))
+                {
+                    motion.R+=0.03;
+                }
+                if(event.getCode().equals(KeyCode.DOWN))
+                {
+                    motion.R-=0.03;
+                }
+                if(event.getCode().equals(KeyCode.RIGHT))
+                {
+                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))-motion.y*Math.sin(Math.toRadians(motion.arc));
+                    double yc =motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
+                    motion.x=xc;
+                    motion.y=yc;
+                }
+                if(event.getCode().equals(KeyCode.LEFT))
+                {
+                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))+motion.y*Math.sin(Math.toRadians(motion.arc));
+                    double yc =-motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
+                    motion.x=xc;
+                    motion.y=yc;
+                }
+
 
             }
         });
@@ -76,9 +104,30 @@ public class Main extends Application {
         scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                motion.Realesed(event.getCode());
-                motion.Move(player);
-                motion.Show();
+                if(event.getCode().equals(KeyCode.UP))
+                {
+                    motion.R+=0.03;
+                }
+                if(event.getCode().equals(KeyCode.DOWN))
+                {
+                    motion.R-=0.03;
+                }
+                if(event.getCode().equals(KeyCode.RIGHT))
+                {
+                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))-motion.y*Math.sin(Math.toRadians(motion.arc));
+                    double yc =motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
+                    motion.x=xc;
+                    motion.y=yc;
+                }
+                if(event.getCode().equals(KeyCode.LEFT))
+                {
+                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))+motion.y*Math.sin(Math.toRadians(motion.arc));
+                    double yc =-motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
+                    motion.x=xc;
+                    motion.y=yc;
+
+                }
+
             }
         });
     }

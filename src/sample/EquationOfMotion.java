@@ -31,6 +31,13 @@ public class EquationOfMotion {
         lb = _lb;
     }
 
+    private void ChangeColor()
+    {
+        if(ball.getFill().equals(Color.RED))
+            ball.setFill(Color.GREEN);
+        else
+            ball.setFill(Color.RED);
+    }
     private double R(Circle one, Circle two) {
         return Math.sqrt(Math.pow(one.getCenterX()-two.getCenterX(),2)+Math.pow(one.getCenterY()-two.getCenterY(),2));
     }
@@ -62,6 +69,7 @@ public class EquationOfMotion {
         ball.setCenterY(-20);
         ball.setCenterX(-20);
         model_list.remove(ball);
+
     }
 
     private void Collisionn_Sphere(Circle tmp) {
@@ -87,6 +95,7 @@ public class EquationOfMotion {
     private void Collision_Wall(double x,double y) {
         double xk=0;
         double yk=0;
+        ChangeColor();
         if(x<20){
             xk=-1;
             yk=0;
