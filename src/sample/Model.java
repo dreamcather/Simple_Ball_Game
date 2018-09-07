@@ -8,6 +8,8 @@ public abstract class Model {
 
     public abstract void Move(double xOffset, double yOffset);
 
+    public abstract void ShowElement(GameState gameState);
+
     public double getxCenter(){
         return xCenter;
     };

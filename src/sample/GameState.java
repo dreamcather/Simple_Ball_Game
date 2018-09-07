@@ -8,8 +8,5 @@ public class GameState {
     {
         gamePanel = _panel;
     }
-    public void AddBall(Ball tmp)
-    {
-        gamePanel.getChildren().add(tmp.model);
-    }
+
 }
