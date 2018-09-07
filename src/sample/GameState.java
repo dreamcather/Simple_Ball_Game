@@ -18,6 +18,12 @@ public class GameState {
         walls = new WallColection(4);
     }
 
+    public void addBall(){
+        Model model = new CircleModel();
+        model.showElement(gamePanel);
+        gameObjects.add(new Enemy(50,50,5,model));
+    }
+
 
     private void collisionWithWalls(Ball ball){
         double radToWal=0;
@@ -25,7 +31,7 @@ public class GameState {
             Wall curentWall = walls.collection[i];
             if(curentWall.calculateDistanceToPoint(ball.getXCenter()+ball.getxCoefficient()*ball.getSpeedOfMotion()
                     ,ball.getYCenter() +ball.getyCoefficient()*ball.getSpeedOfMotion() )<ball.getRadius()){
-
+                radToWal =1;
 
             }
 
@@ -35,6 +41,7 @@ public class GameState {
     public void move(){
         for(int i =0; i< gameObjects.size();i++){
             collisionWithWalls(gameObjects.get(i));
+            gameObjects.get(i).move();
         }
 
     }

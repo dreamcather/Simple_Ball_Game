@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 public abstract class Ball {
@@ -14,7 +15,7 @@ public abstract class Ball {
         speedOfMotion=_speed;
     }
     public void move(){
-        gameModel.Move(xCoefficient*speedOfMotion, yCoefficient*speedOfMotion);
+        gameModel.move(xCoefficient*speedOfMotion, yCoefficient*speedOfMotion);
     }
     public double getxCoefficient(){
         return xCoefficient;

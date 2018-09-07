@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 
 public class Hero extends Ball {
 
@@ -11,5 +12,4 @@ public class Hero extends Ball {
     private void move(KeyCode keyCode){
 
     }
-
 }

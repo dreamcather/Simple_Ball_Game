@@ -37,29 +37,14 @@ public class Main extends Application {
 
 
         scene = new Scene(layout , 700, 420);
-        Circle player = new Circle(100,100,10);
-        Circle enemy1 = new Circle(40,40,10,Color.RED);
-        Circle enemy2 = new Circle(110,140,10,Color.GREEN);
-        player.setFill(new Color(0.5,0.5,0.5,0.5));
-        Rectangle field = new Rectangle(10,10,400,400);
-        field.setFill(Color.WHITE);
-        field.setStroke(Color.BLACK);
-        field.setStrokeWidth(10);
-        layout.getChildren().add(field);
-        layout.getChildren().add(player);
-        models.add(player);
-        KeyModule motion = new KeyModule(player);
-        Enemy_List enm = new Enemy_List(10,layout,player,lb);
-        GameState gm = new GameState(layout);
-        //Ball tmp =new Ball(1,1,3,gm);
-        //tmp.model.setCenterX(100);
-        //tmp.model.setCenterY(100);
-        //tmp.model.setFill(Color.GREEN);
-        //tmp.model.setRadius(10);
+        GameState gameState = new GameState(layout, consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
+        gameState.addBall();
+
+
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                //tmp.Move();
+                gameState.move();
             }
         };
         window.setScene(scene);

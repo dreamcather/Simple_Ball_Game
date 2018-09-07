@@ -8,9 +8,9 @@ public abstract class Model {
 
     private double yCenter;
 
-    public abstract void Move(double xOffset, double yOffset);
+    public abstract void move(double xOffset, double yOffset);
 
-    public abstract void ShowElement(AnchorPane anchorPane);
+    public abstract void showElement(AnchorPane anchorPane);
 
     public double getxCenter(){
         return xCenter;
