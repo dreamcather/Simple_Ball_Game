@@ -35,4 +35,8 @@ public abstract class Ball {
     public double getYCenter() {
         return 0;
     }
+
+    public double getRadius() {
+        return 0;
+    }
 }

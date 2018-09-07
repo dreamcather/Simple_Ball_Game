@@ -60,72 +60,11 @@ public class Main extends Application {
             @Override
             public void handle(long now) {
                 //tmp.Move();
-                motion.Move(player);
             }
         };
         window.setScene(scene);
         window.show();
         timer.start();
-
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if(event.getCode().equals(KeyCode.UP))
-                {
-                    motion.R+=0.03;
-                }
-                if(event.getCode().equals(KeyCode.DOWN))
-                {
-                    motion.R-=0.03;
-                }
-                if(event.getCode().equals(KeyCode.RIGHT))
-                {
-                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))-motion.y*Math.sin(Math.toRadians(motion.arc));
-                    double yc =motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
-                    motion.x=xc;
-                    motion.y=yc;
-                }
-                if(event.getCode().equals(KeyCode.LEFT))
-                {
-                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))+motion.y*Math.sin(Math.toRadians(motion.arc));
-                    double yc =-motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
-                    motion.x=xc;
-                    motion.y=yc;
-                }
-
-
-            }
-        });
-
-        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if(event.getCode().equals(KeyCode.UP))
-                {
-                    motion.R+=0.03;
-                }
-                if(event.getCode().equals(KeyCode.DOWN))
-                {
-                    motion.R-=0.03;
-                }
-                if(event.getCode().equals(KeyCode.RIGHT))
-                {
-                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))-motion.y*Math.sin(Math.toRadians(motion.arc));
-                    double yc =motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
-                    motion.x=xc;
-                    motion.y=yc;
-                }
-                if(event.getCode().equals(KeyCode.LEFT))
-                {
-                    double xc=motion.x*Math.cos(Math.toRadians(motion.arc))+motion.y*Math.sin(Math.toRadians(motion.arc));
-                    double yc =-motion.x*Math.sin(Math.toRadians(motion.arc))+motion.y*Math.cos(Math.toRadians(motion.arc));
-                    motion.x=xc;
-                    motion.y=yc;
-
-                }
-
-            }
-        });
     }
 
 

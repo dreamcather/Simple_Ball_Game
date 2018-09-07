@@ -13,17 +13,12 @@ public class Wall {
 
     private double yNormal;
 
-    private double xLine;
+    private double xLineCoefficient;
 
-    private double yLine;
+    private double yLineCoefficient;
 
-    private void CalculateLine(){
+    private double freeLineCoefficient;
 
-    }
-
-    private void CalculateNormal() {
-
-    }
 
     Wall(double xStart, double yStart, double xEnd, double yEnd) {
         xCoordinateStart = xStart;
@@ -34,9 +29,24 @@ public class Wall {
 
         yCoordinateEnd = yEnd;
 
-        CalculateLine();
+        calculateLine();
 
-        CalculateNormal();
+        calculateNormal();
 
+    }
+
+    private void calculateLine(){
+
+        xLineCoefficient = yCoordinateStart - yCoordinateEnd;
+        yLineCoefficient = xCoordinateEnd - xCoordinateStart;
+        freeLineCoefficient = xCoordinateStart*yCoordinateEnd - xCoordinateEnd*yCoordinateStart;
+    }
+
+    private void calculateNormal() {
+
+    }
+
+    public double calculateDistanceToPoint(double xPoint, double yPoint){
+        return 0;
     }
 }

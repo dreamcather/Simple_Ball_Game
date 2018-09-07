@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.layout.AnchorPane;
+
 public abstract class Model {
 
     private double xCenter;
@@ -8,7 +10,7 @@ public abstract class Model {
 
     public abstract void Move(double xOffset, double yOffset);
 
-    public abstract void ShowElement(GameState gameState);
+    public abstract void ShowElement(AnchorPane anchorPane);
 
     public double getxCenter(){
         return xCenter;
