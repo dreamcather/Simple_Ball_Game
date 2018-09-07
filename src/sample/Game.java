@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class Main extends Application {
 
@@ -41,15 +42,11 @@ public class Main extends Application {
         Circle enemy2 = new Circle(110,140,10,Color.GREEN);
         player.setFill(new Color(0.5,0.5,0.5,0.5));
         Rectangle field = new Rectangle(10,10,400,400);
-        Label lb = new Label("Счет");
-        lb.setLayoutX(450);
-        lb.setLayoutY(10);
         field.setFill(Color.WHITE);
         field.setStroke(Color.BLACK);
         field.setStrokeWidth(10);
         layout.getChildren().add(field);
         layout.getChildren().add(player);
-        layout.getChildren().add(lb);
         models.add(player);
         KeyModule motion = new KeyModule(player);
         Enemy_List enm = new Enemy_List(10,layout,player,lb);
@@ -62,7 +59,6 @@ public class Main extends Application {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                enm.Move();
                 //tmp.Move();
                 motion.Move(player);
             }

@@ -7,24 +7,32 @@ public abstract class Ball {
     private double yCoefficient;
     private double speedOfMotion;
     private Model gameModel;
-    private GameState gameStatus;
-    Ball(double _x, double _y, double _speed, GameState _game){
+    Ball(double _x, double _y, double _speed){
         xCoefficient=_x;
         yCoefficient=_y;
 
         speedOfMotion=_speed;
-        gameStatus = _game;
     }
-    private void Move(){
+    public void move(){
         gameModel.Move(xCoefficient*speedOfMotion, yCoefficient*speedOfMotion);
     }
+    public double getxCoefficient(){
+        return xCoefficient;
+    }
 
-    public abstract Boolean CollisionWithWall();
+    public double getSpeedOfMotion() {
+        return speedOfMotion;
+    }
 
-    public abstract Boolean CollisionWithHero();
+    public double getyCoefficient() {
+        return yCoefficient;
+    }
 
-    public abstract Boolean CollisionWithPoint();
+    public double getXCenter() {
+        return 0;
+    }
 
-    public abstract Boolean CollisionWithEnemy();
-
+    public double getYCenter() {
+        return 0;
+    }
 }
