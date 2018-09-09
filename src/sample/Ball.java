@@ -4,15 +4,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 public abstract class Ball {
-    private double xCoefficient;
-    private double yCoefficient;
-    private double speedOfMotion;
-    private Model gameModel;
-    Ball(double _x, double _y, double _speed){
+    protected double xCoefficient;
+    protected double yCoefficient;
+    protected double speedOfMotion;
+    private CircleModel gameModel;
+    Ball(double _x, double _y, double _speed,AnchorPane anchorPane){
         xCoefficient=_x;
         yCoefficient=_y;
-
         speedOfMotion=_speed;
+        gameModel = new CircleModel(anchorPane);
     }
     public void move(){
         gameModel.move(xCoefficient*speedOfMotion, yCoefficient*speedOfMotion);
@@ -30,14 +30,25 @@ public abstract class Ball {
     }
 
     public double getXCenter() {
-        return 0;
+        return gameModel.model.getCenterX();
     }
 
     public double getYCenter() {
-        return 0;
+        return gameModel.model.getCenterY();
     }
 
     public double getRadius() {
-        return 0;
+        return gameModel.model.getRadius();
+    }
+
+    protected void norm(){
+        double lenght = Math.sqrt(Math.pow(xCoefficient,2) + Math.pow(yCoefficient,2));
+        xCoefficient = xCoefficient/lenght;
+        yCoefficient = yCoefficient/lenght;
+    }
+    public void changeVector(double _xCoefficient,double _yCoefficient){
+        xCoefficient =_xCoefficient;
+        yCoefficient =_yCoefficient;
+        norm();
     }
 }

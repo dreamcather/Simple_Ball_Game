@@ -20,7 +20,7 @@ import java.awt.event.InputEvent;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
-public class Main extends Application {
+public class Game extends Application {
 
     Stage window;
     Robot robot;
@@ -30,17 +30,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage;
         window.setTitle("Game");
-
         AnchorPane layout = new AnchorPane();
-        robot = new Robot();
-        ArrayList<Circle> models = new ArrayList<Circle>();
-
-
         scene = new Scene(layout , 700, 420);
         GameState gameState = new GameState(layout, consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
-        gameState.addBall();
-
-
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

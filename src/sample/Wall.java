@@ -9,15 +9,15 @@ public class Wall {
 
     private double yCoordinateEnd;
 
-    private double xNormal;
+    public double xNormal;
 
-    private double yNormal;
+    public double yNormal;
 
-    private double xLineCoefficient;
+    public double xLineCoefficient;
 
-    private double yLineCoefficient;
+    public double yLineCoefficient;
 
-    private double freeLineCoefficient;
+    public double freeLineCoefficient;
 
 
     Wall(double xStart, double yStart, double xEnd, double yEnd) {
@@ -43,10 +43,15 @@ public class Wall {
     }
 
     private void calculateNormal() {
+        double lenght = Math.sqrt(Math.pow(xLineCoefficient,2) + Math.pow(yLineCoefficient,2));
+        xNormal = xLineCoefficient/lenght;
+        yNormal = yLineCoefficient/lenght;
 
     }
 
     public double calculateDistanceToPoint(double xPoint, double yPoint){
-        return 0;
+
+        return Math.abs(xLineCoefficient*xPoint + yLineCoefficient*yPoint + freeLineCoefficient)
+                /Math.sqrt(Math.pow(xLineCoefficient,2)+Math.pow(yLineCoefficient,2));
     }
 }
