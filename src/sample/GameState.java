@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 
@@ -9,12 +10,17 @@ public class GameState {
     Hero hero;
     ArrayList<Enemy> enemyList;
     WallColection walls;
+    double xp = 100;
+    double yp = 100;
     GameState(AnchorPane _panel, KeyboardSubscription keyboardSubscription)
     {
         gamePanel = _panel;
-        hero = new Hero(-1, 0, 1, _panel,this, keyboardSubscription);
-        walls = new WallColection(1);
+        hero = new Hero(1, -1, 1, _panel,this, keyboardSubscription);
+        walls = new WallColection(4);
         walls.collection[0] = new Wall(0,100,0,0);
+        walls.collection[1] = new Wall(200,0,200,200);
+        walls.collection[2] = new Wall(0,0,200,0);
+        walls.collection[3] = new Wall(200,200,0,200);
     }
 
     public void addEnemy(){
@@ -27,8 +33,11 @@ public class GameState {
         for(int i=0;i< walls.collection.length;i++){
             Wall curentWall = walls.collection[i];
             double lenght;
-            if((lenght=curentWall.calculateDistanceToPoint(ball.getXCenter()+ball.getxCoefficient()*ball.getSpeedOfMotion()
+            if((curentWall.calculateDistanceToPoint(ball.getXCenter()+ball.getxCoefficient()*ball.getSpeedOfMotion()
                    ,ball.getYCenter() +ball.getyCoefficient()*ball.getSpeedOfMotion() ))<ball.getRadius()){
+
+                lenght = curentWall.calculateDistanceToPoint(ball.getXCenter()
+                        ,ball.getYCenter());
 
                 double xVector = curentWall.xNormal*lenght;
                 double yVector = curentWall.yNormal*lenght;
@@ -42,16 +51,22 @@ public class GameState {
                 double yDeterminant = yCoefficientLine*curentWall.freeLineCoefficient - curentWall.yLineCoefficient*freeCoefficientLine;
 
                 double yCoordinateTouch = xDeterminant/mainDeterminant;
-                double xCoordinateTouch = yDeterminant/mainDeterminant;
+                double xCoordinateTouch = -yDeterminant/mainDeterminant;
 
-                double lenghtLine = Math.sqrt(Math.pow((xCoordinateTouch-ball.getXCenter()),2) +
-                Math.pow((yCoordinateTouch-ball.getYCenter()),2));
+                double xMidlePoint = xCoordinateTouch+curentWall.xNormal*lenght;
+                double yMidlePoint = yCoordinateTouch + curentWall.yNormal*lenght;
 
-                double resXVector = 2*xVector + ball.xCoefficient*lenghtLine;
-                double resYVector = 2*yVector + ball.yCoefficient*lenghtLine;
+                double lenghParalelLine = Math.sqrt(Math.pow((ball.getXCenter()-xMidlePoint),2)
+                        +Math.pow((ball.getYCenter()-yMidlePoint),2));
 
-                ball.changeVector(resXVector,resYVector);
+                double xEndPoint = 2*xMidlePoint-ball.getXCenter();
+                double yEndPoint = 2*yMidlePoint-ball.getYCenter();
 
+                ball.changeVector(xEndPoint-xCoordinateTouch,yEndPoint-yCoordinateTouch);
+
+                gamePanel.getChildren().add(new Line(xp,yp,ball.getXCenter(),ball.getYCenter()));
+                xp = ball.getXCenter();
+                yp = ball.getYCenter();
 
 
             }

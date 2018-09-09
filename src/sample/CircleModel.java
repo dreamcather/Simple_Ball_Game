@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 public class CircleModel extends Model {
     Circle model;
     CircleModel(AnchorPane anchorPane){
-        model = new Circle(100,100,5);
+        model = new Circle(50,50,5);
         anchorPane.getChildren().add(model);
     }
     @Override

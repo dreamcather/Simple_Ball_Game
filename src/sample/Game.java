@@ -11,6 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -32,6 +33,10 @@ public class Game extends Application {
         window.setTitle("Game");
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout , 700, 420);
+        layout.getChildren().add(new Line(0,200,0,0));
+        layout.getChildren().add(new Line(200,0,200,200));
+        layout.getChildren().add(new Line(0,0,200,0));
+        layout.getChildren().add(new Line(200,200,0,200));
         GameState gameState = new GameState(layout, consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
         AnimationTimer timer = new AnimationTimer() {
             @Override
