@@ -27,7 +27,7 @@ public class GameState {
     }
 
     public void addEnemy(){
-        enemyList.add(new Enemy(1,0.5,2, gamePanel));
+        enemyList.add(new Enemy(Math.random(),Math.random(),2, gamePanel));
     }
 
     public void addPoint(){
@@ -73,12 +73,27 @@ public class GameState {
         }
     }
 
+    private void collisionWithEnemy(Ball ball){
+        for(int i =0;i < enemyList.size();i++){
+            Enemy curentEnemy = enemyList.get(i);
+            double lenght = Math.sqrt(Math.pow((ball.getXCenter() - curentEnemy.getXCenter()),2)+
+                    Math.pow((ball.getYCenter() - curentEnemy.getYCenter()),2));
+            if(lenght< (curentEnemy.getRadius() + ball.getRadius())){
+                if(ball!=curentEnemy){
+                    curentEnemy.accept(ball.accept(new CollisionVisitor())).collide();
+                }
+            }
+        }
+    }
+
     public void move(){
         collisionWithWalls(hero);
         for(int i = 0;i<enemyList.size();i++){
            collisionWithWalls(enemyList.get(i));
         }
-        collisionWithWalls(hero);
+        for(int i = 0;i<enemyList.size();i++){
+            collisionWithEnemy(enemyList.get(i));
+        }
         for(int i = 0;i<enemyList.size();i++){
             enemyList.get(i).move();
         }

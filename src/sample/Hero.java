@@ -32,7 +32,7 @@ public class Hero extends Ball {
     }
 
     @Override
-    public void accept(BallVisitor ballVisitor) {
-        ballVisitor.visit(this);
+    public <T> T accept(BallVisitor<T> ballVisitor) {
+        return ballVisitor.visit(this);
     }
 }
