@@ -7,12 +7,12 @@ public abstract class Ball {
     protected double xCoefficient;
     protected double yCoefficient;
     protected double speedOfMotion;
-    private CircleModel gameModel;
+    protected CircleModel gameModel;
     Ball(double _x, double _y, double _speed,AnchorPane anchorPane){
         xCoefficient=_x;
         yCoefficient=_y;
         speedOfMotion=_speed;
-        gameModel = new CircleModel(anchorPane);
+        //gameModel = new CircleModel(anchorPane);
     }
     public void move(){
         gameModel.move(xCoefficient*speedOfMotion, yCoefficient*speedOfMotion);

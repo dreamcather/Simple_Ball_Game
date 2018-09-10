@@ -15,6 +15,7 @@ public class GameState {
     GameState(AnchorPane _panel, KeyboardSubscription keyboardSubscription)
     {
         gamePanel = _panel;
+        enemyList = new ArrayList<>();
         hero = new Hero(1, -1, 1, _panel,this, keyboardSubscription);
         walls = new WallColection(4);
         walls.collection[0] = new Wall(0,100,0,0);
@@ -24,7 +25,7 @@ public class GameState {
     }
 
     public void addEnemy(){
-        enemyList.add(new Enemy(1,1,5, gamePanel));
+        enemyList.add(new Enemy(1,0.5,2, gamePanel));
     }
 
 
@@ -38,9 +39,7 @@ public class GameState {
 
                 lenght = curentWall.calculateDistanceToPoint(ball.getXCenter()
                         ,ball.getYCenter());
-
-                double xVector = curentWall.xNormal*lenght;
-                double yVector = curentWall.yNormal*lenght;
+                
 
                 double xCoefficientLine = -ball.yCoefficient;
                 double yCoefficientLine = ball.xCoefficient;
@@ -53,20 +52,14 @@ public class GameState {
                 double yCoordinateTouch = xDeterminant/mainDeterminant;
                 double xCoordinateTouch = -yDeterminant/mainDeterminant;
 
-                double xMidlePoint = xCoordinateTouch+curentWall.xNormal*lenght;
-                double yMidlePoint = yCoordinateTouch + curentWall.yNormal*lenght;
+                double xMiddlePoint = xCoordinateTouch+curentWall.xNormal*lenght;
+                double yMiddlePoint = yCoordinateTouch + curentWall.yNormal*lenght;
 
-                double lenghParalelLine = Math.sqrt(Math.pow((ball.getXCenter()-xMidlePoint),2)
-                        +Math.pow((ball.getYCenter()-yMidlePoint),2));
-
-                double xEndPoint = 2*xMidlePoint-ball.getXCenter();
-                double yEndPoint = 2*yMidlePoint-ball.getYCenter();
+                double xEndPoint = 2*xMiddlePoint-ball.getXCenter();
+                double yEndPoint = 2*yMiddlePoint-ball.getYCenter();
 
                 ball.changeVector(xEndPoint-xCoordinateTouch,yEndPoint-yCoordinateTouch);
 
-                gamePanel.getChildren().add(new Line(xp,yp,ball.getXCenter(),ball.getYCenter()));
-                xp = ball.getXCenter();
-                yp = ball.getYCenter();
 
 
             }
@@ -76,6 +69,13 @@ public class GameState {
 
     public void move(){
         collisionWithWalls(hero);
+        for(int i = 0;i<enemyList.size();i++){
+           collisionWithWalls(enemyList.get(i));
+        }
+        collisionWithWalls(hero);
+        for(int i = 0;i<enemyList.size();i++){
+            enemyList.get(i).move();
+        }
         hero.move();
 
     }

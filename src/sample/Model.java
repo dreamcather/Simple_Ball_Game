@@ -10,8 +10,6 @@ public abstract class Model {
 
     public abstract void move(double xOffset, double yOffset);
 
-    public abstract void showElement(AnchorPane anchorPane);
-
     public double getxCenter(){
         return xCenter;
     };
