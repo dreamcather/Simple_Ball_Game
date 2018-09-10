@@ -12,7 +12,6 @@ public abstract class Ball {
         xCoefficient=_x;
         yCoefficient=_y;
         speedOfMotion=_speed;
-        //gameModel = new CircleModel(anchorPane);
     }
     public void move(){
         gameModel.move(xCoefficient*speedOfMotion, yCoefficient*speedOfMotion);
@@ -46,9 +45,12 @@ public abstract class Ball {
         xCoefficient = xCoefficient/lenght;
         yCoefficient = yCoefficient/lenght;
     }
+
     public void changeVector(double _xCoefficient,double _yCoefficient){
         xCoefficient =_xCoefficient;
         yCoefficient =_yCoefficient;
         norm();
     }
+
+    public abstract <T> T accept(BallVisitor<T> ballVisitor);
 }

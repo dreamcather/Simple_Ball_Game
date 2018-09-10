@@ -9,4 +9,10 @@ public class Enemy extends Ball {
         super(_x, _y, _speed, anchorPane);
         gameModel = new CircleModel(50,50,5, Color.RED,anchorPane);
     }
+
+    @Override
+    public  <T> T accept( BallVisitor<T> ballVisitor) {
+        return ballVisitor.visit(this);
+    }
+
 }

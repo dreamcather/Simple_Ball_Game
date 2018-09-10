@@ -9,6 +9,7 @@ public class GameState {
     AnchorPane gamePanel;
     Hero hero;
     ArrayList<Enemy> enemyList;
+    ArrayList<Point> pointList;
     WallColection walls;
     double xp = 100;
     double yp = 100;
@@ -16,6 +17,7 @@ public class GameState {
     {
         gamePanel = _panel;
         enemyList = new ArrayList<>();
+        pointList = new ArrayList<>();
         hero = new Hero(1, -1, 1, _panel,this, keyboardSubscription);
         walls = new WallColection(4);
         walls.collection[0] = new Wall(0,100,0,0);
@@ -26,6 +28,10 @@ public class GameState {
 
     public void addEnemy(){
         enemyList.add(new Enemy(1,0.5,2, gamePanel));
+    }
+
+    public void addPoint(){
+        pointList.add(new Point(0.8,1,3,gamePanel));
     }
 
 
@@ -75,6 +81,12 @@ public class GameState {
         collisionWithWalls(hero);
         for(int i = 0;i<enemyList.size();i++){
             enemyList.get(i).move();
+        }
+        for(int i = 0;i<pointList.size();i++){
+            collisionWithWalls(pointList.get(i));
+        }
+        for(int i = 0;i<pointList.size();i++){
+            pointList.get(i).move();
         }
         hero.move();
 

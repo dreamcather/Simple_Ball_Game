@@ -39,6 +39,7 @@ public class Game extends Application {
         layout.getChildren().add(new Line(200,200,0,200));
         GameState gameState = new GameState(layout, consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
         gameState.addEnemy();
+        gameState.addPoint();
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

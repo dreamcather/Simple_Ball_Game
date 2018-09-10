@@ -30,4 +30,9 @@ public class Hero extends Ball {
         }
 
     }
+
+    @Override
+    public void accept(BallVisitor ballVisitor) {
+        ballVisitor.visit(this);
+    }
 }
