@@ -1,7 +1,6 @@
 package sample;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Circle;
 
 public abstract class Ball {
     protected double xCoefficient;
@@ -53,4 +52,22 @@ public abstract class Ball {
     }
 
     public abstract <T> T accept(BallVisitor<T> ballVisitor);
+
+    public Point getFuturePosition(){
+        return new Point(gameModel.getxCenter()+xCoefficient*speedOfMotion,gameModel.getyCenter()+yCoefficient*speedOfMotion);
+    }
+
+    public Point getPosition(){
+        return new Point(gameModel.getxCenter(),gameModel.getyCenter());
+    }
+
+    public Vector getVector(){
+        return new Vector(xCoefficient,yCoefficient);
+    }
+
+    public void changeVector(Vector vector){
+        xCoefficient = vector.getxCoefficient();
+        yCoefficient = vector.getyCoefficient();
+        norm();
+    }
 }

@@ -30,7 +30,9 @@ public class Game extends Application {
         gameState.addEnemy();
         gameState.addEnemy();
         gameState.addEnemy();
-        gameState.addPrize();
+        gameState.addEnemy();
+        gameState.addEnemy();
+
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

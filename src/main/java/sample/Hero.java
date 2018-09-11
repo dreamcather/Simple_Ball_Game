@@ -8,7 +8,7 @@ public class Hero extends Ball {
 
     Hero(double _x, double _y, double _speed,AnchorPane anchorPane, GameState _game, KeyboardSubscription keyboardSubscription) {
         super(_x, _y, _speed,anchorPane);
-        gameModel = new CircleModel(100,100,10, Color.AQUAMARINE,anchorPane);
+        gameModel = new CircleModel(100,50,10, Color.AQUAMARINE,anchorPane);
         keyboardSubscription.subscribeToKey(this::move);
     }
     private void move(KeyCode keyCode){
