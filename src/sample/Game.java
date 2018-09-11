@@ -2,24 +2,12 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
-import java.util.ArrayList;
-import java.util.function.Consumer;
 
 public class Game extends Application {
 
@@ -42,7 +30,7 @@ public class Game extends Application {
         gameState.addEnemy();
         gameState.addEnemy();
         gameState.addEnemy();
-        //gameState.addPoint();
+        gameState.addPrize();
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

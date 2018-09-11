@@ -12,11 +12,11 @@ public class EnemyVisitor implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Hero hero) {
-        return null;
+        return new RegularCollision(enemy,hero);
     }
 
     @Override
-    public Collision visit(Point point) {
-        return null;
+    public Collision visit(Prize point) {
+        return new RegularCollision(point,enemy);
     }
 }

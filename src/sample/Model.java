@@ -10,13 +10,9 @@ public abstract class Model {
 
     public abstract void move(double xOffset, double yOffset);
 
-    public double getxCenter(){
-        return xCenter;
-    };
+    public abstract double getxCenter();
 
-    public double getyCenter(){
-        return yCenter;
-    };
+    public abstract double getyCenter();
 
 
 }

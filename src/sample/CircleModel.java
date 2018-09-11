@@ -15,4 +15,14 @@ public class CircleModel extends Model {
         model.setCenterX(model.getCenterX() + xOffset);
         model.setCenterY(model.getCenterY() + yOffset);
     }
+
+    @Override
+    public double getxCenter() {
+        return model.getCenterX();
+    }
+
+    @Override
+    public double getyCenter() {
+        return model.getCenterY();
+    }
 }

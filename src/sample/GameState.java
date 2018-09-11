@@ -1,7 +1,6 @@
 package sample;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 
@@ -9,16 +8,17 @@ public class GameState {
     AnchorPane gamePanel;
     Hero hero;
     ArrayList<Enemy> enemyList;
-    ArrayList<Point> pointList;
+    ArrayList<Prize> pointList;
+    ArrayList<Ball> objectList;
     WallColection walls;
     double xp = 100;
     double yp = 100;
     GameState(AnchorPane _panel, KeyboardSubscription keyboardSubscription)
     {
         gamePanel = _panel;
-        enemyList = new ArrayList<>();
-        pointList = new ArrayList<>();
+        objectList =new ArrayList<>();
         hero = new Hero(1, -1, 1, _panel,this, keyboardSubscription);
+        objectList.add(hero);
         walls = new WallColection(4);
         walls.collection[0] = new Wall(0,100,0,0);
         walls.collection[1] = new Wall(200,0,200,200);
@@ -27,11 +27,11 @@ public class GameState {
     }
 
     public void addEnemy(){
-        enemyList.add(new Enemy(Math.random(),Math.random(),2, gamePanel));
+        objectList.add(new Enemy(Math.random(),Math.random(),2, gamePanel));
     }
 
-    public void addPoint(){
-        pointList.add(new Point(0.8,1,3,gamePanel));
+    public void addPrize(){
+        objectList.add(new Prize(0.8,1,3,gamePanel));
     }
 
 
@@ -73,6 +73,19 @@ public class GameState {
         }
     }
 
+    private void collisionWithBall(Ball ball, int number){
+        for(int i =number+1;i < objectList.size();i++){
+            Ball curentBall = objectList.get(i);
+            double lenght = Math.sqrt(Math.pow((ball.getXCenter() - curentBall.getXCenter()),2)+
+                    Math.pow((ball.getYCenter() - curentBall.getYCenter()),2));
+            if(lenght< (curentBall.getRadius() + ball.getRadius())){
+                if(ball!=curentBall){
+                    curentBall.accept(ball.accept(new CollisionVisitor())).collide();
+                }
+            }
+        }
+    }
+
     private void collisionWithEnemy(Ball ball){
         for(int i =0;i < enemyList.size();i++){
             Enemy curentEnemy = enemyList.get(i);
@@ -87,21 +100,14 @@ public class GameState {
     }
 
     public void move(){
-        collisionWithWalls(hero);
-        for(int i = 0;i<enemyList.size();i++){
-           collisionWithWalls(enemyList.get(i));
+        for(int i = 0;i<objectList.size();i++){
+           collisionWithWalls(objectList.get(i));
         }
-        for(int i = 0;i<enemyList.size();i++){
-            collisionWithEnemy(enemyList.get(i));
-        }
-        for(int i = 0;i<enemyList.size();i++){
-            enemyList.get(i).move();
-        }
-        for(int i = 0;i<pointList.size();i++){
-            collisionWithWalls(pointList.get(i));
-        }
-        for(int i = 0;i<pointList.size();i++){
-            pointList.get(i).move();
+//        for(int i = 0;i<objectList.size();i++){
+//            collisionWithBall(objectList.get(i),i);
+//        }
+        for(int i = 0;i<objectList.size();i++){
+            objectList.get(i).move();
         }
         hero.move();
 

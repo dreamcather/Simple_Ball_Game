@@ -8,11 +8,11 @@ public class CollisionVisitor implements BallVisitor<BallVisitor<Collision>> {
 
     @Override
     public BallVisitor<Collision> visit(Hero hero) {
-        return null;
+        return new HeroVisiter(hero);
     }
 
     @Override
-    public BallVisitor<Collision> visit(Point point) {
-        return null;
+    public BallVisitor<Collision> visit(Prize prize) {
+        return new PrizeVisitor(prize);
     }
 }
