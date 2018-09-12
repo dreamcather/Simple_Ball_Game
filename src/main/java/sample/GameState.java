@@ -15,7 +15,7 @@ public class GameState {
     {
         gamePanel = _panel;
         objectList =new ArrayList<>();
-        hero = new Hero(-1, 0, 1, _panel,this, keyboardSubscription);
+        hero = new Hero(-1, 0, 1,300,300, _panel,this, keyboardSubscription);
         objectList.add(hero);
         walls = new WallColection(4);
         walls.collection[0] = new Wall(new Point(0,200),new Point(0,0));
@@ -25,12 +25,19 @@ public class GameState {
     }
 
     public void addEnemy(){
-        objectList.add(new Enemy(Math.random(),Math.random(),3, gamePanel));
-        //objectList.add(new Enemy(1,0,2,gamePanel));
+        objectList.add(new Enemy(Math.random(),Math.random(),3,Math.random()*200,Math.random()*200, gamePanel));
+    }
+
+    public void addEnemy(int count){
+//        for (int i=0;i<count;i++){
+////            addEnemy();
+////        }
+        objectList.add(new Enemy(1,0,1,20,20,gamePanel));
+        objectList.add(new Prize(-1,0,1,180,20,gamePanel));
     }
 
     public void addPrize(){
-        objectList.add(new Prize(0.8,1,3,gamePanel));
+        objectList.add(new Prize(Math.random(),Math.random(),3,Math.random()*200,Math.random()*200,gamePanel));
     }
 
 

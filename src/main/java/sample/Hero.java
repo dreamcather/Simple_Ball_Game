@@ -6,11 +6,14 @@ import javafx.scene.paint.Color;
 
 public class Hero extends Ball {
 
-    Hero(double _x, double _y, double _speed,AnchorPane anchorPane, GameState _game, KeyboardSubscription keyboardSubscription) {
-        super(_x, _y, _speed,anchorPane);
-        gameModel = new CircleModel(100,50,10, Color.AQUAMARINE,anchorPane);
+
+    public Hero(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, AnchorPane anchorPane, GameState
+                gameState, KeyboardSubscription keyboardSubscription) {
+        super(_x, _y, _speed, xCoordinate, yCoordinate, anchorPane);
+        gameModel = new CircleModel(xCoordinate,yCoordinate,10, Color.AQUAMARINE,anchorPane);
         keyboardSubscription.subscribeToKey(this::move);
     }
+
     private void move(KeyCode keyCode){
         if(keyCode == KeyCode.LEFT){
             xCoefficient = xCoefficient*Math.cos(Math.toRadians(15)) - yCoefficient*Math.sin(Math.toRadians(15));

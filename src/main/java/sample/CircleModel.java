@@ -12,8 +12,8 @@ public class CircleModel extends Model {
     }
     @Override
     public void move(double xOffset, double yOffset) {
-        model.setCenterX(model.getCenterX() + xOffset);
-        model.setCenterY(model.getCenterY() + yOffset);
+        model.setCenterX(xOffset);
+        model.setCenterY(yOffset);
     }
 
     @Override
