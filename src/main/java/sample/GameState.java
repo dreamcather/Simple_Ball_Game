@@ -18,26 +18,29 @@ public class GameState {
         hero = new Hero(-1, 0, 1,300,300, _panel,this, keyboardSubscription);
         objectList.add(hero);
         walls = new WallColection(4);
-        walls.collection[0] = new Wall(new Point(0,200),new Point(0,0));
-        walls.collection[1] = new Wall(new Point(200,0),new Point(200,200));
-        walls.collection[2] = new Wall(new Point(200,0),new Point(0,0));
-        walls.collection[3] = new Wall(new Point(200,200),new Point(0,200));
+        walls.collection[0] = new Wall(new Point(0,500),new Point(0,0));
+        walls.collection[1] = new Wall(new Point(500,0),new Point(500,500));
+        walls.collection[2] = new Wall(new Point(500,0),new Point(0,0));
+        walls.collection[3] = new Wall(new Point(500,500),new Point(0,500));
     }
 
     public void addEnemy(){
-        objectList.add(new Enemy(Math.random(),Math.random(),3,Math.random()*200,Math.random()*200, gamePanel));
+        objectList.add(new Enemy(Math.random(),Math.random(),3, Math.random()*500,Math.random()*500, gamePanel));
     }
 
     public void addEnemy(int count){
-//        for (int i=0;i<count;i++){
-////            addEnemy();
-////        }
-        objectList.add(new Enemy(1,0,1,20,20,gamePanel));
-        objectList.add(new Prize(-1,0,1,180,20,gamePanel));
+        for (int i=0;i<count;i++){
+            addEnemy();
+        }
+    }
+    public void addPrize(int count){
+        for (int i=0;i<count;i++){
+            addPrize();
+        }
     }
 
     public void addPrize(){
-        objectList.add(new Prize(Math.random(),Math.random(),3,Math.random()*200,Math.random()*200,gamePanel));
+        objectList.add(new Prize(Math.random(),Math.random(),3,Math.random()*500,Math.random()*500,gamePanel));
     }
 
 

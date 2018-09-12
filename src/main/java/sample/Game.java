@@ -7,12 +7,10 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-import java.awt.*;
 
 public class Game extends Application {
 
     Stage window;
-    Robot robot;
     Scene scene;
 
     @Override
@@ -20,13 +18,14 @@ public class Game extends Application {
         window = primaryStage;
         window.setTitle("Game");
         AnchorPane layout = new AnchorPane();
-        scene = new Scene(layout , 700, 420);
-        layout.getChildren().add(new Line(0,200,0,0));
-        layout.getChildren().add(new Line(200,0,200,200));
-        layout.getChildren().add(new Line(0,0,200,0));
-        layout.getChildren().add(new Line(200,200,0,200));
+        scene = new Scene(layout , 700, 520);
+        layout.getChildren().add(new Line(0,500,0,0));
+        layout.getChildren().add(new Line(500,0,500,500));
+        layout.getChildren().add(new Line(0,0,500,0));
+        layout.getChildren().add(new Line(500,500,0,500));
         GameState gameState = new GameState(layout, consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
-        gameState.addEnemy(4);
+        gameState.addEnemy(10);
+        gameState.addPrize(10);
 
         AnimationTimer timer = new AnimationTimer() {
             @Override

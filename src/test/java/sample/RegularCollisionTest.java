@@ -9,7 +9,7 @@ public class RegularCollisionTest {
     public void collisionTest1() {
         AnchorPane anchorPane = new AnchorPane();
         Enemy first = new Enemy(1,0,1,100,100,anchorPane);
-        Enemy second  = new Enemy(-1,0,1,100,105,anchorPane);
+        Prize second  = new Prize(-1,0,1,100,105,anchorPane);
         first.accept(second.accept(new CollisionVisitor())).collide();
 
         double expectedXCoefficient =1;
