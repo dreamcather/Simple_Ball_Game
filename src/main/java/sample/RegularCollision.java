@@ -12,16 +12,6 @@ public class RegularCollision extends Collision {
     @Override
     public void collide() {
 
-//        first.gameModel.model.setCenterX(100);
-//        first.gameModel.model.setCenterY(100);
-//        second.gameModel.model.setCenterX(110);
-//        second.gameModel.model.setCenterY(100);
-//
-//        first.xCoefficient=1;
-//        first.yCoefficient =1;
-//        second.xCoefficient =-1;
-//        second.yCoefficient = -1;
-
         Line perpendicular = new Line(first.getPosition(),second.getPosition());
         Line firstParalel = new Line(first.getPosition(),perpendicular.getNormal());
         Line secondParalel = new Line(second.getPosition(),perpendicular.getNormal());

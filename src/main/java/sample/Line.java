@@ -5,16 +5,38 @@ public class Line {
     private double yCoefficient;
     private double freeCoefficient;
 
+    public double getxCoefficient() {
+        return xCoefficient;
+    }
+
+    public double getyCoefficient() {
+        return yCoefficient;
+    }
+
+    public double getFreeCoefficient() {
+        return freeCoefficient;
+    }
+
+    private void standart(){
+        if(xCoefficient<0){
+            xCoefficient*=-1;
+            yCoefficient*=-1;
+            freeCoefficient*=-1;
+        }
+    }
+
     public Line(Point start, Point end) {
         xCoefficient = start.getY() - end.getY();
         yCoefficient = end.getX() - start.getX();
         freeCoefficient = start.getX()*end.getY() - end.getX()*start.getY();
+        standart();
     }
 
     public Line(Point point, Vector vector) {
         xCoefficient = -vector.getyCoefficient();
         yCoefficient = vector.getxCoefficient();
         freeCoefficient = point.getX()*vector.getyCoefficient() - point.getY()*vector.getxCoefficient();
+        standart();
     }
 
     public Point intersectionLine(Line line){
