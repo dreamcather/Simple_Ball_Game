@@ -2,21 +2,44 @@ package sample;
 
 public class Wall {
 
-    private Line line;
+    private Line mainLine;
+    private Line leftParalelLine;
+    private Line rightParplelLine;
+    private Point start;
+    private Point end;
 
     Wall(Point _start, Point _end) {
 
-        line = new Line(_start,_end);
+        mainLine = new Line(_start,_end);
+        start =_start;
+        end = _end;
+        leftParalelLine = new Line(start,mainLine.getNormal());
+        rightParplelLine = new Line(end,mainLine.getNormal());
 
     }
 
 
     public Line getLine() {
-        return line;
+        return mainLine;
     }
 
     public double calculateDistanceToPoint(Point point){
 
-        return line.calculateDistanceToPoint(point);
+        return mainLine.calculateDistanceToPoint(point);
+    }
+
+    private double orientation(Point point, Line line) {
+        return line.getxCoefficient() * point.getX() + line.getyCoefficient() * point.getY() +
+                line.getFreeCoefficient();
+    }
+
+    public boolean isBetween(Point point){
+        double leftCoefficient = orientation(point,leftParalelLine);
+        double rightCoefficient = orientation(point,rightParplelLine);
+        if(leftCoefficient*rightCoefficient<=0){
+            return true;
+        }
+        return false;
+
     }
 }

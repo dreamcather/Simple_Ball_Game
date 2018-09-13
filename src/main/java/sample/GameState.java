@@ -9,19 +9,22 @@ public class GameState {
     Hero hero;
     ArrayList<Ball> objectList;
     WallColection walls;
-    double xp = 100;
-    double yp = 100;
+
     GameState(AnchorPane _panel, KeyboardSubscription keyboardSubscription)
     {
         gamePanel = _panel;
         objectList =new ArrayList<>();
-        hero = new Hero(-1, 0, 1,300,300, _panel,this, keyboardSubscription);
+        hero = new Hero(-1, 0, 1,100,100, _panel,this, keyboardSubscription);
         objectList.add(hero);
-        walls = new WallColection(4);
+        walls = new WallColection(8);
         walls.collection[0] = new Wall(new Point(0,500),new Point(0,0));
         walls.collection[1] = new Wall(new Point(500,0),new Point(500,500));
         walls.collection[2] = new Wall(new Point(500,0),new Point(0,0));
         walls.collection[3] = new Wall(new Point(500,500),new Point(0,500));
+        walls.collection[4] = new Wall(new Point(250,200),new Point(200,250));
+        walls.collection[5] = new Wall(new Point(200,250),new Point(250,300));
+        walls.collection[6] = new Wall(new Point(250,300),new Point(300,250));
+        walls.collection[7] = new Wall(new Point(300,250),new Point(250,200));
     }
 
     public void addEnemy(){
@@ -45,11 +48,10 @@ public class GameState {
 
 
     private void collisionWithWalls(Ball ball){
-        double radToWal=0;
         for(int i=0;i< walls.collection.length;i++){
             Wall curentWall = walls.collection[i];
-            double lenght;
-            if((curentWall.calculateDistanceToPoint(ball.getFuturePosition())<ball.getRadius())){
+            if(((curentWall.calculateDistanceToPoint(ball.getFuturePosition())<ball.getRadius()))&&
+            curentWall.isBetween(ball.getFuturePosition())){
 
                 Point collisionPoint = curentWall.getLine().intersectionLine(ball.getPosition(),ball.getVector());
 
@@ -57,14 +59,11 @@ public class GameState {
 
                 Point middlePoint = perpendicularLine.getProectionPoint(ball.getPosition());
 
-                Vector paralVector = new Vector(ball.getPosition(),middlePoint);
+                Vector paralelVector = new Vector(ball.getPosition(),middlePoint);
 
-                Point endPoint = paralVector.addition(middlePoint);
+                Point endPoint = paralelVector.addition(middlePoint);
 
                 ball.changeVector(new Vector(collisionPoint,endPoint));
-
-
-
 
             }
 
