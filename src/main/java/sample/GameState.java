@@ -14,7 +14,7 @@ public class GameState {
     {
         gamePanel = _panel;
         objectList =new ArrayList<>();
-        hero = new Hero(-1, 0, 1,100,100, _panel,this, keyboardSubscription);
+        hero = new Hero(-1, 0, 1,100,100, _panel, keyboardSubscription);
         objectList.add(hero);
         walls = new WallColection(8);
         walls.collection[0] = new Wall(new Point(0,500),new Point(0,0));
@@ -30,7 +30,6 @@ public class GameState {
     public void addEnemy(){
         objectList.add(new Enemy(Math.random(),Math.random(),3, Math.random()*500,Math.random()*500, gamePanel));
     }
-
     public void addEnemy(int count){
         for (int i=0;i<count;i++){
             addEnemy();
@@ -75,6 +74,15 @@ public class GameState {
         return Math.sqrt(Math.pow(first.getX() - second.getX(),2)+Math.pow(first.getY() - second.getY(),2));
     }
 
+    private void clear(){
+        for(int i =0; i<objectList.size();i++){
+            if(objectList.get(i).isAlive()==false){
+                objectList.get(i).gameModel.hide(gamePanel);;
+                objectList.remove(i);
+            }
+        }
+    }
+
     private void collisionWithBall(Ball ball, int number){
         for(int i = number+1;i<objectList.size();i++){
             Ball currentBall = objectList.get(i);
@@ -91,6 +99,7 @@ public class GameState {
         for(int i = 0;i<objectList.size();i++){
             collisionWithBall(objectList.get(i),i);
         }
+        clear();
         for(int i = 0;i<objectList.size();i++){
             objectList.get(i).move();
         }

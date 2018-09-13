@@ -9,12 +9,14 @@ public abstract class Ball {
     protected double xCoordinate;
     protected double yCoordinate;
     protected CircleModel gameModel;
+    protected boolean isAlive;
     Ball(double _x, double _y, double _speed,double xCoordinate, double yCoordinate,AnchorPane anchorPane){
         xCoefficient=_x;
         yCoefficient=_y;
         speedOfMotion=_speed;
         this.xCoordinate =xCoordinate;
         this.yCoordinate = yCoordinate;
+        isAlive =true;
     }
     public void move(){
         xCoordinate+=xCoefficient*speedOfMotion;
@@ -49,5 +51,9 @@ public abstract class Ball {
         xCoefficient = vector.getxCoefficient();
         yCoefficient = vector.getyCoefficient();
         norm();
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 }

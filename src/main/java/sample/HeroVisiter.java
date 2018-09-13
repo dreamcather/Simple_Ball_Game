@@ -19,6 +19,6 @@ public class HeroVisiter implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Prize prize) {
-        return new RegularCollision(hero,prize);
+        return new DestroyCollision(hero,prize);
     }
 }

@@ -17,12 +17,9 @@ public class CircleModel extends Model {
     }
 
     @Override
-    public double getxCenter() {
-        return model.getCenterX();
+    public void hide(AnchorPane anchorPane) {
+        anchorPane.getChildren().remove(model);
+
     }
 
-    @Override
-    public double getyCenter() {
-        return model.getCenterY();
-    }
 }

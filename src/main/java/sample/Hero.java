@@ -7,8 +7,7 @@ import javafx.scene.paint.Color;
 public class Hero extends Ball {
 
 
-    public Hero(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, AnchorPane anchorPane, GameState
-                gameState, KeyboardSubscription keyboardSubscription) {
+    public Hero(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, AnchorPane anchorPane,KeyboardSubscription keyboardSubscription) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, anchorPane);
         gameModel = new CircleModel(xCoordinate,yCoordinate,10, Color.AQUAMARINE,anchorPane);
         keyboardSubscription.subscribeToKey(this::move);

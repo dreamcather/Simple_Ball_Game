@@ -4,7 +4,7 @@ public class Wall {
 
     private Line mainLine;
     private Line leftParalelLine;
-    private Line rightParplelLine;
+    private Line rightParalelLine;
     private Point start;
     private Point end;
 
@@ -14,7 +14,7 @@ public class Wall {
         start =_start;
         end = _end;
         leftParalelLine = new Line(start,mainLine.getNormal());
-        rightParplelLine = new Line(end,mainLine.getNormal());
+        rightParalelLine = new Line(end,mainLine.getNormal());
 
     }
 
@@ -35,7 +35,7 @@ public class Wall {
 
     public boolean isBetween(Point point){
         double leftCoefficient = orientation(point,leftParalelLine);
-        double rightCoefficient = orientation(point,rightParplelLine);
+        double rightCoefficient = orientation(point, rightParalelLine);
         if(leftCoefficient*rightCoefficient<=0){
             return true;
         }
