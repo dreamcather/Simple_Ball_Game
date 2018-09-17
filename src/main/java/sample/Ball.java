@@ -1,12 +1,12 @@
 package sample;
 
 
-public abstract class Ball {
+public class Ball {
     protected double xCoefficient;
     protected double yCoefficient;
     protected double speedOfMotion;
-    private double xCoordinate;
-    private double yCoordinate;
+    protected double xCoordinate;
+    protected double yCoordinate;
     private double radius;
 
     Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {

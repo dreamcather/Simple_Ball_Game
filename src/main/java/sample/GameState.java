@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 public class GameState {
     AnchorPane gamePanel;
-    Ball hero;
+    Hero hero;
     Label score;
     Label gameTime;
     int countPoint;
     double time;
-    ArrayList<Ball> objectList;
+    ArrayList<VisualBall> objectList;
     WallColection walls;
 
     GameState(AnchorPane _panel) {
@@ -40,8 +40,8 @@ public class GameState {
     }
 
     public void setHero(Hero hero) {
-        this.hero = hero.ball;
-//        objectList.add(this.hero);
+        this.hero = hero;
+        objectList.add(hero);
     }
 
     public void addEnemy(Enemy enemy) {
@@ -80,46 +80,43 @@ public class GameState {
         return Math.sqrt(Math.pow(first.getX() - second.getX(), 2) + Math.pow(first.getY() - second.getY(), 2));
     }
 
-//    private void clear() {
-//        for (int i = 0; i < objectList.size(); i++) {
-//            if (objectList.get(i).isAlive() == false) {
-//                objectList.get(i).gameModel.hide(gamePanel);
-//                ;
-//                objectList.remove(i);
-//            }
-//        }
-//    }
+    private void clear() {
+        for (int i = 0; i < objectList.size(); i++) {
+            if (objectList.get(i).isAlive() == false) {
+                objectList.get(i).model.hide(gamePanel);
+                ;
+                objectList.remove(i);
+            }
+        }
+    }
 
-//    private void collisionWithBall(Ball ball, int number) {
-//        for (int i = number + 1; i < objectList.size(); i++) {
-//            Ball currentBall = objectList.get(i);
-//            if (distanceBall(ball.getFuturePosition(), currentBall.getFuturePosition()) < ball.getRadius()
-//                    + currentBall.getRadius()) {
-//                ball.accept(currentBall.accept(new CollisionVisitor())).collide();
-//            }
-//        }
-//    }
+    private void collisionWithBall(VisualBall mainBall, int number) {
+        for (int i = number + 1; i < objectList.size(); i++) {
+            VisualBall currentBall = objectList.get(i);
+            if (distanceBall(mainBall.ball.getFuturePosition(), currentBall.ball.getFuturePosition()) < mainBall.ball.getRadius()
+                    + currentBall.ball.getRadius()) {
+                mainBall.accept(currentBall.accept(new CollisionVisitor())).collide();
+            }
+        }
+    }
 
     public void move() {
-//        for (Ball curentObject : objectList) {
-//            collisionWithWalls(curentObject);
-//        }
-//
-//        for (int i = 0; i < objectList.size(); i++) {
-//            collisionWithBall(objectList.get(i), i);
-//        }
-//        clear();
-//        for (Ball curentObject : objectList) {
-//            curentObject.move();
-//        }
-//        hero.move();
-//        if (hero.getScore() != countPoint) {
-//            countPoint = hero.getScore();
-//            score.setText("Score " + countPoint);
-//        }
-//        gameTime.setText("Time " + (int) ((System.currentTimeMillis() - time) / 1000));
-        collisionWithWalls(hero);
-        hero.move();
+        for (VisualBall curentObject : objectList) {
+            collisionWithWalls(curentObject.ball);
+        }
+
+        for (int i = 0; i < objectList.size(); i++) {
+            collisionWithBall(objectList.get(i), i);
+        }
+        clear();
+        for (VisualBall curentObject : objectList) {
+            curentObject.move();
+        }
+        if (hero.getScore() != countPoint) {
+            countPoint = hero.getScore();
+            score.setText("Score " + countPoint);
+        }
+        gameTime.setText("Time " + (int) ((System.currentTimeMillis() - time) / 1000));
 
     }
 

@@ -9,6 +9,12 @@ public abstract class Model {
 
     public abstract void hide(AnchorPane anchorPane);
 
+    public abstract double getXCoordinate();
+
+    public abstract double getYCoordinate();
+
+    public abstract double getRadius();
+
 
 
 }

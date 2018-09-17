@@ -11,8 +11,8 @@ public class DestroyCollision extends Collision {
 
     @Override
     public void collide() {
-        pray.eating();
         hero.addPoint();
+        pray.alive=false;
 
     }
 }

@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
@@ -26,10 +27,14 @@ public class Game extends Application {
         layout.getChildren().add(new Line(200, 250, 250, 300));
         layout.getChildren().add(new Line(250, 300, 300, 250));
         layout.getChildren().add(new Line(300, 250, 250, 200));
-        GameState gameState = new GameState(layout,
-                                            consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
-        Hero hero = new Hero(1,1,1,100,100,
-                layout,consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
+        GameState gameState = new GameState(layout);
+        Hero hero = new Hero(new CircleModel(200,50,15, Color.BLACK,layout),
+                -1,0,1,consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
+        gameState.addEnemy(new Enemy(new SquareModel(50,50,15,Color.RED,layout),
+                1,0,3));
+        gameState.addPrize(new Prize(new SquareModel(200,200,15, Color.BLUE,layout),
+                        -1,0,0));
+        gameState.setHero(hero);
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

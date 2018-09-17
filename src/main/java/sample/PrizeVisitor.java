@@ -9,7 +9,7 @@ public class PrizeVisitor implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Enemy enemy) {
-        return new RegularCollision(enemy, prize);
+        return new RegularCollision(enemy.ball, prize.ball);
     }
 
     @Override
@@ -19,6 +19,6 @@ public class PrizeVisitor implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Prize prize) {
-        return new RegularCollision(prize,this.prize);
+        return new RegularCollision(prize.ball,this.prize.ball);
     }
 }
