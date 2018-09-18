@@ -9,6 +9,7 @@ public class CircleModel extends Model {
 
     CircleModel(double xCoordinateCenter, double yCoordinateCenter, double radius, Color color, AnchorPane anchorPane) {
         model = new Circle(xCoordinateCenter, yCoordinateCenter, radius, color);
+        this.anchorPane =anchorPane;
         anchorPane.getChildren().add(model);
     }
 
@@ -19,7 +20,7 @@ public class CircleModel extends Model {
     }
 
     @Override
-    public void hide(AnchorPane anchorPane) {
+    public void hide() {
         anchorPane.getChildren().remove(model);
     }
 

@@ -1,28 +1,20 @@
 package sample;
 
-public abstract class VisualBall {
+public class VisualBall {
     Ball ball;
     Model model;
-    boolean alive;
 
-    public VisualBall(Model model,double xCoefficient, double yCoefficient, double speed) {
-        this.model = model;
-        ball = new Ball(xCoefficient,yCoefficient,speed,model.getXCoordinate(),model.getYCoordinate(),model.getRadius());
-        alive = true;
+    public VisualBall(Ball ball,Model model) {
+        this.ball =ball;
+        this.model =model;
     }
 
     public void update(){
+        if(!ball.isAlive()){
+            model.hide();
+        }
+        else
         model.move(ball.getPosition().getX(),ball.getPosition().getY());
     };
 
-    public abstract <T> T accept(BallVisitor<T> ballVisitor);
-
-    public void move(){
-        ball.move();
-        update();
-    }
-
-    public boolean isAlive(){
-        return alive;
-    }
 }

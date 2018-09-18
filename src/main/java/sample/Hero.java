@@ -2,16 +2,15 @@ package sample;
 
 import javafx.scene.input.KeyCode;
 
-public class Hero extends VisualBall {
+public class Hero extends Ball {
 
     int score;
 
-    public Hero(Model model, double xCoefficientm, double yCoefficient, double speed, KeyboardSubscription keyboardSubscription) {
-        super(model, xCoefficientm, yCoefficient, speed);
+    public Hero(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius, KeyboardSubscription keyboardSubscription) {
+        super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
         keyboardSubscription.subscribeToKey(this::move);
-        score=0;
+        score =0;
     }
-
 
     public int getScore() {
         return score;
@@ -19,20 +18,20 @@ public class Hero extends VisualBall {
 
     private void move(KeyCode keyCode) {
         if (keyCode == KeyCode.LEFT) {
-            ball.xCoefficient = ball.xCoefficient * Math.cos(Math.toRadians(-15)) - ball.yCoefficient * Math.sin(Math.toRadians(-15));
-            ball.yCoefficient = ball.xCoefficient * Math.sin(Math.toRadians(-15)) + ball.yCoefficient * Math.cos(Math.toRadians(-15));
-            ball.norm();
+            xCoefficient = xCoefficient * Math.cos(Math.toRadians(-15)) - yCoefficient * Math.sin(Math.toRadians(-15));
+            yCoefficient = xCoefficient * Math.sin(Math.toRadians(-15)) + yCoefficient * Math.cos(Math.toRadians(-15));
+            norm();
         }
         if (keyCode == KeyCode.RIGHT) {
-            ball.xCoefficient = ball.xCoefficient * Math.cos(Math.toRadians(15)) - ball.yCoefficient * Math.sin(Math.toRadians(15));
-            ball.yCoefficient = ball.xCoefficient * Math.sin(Math.toRadians(15)) + ball.yCoefficient * Math.cos(Math.toRadians(15));
-            ball.norm();
+            xCoefficient = xCoefficient * Math.cos(Math.toRadians(15)) - yCoefficient * Math.sin(Math.toRadians(15));
+            yCoefficient = xCoefficient * Math.sin(Math.toRadians(15)) + yCoefficient * Math.cos(Math.toRadians(15));
+            norm();
         }
         if (keyCode == KeyCode.UP) {
-            ball.speedOfMotion += 0.1;
+            speedOfMotion += 0.1;
         }
         if (keyCode == KeyCode.DOWN) {
-            ball.speedOfMotion -= 0.1;
+            speedOfMotion -= 0.1;
         }
 
     }

@@ -1,11 +1,12 @@
 package sample;
+import java.util.Vector;
 
 public class WallColection {
 
-    public Wall[] collection;
+    public Vector collection;
 
-    WallColection(int count) {
+    WallColection() {
 
-        collection = new Wall[count];
+        collection = new Vector();
     }
 }

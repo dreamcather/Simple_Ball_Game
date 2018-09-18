@@ -3,6 +3,7 @@ package sample;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -19,26 +20,25 @@ public class Game extends Application {
         window.setTitle("Game");
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout, 700, 520);
-        layout.getChildren().add(new Line(0, 500, 0, 0));
-        layout.getChildren().add(new Line(500, 0, 500, 500));
-        layout.getChildren().add(new Line(0, 0, 500, 0));
-        layout.getChildren().add(new Line(500, 500, 0, 500));
-        layout.getChildren().add(new Line(250, 200, 200, 250));
-        layout.getChildren().add(new Line(200, 250, 250, 300));
-        layout.getChildren().add(new Line(250, 300, 300, 250));
-        layout.getChildren().add(new Line(300, 250, 250, 200));
         GameState gameState = new GameState(layout);
-        Hero hero = new Hero(new CircleModel(200,50,15, Color.BLACK,layout),
-                1,0,3,consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
-        gameState.addEnemy(new Enemy(new CircleModel(50,50,15,Color.RED,layout),
-                1,0,3));
-        gameState.addPrize(new Prize(new CircleModel(200,200,15, Color.BLUE,layout),
-                        -1,1,3));
+        Hero hero =new Hero(1,1,3,50,50,15,
+                consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
+        gameState.addEnemy(new Enemy(1,0,3,200,200,15));
+        gameState.addPrize(new Prize(1,-1,3,100,20,15));
         gameState.setHero(hero);
+        gameState.addWall(new Point(0, 500),new Point( 0, 0));
+        gameState.addWall(new Point(500, 0),new Point( 500, 500));
+        gameState.addWall(new Point(0, 0), new Point(500, 0));
+        gameState.addWall(new Point(500, 500),new Point( 0, 500));
+        gameState.addWall(new Point(250, 200),new Point( 200, 250));
+        gameState.addWall(new Point(200, 250),new Point( 250, 300));
+        gameState.addWall(new Point(250, 300),new Point( 300, 250));
+        gameState.addWall(new Point(300, 250),new Point( 250, 200));
+        gameState.addWall(new Point(0, 50),new Point( 50, 0));
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                gameState.move();
+                gameState.update();
             }
         };
         window.setScene(scene);

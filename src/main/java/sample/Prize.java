@@ -3,10 +3,10 @@ package sample;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
-public class Prize extends VisualBall {
+public class Prize extends Ball {
 
-    public Prize(Model model, double xCoefficientm, double yCoefficient, double speed) {
-        super(model, xCoefficientm, yCoefficient, speed);
+    public Prize(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
+        super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
     }
 
     @Override

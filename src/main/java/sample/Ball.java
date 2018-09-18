@@ -1,13 +1,14 @@
 package sample;
 
 
-public class Ball {
+public abstract class Ball {
     protected double xCoefficient;
     protected double yCoefficient;
     protected double speedOfMotion;
     protected double xCoordinate;
     protected double yCoordinate;
     private double radius;
+    protected boolean alive;
 
     Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
         xCoefficient = _x;
@@ -16,6 +17,7 @@ public class Ball {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.radius = radius;
+        alive =true;
     }
 
     public void move() {
@@ -49,5 +51,11 @@ public class Ball {
         xCoefficient = vector.getxCoefficient();
         yCoefficient = vector.getyCoefficient();
         norm();
+    }
+
+    public abstract <T> T accept(BallVisitor<T> ballVisitor);
+
+    public boolean isAlive(){
+        return alive;
     }
 }

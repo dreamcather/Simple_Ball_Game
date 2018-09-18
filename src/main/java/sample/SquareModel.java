@@ -13,6 +13,7 @@ public class SquareModel extends Model {
         model = new Rectangle(xCoordinate-radius,yCoordinate-radius,2*radius,2*radius);
         model.setStroke(color);
         anchorPane.getChildren().add(model);
+        this.anchorPane =anchorPane;
     }
 
     @Override
@@ -22,7 +23,7 @@ public class SquareModel extends Model {
     }
 
     @Override
-    public void hide(AnchorPane anchorPane) {
+    public void hide() {
         anchorPane.getChildren().remove(model);
     }
 
