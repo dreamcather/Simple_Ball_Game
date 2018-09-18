@@ -29,11 +29,11 @@ public class Game extends Application {
         layout.getChildren().add(new Line(300, 250, 250, 200));
         GameState gameState = new GameState(layout);
         Hero hero = new Hero(new CircleModel(200,50,15, Color.BLACK,layout),
-                -1,0,1,consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
-        gameState.addEnemy(new Enemy(new SquareModel(50,50,15,Color.RED,layout),
+                1,0,3,consumer -> scene.setOnKeyPressed(event -> consumer.accept(event.getCode())));
+        gameState.addEnemy(new Enemy(new CircleModel(50,50,15,Color.RED,layout),
                 1,0,3));
-        gameState.addPrize(new Prize(new SquareModel(200,200,15, Color.BLUE,layout),
-                        -1,0,0));
+        gameState.addPrize(new Prize(new CircleModel(200,200,15, Color.BLUE,layout),
+                        -1,1,3));
         gameState.setHero(hero);
         AnimationTimer timer = new AnimationTimer() {
             @Override

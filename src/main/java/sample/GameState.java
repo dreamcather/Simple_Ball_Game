@@ -113,10 +113,10 @@ public class GameState {
             curentObject.move();
         }
         if (hero.getScore() != countPoint) {
+            score.setText("Score " + hero.getScore());
             countPoint = hero.getScore();
-            score.setText("Score " + countPoint);
         }
-        gameTime.setText("Time " + (int) ((System.currentTimeMillis() - time) / 1000));
+        gameTime.setText("Time " + (System.currentTimeMillis() - time)/1000);
 
     }
 

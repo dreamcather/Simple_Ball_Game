@@ -9,6 +9,7 @@ public class Hero extends VisualBall {
     public Hero(Model model, double xCoefficientm, double yCoefficient, double speed, KeyboardSubscription keyboardSubscription) {
         super(model, xCoefficientm, yCoefficient, speed);
         keyboardSubscription.subscribeToKey(this::move);
+        score=0;
     }
 
 
