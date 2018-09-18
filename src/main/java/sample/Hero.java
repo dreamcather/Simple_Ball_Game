@@ -17,7 +17,6 @@ public class Hero extends VisualBall {
         return score;
     }
 
-
     private void move(KeyCode keyCode) {
         if (keyCode == KeyCode.LEFT) {
             ball.xCoefficient = ball.xCoefficient * Math.cos(Math.toRadians(-15)) - ball.yCoefficient * Math.sin(Math.toRadians(-15));

@@ -48,7 +48,6 @@ public class GameState {
         objectList.add(enemy);
     }
 
-
     public void addPrize(Prize prize) {
         objectList.add(prize);
     }

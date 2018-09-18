@@ -5,9 +5,9 @@ public abstract class VisualBall {
     Model model;
     boolean alive;
 
-    public VisualBall(Model model,double xCoefficientm, double yCoefficient, double speed) {
+    public VisualBall(Model model,double xCoefficient, double yCoefficient, double speed) {
         this.model = model;
-        ball = new Ball(xCoefficientm,yCoefficient,speed,model.getXCoordinate(),model.getYCoordinate(),model.getRadius());
+        ball = new Ball(xCoefficient,yCoefficient,speed,model.getXCoordinate(),model.getYCoordinate(),model.getRadius());
         alive = true;
     }
 
