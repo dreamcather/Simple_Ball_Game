@@ -13,7 +13,7 @@ public class GameState {
     Label gameTime;
     int countPoint;
     double time;
-    PhysicGame phisicGame;
+    PhysicGame physicGame;
     ArrayList<VisualBall> visualObject;
     Factory factory;
 
@@ -21,7 +21,7 @@ public class GameState {
         gamePanel = _panel;
         factory = new Factory(gamePanel);
         visualObject = new ArrayList<>();
-        phisicGame = new PhysicGame();
+        physicGame = new PhysicGame();
         score = new Label("Score");
         score.setLayoutX(550);
         score.setLayoutY(50);
@@ -35,29 +35,29 @@ public class GameState {
     }
 
     public void addWall(Point start,Point end){
-        phisicGame.addWall(start,end);
+        physicGame.addWall(start,end);
         gamePanel.getChildren().add(new Line(start.getX(), start.getY(), end.getX(), end.getY()));
     }
 
-    public void setHero(Hero hero) {
+    public void addHero(Hero hero) {
         this.hero = hero;
-        phisicGame.addBall(hero);
+        physicGame.addBall(hero);
         visualObject.add(factory.createPlayer(hero));
     }
 
     public void addEnemy(Ball enemy) {
         visualObject.add(factory.createEnemy(enemy));
-        phisicGame.addBall(enemy);
+        physicGame.addBall(enemy);
 
     }
 
     public void addPrize(Ball prize) {
         visualObject.add(factory.createPrize(prize));
-        phisicGame.addBall(prize);
+        physicGame.addBall(prize);
     }
 
     public void update() {
-        phisicGame.move();
+        physicGame.move();
         if (hero.getScore() != countPoint) {
             score.setText("Score " + hero.getScore());
             countPoint = hero.getScore();

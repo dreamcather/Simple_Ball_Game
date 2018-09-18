@@ -24,14 +24,4 @@ public class CircleModel extends Model {
         anchorPane.getChildren().remove(model);
     }
 
-    public double getXCoordinate(){
-        return model.getCenterX();
-    }
-    public double getYCoordinate(){
-        return model.getCenterY();
-    }
-    public double getRadius(){
-        return model.getRadius();
-    }
-
 }

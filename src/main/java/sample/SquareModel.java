@@ -4,7 +4,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
 
 public class SquareModel extends Model {
     Rectangle model;
@@ -25,20 +24,5 @@ public class SquareModel extends Model {
     @Override
     public void hide() {
         anchorPane.getChildren().remove(model);
-    }
-
-    @Override
-    public double getXCoordinate() {
-        return model.getX()+getRadius();
-    }
-
-    @Override
-    public double getYCoordinate() {
-        return model.getY()+getRadius();
-    }
-
-    @Override
-    public double getRadius() {
-        return model.getWidth();
     }
 }

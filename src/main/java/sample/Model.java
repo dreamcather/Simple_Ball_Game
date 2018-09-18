@@ -10,8 +10,6 @@ public abstract class Model {
 
     public abstract void hide();
 
-    public abstract double getRadius();
-
 
 
 }
