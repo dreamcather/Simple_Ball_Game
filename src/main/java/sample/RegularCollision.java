@@ -12,32 +12,38 @@ public class RegularCollision extends Collision {
     @Override
     public void collide() {
 
-        Line perpendicular = new Line(first.getPosition(),second.getPosition());
-        Line firstParalel = new Line(first.getPosition(),perpendicular.getNormal());
-        Line secondParalel = new Line(second.getPosition(),perpendicular.getNormal());
+        if(first.immuneBall!=second) {
 
-        Point firstEnd = first.getFuturePosition();
-        Point secondEnd = second.getFuturePosition();
+            Line perpendicular = new Line(first.getPosition(), second.getPosition());
+            Line firstParalel = new Line(first.getPosition(), perpendicular.getNormal());
+            Line secondParalel = new Line(second.getPosition(), perpendicular.getNormal());
 
-        Point firstPerpendicularPoint = firstParalel.getProectionPoint(firstEnd);
-        Point firstParalelPoint = perpendicular.getProectionPoint(firstEnd);
+            Point firstEnd = first.getFuturePosition();
+            Point secondEnd = second.getFuturePosition();
 
-        Point secondPerpendicularPoint = secondParalel.getProectionPoint(secondEnd);
-        Point secondParalelPoint = perpendicular.getProectionPoint(secondEnd);
+            Point firstPerpendicularPoint = firstParalel.getProectionPoint(firstEnd);
+            Point firstParalelPoint = perpendicular.getProectionPoint(firstEnd);
 
-        Vector firstParalelVector = new Vector(first.getPosition(),firstParalelPoint);
-        Vector firstPerpendicularVector = new Vector(first.getPosition(), firstPerpendicularPoint);
+            Point secondPerpendicularPoint = secondParalel.getProectionPoint(secondEnd);
+            Point secondParalelPoint = perpendicular.getProectionPoint(secondEnd);
 
-        Vector secondParalelVector = new Vector(second.getPosition(),secondParalelPoint);
-        Vector secondPerpendicularVector = new Vector(second.getPosition(), secondPerpendicularPoint);
+            Vector firstParalelVector = new Vector(first.getPosition(), firstParalelPoint);
+            Vector firstPerpendicularVector = new Vector(first.getPosition(), firstPerpendicularPoint);
 
-        double lenghtFirst =firstPerpendicularVector.addition(secondParalelVector).getLenght();
-        double lenghtSecond = secondPerpendicularVector.addition(firstParalelVector).getLenght();
+            Vector secondParalelVector = new Vector(second.getPosition(), secondParalelPoint);
+            Vector secondPerpendicularVector = new Vector(second.getPosition(), secondPerpendicularPoint);
 
-        first.changeVector(firstPerpendicularVector.addition(secondParalelVector));
-        second.changeVector(secondPerpendicularVector.addition(firstParalelVector));
-        first.setSpeedOfMotion(lenghtFirst);
-        second.setSpeedOfMotion(lenghtSecond);
+            double lenghtFirst = firstPerpendicularVector.addition(secondParalelVector).getLenght();
+            double lenghtSecond = secondPerpendicularVector.addition(firstParalelVector).getLenght();
+
+            first.changeVector(firstPerpendicularVector.addition(secondParalelVector));
+            second.changeVector(secondPerpendicularVector.addition(firstParalelVector));
+            first.setSpeedOfMotion(lenghtFirst);
+            second.setSpeedOfMotion(lenghtSecond);
+
+            first.setImuneBall(second);
+            second.setImuneBall(first);
+        }
 
 
 

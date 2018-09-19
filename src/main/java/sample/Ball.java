@@ -11,7 +11,10 @@ public abstract class Ball {
     private Vector perpendicularVector;
     protected boolean alive;
 
-    public Ball imune;
+    public Ball immuneBall;
+    public Wall immuneWall;
+    int countBall=0;
+    int countWall=0;
 
     Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
         xCoefficient = _x;
@@ -22,7 +25,7 @@ public abstract class Ball {
         this.radius = radius;
         perpendicularVector =null;
         alive =true;
-        imune =null;
+        immuneBall =null;
         norm();
     }
 
@@ -85,5 +88,15 @@ public abstract class Ball {
 
     public void setSpeedOfMotion(double speedOfMotion) {
         this.speedOfMotion = speedOfMotion;
+    }
+
+    public void setImuneBall(Ball imune) {
+        this.immuneBall = imune;
+        this.immuneWall = null;
+    }
+
+    public void setImmuneWall(Wall immuneWall) {
+        this.immuneWall = immuneWall;
+        this.immuneBall = null;
     }
 }

@@ -27,8 +27,10 @@ public class PhysicGame {
         for (int i = 0; i < walls.collection.size(); i++) {
             Wall curentWall = (Wall) walls.collection.elementAt(i);
             if (curentWall.isCollisionWithBall(ball)) {
-                //if(curentWall.getLine().getSign(ball.getPosition())>=0)
+                if(ball.immuneWall!=curentWall)
+                    if(curentWall.isCollisionWithBall(ball))
                     ball.addPerpendicularVector(curentWall.getLine().getNormal());
+                    ball.setImmuneWall(curentWall);
 
 //                Point collisionPoint = curentWall.getLine().intersectionLine(ball.getPosition(), ball.getVector());
 //

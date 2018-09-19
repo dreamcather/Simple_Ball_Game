@@ -14,12 +14,12 @@ public class Factory {
     }
 
     public VisualBall createEnemy(Ball ball){
-        return new VisualBall(ball,new CircleModel(ball.xCoordinate,ball.yCoordinate,ball.getRadius()-3,enemyColor,anchorPane));
+        return new VisualBall(ball,new CircleModel(ball.xCoordinate,ball.yCoordinate,ball.getRadius()-4,enemyColor,anchorPane));
     }
     public VisualBall createPrize(Ball ball){
-        return new VisualBall(ball,new CircleModel(ball.xCoordinate,ball.yCoordinate,ball.getRadius()-3,prizeColor,anchorPane));
+        return new VisualBall(ball,new CircleModel(ball.xCoordinate,ball.yCoordinate,ball.getRadius()-4,prizeColor,anchorPane));
     }
     public VisualBall createPlayer(Hero ball){
-        return new VisualBall(ball,new CircleModel(ball.xCoordinate,ball.yCoordinate,ball.getRadius()-3,playerColor,anchorPane));
+        return new VisualBall(ball,new CircleModel(ball.xCoordinate,ball.yCoordinate,ball.getRadius()-4,playerColor,anchorPane));
     }
 }
