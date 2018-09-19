@@ -8,7 +8,10 @@ public abstract class Ball {
     protected double xCoordinate;
     protected double yCoordinate;
     private double radius;
+    private Vector perpendicularVector;
     protected boolean alive;
+
+    public Ball imune;
 
     Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
         xCoefficient = _x;
@@ -17,7 +20,10 @@ public abstract class Ball {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.radius = radius;
+        perpendicularVector =null;
         alive =true;
+        imune =null;
+        norm();
     }
 
     public void move() {
@@ -57,5 +63,27 @@ public abstract class Ball {
 
     public boolean isAlive(){
         return alive;
+    }
+
+    public void addPerpendicularVector(Vector vector){
+        if(perpendicularVector==null){
+            perpendicularVector =vector;
+        }
+        else{
+            perpendicularVector =perpendicularVector.addition(vector);
+        }
+    }
+
+    public void update(){
+        if(perpendicularVector!=null) {
+            Vector motionVector = this.getVector();
+            Vector res = motionVector.getReflection(perpendicularVector);
+            this.changeVector(res);
+            perpendicularVector = null;
+        }
+    }
+
+    public void setSpeedOfMotion(double speedOfMotion) {
+        this.speedOfMotion = speedOfMotion;
     }
 }

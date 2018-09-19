@@ -33,6 +33,16 @@ public class Wall {
                 line.getFreeCoefficient();
     }
 
+    boolean isCollisionWithBall(Ball ball){
+        if(start.getDistancePoint(ball.getPosition())<ball.getRadius())
+            return true;
+        if(end.getDistancePoint(ball.getPosition())<ball.getRadius())
+            return true;
+        if((calculateDistanceToPoint(ball.getPosition())<ball.getRadius())&&(isBetween(ball.getPosition())))
+            return true;
+        return false;
+    }
+
     public boolean isBetween(Point point){
         double leftCoefficient = orientation(point,leftParalelLine);
         double rightCoefficient = orientation(point, rightParalelLine);

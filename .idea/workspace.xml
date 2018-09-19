@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93862815-4219-4351-af34-49f9291f0c09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/sample/VectorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/CircleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/CircleModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Factory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/SquareModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/SquareModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/PhysicGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/PhysicGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/RegularCollision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/RegularCollision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Wall.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +32,7 @@
     <SUITE FILE_PATH="coverage/game$LineTest.ic" NAME="LineTest Coverage Results" MODIFIED="1536753160706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sample.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/game$Game.ic" NAME="Game Coverage Results" MODIFIED="1537180165188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/game$Game.ic" NAME="Game Coverage Results" MODIFIED="1537356026291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sample.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/game$LineTest_vectorPointConstructorTest3.ic" NAME="LineTest.vectorPointConstructorTest3 Coverage Results" MODIFIED="1536750716690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -45,28 +49,28 @@
     <session id="13877594">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
           <entry key="fxml" value="2" />
-          <entry key="java" value="238" />
+          <entry key="java" value="257" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="238" />
+          <entry key="JAVA" value="257" />
           <entry key="XML" value="5" />
         </counts>
       </usages-collector>
@@ -77,15 +81,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7384" />
-          <entry key="txt" value="155" />
+          <entry key="java" value="8691" />
+          <entry key="txt" value="187" />
           <entry key="xml" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7384" />
-          <entry key="PLAIN_TEXT" value="155" />
+          <entry key="JAVA" value="8691" />
+          <entry key="PLAIN_TEXT" value="187" />
           <entry key="XML" value="19" />
         </counts>
       </usages-collector>
@@ -96,10 +100,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="122">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1460#1607#0" expanded="true" />
+                <element signature="e#1606#1607#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,32 +121,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/RegularCollision.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/EnemyVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="266">
+              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
               <folding>
-                <element signature="method#Point#0;class#Point#0" />
-                <element signature="method#equals#0;class#Point#0" />
+                <element signature="e#128#129#0" expanded="true" />
+                <element signature="e#158#159#0" expanded="true" />
+                <element signature="e#216#217#0" expanded="true" />
+                <element signature="e#274#275#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Prize.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/RegularCollision.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="352">
+              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Wall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+              <folding>
+                <element signature="method#Wall#0;class#Wall#0" />
+                <element signature="method#calculateDistanceToPoint#0;class#Wall#0" />
+                <element signature="method#orientation#0;class#Wall#0" />
+                <element signature="method#isBetween#0;class#Wall#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/Factory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="270">
+              <caret line="22" column="103" selection-start-line="22" selection-start-column="103" selection-end-line="22" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,50 +171,61 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Hero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="38" column="26" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-              <folding>
-                <element signature="method#move#0;class#Hero#0" />
-                <element signature="e#1315#1316#0" expanded="true" />
-                <element signature="e#1338#1339#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#Ball#0;class#Ball#0" />
+                <element signature="method#move#0;class#Ball#0" />
+                <element signature="method#norm#0;class#Ball#0" />
+                <element signature="method#getFuturePosition#0;class#Ball#0" />
+                <element signature="method#changeVector#0;class#Ball#0" />
+                <element signature="method#addPerpendicularVector#0;class#Ball#0" />
+                <element signature="method#update#0;class#Ball#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/KeyboardSubscription.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BallVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            <state relative-caret-position="30">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/GameState.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Vector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="165">
+              <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#addWall#0;class#GameState#0" />
-                <element signature="method#addPrize#0;class#GameState#0" />
+                <element signature="method#Vector#0;class#Vector#0" />
+                <element signature="method#norm#0;class#Vector#0" />
+                <element signature="method#Vector#1;class#Vector#0" />
+                <element signature="method#addition#1;class#Vector#0" />
+                <element signature="method#equals#0;class#Vector#0" />
+                <element signature="method#getReflection#0;class#Vector#0" />
+                <element signature="e#2067#2068#0" expanded="true" />
+                <element signature="e#2148#2149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/PhysicGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+              <folding>
+                <element signature="method#PhysicGame#0;class#PhysicGame#0" />
+                <element signature="method#distanceBall#0;class#PhysicGame#0" />
+                <element signature="method#clear#0;class#PhysicGame#0" />
               </folding>
             </state>
           </provider>
@@ -228,33 +253,34 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/java/MyTests.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Line.java" />
-        <option value="$PROJECT_DIR$/src/test/java/sample/LineTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Vector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/RegularCollision.java" />
         <option value="$PROJECT_DIR$/src/test/java/sample/WallTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Point.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Wall.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Hero.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Prize.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/HeroVisiter.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Enemy.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/EnemyVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/PrizeVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Ball.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/DestroyCollision.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/VisualBall.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/PhisicGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/WallColection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/PhysicGame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Factory.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/GameState.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/CircleModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/SquareModel.java" />
         <option value="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Point.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Wall.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sample/LineTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sample/VectorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Line.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Factory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Hero.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Vector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/PhysicGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/RegularCollision.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Game.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Ball.java" />
       </list>
     </option>
   </component>
@@ -292,6 +318,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -351,12 +378,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537273205853" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537361328063" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -405,7 +431,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WallTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="game" />
       <extension name="coverage">
         <pattern>
@@ -414,7 +440,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sample" />
-      <option name="MAIN_CLASS_NAME" value="sample.WallTest" />
+      <option name="MAIN_CLASS_NAME" value="sample.VectorTest" />
       <properties />
       <listeners />
       <method v="2">
@@ -452,15 +478,15 @@
       <item itemvalue="TestNG.&lt;default&gt;" />
       <item itemvalue="TestNG.RegularCollisionTest" />
       <item itemvalue="TestNG.sample" />
-      <item itemvalue="TestNG.WallTest" />
+      <item itemvalue="TestNG.VectorTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Game" />
         <item itemvalue="TestNG.sample" />
+        <item itemvalue="TestNG.VectorTest" />
         <item itemvalue="TestNG.&lt;default&gt;" />
         <item itemvalue="TestNG.RegularCollisionTest" />
-        <item itemvalue="TestNG.WallTest" />
       </list>
     </recent_temporary>
   </component>
@@ -559,25 +585,17 @@
       <option name="project" value="LOCAL" />
       <updated>1537271003586</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="delete useless function">
+      <created>1537274042863</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1537274042863</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="_default_ - 2018.09.18 at 14h 49m 37s.xml">
-      <configuration name="&lt;default&gt;" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="_default_ - 2018.09.18 at 14h 51m 32s.xml">
-      <configuration name="&lt;default&gt;" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="_default_ - 2018.09.18 at 14h 58m 49s.xml">
-      <configuration name="&lt;default&gt;" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="_default_ - 2018.09.18 at 14h 59m 04s.xml">
-      <configuration name="&lt;default&gt;" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="_default_ - 2018.09.18 at 15h 00m 24s.xml">
-      <configuration name="&lt;default&gt;" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="_default_ - 2018.09.18 at 15h 00m 30s.xml">
       <configuration name="&lt;default&gt;" configurationId="TestNG" />
     </history-entry>
@@ -591,6 +609,21 @@
       <configuration name="sample" configurationId="TestNG" />
     </history-entry>
     <history-entry file="sample - 2018.09.18 at 15h 02m 22s.xml">
+      <configuration name="sample" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="VectorTest - 2018.09.19 at 13h 52m 46s.xml">
+      <configuration name="VectorTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="sample - 2018.09.19 at 13h 52m 55s.xml">
+      <configuration name="sample" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="sample - 2018.09.19 at 13h 57m 51s.xml">
+      <configuration name="sample" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="sample - 2018.09.19 at 14h 25m 30s.xml">
+      <configuration name="sample" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="sample - 2018.09.19 at 14h 26m 19s.xml">
       <configuration name="sample" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -607,7 +640,7 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27382874" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27786753" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -698,16 +731,17 @@
     <MESSAGE value="fix score" />
     <MESSAGE value="save" />
     <MESSAGE value="add physic game model" />
-    <option name="LAST_COMMIT_MESSAGE" value="add physic game model" />
+    <MESSAGE value="delete useless function" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete useless function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/RegularCollision.java</url>
-          <line>34</line>
+          <line>36</line>
           <properties />
-          <option name="timeStamp" value="36" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -756,13 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/javafx-src.zip!/javafx/animation/AnimationTimer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/PrizeVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -770,19 +797,6 @@
           <folding>
             <element signature="e#225#226#0" expanded="true" />
             <element signature="e#282#283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Wall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="method#Wall#0;class#Wall#0" />
-            <element signature="method#calculateDistanceToPoint#0;class#Wall#0" />
-            <element signature="method#orientation#0;class#Wall#0" />
-            <element signature="method#isBetween#0;class#Wall#0" />
           </folding>
         </state>
       </provider>
@@ -797,61 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="method#Vector#0;class#Vector#0" />
-            <element signature="method#Vector#1;class#Vector#0" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="method#addition#1;class#Vector#0" />
-            <element signature="method#equals#0;class#Vector#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/WallColection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/PhysicGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="method#PhysicGame#0;class#PhysicGame#0" />
-            <element signature="method#distanceBall#0;class#PhysicGame#0" />
-            <element signature="method#collisionWithWalls#0;class#PhysicGame#0" />
-            <element signature="method#collisionWithBall#0;class#PhysicGame#0" />
-            <element signature="method#clear#0;class#PhysicGame#0" />
-            <element signature="method#move#0;class#PhysicGame#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sample/LineTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#twoPointConstructorTest1#0;class#LineTest#0" />
-            <element signature="method#twoPointConstructorTest2#0;class#LineTest#0" />
-            <element signature="method#twoPointConstructorTest3#0;class#LineTest#0" />
-            <element signature="method#vectorPointConstructorTest1#0;class#LineTest#0" />
-            <element signature="method#vectorPointConstructorTest2#0;class#LineTest#0" />
-            <element signature="method#vectorPointConstructorTest3#0;class#LineTest#0" />
-            <element signature="method#intersectLineTest1#0;class#LineTest#0" />
-            <element signature="method#intersectLineTest2#0;class#LineTest#0" />
-            <element signature="method#intersectLineTest3#0;class#LineTest#0" />
-            <element signature="method#intersectLineTest4#0;class#LineTest#0" />
-            <element signature="method#distanceToPointTest#0;class#LineTest#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -861,22 +824,6 @@
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
-          <folding>
-            <element signature="method#standart#0;class#Line#0" />
-            <element signature="method#Line#0;class#Line#0" />
-            <element signature="method#Line#1;class#Line#0" />
-            <element signature="method#intersectionLine#0;class#Line#0" />
-            <element signature="method#intersectionLine#1;class#Line#0" />
-            <element signature="method#calculateDistanceToPoint#0;class#Line#0" />
-            <element signature="method#getProectionPoint#0;class#Line#0" />
           </folding>
         </state>
       </provider>
@@ -899,19 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-          <folding>
-            <element signature="method#Ball#0;class#Ball#0" />
-            <element signature="method#norm#0;class#Ball#0" />
-            <element signature="method#getFuturePosition#0;class#Ball#0" />
-            <element signature="method#changeVector#0;class#Ball#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/SquareModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -921,13 +855,6 @@
             <element signature="method#SquareModel#0;class#SquareModel#0" />
             <element signature="method#move#0;class#SquareModel#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BallVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -962,19 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/EnemyVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding>
-            <element signature="e#128#129#0" expanded="true" />
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -992,18 +906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="300">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Factory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1017,15 +921,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Prize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample/LineTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="3" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#twoPointConstructorTest1#0;class#LineTest#0" />
+            <element signature="method#twoPointConstructorTest2#0;class#LineTest#0" />
+            <element signature="method#twoPointConstructorTest3#0;class#LineTest#0" />
+            <element signature="method#vectorPointConstructorTest1#0;class#LineTest#0" />
+            <element signature="method#vectorPointConstructorTest2#0;class#LineTest#0" />
+            <element signature="method#vectorPointConstructorTest3#0;class#LineTest#0" />
+            <element signature="method#intersectLineTest1#0;class#LineTest#0" />
+            <element signature="method#intersectLineTest2#0;class#LineTest#0" />
+            <element signature="method#intersectLineTest3#0;class#LineTest#0" />
+            <element signature="method#intersectLineTest4#0;class#LineTest#0" />
+            <element signature="method#distanceToPointTest#0;class#LineTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample/VectorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="82" selection-start-line="33" selection-start-column="82" selection-end-line="33" selection-end-column="82" />
+          <folding>
+            <element signature="method#Point#0;class#Point#0" />
+            <element signature="method#equals#0;class#Point#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/javafx-src.zip!/javafx/animation/AnimationTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="83" column="85" selection-start-line="83" selection-start-column="85" selection-end-line="83" selection-end-column="85" />
+          <folding>
+            <element signature="method#standart#0;class#Line#0" />
+            <element signature="method#Line#0;class#Line#0" />
+            <element signature="method#Line#1;class#Line#0" />
+            <element signature="method#intersectionLine#0;class#Line#0" />
+            <element signature="method#intersectionLine#1;class#Line#0" />
+            <element signature="method#calculateDistanceToPoint#0;class#Line#0" />
+            <element signature="method#getNormal#0;class#Line#0" />
+            <element signature="method#getProectionPoint#0;class#Line#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addPrize#0;class#GameState#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="38" column="26" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        <state relative-caret-position="315">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
           <folding>
-            <element signature="method#move#0;class#Hero#0" />
+            <element signature="method#Hero#0;class#Hero#0" />
             <element signature="e#1315#1316#0" expanded="true" />
             <element signature="e#1338#1339#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Wall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <element signature="method#Wall#0;class#Wall#0" />
+            <element signature="method#calculateDistanceToPoint#0;class#Wall#0" />
+            <element signature="method#orientation#0;class#Wall#0" />
+            <element signature="method#isBetween#0;class#Wall#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+          <folding>
+            <element signature="method#Vector#0;class#Vector#0" />
+            <element signature="method#norm#0;class#Vector#0" />
+            <element signature="method#Vector#1;class#Vector#0" />
+            <element signature="method#addition#1;class#Vector#0" />
+            <element signature="method#equals#0;class#Vector#0" />
+            <element signature="method#getReflection#0;class#Vector#0" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2148#2149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/RegularCollision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/PhysicGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding>
+            <element signature="method#PhysicGame#0;class#PhysicGame#0" />
+            <element signature="method#distanceBall#0;class#PhysicGame#0" />
+            <element signature="method#clear#0;class#PhysicGame#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BallVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1036,50 +1080,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/RegularCollision.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Factory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="22" column="103" selection-start-line="22" selection-start-column="103" selection-end-line="22" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/GameState.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/EnemyVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="266">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addWall#0;class#GameState#0" />
-            <element signature="method#addPrize#0;class#GameState#0" />
+            <element signature="e#128#129#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        <state relative-caret-position="122">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1460#1607#0" expanded="true" />
+            <element signature="e#1606#1607#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Point.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="234">
+          <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
           <folding>
-            <element signature="method#Point#0;class#Point#0" />
-            <element signature="method#equals#0;class#Point#0" />
+            <element signature="method#Ball#0;class#Ball#0" />
+            <element signature="method#move#0;class#Ball#0" />
+            <element signature="method#norm#0;class#Ball#0" />
+            <element signature="method#getFuturePosition#0;class#Ball#0" />
+            <element signature="method#changeVector#0;class#Ball#0" />
+            <element signature="method#addPerpendicularVector#0;class#Ball#0" />
+            <element signature="method#update#0;class#Ball#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Prize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

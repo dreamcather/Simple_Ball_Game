@@ -30,5 +30,9 @@ public class Point {
 
     }
 
+    public double getDistancePoint(Point point){
+        return Math.sqrt(Math.pow(x-point.getX(),2)+Math.pow((y-point.getY()),2));
+    }
+
 
 }

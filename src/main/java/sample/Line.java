@@ -18,11 +18,11 @@ public class Line {
     }
 
     private void standart(){
-        if(xCoefficient<0){
+      /*  if(xCoefficient<0){
             xCoefficient*=-1;
             yCoefficient*=-1;
             freeCoefficient*=-1;
-        }
+        }*/
     }
 
     public Line(Point start, Point end) {
@@ -64,7 +64,9 @@ public class Line {
     }
 
     public Vector getNormal(){
-        return new Vector(xCoefficient,yCoefficient);
+        Vector res = new Vector(xCoefficient,yCoefficient);
+        res.norm();
+        return res;
     }
 
     public Point getProectionPoint(Point point){
@@ -76,6 +78,10 @@ public class Line {
                 (Math.pow(xCoefficient,2)+Math.pow(yCoefficient,2));
 
         return new Point(x,y);
+    }
+
+    public double getSign(Point point){
+        return xCoefficient*point.getX() + yCoefficient*point.getY()+freeCoefficient;
     }
 
 

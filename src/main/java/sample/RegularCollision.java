@@ -31,9 +31,13 @@ public class RegularCollision extends Collision {
         Vector secondParalelVector = new Vector(second.getPosition(),secondParalelPoint);
         Vector secondPerpendicularVector = new Vector(second.getPosition(), secondPerpendicularPoint);
 
+        double lenghtFirst =firstPerpendicularVector.addition(secondParalelVector).getLenght();
+        double lenghtSecond = secondPerpendicularVector.addition(firstParalelVector).getLenght();
 
         first.changeVector(firstPerpendicularVector.addition(secondParalelVector));
         second.changeVector(secondPerpendicularVector.addition(firstParalelVector));
+        first.setSpeedOfMotion(lenghtFirst);
+        second.setSpeedOfMotion(lenghtSecond);
 
 
 

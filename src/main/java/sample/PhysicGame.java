@@ -26,30 +26,34 @@ public class PhysicGame {
     private void collisionWithWalls(Ball ball) {
         for (int i = 0; i < walls.collection.size(); i++) {
             Wall curentWall = (Wall) walls.collection.elementAt(i);
-            if (((curentWall.calculateDistanceToPoint(ball.getFuturePosition()) < ball.getRadius()))
-                    && curentWall.isBetween(ball.getFuturePosition())) {
+            if (curentWall.isCollisionWithBall(ball)) {
+                //if(curentWall.getLine().getSign(ball.getPosition())>=0)
+                    ball.addPerpendicularVector(curentWall.getLine().getNormal());
 
-                Point collisionPoint = curentWall.getLine().intersectionLine(ball.getPosition(), ball.getVector());
-
-                Line perpendicularLine = new Line(collisionPoint, curentWall.getLine().getNormal());
-
-                Point middlePoint = perpendicularLine.getProectionPoint(ball.getPosition());
-
-                Vector paralelVector = new Vector(ball.getPosition(), middlePoint);
-
-                Point endPoint = paralelVector.addition(middlePoint);
-
-                ball.changeVector(new Vector(collisionPoint, endPoint));
+//                Point collisionPoint = curentWall.getLine().intersectionLine(ball.getPosition(), ball.getVector());
+//
+//                Line perpendicularLine = new Line(collisionPoint, curentWall.getLine().getNormal());
+//
+//                Point middlePoint = perpendicularLine.getProectionPoint(ball.getPosition());
+//
+//                Vector paralelVector = new Vector(ball.getPosition(), middlePoint);
+//
+//               Point endPoint = paralelVector.addition(middlePoint);
+//
+//                ball.changeVector(new Vector(collisionPoint, endPoint));
 
             }
 
+        }
+        for(Ball curentBall:objectList){
+            curentBall.update();
         }
     }
 
     private void collisionWithBall(Ball mainBall, int number) {
         for (int i = number + 1; i < objectList.size(); i++) {
             Ball currentBall = objectList.get(i);
-            if (distanceBall(mainBall.getFuturePosition(), currentBall.getFuturePosition()) < mainBall.getRadius()
+            if (distanceBall(mainBall.getPosition(), currentBall.getPosition()) < mainBall.getRadius()
                     + currentBall.getRadius()) {
                 mainBall.accept(currentBall.accept(new CollisionVisitor())).collide();
             }
