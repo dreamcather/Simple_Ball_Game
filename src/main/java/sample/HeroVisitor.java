@@ -1,15 +1,15 @@
 package sample;
 
-public class HeroVisiter implements BallVisitor<Collision> {
-    Hero hero;
+public class HeroVisitor implements BallVisitor<Collision> {
+    private Hero hero;
 
-    public HeroVisiter(Hero hero) {
+    public HeroVisitor(Hero hero) {
         this.hero = hero;
     }
 
     @Override
     public Collision visit(Enemy enemy) {
-        return new RegularCollision(hero,enemy);
+        return new RegularCollision(hero, enemy);
     }
 
     @Override
@@ -19,6 +19,6 @@ public class HeroVisiter implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Prize prize) {
-        return new DestroyCollision(hero,prize);
+        return new DestroyCollision(hero, prize);
     }
 }

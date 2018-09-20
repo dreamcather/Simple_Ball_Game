@@ -1,7 +1,7 @@
 package sample;
 
 public class EnemyVisitor implements BallVisitor<Collision> {
-    Enemy enemy;
+    private Enemy enemy;
 
     EnemyVisitor(Enemy _enemy) {
         enemy = _enemy;

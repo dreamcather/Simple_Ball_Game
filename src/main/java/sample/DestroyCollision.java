@@ -1,8 +1,8 @@
 package sample;
 
 public class DestroyCollision extends Collision {
-    Hero hero;
-    Prize pray;
+    private Hero hero;
+    private Prize pray;
 
     public DestroyCollision(Hero main, Prize pray) {
         this.hero = main;
@@ -12,7 +12,7 @@ public class DestroyCollision extends Collision {
     @Override
     public void collide() {
         hero.addPoint();
-        pray.alive =false;
+        pray.setAlive(false);
 
     }
 }

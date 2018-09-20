@@ -1,7 +1,7 @@
 package sample;
 
 public class PrizeVisitor implements BallVisitor<Collision> {
-    Prize prize;
+    private Prize prize;
 
     public PrizeVisitor(Prize prize) {
         this.prize = prize;
@@ -19,6 +19,6 @@ public class PrizeVisitor implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Prize prize) {
-        return new RegularCollision(prize,this.prize);
+        return new RegularCollision(prize, this.prize);
     }
 }

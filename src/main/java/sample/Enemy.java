@@ -1,8 +1,5 @@
 package sample;
 
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-
 public class Enemy extends Ball {
 
     public Enemy(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {

@@ -5,11 +5,11 @@ public class Line {
     private double yCoefficient;
     private double freeCoefficient;
 
-    public double getxCoefficient() {
+    public double getXCoefficient() {
         return xCoefficient;
     }
 
-    public double getyCoefficient() {
+    public double getYCoefficient() {
         return yCoefficient;
     }
 
@@ -17,44 +17,35 @@ public class Line {
         return freeCoefficient;
     }
 
-    private void standart(){
-      /*  if(xCoefficient<0){
-            xCoefficient*=-1;
-            yCoefficient*=-1;
-            freeCoefficient*=-1;
-        }*/
-    }
 
     public Line(Point start, Point end) {
         xCoefficient = start.getY() - end.getY();
         yCoefficient = end.getX() - start.getX();
-        freeCoefficient = start.getX()*end.getY() - end.getX()*start.getY();
-        standart();
+        freeCoefficient = start.getX() * end.getY() - end.getX() * start.getY();
     }
 
     public Line(Point point, Vector vector) {
-        xCoefficient = -vector.getyCoefficient();
-        yCoefficient = vector.getxCoefficient();
-        freeCoefficient = point.getX()*vector.getyCoefficient() - point.getY()*vector.getxCoefficient();
-        standart();
+        xCoefficient = -vector.getYCoefficient();
+        yCoefficient = vector.getXCoefficient();
+        freeCoefficient = point.getX() * vector.getYCoefficient() - point.getY() * vector.getXCoefficient();
     }
 
-    public Point intersectionLine(Line line){
-        double mainDeterminant = line.xCoefficient*yCoefficient -  xCoefficient*line.yCoefficient;
-        double xDeterminant = xCoefficient*line.freeCoefficient - line.xCoefficient*freeCoefficient;
-        double yDeterminant = yCoefficient*line.freeCoefficient - line.yCoefficient*freeCoefficient;
+    public Point intersectionLine(Line line) {
+        double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
+        double xDeterminant = xCoefficient * line.freeCoefficient - line.xCoefficient * freeCoefficient;
+        double yDeterminant = yCoefficient * line.freeCoefficient - line.yCoefficient * freeCoefficient;
 
-        double yCoordinateTouch = xDeterminant/mainDeterminant;
-        double xCoordinateTouch = -yDeterminant/mainDeterminant;
+        double yCoordinateTouch = xDeterminant / mainDeterminant;
+        double xCoordinateTouch = -yDeterminant / mainDeterminant;
 
-        return new Point(xCoordinateTouch,yCoordinateTouch);
+        return new Point(xCoordinateTouch, yCoordinateTouch);
 
     }
 
-    public Point intersectionLine(Point point, Vector vector){
+    public Point intersectionLine(Point point, Vector vector) {
 
-        Line crossLine = new Line(point,vector);
-        return  intersectionLine(crossLine);
+        Line crossLine = new Line(point, vector);
+        return intersectionLine(crossLine);
     }
 
     public double calculateDistanceToPoint(Point point) {
@@ -63,26 +54,25 @@ public class Line {
                 / Math.sqrt(Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
     }
 
-    public Vector getNormal(){
-        Vector res = new Vector(xCoefficient,yCoefficient);
+    public Vector getNormal() {
+        Vector res = new Vector(xCoefficient, yCoefficient);
         res.norm();
         return res;
     }
 
-    public Point getProectionPoint(Point point){
+    public Point getProjectionPoint(Point point) {
 
-        double x = (yCoefficient*(yCoefficient*point.getX() - xCoefficient*point.getY())-xCoefficient*freeCoefficient)/
-                (Math.pow(xCoefficient,2)+Math.pow(yCoefficient,2));
+        double x = (yCoefficient * (yCoefficient * point.getX() - xCoefficient * point.getY())
+                - xCoefficient * freeCoefficient) / (Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
 
-        double y = (xCoefficient*(-yCoefficient*point.getX() + xCoefficient*point.getY())-yCoefficient*freeCoefficient)/
-                (Math.pow(xCoefficient,2)+Math.pow(yCoefficient,2));
+        double y = (xCoefficient * (-yCoefficient * point.getX() + xCoefficient * point.getY())
+                - yCoefficient * freeCoefficient) / (Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
 
-        return new Point(x,y);
+        return new Point(x, y);
     }
 
-    public double getSign(Point point){
-        return xCoefficient*point.getX() + yCoefficient*point.getY()+freeCoefficient;
+    public double getSign(Point point) {
+        return xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient;
     }
-
 
 }

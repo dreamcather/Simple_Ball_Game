@@ -3,20 +3,20 @@ package sample;
 import java.util.ArrayList;
 
 public class PhysicGame {
-    ArrayList<Ball> objectList;
-    WallColection walls;
+    private ArrayList<Ball> objectList;
+    private WallCollection walls;
 
     public PhysicGame() {
         objectList = new ArrayList<>();
-        walls = new WallColection();
+        walls = new WallCollection();
     }
 
-    public void addBall(Ball ball){
+    public void addBall(Ball ball) {
         objectList.add(ball);
     }
 
-    public void addWall(Point start, Point end){
-        walls.collection.add(new Wall(start,end));
+    public void addWall(Point start, Point end) {
+        walls.getCollection().add(new Wall(start, end));
     }
 
     private double distanceBall(Point first, Point second) {
@@ -24,31 +24,14 @@ public class PhysicGame {
     }
 
     private void collisionWithWalls(Ball ball) {
-        for (int i = 0; i < walls.collection.size(); i++) {
-            Wall curentWall = (Wall) walls.collection.elementAt(i);
-            if (curentWall.isCollisionWithBall(ball)) {
-                if(ball.immuneWall!=curentWall)
-                    if(curentWall.isCollisionWithBall(ball))
-                    ball.addPerpendicularVector(curentWall.getLine().getNormal());
-                    ball.setImmuneWall(curentWall);
-
-//                Point collisionPoint = curentWall.getLine().intersectionLine(ball.getPosition(), ball.getVector());
-//
-//                Line perpendicularLine = new Line(collisionPoint, curentWall.getLine().getNormal());
-//
-//                Point middlePoint = perpendicularLine.getProectionPoint(ball.getPosition());
-//
-//                Vector paralelVector = new Vector(ball.getPosition(), middlePoint);
-//
-//               Point endPoint = paralelVector.addition(middlePoint);
-//
-//                ball.changeVector(new Vector(collisionPoint, endPoint));
-
+        for (int i = 0; i < walls.getCollection().size(); i++) {
+            Wall currentWall = (Wall) walls.getCollection().elementAt(i);
+            if (currentWall.isCollisionWithBallAndNormalize(ball)) {
+                ball.addPerpendicularVector(currentWall.getLine().getNormal());
             }
-
         }
-        for(Ball curentBall:objectList){
-            curentBall.update();
+        for (Ball currentBall : objectList) {
+            currentBall.update();
         }
     }
 
@@ -71,16 +54,15 @@ public class PhysicGame {
     }
 
     public void move() {
-        for (Ball curentObject : objectList) {
-            collisionWithWalls(curentObject);
-        }
-
         for (int i = 0; i < objectList.size(); i++) {
             collisionWithBall(objectList.get(i), i);
         }
+        for (Ball currentObject : objectList) {
+            collisionWithWalls(currentObject);
+        }
         clear();
-        for (Ball curentObject : objectList) {
-            curentObject.move();
+        for (Ball currentObject : objectList) {
+            currentObject.move();
         }
     }
 }

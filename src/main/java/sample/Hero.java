@@ -1,15 +1,22 @@
 package sample;
 
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 
 public class Hero extends Ball {
 
-    int score;
+    private int score;
 
-    public Hero(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius, KeyboardSubscription keyboardSubscription) {
+    public Hero(double _x,
+                double _y,
+                double _speed,
+                double xCoordinate,
+                double yCoordinate,
+                double radius,
+                KeyboardSubscription keyboardSubscription) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
         keyboardSubscription.subscribeToKey(this::move);
-        score =0;
+        score = 0;
     }
 
     public int getScore() {
@@ -36,9 +43,16 @@ public class Hero extends Ball {
 
     }
 
+    public void setEvent(MouseEvent event) {
+        Vector motion = new Vector(this.getPosition(), new Point(event.getSceneX(), event.getSceneY()));
+        motion.norm();
+        this.changeVector(motion);
+    }
+
     public void addPoint() {
         score++;
     }
+
     @Override
     public <T> T accept(BallVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);

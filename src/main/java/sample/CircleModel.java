@@ -5,11 +5,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class CircleModel extends Model {
-    Circle model;
+    private Circle model;
 
-    CircleModel(double xCoordinateCenter, double yCoordinateCenter, double radius, Color color, AnchorPane anchorPane) {
-        model = new Circle(xCoordinateCenter, yCoordinateCenter, radius, color);
-        this.anchorPane =anchorPane;
+    CircleModel(Point center, double radius, Color color, AnchorPane anchorPane) {
+        model = new Circle(center.getX(), center.getY(), radius, color);
+        this.anchorPane = anchorPane;
         anchorPane.getChildren().add(model);
     }
 

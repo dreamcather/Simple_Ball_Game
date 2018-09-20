@@ -8,7 +8,7 @@ public class CollisionVisitor implements BallVisitor<BallVisitor<Collision>> {
 
     @Override
     public BallVisitor<Collision> visit(Hero hero) {
-        return new HeroVisiter(hero);
+        return new HeroVisitor(hero);
     }
 
     @Override

@@ -14,8 +14,8 @@ public class LineTest {
         double expectedYCoefficient = -1;
         double expectedFreeCoefficient = 0;
 
-        double actualXCoefficient = line.getxCoefficient();
-        double actualYCoefficient = line.getyCoefficient();
+        double actualXCoefficient = line.getXCoefficient();
+        double actualYCoefficient = line.getYCoefficient();
         double actualFreeCoefficient = line.getFreeCoefficient();
 
         boolean xCompare = false;
@@ -45,8 +45,8 @@ public class LineTest {
         double expectedYCoefficient = 0;
         double expectedFreeCoefficient = 0;
 
-        double actualXCoefficient = line.getxCoefficient();
-        double actualYCoefficient = line.getyCoefficient();
+        double actualXCoefficient = line.getXCoefficient();
+        double actualYCoefficient = line.getYCoefficient();
         double actualFreeCoefficient = line.getFreeCoefficient();
 
         boolean xCompare = false;
@@ -76,8 +76,8 @@ public class LineTest {
         double expectedYCoefficient = 1;
         double expectedFreeCoefficient = 0;
 
-        double actualXCoefficient = line.getxCoefficient();
-        double actualYCoefficient = line.getyCoefficient();
+        double actualXCoefficient = line.getXCoefficient();
+        double actualYCoefficient = line.getYCoefficient();
         double actualFreeCoefficient = line.getFreeCoefficient();
 
         boolean xCompare = false;
@@ -107,8 +107,8 @@ public class LineTest {
         double expectedYCoefficient = -1;
         double expectedFreeCoefficient = 0;
 
-        double actualXCoefficient = line.getxCoefficient();
-        double actualYCoefficient = line.getyCoefficient();
+        double actualXCoefficient = line.getXCoefficient();
+        double actualYCoefficient = line.getYCoefficient();
         double actualFreeCoefficient = line.getFreeCoefficient();
 
         boolean xCompare = false;
@@ -138,8 +138,8 @@ public class LineTest {
         double expectedYCoefficient = -1;
         double expectedFreeCoefficient = 0;
 
-        double actualXCoefficient = line.getxCoefficient();
-        double actualYCoefficient = line.getyCoefficient();
+        double actualXCoefficient = line.getXCoefficient();
+        double actualYCoefficient = line.getYCoefficient();
         double actualFreeCoefficient = line.getFreeCoefficient();
 
         boolean xCompare = false;
@@ -169,8 +169,8 @@ public class LineTest {
         double expectedYCoefficient = 0;
         double expectedFreeCoefficient = -1;
 
-        double actualXCoefficient = line.getxCoefficient();
-        double actualYCoefficient = line.getyCoefficient();
+        double actualXCoefficient = line.getXCoefficient();
+        double actualYCoefficient = line.getYCoefficient();
         double actualFreeCoefficient = line.getFreeCoefficient();
 
         boolean xCompare = false;
@@ -288,7 +288,7 @@ public class LineTest {
 
         Line line = new Line(start,end);
 
-        Point actualProectionPoint = line.getProectionPoint(curentPoint);
+        Point actualProectionPoint = line.getProjectionPoint(curentPoint);
         Point expectedProectionPoint = new Point(1,1);
 
         boolean res = actualProectionPoint.equals(expectedProectionPoint);
