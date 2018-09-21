@@ -2,7 +2,10 @@ package game;
 
 import geometry.Point;
 import interaction.CollisionVisitor;
+import detection.DetectionVisitor;
 import object.Ball;
+import object.Wall;
+import object.WallCollection;
 
 import java.util.ArrayList;
 
@@ -23,28 +26,25 @@ public class PhysicGame {
         walls.getCollection().add(new Wall(start, end));
     }
 
-    private double distanceBall(Point first, Point second) {
-        return Math.sqrt(Math.pow(first.getX() - second.getX(), 2) + Math.pow(first.getY() - second.getY(), 2));
-    }
-
     private void collisionWithWalls(Ball ball) {
         for (int i = 0; i < walls.getCollection().size(); i++) {
             Wall currentWall = (Wall) walls.getCollection().elementAt(i);
-            if (currentWall.isCollisionWithBallAndNormalize(ball)) {
+            if(currentWall.collisionDetection(ball.collisionDetection(new DetectionVisitor())).detect())
+            {
                 ball.sumPerpendicularVector(currentWall.getLine().getNormal());
             }
         }
         for (Ball currentBall : objectList) {
-            currentBall.refreshVisualModel();
+            currentBall.changeVector();
         }
     }
 
     private void collisionWithBall(Ball mainBall, int number) {
         for (int i = number + 1; i < objectList.size(); i++) {
             Ball currentBall = objectList.get(i);
-            if (distanceBall(mainBall.getPosition(), currentBall.getPosition()) < mainBall.getRadius()
-                    + currentBall.getRadius()) {
-                mainBall.accept(currentBall.accept(new CollisionVisitor())).collide();
+            if(mainBall.collisionDetection(currentBall.collisionDetection(new DetectionVisitor())).detect())
+            {
+                mainBall.collisionReaction(currentBall.collisionReaction(new CollisionVisitor())).collide();
             }
         }
     }

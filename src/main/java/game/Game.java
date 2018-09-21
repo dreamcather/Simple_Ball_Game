@@ -1,6 +1,5 @@
 package game;
 
-import game.PhysicGame;
 import geometry.Point;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
@@ -9,11 +8,11 @@ import object.*;
 
 import java.util.ArrayList;
 
-public class GameState {
+public class Game {
     private AnchorPane gamePanel;
     private Hero hero;
     private Label score;
-    private Label gameTime;
+    private Label lifeCounter;
     private int countPoint;
     private double time;
     private PhysicGame physicGame;
@@ -21,7 +20,7 @@ public class GameState {
     private Factory factory;
     private int prizeCount;
 
-    public GameState(AnchorPane _panel) {
+    public Game(AnchorPane _panel) {
         gamePanel = _panel;
         factory = new Factory(gamePanel);
         visualObject = new ArrayList<>();
@@ -31,10 +30,10 @@ public class GameState {
         score.setLayoutY(50);
         gamePanel.getChildren().add(score);
         countPoint = 0;
-        gameTime = new Label("Time");
-        gamePanel.getChildren().add(gameTime);
-        gameTime.setLayoutX(550);
-        gameTime.setLayoutY(70);
+        lifeCounter = new Label("Life");
+        gamePanel.getChildren().add(lifeCounter);
+        lifeCounter.setLayoutX(550);
+        lifeCounter.setLayoutY(70);
         time = System.currentTimeMillis();
         prizeCount = 0;
     }
@@ -74,20 +73,22 @@ public class GameState {
     }
 
     public void update() {
-        physicGame.move();
-        if (hero.getScore() != countPoint) {
-            score.setText("Score " + hero.getScore());
-            countPoint = hero.getScore();
-            prizeCount--;
-        }
-        gameTime.setText("Time " + (System.currentTimeMillis() - time) / 1000);
+        if(hero.getLifeCount()>0) {
+            physicGame.move();
+            if (hero.getScore() != countPoint) {
+                score.setText("Score " + hero.getScore());
+                countPoint = hero.getScore();
+                prizeCount--;
+            }
+            lifeCounter.setText("Life " + hero.getLifeCount());
 
-        for (VisualBall currentObject : visualObject) {
-            currentObject.update();
-        }
-        if (prizeCount == 0) {
-            createPrize();
-            prizeCount++;
+            for (VisualBall currentObject : visualObject) {
+                currentObject.update();
+            }
+            if (prizeCount == 0) {
+                createPrize();
+                prizeCount++;
+            }
         }
 
     }

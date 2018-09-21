@@ -13,7 +13,7 @@ public class RegularCollisionTest {
                 100,100,5);
         Prize second = new Prize(-1,0,3,
                 110,100,5);
-        first.accept(second.accept(new CollisionVisitor())).collide();
+        first.collisionReaction(second.collisionReaction(new CollisionVisitor())).collide();
 
         double expectedXCoefficient =-1;
         double expectedYCoefficient =0;

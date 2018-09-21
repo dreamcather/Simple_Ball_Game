@@ -9,7 +9,7 @@ public class Prize extends Ball {
     }
 
     @Override
-    public <T> T accept(BallVisitor<T> ballVisitor) {
+    public <T> T collisionReaction(BallVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 }

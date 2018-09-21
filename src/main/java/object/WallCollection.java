@@ -1,4 +1,4 @@
-package game;
+package object;
 
 import java.util.Vector;
 
@@ -6,7 +6,7 @@ public class WallCollection {
 
     private Vector collection;
 
-    WallCollection() {
+    public WallCollection() {
 
         collection = new Vector();
     }

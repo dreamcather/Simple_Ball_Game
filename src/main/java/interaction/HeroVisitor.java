@@ -13,7 +13,7 @@ public class HeroVisitor implements BallVisitor<Collision> {
 
     @Override
     public Collision visit(Enemy enemy) {
-        return new RegularCollision(hero, enemy);
+        return new KillCollision(hero, enemy);
     }
 
     @Override

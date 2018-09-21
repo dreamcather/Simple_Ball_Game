@@ -9,6 +9,7 @@ import interaction.BallVisitor;
 public class Hero extends Ball {
 
     private int score;
+    private int lifeCount;
 
     public Hero(double _x,
                 double _y,
@@ -20,10 +21,19 @@ public class Hero extends Ball {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
         keyboardSubscription.subscribeToKey(this::move);
         score = 0;
+        lifeCount =3;
     }
 
     public int getScore() {
         return score;
+    }
+
+    public int getLifeCount() {
+        return lifeCount;
+    }
+
+    public void eraseLife() {
+        this.lifeCount--;
     }
 
     private void move(KeyCode keyCode) {
@@ -57,7 +67,7 @@ public class Hero extends Ball {
     }
 
     @Override
-    public <T> T accept(BallVisitor<T> ballVisitor) {
+    public <T> T collisionReaction(BallVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 }

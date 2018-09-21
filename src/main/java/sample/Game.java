@@ -1,6 +1,5 @@
 package sample;
 
-import game.GameState;
 import geometry.Point;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -24,7 +23,7 @@ public class Game extends Application {
         window.setTitle("Game");
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout, 700, 520);
-        GameState gameState = new GameState(layout);
+        game.Game gameState = new game.Game(layout);
         Hero hero = new Hero(-1,
                              0,
                              3,

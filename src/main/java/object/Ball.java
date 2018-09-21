@@ -3,6 +3,7 @@ package object;
 import geometry.Point;
 import geometry.Vector;
 import interaction.BallVisitor;
+import detection.ObjectDetectVisitor;
 
 public abstract class Ball {
     protected double xCoefficient;
@@ -68,7 +69,11 @@ public abstract class Ball {
         norm();
     }
 
-    public abstract <T> T accept(BallVisitor<T> ballVisitor);
+    public abstract <T> T collisionReaction(BallVisitor<T> ballVisitor);
+
+    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor){
+        return objectDetectVisitor.visit(this);
+    }
 
     public boolean isAlive() {
         return alive;
@@ -82,7 +87,7 @@ public abstract class Ball {
         }
     }
 
-    public void refreshVisualModel() {
+    public void changeVector() {
         if (perpendicularVector != null) {
             Vector motionVector = this.getVector();
             Vector res = motionVector.getReflectionThroughVector(perpendicularVector);
