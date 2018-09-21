@@ -12,7 +12,7 @@ import object.Enemy;
 import object.Hero;
 import object.Prize;
 
-public class Game extends Application {
+public class Main extends Application {
 
     Stage window;
     Scene scene;
@@ -34,7 +34,7 @@ public class Game extends Application {
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                hero.setMouseEvent(event);
+                gameState.mouseClick(event);
             }
         });
         gameState.addEnemy(new Enemy(1, 0, 1, 50, 50, 15));
@@ -55,6 +55,7 @@ public class Game extends Application {
         gameState.addWall(new Point(400, 400), new Point(450, 350));
         gameState.addWall(new Point(500, 400), new Point(450, 350));
         gameState.addWall(new Point(500, 500), new Point(400, 400));
+        gameState.addWall(new Point(100, 150), new Point(120, 170));
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

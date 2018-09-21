@@ -4,13 +4,14 @@ import geometry.Point;
 import geometry.Vector;
 import interaction.BallVisitor;
 import detection.ObjectDetectVisitor;
+import interaction.MotionControl;
 
 public abstract class Ball {
     protected double xCoefficient;
     protected double yCoefficient;
     protected double speedOfMotion;
-    private double xCoordinate;
-    private double yCoordinate;
+    protected double xCoordinate;
+    protected double yCoordinate;
     private double radius;
     private Vector perpendicularVector;
     private boolean alive;
@@ -27,7 +28,7 @@ public abstract class Ball {
         norm();
     }
 
-    public void move() {
+    public void move(MotionControl motionControl) {
         xCoordinate += xCoefficient * speedOfMotion;
         yCoordinate += yCoefficient * speedOfMotion;
     }
@@ -71,7 +72,7 @@ public abstract class Ball {
 
     public abstract <T> T collisionReaction(BallVisitor<T> ballVisitor);
 
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor){
+    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
 

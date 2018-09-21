@@ -2,8 +2,8 @@ package object;
 
 import geometry.Point;
 import geometry.Vector;
+import interaction.MotionControl;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import interaction.BallVisitor;
 
 public class Hero extends Ball {
@@ -21,7 +21,7 @@ public class Hero extends Ball {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
         keyboardSubscription.subscribeToKey(this::move);
         score = 0;
-        lifeCount =3;
+        lifeCount = 3;
     }
 
     public int getScore() {
@@ -56,12 +56,6 @@ public class Hero extends Ball {
 
     }
 
-    public void setMouseEvent(MouseEvent event) {
-        Vector motion = new Vector(this.getPosition(), new Point(event.getSceneX(), event.getSceneY()));
-        motion.norm();
-        this.changeVector(motion);
-    }
-
     public void incrementPrizeCount() {
         score++;
     }
@@ -69,5 +63,18 @@ public class Hero extends Ball {
     @Override
     public <T> T collisionReaction(BallVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
+    }
+    @Override
+    public void move(MotionControl motionControl){
+        if(motionControl.getPosition()!=null){
+            Vector motion = new Vector(this.getPosition(), motionControl.getPosition());
+            motion.norm();
+            this.changeVector(motion);
+            motionControl.setPosition(null);
+        }
+        else{
+            xCoordinate += xCoefficient * speedOfMotion;
+            yCoordinate += yCoefficient * speedOfMotion;
+        }
     }
 }

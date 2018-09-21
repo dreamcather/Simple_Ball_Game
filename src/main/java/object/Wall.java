@@ -30,9 +30,11 @@ public class Wall {
     public Line getLeftParallelLine() {
         return leftParallelLine;
     }
+
     public Line getRightParallelLine() {
         return rightParallelLine;
     }
+
     public Point getStart() {
         return start;
     }
@@ -40,7 +42,8 @@ public class Wall {
     public Point getEnd() {
         return end;
     }
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor){
+
+    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
 }

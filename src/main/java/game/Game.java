@@ -1,6 +1,8 @@
 package game;
 
 import geometry.Point;
+import interaction.MotionControl;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Line;
@@ -14,11 +16,11 @@ public class Game {
     private Label score;
     private Label lifeCounter;
     private int countPoint;
-    private double time;
     private PhysicGame physicGame;
     private ArrayList<VisualBall> visualObject;
     private Factory factory;
     private int prizeCount;
+    MotionControl motionControl;
 
     public Game(AnchorPane _panel) {
         gamePanel = _panel;
@@ -34,8 +36,8 @@ public class Game {
         gamePanel.getChildren().add(lifeCounter);
         lifeCounter.setLayoutX(550);
         lifeCounter.setLayoutY(70);
-        time = System.currentTimeMillis();
         prizeCount = 0;
+        motionControl =new MotionControl();
     }
 
     public void addWall(Point start, Point end) {
@@ -72,9 +74,13 @@ public class Game {
         prizeCount++;
     }
 
+    public void mouseClick(MouseEvent event) {
+        motionControl = new MotionControl(event);
+    }
+
     public void update() {
-        if(hero.getLifeCount()>0) {
-            physicGame.move();
+        if (hero.getLifeCount() > -10) {
+            physicGame.move(motionControl);
             if (hero.getScore() != countPoint) {
                 score.setText("Score " + hero.getScore());
                 countPoint = hero.getScore();

@@ -12,11 +12,11 @@ public class BallDetectionVisitor implements ObjectDetectVisitor<Detection> {
 
     @Override
     public Detection visit(Ball ball) {
-        return new RegularTwoBallDetection(this.ball,ball);
+        return new RegularTwoBallDetection(this.ball, ball);
     }
 
     @Override
     public Detection visit(Wall wall) {
-        return new RegularBallAndWallDetection(ball,wall);
+        return new RegularBallAndWallDetection(ball, wall);
     }
 }

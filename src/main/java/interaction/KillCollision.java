@@ -15,7 +15,7 @@ public class KillCollision extends Collision {
     @Override
     public void collide() {
         hero.eraseLife();
-        RegularCollision regularCollision = new RegularCollision(hero,enemy);
+        RegularCollision regularCollision = new RegularCollision(hero, enemy);
         regularCollision.collide();
 
     }

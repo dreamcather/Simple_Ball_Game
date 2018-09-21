@@ -1,6 +1,5 @@
 package object;
 
-
 import javafx.scene.layout.AnchorPane;
 
 public abstract class Model {

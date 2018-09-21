@@ -17,7 +17,6 @@ public class Line {
         return freeCoefficient;
     }
 
-
     public Line(Point start, Point end) {
         xCoefficient = start.getY() - end.getY();
         yCoefficient = end.getX() - start.getX();

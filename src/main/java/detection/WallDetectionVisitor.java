@@ -3,7 +3,7 @@ package detection;
 import object.Wall;
 import object.Ball;
 
-public class WallDetectionVisitor implements ObjectDetectVisitor<Detection>  {
+public class WallDetectionVisitor implements ObjectDetectVisitor<Detection> {
     Wall wall;
 
     public WallDetectionVisitor(Wall wall) {
@@ -12,7 +12,7 @@ public class WallDetectionVisitor implements ObjectDetectVisitor<Detection>  {
 
     @Override
     public Detection visit(Ball ball) {
-        return new RegularBallAndWallDetection(ball,wall);
+        return new RegularBallAndWallDetection(ball, wall);
     }
 
     @Override
