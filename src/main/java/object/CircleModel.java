@@ -1,5 +1,6 @@
-package sample;
+package object;
 
+import geometry.Point;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -14,7 +15,7 @@ public class CircleModel extends Model {
     }
 
     @Override
-    public void move(double xOffset, double yOffset) {
+    public void refresh(double xOffset, double yOffset) {
         model.setCenterX(xOffset);
         model.setCenterY(yOffset);
     }

@@ -1,4 +1,4 @@
-package sample;
+package object;
 
 public class VisualBall {
     Ball ball;
@@ -13,7 +13,7 @@ public class VisualBall {
         if (!ball.isAlive()) {
             model.hide();
         } else
-            model.move(ball.getPosition().getX(), ball.getPosition().getY());
+            model.refresh(ball.getPosition().getX(), ball.getPosition().getY());
     };
 
 }

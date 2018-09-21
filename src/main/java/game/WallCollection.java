@@ -1,4 +1,4 @@
-package sample;
+package game;
 
 import java.util.Vector;
 

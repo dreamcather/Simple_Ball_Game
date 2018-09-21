@@ -1,5 +1,7 @@
 package sample;
 
+import game.GameState;
+import geometry.Point;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -7,6 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import object.Enemy;
+import object.Hero;
+import object.Prize;
 
 public class Game extends Application {
 
@@ -30,7 +35,7 @@ public class Game extends Application {
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                hero.setEvent(event);
+                hero.setMouseEvent(event);
             }
         });
         gameState.addEnemy(new Enemy(1, 0, 1, 50, 50, 15));

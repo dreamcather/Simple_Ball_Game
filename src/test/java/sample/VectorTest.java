@@ -1,5 +1,6 @@
 package sample;
 
+import geometry.Vector;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,7 @@ public class VectorTest {
     public void reflectionTest1(){
         Vector mainVector =new Vector(1,-1);
         Vector perpendicularVector = new Vector(0,1);
-        Vector actual = mainVector.getReflection(perpendicularVector);
+        Vector actual = mainVector.getReflectionThroughVector(perpendicularVector);
 
         Vector expected = new Vector(1,1);
 

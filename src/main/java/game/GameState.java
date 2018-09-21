@@ -1,8 +1,11 @@
-package sample;
+package game;
 
+import game.PhysicGame;
+import geometry.Point;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Line;
+import object.*;
 
 import java.util.ArrayList;
 
@@ -18,7 +21,7 @@ public class GameState {
     private Factory factory;
     private int prizeCount;
 
-    GameState(AnchorPane _panel) {
+    public GameState(AnchorPane _panel) {
         gamePanel = _panel;
         factory = new Factory(gamePanel);
         visualObject = new ArrayList<>();

@@ -1,4 +1,4 @@
-package sample;
+package geometry;
 
 public class Vector {
     private double xCoefficient;
@@ -28,11 +28,11 @@ public class Vector {
         yCoefficient = end.getY() - start.getY();
     }
 
-    public Point addition(Point point) {
-        return new Point(point.getX() + xCoefficient, point.getY() + yCoefficient);
+    public Point getEndPointVector(Point start) {
+        return new Point(start.getX() + xCoefficient, start.getY() + yCoefficient);
     }
 
-    public Vector addition(Vector addVector) {
+    public Vector sumVector(Vector addVector) {
         Vector res = new Vector(this.xCoefficient + addVector.xCoefficient, this.yCoefficient + addVector.yCoefficient);
         return res;
     }
@@ -48,15 +48,15 @@ public class Vector {
         return xRes && yRes;
     }
 
-    public Vector getReflection(Vector vector) {
+    public Vector getReflectionThroughVector(Vector vector) {
         Point start = new Point(-xCoefficient, -yCoefficient);
         Point collisionPoint = new Point(0, 0);
         Line perpendicularLine = new Line(collisionPoint, vector);
         Vector perpendicularVector = perpendicularLine.getNormal();
         Line parallelLine = new Line(start, perpendicularVector);
-        Point middlePoint = perpendicularLine.intersectionLine(parallelLine);
+        Point middlePoint = perpendicularLine.getLineIntersectionPoint(parallelLine);
         Vector startToMiddle = new Vector(start, middlePoint);
-        Point endPoint = startToMiddle.addition(middlePoint);
+        Point endPoint = startToMiddle.getEndPointVector(middlePoint);
         return new Vector(collisionPoint, endPoint);
     }
 

@@ -1,4 +1,6 @@
 package sample;
+import game.Wall;
+import geometry.Point;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

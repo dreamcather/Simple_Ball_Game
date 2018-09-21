@@ -1,4 +1,6 @@
-package sample;
+package object;
+
+import interaction.BallVisitor;
 
 public class Enemy extends Ball {
 

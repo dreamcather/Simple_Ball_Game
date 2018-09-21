@@ -1,4 +1,9 @@
-package sample;
+package game;
+
+import geometry.Line;
+import geometry.Point;
+import geometry.Vector;
+import object.Ball;
 
 public class Wall {
 
@@ -8,7 +13,7 @@ public class Wall {
     private Point start;
     private Point end;
 
-    Wall(Point _start, Point _end) {
+    public Wall(Point _start, Point _end) {
 
         mainLine = new Line(_start, _end);
         start = _start;
@@ -35,21 +40,21 @@ public class Wall {
     private void normalizePoint(Ball ball, Point point) {
         Vector vector = new Vector(point, ball.getPosition());
         vector.setLength(ball.getRadius());
-        Point resPoint = vector.addition(point);
+        Point resPoint = vector.getEndPointVector(point);
         ball.setPosition(resPoint);
     }
 
     private void normalizeLine(Ball ball) {
-        Point collisionPoint = mainLine.getProjectionPoint(ball.getPosition());
+        Point collisionPoint = mainLine.getProjectionPointToLine(ball.getPosition());
         normalizePoint(ball, collisionPoint);
     }
 
     boolean isCollisionWithBallAndNormalize(Ball ball) {
-        if (start.getDistancePoint(ball.getPosition()) <= ball.getRadius() && (this.getLine().getSign(start) >= 0)) {
+        if (start.getDistanceToPoint(ball.getPosition()) <= ball.getRadius() && (this.getLine().getSignEquationLine(start) >= 0)) {
             normalizePoint(ball, start);
             return true;
         }
-        if (end.getDistancePoint(ball.getPosition()) <= ball.getRadius() && (this.getLine().getSign(end) >= 0)) {
+        if (end.getDistanceToPoint(ball.getPosition()) <= ball.getRadius() && (this.getLine().getSignEquationLine(end) >= 0)) {
             normalizePoint(ball, end);
             return true;
         }

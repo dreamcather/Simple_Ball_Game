@@ -1,5 +1,8 @@
 package sample;
 
+import geometry.Line;
+import geometry.Point;
+import geometry.Vector;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -200,7 +203,7 @@ public class LineTest {
         Point secondEnd = new Point(1,1);
         Line secondLine = new Line(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = firstLine.intersectionLine(secondLine);
+        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondLine);
         Point expectedIntesectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntesectionPoint);
@@ -218,7 +221,7 @@ public class LineTest {
         Point secondEnd = new Point(1,1);
         Line secondLine = new Line(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = firstLine.intersectionLine(secondLine);
+        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondLine);
         Point expectedIntersectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
@@ -236,7 +239,7 @@ public class LineTest {
         Vector secondVector = new Vector(1,0);
         Line secondLine = new Line(secondStart,secondVector);
 
-        Point actualIntersectionPoint = firstLine.intersectionLine(secondLine);
+        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondLine);
         Point expectedIntersectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
@@ -255,7 +258,7 @@ public class LineTest {
         Point secondEnd = new Point(1,1);
         Vector secondVector = new Vector(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = firstLine.intersectionLine(secondStart,secondVector);
+        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondStart,secondVector);
         Point expectedIntersectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
@@ -288,7 +291,7 @@ public class LineTest {
 
         Line line = new Line(start,end);
 
-        Point actualProectionPoint = line.getProjectionPoint(curentPoint);
+        Point actualProectionPoint = line.getProjectionPointToLine(curentPoint);
         Point expectedProectionPoint = new Point(1,1);
 
         boolean res = actualProectionPoint.equals(expectedProectionPoint);

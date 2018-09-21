@@ -1,4 +1,4 @@
-package sample;
+package object;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;

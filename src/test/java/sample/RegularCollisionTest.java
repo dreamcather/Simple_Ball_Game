@@ -1,5 +1,8 @@
 package sample;
 
+import interaction.CollisionVisitor;
+import object.Enemy;
+import object.Prize;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,8 +18,8 @@ public class RegularCollisionTest {
         double expectedXCoefficient =-1;
         double expectedYCoefficient =0;
 
-        double actualXCoefficient = first.xCoefficient;
-        double actualYCoefficient = first.yCoefficient;
+        double actualXCoefficient = first.getVector().getXCoefficient();
+        double actualYCoefficient = first.getVector().getYCoefficient();
 
         boolean xCompare = false;
         boolean yCompare = false;

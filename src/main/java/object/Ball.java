@@ -1,4 +1,8 @@
-package sample;
+package object;
+
+import geometry.Point;
+import geometry.Vector;
+import interaction.BallVisitor;
 
 public abstract class Ball {
     protected double xCoefficient;
@@ -70,18 +74,18 @@ public abstract class Ball {
         return alive;
     }
 
-    public void addPerpendicularVector(Vector vector) {
+    public void sumPerpendicularVector(Vector vector) {
         if (perpendicularVector == null) {
             perpendicularVector = vector;
         } else {
-            perpendicularVector = perpendicularVector.addition(vector);
+            perpendicularVector = perpendicularVector.sumVector(vector);
         }
     }
 
-    public void update() {
+    public void refreshVisualModel() {
         if (perpendicularVector != null) {
             Vector motionVector = this.getVector();
-            Vector res = motionVector.getReflection(perpendicularVector);
+            Vector res = motionVector.getReflectionThroughVector(perpendicularVector);
             this.changeVector(res);
             perpendicularVector = null;
         }
@@ -91,7 +95,7 @@ public abstract class Ball {
         this.speedOfMotion = speedOfMotion;
     }
 
-    public void setAlive(boolean alive) {
+    public void setLiveStatus(boolean alive) {
         this.alive = alive;
     }
 }

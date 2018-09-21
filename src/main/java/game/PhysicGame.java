@@ -1,4 +1,8 @@
-package sample;
+package game;
+
+import geometry.Point;
+import interaction.CollisionVisitor;
+import object.Ball;
 
 import java.util.ArrayList;
 
@@ -27,11 +31,11 @@ public class PhysicGame {
         for (int i = 0; i < walls.getCollection().size(); i++) {
             Wall currentWall = (Wall) walls.getCollection().elementAt(i);
             if (currentWall.isCollisionWithBallAndNormalize(ball)) {
-                ball.addPerpendicularVector(currentWall.getLine().getNormal());
+                ball.sumPerpendicularVector(currentWall.getLine().getNormal());
             }
         }
         for (Ball currentBall : objectList) {
-            currentBall.update();
+            currentBall.refreshVisualModel();
         }
     }
 

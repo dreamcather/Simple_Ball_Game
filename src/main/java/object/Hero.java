@@ -1,7 +1,10 @@
-package sample;
+package object;
 
+import geometry.Point;
+import geometry.Vector;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import interaction.BallVisitor;
 
 public class Hero extends Ball {
 
@@ -43,13 +46,13 @@ public class Hero extends Ball {
 
     }
 
-    public void setEvent(MouseEvent event) {
+    public void setMouseEvent(MouseEvent event) {
         Vector motion = new Vector(this.getPosition(), new Point(event.getSceneX(), event.getSceneY()));
         motion.norm();
         this.changeVector(motion);
     }
 
-    public void addPoint() {
+    public void incrementPrizeCount() {
         score++;
     }
 

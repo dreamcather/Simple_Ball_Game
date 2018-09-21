@@ -1,4 +1,4 @@
-package sample;
+package geometry;
 
 public class Line {
     private double xCoefficient;
@@ -30,7 +30,7 @@ public class Line {
         freeCoefficient = point.getX() * vector.getYCoefficient() - point.getY() * vector.getXCoefficient();
     }
 
-    public Point intersectionLine(Line line) {
+    public Point getLineIntersectionPoint(Line line) {
         double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
         double xDeterminant = xCoefficient * line.freeCoefficient - line.xCoefficient * freeCoefficient;
         double yDeterminant = yCoefficient * line.freeCoefficient - line.yCoefficient * freeCoefficient;
@@ -42,10 +42,10 @@ public class Line {
 
     }
 
-    public Point intersectionLine(Point point, Vector vector) {
+    public Point getLineIntersectionPoint(Point point, Vector vector) {
 
         Line crossLine = new Line(point, vector);
-        return intersectionLine(crossLine);
+        return getLineIntersectionPoint(crossLine);
     }
 
     public double calculateDistanceToPoint(Point point) {
@@ -60,7 +60,7 @@ public class Line {
         return res;
     }
 
-    public Point getProjectionPoint(Point point) {
+    public Point getProjectionPointToLine(Point point) {
 
         double x = (yCoefficient * (yCoefficient * point.getX() - xCoefficient * point.getY())
                 - xCoefficient * freeCoefficient) / (Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
@@ -71,7 +71,7 @@ public class Line {
         return new Point(x, y);
     }
 
-    public double getSign(Point point) {
+    public double getSignEquationLine(Point point) {
         return xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient;
     }
 

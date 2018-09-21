@@ -1,4 +1,7 @@
-package sample;
+package interaction;
+
+import object.Hero;
+import object.Prize;
 
 public class DestroyCollision extends Collision {
     private Hero hero;
@@ -11,8 +14,8 @@ public class DestroyCollision extends Collision {
 
     @Override
     public void collide() {
-        hero.addPoint();
-        pray.setAlive(false);
+        hero.incrementPrizeCount();
+        pray.setLiveStatus(false);
 
     }
 }

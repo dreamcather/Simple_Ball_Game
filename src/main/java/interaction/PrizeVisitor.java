@@ -1,4 +1,8 @@
-package sample;
+package interaction;
+
+import object.Enemy;
+import object.Hero;
+import object.Prize;
 
 public class PrizeVisitor implements BallVisitor<Collision> {
     private Prize prize;
