@@ -1,8 +1,8 @@
-package detection;
+package interaction;
 
 import object.*;
 
-public interface ObjectDetectVisitor<T> {
+public interface ObjectInteractVisitor<T> {
 
     T visit(Enemy enemy);
 

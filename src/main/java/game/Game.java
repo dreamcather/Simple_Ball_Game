@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Game {
     private AnchorPane gamePanel;
-    private Hero hero;
+    private Player hero;
     private Label score;
     private Label lifeCounter;
     private int countPoint;
@@ -45,7 +45,7 @@ public class Game {
         gamePanel.getChildren().add(new Line(start.getX(), start.getY(), end.getX(), end.getY()));
     }
 
-    public void addHero(Hero hero) {
+    public void addHero(Player hero) {
         this.hero = hero;
         physicGame.addBall(hero);
         visualObject.add(factory.createPlayer(hero));

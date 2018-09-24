@@ -2,11 +2,11 @@ package object;
 
 import geometry.Point;
 import geometry.Vector;
-import interaction.BallVisitor;
 import detection.ObjectDetectVisitor;
 import interaction.MotionControl;
+import interaction.ObjectInteractVisitor;
 
-public abstract class Ball {
+public abstract class Ball extends GameObject {
     protected double xCoefficient;
     protected double yCoefficient;
     protected double speedOfMotion;
@@ -70,11 +70,9 @@ public abstract class Ball {
         norm();
     }
 
-    public abstract <T> T collisionReaction(BallVisitor<T> ballVisitor);
+    public abstract <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor);
 
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
-        return objectDetectVisitor.visit(this);
-    }
+    public abstract  <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor);
 
     public boolean isAlive() {
         return alive;

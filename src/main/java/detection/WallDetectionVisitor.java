@@ -1,7 +1,6 @@
 package detection;
 
-import object.Wall;
-import object.Ball;
+import object.*;
 
 public class WallDetectionVisitor implements ObjectDetectVisitor<Detection> {
     Wall wall;
@@ -11,12 +10,22 @@ public class WallDetectionVisitor implements ObjectDetectVisitor<Detection> {
     }
 
     @Override
-    public Detection visit(Ball ball) {
-        return new RegularBallAndWallDetection(ball, wall);
+    public Detection visit(Enemy enemy) {
+        return new RegularBallAndWallDetection(enemy,wall);
+    }
+
+    @Override
+    public Detection visit(Player player) {
+        return new RegularBallAndWallDetection(player,wall);
+    }
+
+    @Override
+    public Detection visit(Prize prize) {
+        return new RegularBallAndWallDetection(prize,wall);
     }
 
     @Override
     public Detection visit(Wall wall) {
-        return null;
+        return new EmptyDetection();
     }
 }

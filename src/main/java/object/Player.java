@@ -1,23 +1,23 @@
 package object;
 
-import geometry.Point;
+import detection.ObjectDetectVisitor;
 import geometry.Vector;
 import interaction.MotionControl;
+import interaction.ObjectInteractVisitor;
 import javafx.scene.input.KeyCode;
-import interaction.BallVisitor;
 
-public class Hero extends Ball {
+public class Player extends Ball {
 
     private int score;
     private int lifeCount;
 
-    public Hero(double _x,
-                double _y,
-                double _speed,
-                double xCoordinate,
-                double yCoordinate,
-                double radius,
-                KeyboardSubscription keyboardSubscription) {
+    public Player(double _x,
+                  double _y,
+                  double _speed,
+                  double xCoordinate,
+                  double yCoordinate,
+                  double radius,
+                  KeyboardSubscription keyboardSubscription) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
         keyboardSubscription.subscribeToKey(this::move);
         score = 0;
@@ -61,9 +61,15 @@ public class Hero extends Ball {
     }
 
     @Override
-    public <T> T collisionReaction(BallVisitor<T> ballVisitor) {
+    public <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
+
+    @Override
+    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
+        return objectDetectVisitor.visit(this);
+    }
+
     @Override
     public void move(MotionControl motionControl){
         if(motionControl.getPosition()!=null){

@@ -1,13 +1,13 @@
 package interaction;
 
 import object.Enemy;
-import object.Hero;
+import object.Player;
 
 public class KillCollision extends Collision {
-    Hero hero;
+    Player hero;
     Enemy enemy;
 
-    public KillCollision(Hero hero, Enemy enemy) {
+    public KillCollision(Player hero, Enemy enemy) {
         this.hero = hero;
         this.enemy = enemy;
     }

@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import object.Enemy;
-import object.Hero;
+import object.Player;
 import object.Prize;
 
 public class Main extends Application {
@@ -24,7 +24,7 @@ public class Main extends Application {
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout, 700, 520);
         game.Game gameState = new game.Game(layout);
-        Hero hero = new Hero(-1,
+        Player hero = new Player(-1,
                              0,
                              3,
                              310,
@@ -55,7 +55,6 @@ public class Main extends Application {
         gameState.addWall(new Point(400, 400), new Point(450, 350));
         gameState.addWall(new Point(500, 400), new Point(450, 350));
         gameState.addWall(new Point(500, 500), new Point(400, 400));
-        gameState.addWall(new Point(100, 150), new Point(120, 170));
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

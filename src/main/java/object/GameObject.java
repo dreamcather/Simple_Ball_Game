@@ -1,11 +1,19 @@
 package object;
 
-import interaction.BallVisitor;
+import detection.ObjectDetectVisitor;
+import interaction.MotionControl;
+import interaction.ObjectInteractVisitor;
 
 public abstract class GameObject {
 
-    public abstract <T> T collideDetection(BallVisitor<T> ballVisitor);
 
-    public abstract <T> T collideReaction(BallVisitor<T> ballVisitor);
+    public abstract <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor);
 
+    public abstract  <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor);
+
+    public abstract void changeVector();
+
+    public abstract void move(MotionControl motionControl);
+
+    public abstract boolean isAlive();
 }

@@ -21,7 +21,7 @@ public class Factory {
         return new VisualBall(ball, new CircleModel(ball.getPosition(), ball.getRadius(), prizeColor, anchorPane));
     }
 
-    public VisualBall createPlayer(Hero ball) {
+    public VisualBall createPlayer(Player ball) {
         return new VisualBall(ball, new CircleModel(ball.getPosition(), ball.getRadius(), playerColor, anchorPane));
     }
 }

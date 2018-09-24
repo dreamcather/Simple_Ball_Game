@@ -4,8 +4,10 @@ import detection.ObjectDetectVisitor;
 import geometry.Line;
 import geometry.Point;
 import geometry.Vector;
+import interaction.MotionControl;
+import interaction.ObjectInteractVisitor;
 
-public class Wall {
+public class Wall extends  GameObject{
 
     private Line mainLine;
     private Line leftParallelLine;
@@ -44,6 +46,25 @@ public class Wall {
     }
 
     public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
+        return objectDetectVisitor.visit(this);
+    }
+
+    @Override
+    public void changeVector() {
+
+    }
+
+    @Override
+    public void move(MotionControl motionControl) {
+
+    }
+
+    @Override
+    public boolean isAlive() {
+        return true;
+    }
+
+    public <T> T collisionReaction(ObjectInteractVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
 }

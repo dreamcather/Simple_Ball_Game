@@ -1,10 +1,11 @@
 package interaction;
 
 import object.Enemy;
-import object.Hero;
+import object.Player;
 import object.Prize;
+import object.Wall;
 
-public class EnemyVisitor implements BallVisitor<Collision> {
+public class EnemyVisitor implements ObjectInteractVisitor<Collision> {
     private Enemy enemy;
 
     EnemyVisitor(Enemy _enemy) {
@@ -17,12 +18,17 @@ public class EnemyVisitor implements BallVisitor<Collision> {
     }
 
     @Override
-    public Collision visit(Hero hero) {
-        return new KillCollision(hero, enemy);
+    public Collision visit(Player hero) {
+        return new DestroyCollision(hero, enemy);
     }
 
     @Override
     public Collision visit(Prize point) {
         return new RegularCollision(point, enemy);
+    }
+
+    @Override
+    public Collision visit(Wall wall) {
+        return null;
     }
 }
