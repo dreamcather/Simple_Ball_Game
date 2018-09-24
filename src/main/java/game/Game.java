@@ -2,6 +2,7 @@ package game;
 
 import geometry.Point;
 import interaction.MotionControl;
+import javafx.animation.AnimationTimer;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
@@ -21,6 +22,8 @@ public class Game {
     private Factory factory;
     private int prizeCount;
     MotionControl motionControl;
+    AnimationTimer animationTimer;
+    boolean active;
 
     public Game(AnchorPane _panel) {
         gamePanel = _panel;
@@ -38,6 +41,14 @@ public class Game {
         lifeCounter.setLayoutY(70);
         prizeCount = 0;
         motionControl =new MotionControl();
+        active =false;
+        animationTimer =new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                update();
+            }
+        };
+
     }
 
     public void addWall(Point start, Point end) {
@@ -76,11 +87,20 @@ public class Game {
 
     public void mouseClick(MouseEvent event) {
         motionControl = new MotionControl(event);
+        physicGame.setMotionControl(motionControl);
+    }
+
+    public void start(){
+        animationTimer.start();
+        active =true;
+    }
+    public void stop(){
+        animationTimer.stop();
+        active =false;
     }
 
     public void update() {
         if (hero.getLifeCount() > -10) {
-            physicGame.move(motionControl);
             if (hero.getScore() != countPoint) {
                 score.setText("Score " + hero.getScore());
                 countPoint = hero.getScore();
@@ -97,6 +117,10 @@ public class Game {
             }
         }
 
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
 }

@@ -4,32 +4,36 @@ import geometry.Point;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
 import interaction.ObjectInteractionVisitor;
+import javafx.animation.AnimationTimer;
 import object.Ball;
 import object.GameObject;
 import object.Wall;
-import object.WallCollection;
 
 import java.util.ArrayList;
 
 public class PhysicGame {
-    private ArrayList<Ball> objectList;
     private ArrayList<GameObject> gameObjectList;
-    private WallCollection walls;
+    MotionControl motionControl;
+    private AnimationTimer animationTimer;
 
     public PhysicGame() {
-        objectList = new ArrayList<>();
         gameObjectList = new ArrayList<>();
-        walls = new WallCollection();
+        motionControl = new MotionControl();
+        animationTimer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                move(motionControl);
+            }
+        };
+        animationTimer.start();
     }
 
     public void addBall(Ball ball) {
-        objectList.add(ball);
         gameObjectList.add(ball);
     }
 
     public void addWall(Point start, Point end) {
         Wall wall = new Wall(start, end);
-        walls.getCollection().add(wall);
         gameObjectList.add(wall);
     }
 
@@ -58,8 +62,12 @@ public class PhysicGame {
             collision(gameObjectList.get(i),i);
         }
         clear();
-        for (GameObject currentObject : objectList) {
+        for (GameObject currentObject : gameObjectList) {
             currentObject.move(motionControl);
         }
+    }
+
+    public void setMotionControl(MotionControl motionControl) {
+        this.motionControl = motionControl;
     }
 }

@@ -5,6 +5,8 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -55,15 +57,20 @@ public class Main extends Application {
         gameState.addWall(new Point(400, 400), new Point(450, 350));
         gameState.addWall(new Point(500, 400), new Point(450, 350));
         gameState.addWall(new Point(500, 500), new Point(400, 400));
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                gameState.update();
-            }
-        };
         window.setScene(scene);
         window.show();
-        timer.start();
+        gameState.start();
+
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode()== KeyCode.SPACE)
+                    if(gameState.isActive())
+                    gameState.stop();
+                    else
+                        gameState.start();
+            }
+        });
     }
 
     public static void main(String[] args) {
