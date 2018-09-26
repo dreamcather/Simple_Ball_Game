@@ -106,4 +106,9 @@ public abstract class Ball extends GameObject {
     public void setLiveStatus(boolean alive) {
         this.alive = alive;
     }
+
+    public String toString(){
+        return new String(this.type+" "+xCoefficient+" "+yCoefficient+" "+speedOfMotion
+        +" "+xCoordinate+" "+yCoordinate+ " "+radius);
+    }
 }

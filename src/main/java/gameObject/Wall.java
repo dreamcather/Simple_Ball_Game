@@ -80,6 +80,12 @@ public class Wall extends  GameObject{
         return new Point(0,0);
     }
 
+    @Override
+    public String toString() {
+        String res = new String(start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n");
+        return res;
+    }
+
     public <T> T collisionReaction(ObjectInteractVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }

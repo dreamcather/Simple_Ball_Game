@@ -1,5 +1,7 @@
 package game;
 
+import Save.Rider;
+import Save.Writer;
 import geometry.Point;
 import interaction.MotionControl;
 import javafx.animation.AnimationTimer;
@@ -12,6 +14,7 @@ import visual.Camera;
 import visual.VisualBall;
 import visual.VisualFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -30,8 +33,9 @@ public class Game {
     VisualGame visualGame;
     VisualFactory visualFactory;
     Camera camera;
+    Rider writer;
 
-    public Game(AnchorPane _panel) {
+    public Game(AnchorPane _panel) throws IOException {
         gamePanel = _panel;
         factory = new Factory(gamePanel);
         visualObject = new ArrayList<>();
@@ -49,6 +53,7 @@ public class Game {
         camera = new Camera(new Point(0,0));
         motionControl =new MotionControl();
         active =false;
+        writer = new Rider("output.txt");
         visualFactory = new
                 VisualFactory(gamePanel);
         visualGame = new VisualGame(visualFactory,camera);
@@ -61,8 +66,9 @@ public class Game {
 
     }
 
-    public void addWall(Point start, Point end) {
+    public void addWall(Point start, Point end) throws IOException {
         physicGame.addWall(start, end);
+
     }
 
     public void addHero(Player hero) {

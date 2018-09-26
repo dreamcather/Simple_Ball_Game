@@ -20,4 +20,6 @@ public abstract class GameObject {
     public abstract boolean isAlive();
 
     public abstract Point getPosition();
+
+    public abstract String toString();
 }
