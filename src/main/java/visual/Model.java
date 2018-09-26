@@ -1,4 +1,4 @@
-package object;
+package visual;
 
 import javafx.scene.layout.AnchorPane;
 
@@ -8,5 +8,6 @@ public abstract class Model {
     public abstract void refresh(double xOffset, double yOffset);
 
     public abstract void hide();
+
 
 }

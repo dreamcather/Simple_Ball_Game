@@ -1,4 +1,4 @@
-package object;
+package gameObject;
 
 import geometry.Point;
 import geometry.Vector;
@@ -53,6 +53,10 @@ public abstract class Ball extends GameObject {
 
     public Point getPosition() {
         return new Point(xCoordinate, yCoordinate);
+    }
+
+    public Point getPosition(Point point){
+        return new Point(xCoordinate+point.getX(),yCoordinate+point.getY());
     }
 
     public void setPosition(Point point) {

@@ -1,8 +1,8 @@
 package sample;
 
 import interaction.ObjectInteractionVisitor;
-import object.Enemy;
-import object.Prize;
+import gameObject.Enemy;
+import gameObject.Prize;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

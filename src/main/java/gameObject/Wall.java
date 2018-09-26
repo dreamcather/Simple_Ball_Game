@@ -1,9 +1,8 @@
-package object;
+package gameObject;
 
 import detection.ObjectDetectVisitor;
 import geometry.Line;
 import geometry.Point;
-import geometry.Vector;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
@@ -22,6 +21,7 @@ public class Wall extends  GameObject{
         end = _end;
         leftParallelLine = new Line(start, mainLine.getNormal());
         rightParallelLine = new Line(end, mainLine.getNormal());
+        type ="W";
 
     }
 
@@ -45,6 +45,17 @@ public class Wall extends  GameObject{
         return end;
     }
 
+    public Point getStart(Point point) {
+        start.add(point);
+        return start;
+    }
+
+    public Point getEnd(Point point) {
+
+        end.add(point);
+        return end;
+    }
+
     public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
@@ -62,6 +73,11 @@ public class Wall extends  GameObject{
     @Override
     public boolean isAlive() {
         return true;
+    }
+
+    @Override
+    public Point getPosition() {
+        return new Point(0,0);
     }
 
     public <T> T collisionReaction(ObjectInteractVisitor<T> objectDetectVisitor) {

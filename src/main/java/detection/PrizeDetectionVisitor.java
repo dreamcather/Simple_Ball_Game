@@ -1,6 +1,6 @@
 package detection;
 
-import object.*;
+import gameObject.*;
 
 public class PrizeDetectionVisitor implements ObjectDetectVisitor<Detection> {
     Prize prize;

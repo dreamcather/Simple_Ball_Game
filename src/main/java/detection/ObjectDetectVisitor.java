@@ -1,6 +1,6 @@
 package detection;
 
-import object.*;
+import gameObject.*;
 
 public interface ObjectDetectVisitor<T> {
 

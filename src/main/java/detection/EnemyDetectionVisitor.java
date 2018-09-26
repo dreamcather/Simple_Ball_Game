@@ -1,6 +1,6 @@
 package detection;
 
-import object.*;
+import gameObject.*;
 
 public class EnemyDetectionVisitor implements ObjectDetectVisitor<Detection> {
     Enemy enemy;

@@ -1,9 +1,9 @@
 package interaction;
 
-import object.Enemy;
-import object.Player;
-import object.Prize;
-import object.Wall;
+import gameObject.Enemy;
+import gameObject.Player;
+import gameObject.Prize;
+import gameObject.Wall;
 
 public class HeroVisitor implements ObjectInteractVisitor<Collision> {
     private Player hero;

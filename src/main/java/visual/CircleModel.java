@@ -1,4 +1,4 @@
-package object;
+package visual;
 
 import geometry.Point;
 import javafx.scene.layout.AnchorPane;
@@ -7,8 +7,9 @@ import javafx.scene.shape.Circle;
 
 public class CircleModel extends Model {
     private Circle model;
+    public int mark;
 
-    CircleModel(Point center, double radius, Color color, AnchorPane anchorPane) {
+    public CircleModel(Point center, double radius, Color color, AnchorPane anchorPane) {
         model = new Circle(center.getX(), center.getY(), radius, color);
         this.anchorPane = anchorPane;
         anchorPane.getChildren().add(model);

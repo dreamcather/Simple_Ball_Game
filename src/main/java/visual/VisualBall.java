@@ -1,4 +1,6 @@
-package object;
+package visual;
+
+import gameObject.Ball;
 
 public class VisualBall {
     Ball ball;

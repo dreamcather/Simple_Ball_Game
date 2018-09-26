@@ -1,7 +1,6 @@
 package sample;
 
 import geometry.Point;
-import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -10,9 +9,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import object.Enemy;
-import object.Player;
-import object.Prize;
+import gameObject.Enemy;
+import gameObject.Player;
+import gameObject.Prize;
 
 public class Main extends Application {
 
@@ -64,11 +63,13 @@ public class Main extends Application {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.SPACE)
-                    if(gameState.isActive())
-                    gameState.stop();
+                if (event.getCode() == KeyCode.SPACE) {
+                    if (gameState.isActive())
+                        gameState.stop();
                     else
                         gameState.start();
+                }
+                    gameState.click(event.getCode());
             }
         });
     }

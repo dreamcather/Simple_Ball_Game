@@ -5,9 +5,9 @@ import detection.DetectionVisitor;
 import interaction.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import javafx.animation.AnimationTimer;
-import object.Ball;
-import object.GameObject;
-import object.Wall;
+import gameObject.Ball;
+import gameObject.GameObject;
+import gameObject.Wall;
 
 import java.util.ArrayList;
 
@@ -69,5 +69,14 @@ public class PhysicGame {
 
     public void setMotionControl(MotionControl motionControl) {
         this.motionControl = motionControl;
+    }
+
+    public ArrayList<GameObject> getObjectList(){
+        ArrayList<GameObject> output = new ArrayList<>();
+        for(GameObject gameObject:gameObjectList){
+            if(gameObject.getPosition().getX()<500)
+                output.add(gameObject);
+        }
+        return output;
     }
 }
