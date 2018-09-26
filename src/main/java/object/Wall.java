@@ -22,6 +22,7 @@ public class Wall extends  GameObject{
         end = _end;
         leftParallelLine = new Line(start, mainLine.getNormal());
         rightParallelLine = new Line(end, mainLine.getNormal());
+        type ="W";
 
     }
 

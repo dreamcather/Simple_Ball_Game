@@ -7,6 +7,7 @@ import javafx.scene.shape.Circle;
 
 public class CircleModel extends Model {
     private Circle model;
+    public int mark;
 
     CircleModel(Point center, double radius, Color color, AnchorPane anchorPane) {
         model = new Circle(center.getX(), center.getY(), radius, color);
