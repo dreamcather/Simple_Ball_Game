@@ -53,7 +53,7 @@ public class Game {
         camera = new Camera(new Point(0,0));
         motionControl =new MotionControl();
         active =false;
-        writer = new Rider("output.txt");
+        writer = new Rider("output.txt",physicGame);
         visualFactory = new
                 VisualFactory(gamePanel);
         visualGame = new VisualGame(visualFactory,camera);
@@ -133,7 +133,7 @@ public class Game {
 
 
             if (prizeCount == 0) {
-                createPrize();
+                //createPrize();
                 prizeCount++;
             }
         }

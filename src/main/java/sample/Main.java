@@ -27,7 +27,7 @@ public class Main extends Application {
         game.Game gameState = new game.Game(layout);
         Player hero = new Player(-1,
                              0,
-                             3,
+                             5,
                              310,
                              50,
                              15,
@@ -41,7 +41,7 @@ public class Main extends Application {
         gameState.addEnemy(new Enemy(1, 0, 1, 50, 50, 15));
         gameState.addEnemy(new Enemy(1, 2, 1, 100, 50, 15));
         gameState.addEnemy(new Enemy(1, 3, 1, 150, 50, 15));
-        gameState.addEnemy(new Enemy(1, 4, 1, 200, 50, 15));
+        gameState.addEnemy(new Enemy(-5, 1, 4, 0, 50, 15));
         gameState.addPrize(new Prize(-1, 1, 3, 100, 20, 15));
         gameState.addHero(hero);
         gameState.addWall(new Point(0, 500), new Point(0, 0));

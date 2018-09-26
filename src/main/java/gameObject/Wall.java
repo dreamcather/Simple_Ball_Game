@@ -25,6 +25,12 @@ public class Wall extends  GameObject{
 
     }
 
+    public Wall(String string) {
+        String[] substr = string.split("  ");
+        start = new Point(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
+        end = new Point(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
+    }
+
     public Line getLine() {
         return mainLine;
     }
