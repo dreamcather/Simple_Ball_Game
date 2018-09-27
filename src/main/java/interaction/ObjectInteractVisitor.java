@@ -1,6 +1,6 @@
 package interaction;
 
-import object.*;
+import gameObject.*;
 
 public interface ObjectInteractVisitor<T> {
 

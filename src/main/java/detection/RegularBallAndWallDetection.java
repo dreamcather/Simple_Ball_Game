@@ -1,9 +1,9 @@
 package detection;
 
-import object.Wall;
+import gameObject.Wall;
 import geometry.Point;
 import geometry.Vector;
-import object.Ball;
+import gameObject.Ball;
 
 public class RegularBallAndWallDetection implements Detection {
     Ball ball;

@@ -1,9 +1,7 @@
-package object;
+package gameObject;
 
-import detection.ObjectDetectVisitor;
 import geometry.Line;
 import geometry.Point;
-import geometry.Vector;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
@@ -26,6 +24,12 @@ public class Wall extends  GameObject{
 
     }
 
+    public Wall(String string) {
+        String[] substr = string.split("  ");
+        start = new Point(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
+        end = new Point(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
+    }
+
     public Line getLine() {
         return mainLine;
     }
@@ -46,7 +50,18 @@ public class Wall extends  GameObject{
         return end;
     }
 
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
+    public Point getStart(Point point) {
+        start.add(point);
+        return start;
+    }
+
+    public Point getEnd(Point point) {
+
+        end.add(point);
+        return end;
+    }
+
+    public <T> T collision(ObjectInteractVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
 
@@ -65,7 +80,14 @@ public class Wall extends  GameObject{
         return true;
     }
 
-    public <T> T collisionReaction(ObjectInteractVisitor<T> objectDetectVisitor) {
-        return objectDetectVisitor.visit(this);
+    @Override
+    public Point getPosition() {
+        return new Point(0,0);
+    }
+
+    @Override
+    public String toString() {
+        String res = new String(start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n");
+        return res;
     }
 }

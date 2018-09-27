@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Add methods for Wall">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/VisualGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/object/VisualFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/object/WallModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add camera">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Save/Rider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/detection/DetectionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/detection/DetectionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/detection/EnemyDetectionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/detection/EnemyDetectionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/detection/ObjectDetectVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/detection/PlayerDetectionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/detection/PlayerDetectionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/detection/PrizeDetectionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/detection/PrizeDetectionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/detection/WallDetectionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/detection/WallDetectionVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/PhysicGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/PhysicGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/object/CircleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/CircleModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/object/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/object/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/object/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/object/Prize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/Prize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/object/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameObject/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameObject/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameObject/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameObject/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameObject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameObject/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameObject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameObject/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameObject/Prize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameObject/Prize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameObject/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameObject/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interaction/ObjectInteractionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interaction/ObjectVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" afterDir="false" />
     </list>
     <list id="29b9e346-2a33-4d5b-a40f-b9edd8f466d0" name="Add class Hero" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -22,70 +26,55 @@
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/game$_default_.ic" NAME="&lt;default&gt; Coverage Results" MODIFIED="1537271488806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/game$sample.ic" NAME="sample Coverage Results" MODIFIED="1537272045949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/game$LineTest_intersectLineTest4.ic" NAME="LineTest.intersectLineTest4 Coverage Results" MODIFIED="1536750831483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/game$LineTest.ic" NAME="LineTest Coverage Results" MODIFIED="1536753160706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/game$Game.ic" NAME="Game Coverage Results" MODIFIED="1537432170309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/game$LineTest_vectorPointConstructorTest3.ic" NAME="LineTest.vectorPointConstructorTest3 Coverage Results" MODIFIED="1536750716690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/game$LineTest_getNormalTest.ic" NAME="LineTest.getNormalTest Coverage Results" MODIFIED="1536752971592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/game$Main.ic" NAME="Main Coverage Results" MODIFIED="1537525836314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>object.*</FILTER>
+    </SUITE>
   </component>
   <component name="CoverageViewManager">
     <option name="myFlattenPackages" value="true" />
     <option name="myAutoScrollToSource" value="true" />
     <option name="myElementSize" value="154" />
   </component>
-  <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
-    <ui_properties converted="true" />
-    <breakpoint_rules converted="true" />
-  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="13877594">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="5" />
+          <entry key="project.open.time.10" value="6" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -93,71 +82,56 @@
           <entry key="class" value="3" />
           <entry key="fxml" value="4" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="610" />
+          <entry key="java" value="731" />
+          <entry key="txt" value="1" />
           <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="610" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="JAVA" value="731" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.checkout.local" value="2" />
           <entry key="git.branch.create.new" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="38" />
-          <entry key="java" value="13615" />
-          <entry key="txt" value="362" />
+          <entry key="java" value="16979" />
+          <entry key="txt" value="417" />
           <entry key="xml" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13615" />
-          <entry key="PLAIN_TEXT" value="400" />
+          <entry key="JAVA" value="16979" />
+          <entry key="PLAIN_TEXT" value="455" />
           <entry key="XML" value="19" />
         </counts>
       </usages-collector>
     </session>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="JavaFxApplication" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VisualGame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/game/VisualGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-669">
-              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+            <state relative-caret-position="15">
+              <caret line="143" column="9" lean-forward="true" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#addWall#0;class#Game#0" />
-                <element signature="method#addHero#0;class#Game#0" />
                 <element signature="method#createPrize#0;class#Game#0" />
                 <element signature="method#addEnemy#0;class#Game#0" />
+                <element signature="method#addEnemy#1;class#Game#0" />
                 <element signature="method#addPrize#0;class#Game#0" />
-                <element signature="method#mouseClick#0;class#Game#0" />
+                <element signature="method#addPrize#1;class#Game#0" />
                 <element signature="method#start#0;class#Game#0" />
                 <element signature="method#stop#0;class#Game#0" />
               </folding>
@@ -165,28 +139,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhysicGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicGame.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/detection/PlayerDetectionVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-              <folding>
-                <element signature="method#addWall#0;class#PhysicGame#0" />
-                <element signature="method#collision#0;class#PhysicGame#0" />
-                <element signature="method#clear#0;class#PhysicGame#0" />
-                <element signature="method#move#0;class#PhysicGame#0" />
-                <element signature="e#2248#2249#0" expanded="true" />
-                <element signature="e#2284#2285#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WallModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/WallModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state relative-caret-position="195">
+              <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,11 +151,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/Player.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="171">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1075#1076#0" expanded="true" />
+                <element signature="e#1104#1105#0" expanded="true" />
+                <element signature="method#norm#0;class#Ball#0" />
+                <element signature="method#getFuturePosition#0;class#Ball#0" />
+                <element signature="e#1591#1592#0" expanded="true" />
+                <element signature="e#1649#1650#0" expanded="true" />
+                <element signature="e#1693#1694#0" expanded="true" />
+                <element signature="e#1776#1777#0" expanded="true" />
+                <element signature="method#setPosition#0;class#Ball#0" />
+                <element signature="method#changeVector#0;class#Ball#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/interaction/ObjectVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+              <folding>
+                <element signature="e#307#308#0" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Prize.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,52 +216,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Prize.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/Prize.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Wall.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/Wall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-526">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VisualFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/VisualFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+            <state relative-caret-position="-863">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
-                <element signature="e#377#378#0" expanded="true" />
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/GameObject.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Wall.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#Wall#0;class#Wall#0" />
+                <element signature="e#944#945#0" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1225#1226#0" expanded="true" />
+                <element signature="e#1251#1252#0" expanded="true" />
+                <element signature="e#1517#1518#0" expanded="true" />
+                <element signature="e#1571#1572#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/object/Enemy.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="217">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#472#473#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -267,21 +274,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Changes" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/KeyModule.java" />
-        <option value="$PROJECT_DIR$/src/sample/Enemy_List.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/EquationOfMotion.java" />
-        <option value="$PROJECT_DIR$/src/sample/KeyModule.java" />
-        <option value="$PROJECT_DIR$/src/sample/DInamicObjectCollection.java" />
-        <option value="$PROJECT_DIR$/src/sample/DinamicObjectCollection.java" />
-        <option value="$PROJECT_DIR$/src/sample/Model.java" />
-        <option value="$PROJECT_DIR$/src/sample/Point.java" />
-        <option value="$PROJECT_DIR$/src/sample/KeyboardSubscription.java" />
-        <option value="$PROJECT_DIR$/src/sample/CircleModel.java" />
         <option value="$PROJECT_DIR$/src/sample/Enemy.java" />
         <option value="$PROJECT_DIR$/src/sample/Game.java" />
         <option value="$PROJECT_DIR$/src/sample/Hero.java" />
@@ -290,16 +291,49 @@
         <option value="$PROJECT_DIR$/src/sample/Ball.java" />
         <option value="$PROJECT_DIR$/src/sample/GameState.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/CircleModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/object/WallModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/object/GameObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/Enemy.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/Prize.java" />
+        <option value="$PROJECT_DIR$/src/main/java/object/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/object/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java" />
+        <option value="$PROJECT_DIR$/src/main/java/object/Ball.java" />
+        <option value="$PROJECT_DIR$/src/main/java/geometry/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/Wall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/object/WallModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/VisualFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/game/PhysicGame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/game/Game.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/Factory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Save/Writer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/geometry/Vector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/detection/RegularBallAndWallDetection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/interaction/HeroVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/interaction/EnemyVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Save/Rider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/Camera.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/VisualInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/VisualGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/VisualBall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/CircleModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/WallModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/interaction/MotionControl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/Game.java" />
+        <option value="$PROJECT_DIR$/output.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/detection/EnemyDetectionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/detection/DetectionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/detection/PrizeDetectionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/detection/PlayerDetectionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/detection/WallDetectionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/PhysicGame.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/Ball.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/Prize.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/Wall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/Player.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameObject/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/interaction/ObjectVisitor.java" />
       </list>
     </option>
   </component>
@@ -346,64 +380,52 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Simple_Ball_Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Simple_Ball_Game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simple_Ball_Game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Simple_Ball_Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Simple_Ball_Game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Simple_Ball_Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Simple_Ball_Game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Simple_Ball_Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Simple_Ball_Game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Simple_Ball_Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Simple_Ball_Game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537794957696" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538051610061" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -423,97 +445,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="10" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
-      <module name="game" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <patterns />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <properties />
-      <listeners />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -526,6 +458,149 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="visual.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegularCollisionTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="visual.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample" />
+      <option name="MAIN_CLASS_NAME" value="sample.RegularCollisionTest" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VectorTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="visual.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample" />
+      <option name="MAIN_CLASS_NAME" value="sample.VectorTest" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="&lt;default&gt;" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="game" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sample" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="TestNG.&lt;default&gt;" />
+      <item itemvalue="TestNG.RegularCollisionTest" />
+      <item itemvalue="TestNG.sample" />
+      <item itemvalue="TestNG.VectorTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="TestNG.VectorTest" />
+        <item itemvalue="TestNG.sample" />
+        <item itemvalue="TestNG.RegularCollisionTest" />
+        <item itemvalue="TestNG.&lt;default&gt;" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -642,7 +717,49 @@
       <option name="project" value="LOCAL" />
       <updated>1536327659937</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add camera class">
+      <created>1537965119264</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1537965119264</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add camera class">
+      <created>1537965147753</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1537965147753</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add input and output">
+      <created>1537968406028</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1537968406028</updated>
+    </task>
+    <task id="LOCAL-00016" summary="bug">
+      <created>1537970798953</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1537970798953</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add camera">
+      <created>1538050244734</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1538050244734</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add camera">
+      <created>1538050280111</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1538050280111</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -690,42 +807,42 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.49926794" weight="0.3227345" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50073206" side_tool="true" weight="0.3227345" />
-      <window_info anchor="right" id="Maven Projects" order="4" weight="0.329429" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.354531" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.32876712" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18594436" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.31987077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3986014" />
-      <window_info anchor="right" id="JetGradle" order="6" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info anchor="bottom" id="Changes" order="7" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32828283" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47334412" weight="0.35353535" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.47819063" weight="0.3956229" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Changes" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5218094" side_tool="true" weight="0.3956229" />
       <window_info anchor="bottom" id="Profiler" order="9" />
       <window_info anchor="bottom" id="Problems" order="10" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Application Servers" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32828283" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.32876712" />
+      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.4951535" weight="0.32154882" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="4" weight="0.329429" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="JetGradle" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -784,19 +901,13 @@
     <MESSAGE value="Add class Hero" />
     <MESSAGE value="Clear" />
     <MESSAGE value="Add methods for Wall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add methods for Wall" />
+    <MESSAGE value="Add camera class" />
+    <MESSAGE value="Add input and output" />
+    <MESSAGE value="bug" />
+    <MESSAGE value="add camera" />
+    <option name="LAST_COMMIT_MESSAGE" value="add camera" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/detection/RegularBallAndWallDetection.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="TestNG">
         <watch expression="expectedFreeCoefficient" />
@@ -808,86 +919,48 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/object/WallCollection.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/shape/Circle.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Visual.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/geometry/Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="236">
+          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/geometry/Vector.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/visualObject.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/save/Writer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/geometry/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/VisualBall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/KeyboardSubscription.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="71">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/interaction/RegularCollision.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/SimpleBallDetection.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/EmptyDetection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/RegularTwoBallDetection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/EnemyDetectionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/PlayerDetectionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/BallDetectionVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/BallVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/WallCollision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="174">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
@@ -898,10 +971,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/Collision.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/geometry/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="990">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#2166#2167#0" expanded="true" />
+            <element signature="e#2253#2254#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/WallCollision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#368#369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/javafx-src.zip!/javafx/animation/AnimationTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/javafx-src.zip!/javafx/stage/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="451" column="49" selection-start-line="451" selection-start-column="49" selection-end-line="451" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/KillCollision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/HeroVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/EnemyVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/RegularBallAndWallDetection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#RegularBallAndWallDetection#0;class#RegularBallAndWallDetection#0" />
+            <element signature="method#isBetween#0;class#RegularBallAndWallDetection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/Dialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="326" selection-start-line="326" selection-end-line="328" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Factory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/VisualBall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/WallModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#118#119#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#192#193#0" expanded="true" />
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/save/Rider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -912,266 +1115,271 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/CollisionVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/PrizeVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/VisualFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        <state relative-caret-position="35">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/ObjectInteractionVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="37" />
+        <state relative-caret-position="105">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/VisualInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/RegularBallAndWallDetection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="89">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RegularBallAndWallDetection#0;class#RegularBallAndWallDetection#0" />
-            <element signature="method#normalizePoint#0;class#RegularBallAndWallDetection#0" />
-            <element signature="method#normalizeLine#0;class#RegularBallAndWallDetection#0" />
-            <element signature="method#isBetween#0;class#RegularBallAndWallDetection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/CircleModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="20" column="90" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/MotionControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/Collision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/Detection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/EnemyDetectionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/PrizeDetectionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/DetectionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#268#269#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/detection/WallDetectionVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/PrizeDetectionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/KillCollision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/HeroVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/EnemyVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/MotionControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/WallCollection.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/shape/Circle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="e#4291#4292#0" expanded="true" />
-            <element signature="e#4351#4352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Factory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/Detection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/DetectionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/detection/ObjectDetectVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/CircleModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="75">
+          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Prize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/Wall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-526">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/WallModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/VisualFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-          <folding>
-            <element signature="method#addWall#0;class#PhysicGame#0" />
-            <element signature="method#collision#0;class#PhysicGame#0" />
-            <element signature="method#clear#0;class#PhysicGame#0" />
-            <element signature="method#move#0;class#PhysicGame#0" />
-            <element signature="e#2248#2249#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-669">
-          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+        <state relative-caret-position="135">
+          <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addWall#0;class#Game#0" />
-            <element signature="method#addHero#0;class#Game#0" />
-            <element signature="method#createPrize#0;class#Game#0" />
-            <element signature="method#addEnemy#0;class#Game#0" />
-            <element signature="method#addPrize#0;class#Game#0" />
-            <element signature="method#mouseClick#0;class#Game#0" />
-            <element signature="method#start#0;class#Game#0" />
-            <element signature="method#stop#0;class#Game#0" />
+            <element signature="method#addWall#0;class#PhysicGame#0" />
+            <element signature="method#clear#0;class#PhysicGame#0" />
+            <element signature="method#move#0;class#PhysicGame#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/VisualGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        <state relative-caret-position="322">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1075#1076#0" expanded="true" />
+            <element signature="e#1104#1105#0" expanded="true" />
+            <element signature="method#norm#0;class#Ball#0" />
+            <element signature="method#getFuturePosition#0;class#Ball#0" />
+            <element signature="e#1591#1592#0" expanded="true" />
+            <element signature="e#1649#1650#0" expanded="true" />
+            <element signature="e#1693#1694#0" expanded="true" />
+            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="method#setPosition#0;class#Ball#0" />
+            <element signature="method#changeVector#0;class#Ball#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Wall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Wall#0;class#Wall#0" />
+            <element signature="e#944#945#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Prize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-863">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="143" column="9" lean-forward="true" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createPrize#0;class#Game#0" />
+            <element signature="method#addEnemy#0;class#Game#0" />
+            <element signature="method#addEnemy#1;class#Game#0" />
+            <element signature="method#addPrize#0;class#Game#0" />
+            <element signature="method#addPrize#1;class#Game#0" />
+            <element signature="method#start#0;class#Game#0" />
+            <element signature="method#stop#0;class#Game#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/ObjectDetectVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/detection/PlayerDetectionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/ObjectVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+          <folding>
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>

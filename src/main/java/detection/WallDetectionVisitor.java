@@ -1,8 +1,9 @@
 package detection;
 
-import object.*;
+import gameObject.*;
+import interaction.ObjectInteractVisitor;
 
-public class WallDetectionVisitor implements ObjectDetectVisitor<Detection> {
+public class WallDetectionVisitor implements ObjectInteractVisitor<Detection> {
     Wall wall;
 
     public WallDetectionVisitor(Wall wall) {

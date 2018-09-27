@@ -1,6 +1,5 @@
-package object;
+package gameObject;
 
-import detection.ObjectDetectVisitor;
 import interaction.ObjectInteractVisitor;
 
 public class Prize extends Ball {
@@ -11,12 +10,8 @@ public class Prize extends Ball {
     }
 
     @Override
-    public <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor) {
+    public <T> T collision(ObjectInteractVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 
-    @Override
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
-        return objectDetectVisitor.visit(this);
-    }
 }

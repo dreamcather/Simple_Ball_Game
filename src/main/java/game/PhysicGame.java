@@ -1,18 +1,20 @@
 package game;
 
+import gameObject.Player;
 import geometry.Point;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
-import interaction.ObjectInteractionVisitor;
+import interaction.ObjectVisitor;
 import javafx.animation.AnimationTimer;
-import object.Ball;
-import object.GameObject;
-import object.Wall;
+import gameObject.Ball;
+import gameObject.GameObject;
+import gameObject.Wall;
 
 import java.util.ArrayList;
 
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
+    Player player;
     MotionControl motionControl;
     private AnimationTimer animationTimer;
 
@@ -27,7 +29,10 @@ public class PhysicGame {
         };
         animationTimer.start();
     }
-
+    public void addPlayer(Player player){
+        this.player = player;
+        gameObjectList.add(player);
+    }
     public void addBall(Ball ball) {
         gameObjectList.add(ball);
     }
@@ -40,13 +45,17 @@ public class PhysicGame {
     private void collision(GameObject gameObject, int number) {
         for (int i = number + 1; i < gameObjectList.size(); i++) {
             GameObject currentObject = gameObjectList.get(i);
-            if (gameObject.collisionDetection(currentObject.collisionDetection(new DetectionVisitor())).detect()) {
-                gameObject.collisionReaction(currentObject.collisionReaction(new ObjectInteractionVisitor())).collide();
+            if (gameObject.collision(currentObject.collision(new DetectionVisitor())).detect()) {
+                gameObject.collision(currentObject.collision(new ObjectVisitor())).collide();
             }
         }
         for(GameObject currentGameObject: gameObjectList){
             currentGameObject.changeVector();
         }
+    }
+
+    public void stop(){
+        animationTimer.stop();
     }
 
     private void clear() {
@@ -72,6 +81,14 @@ public class PhysicGame {
     }
 
     public ArrayList<GameObject> getObjectList(){
-        return gameObjectList;
+        ArrayList<GameObject> output = new ArrayList<>();
+        for(GameObject gameObject:gameObjectList){
+                output.add(gameObject);
+        }
+        return output;
+    }
+
+    public  Point getPlayerPosition(){
+        return player.getPosition();
     }
 }
