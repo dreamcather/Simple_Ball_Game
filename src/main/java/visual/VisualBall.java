@@ -12,10 +12,6 @@ public class VisualBall {
     }
 
     public void update() {
-        if (!ball.isAlive()) {
-            model.hide();
-        } else
-            model.refresh(ball.getPosition().getX(), ball.getPosition().getY());
     };
 
 }

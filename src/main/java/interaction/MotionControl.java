@@ -2,6 +2,7 @@ package interaction;
 
 import geometry.Point;
 import javafx.scene.input.MouseEvent;
+import visual.Camera;
 
 
 public class MotionControl {
@@ -12,8 +13,9 @@ public class MotionControl {
         rad =0;
         position =null;
     }
-    public MotionControl(MouseEvent event){
-      position = new Point(event.getSceneX(),event.getSceneY());
+    public MotionControl(MouseEvent event, Camera camera){
+        position = new Point(event.getSceneX()+camera.getPosition().getX()-250,
+                event.getSceneY()+camera.getPosition().getY()-250);
     }
 
     public double getRad() {

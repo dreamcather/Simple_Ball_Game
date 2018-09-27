@@ -14,7 +14,7 @@ public class HeroVisitor implements ObjectInteractVisitor<Collision> {
 
     @Override
     public Collision visit(Enemy enemy) {
-        return new DestroyCollision(hero, enemy);
+        return new KillCollision(hero, enemy);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package Save;
+package save;
 
 import gameObject.Wall;
 

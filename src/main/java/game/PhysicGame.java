@@ -1,5 +1,6 @@
 package game;
 
+import gameObject.Player;
 import geometry.Point;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
+    Player player;
     MotionControl motionControl;
     private AnimationTimer animationTimer;
 
@@ -27,7 +29,10 @@ public class PhysicGame {
         };
         animationTimer.start();
     }
-
+    public void addPlayer(Player player){
+        this.player = player;
+        gameObjectList.add(player);
+    }
     public void addBall(Ball ball) {
         gameObjectList.add(ball);
     }
@@ -47,6 +52,10 @@ public class PhysicGame {
         for(GameObject currentGameObject: gameObjectList){
             currentGameObject.changeVector();
         }
+    }
+
+    public void stop(){
+        animationTimer.stop();
     }
 
     private void clear() {
@@ -74,9 +83,12 @@ public class PhysicGame {
     public ArrayList<GameObject> getObjectList(){
         ArrayList<GameObject> output = new ArrayList<>();
         for(GameObject gameObject:gameObjectList){
-            if(gameObject.getPosition().getX()<500)
                 output.add(gameObject);
         }
         return output;
+    }
+
+    public  Point getPlayerPosition(){
+        return player.getPosition();
     }
 }

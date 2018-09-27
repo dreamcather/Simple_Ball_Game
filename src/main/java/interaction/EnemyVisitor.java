@@ -19,7 +19,7 @@ public class EnemyVisitor implements ObjectInteractVisitor<Collision> {
 
     @Override
     public Collision visit(Player hero) {
-        return new DestroyCollision(hero, enemy);
+        return new KillCollision(hero, enemy);
     }
 
     @Override
@@ -29,6 +29,6 @@ public class EnemyVisitor implements ObjectInteractVisitor<Collision> {
 
     @Override
     public Collision visit(Wall wall) {
-        return null;
+        return new WallCollision(wall,enemy);
     }
 }
