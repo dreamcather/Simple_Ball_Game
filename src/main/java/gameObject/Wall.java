@@ -1,6 +1,5 @@
 package gameObject;
 
-import detection.ObjectDetectVisitor;
 import geometry.Line;
 import geometry.Point;
 import interaction.MotionControl;
@@ -62,7 +61,7 @@ public class Wall extends  GameObject{
         return end;
     }
 
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
+    public <T> T collision(ObjectInteractVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
 
@@ -90,9 +89,5 @@ public class Wall extends  GameObject{
     public String toString() {
         String res = new String(start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n");
         return res;
-    }
-
-    public <T> T collisionReaction(ObjectInteractVisitor<T> objectDetectVisitor) {
-        return objectDetectVisitor.visit(this);
     }
 }

@@ -4,7 +4,7 @@ import gameObject.Player;
 import geometry.Point;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
-import interaction.ObjectInteractionVisitor;
+import interaction.ObjectVisitor;
 import javafx.animation.AnimationTimer;
 import gameObject.Ball;
 import gameObject.GameObject;
@@ -45,8 +45,8 @@ public class PhysicGame {
     private void collision(GameObject gameObject, int number) {
         for (int i = number + 1; i < gameObjectList.size(); i++) {
             GameObject currentObject = gameObjectList.get(i);
-            if (gameObject.collisionDetection(currentObject.collisionDetection(new DetectionVisitor())).detect()) {
-                gameObject.collisionReaction(currentObject.collisionReaction(new ObjectInteractionVisitor())).collide();
+            if (gameObject.collision(currentObject.collision(new DetectionVisitor())).detect()) {
+                gameObject.collision(currentObject.collision(new ObjectVisitor())).collide();
             }
         }
         for(GameObject currentGameObject: gameObjectList){

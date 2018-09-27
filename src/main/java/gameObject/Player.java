@@ -1,6 +1,5 @@
 package gameObject;
 
-import detection.ObjectDetectVisitor;
 import geometry.Vector;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
@@ -65,14 +64,10 @@ public class Player extends Ball {
     }
 
     @Override
-    public <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor) {
+    public <T> T collision(ObjectInteractVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 
-    @Override
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
-        return objectDetectVisitor.visit(this);
-    }
 
     @Override
     public void move(MotionControl motionControl){

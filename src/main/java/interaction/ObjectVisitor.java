@@ -5,7 +5,7 @@ import gameObject.Player;
 import gameObject.Prize;
 import gameObject.Wall;
 
-public class ObjectInteractionVisitor implements ObjectInteractVisitor<ObjectInteractVisitor<Collision>>{
+public class ObjectVisitor implements ObjectInteractVisitor<ObjectInteractVisitor<Collision>>{
 
     @Override
     public ObjectInteractVisitor<Collision> visit(Enemy enemy) {
