@@ -1,8 +1,0 @@
-target
-test-output
-.project
-.classpath
-.settings
-*.iml
-.idea
-bin
