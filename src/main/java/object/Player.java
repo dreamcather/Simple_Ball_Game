@@ -6,7 +6,6 @@ import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 import javafx.scene.input.KeyCode;
 
-
 public class Player extends Ball {
 
     private int score;
@@ -23,7 +22,6 @@ public class Player extends Ball {
         keyboardSubscription.subscribeToKey(this::move);
         score = 0;
         lifeCount = 3;
-        type ="P";
     }
 
     public int getScore() {

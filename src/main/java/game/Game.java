@@ -24,8 +24,6 @@ public class Game {
     MotionControl motionControl;
     AnimationTimer animationTimer;
     boolean active;
-    VisualGame visualGame;
-    VisualFactory visualFactory;
 
     public Game(AnchorPane _panel) {
         gamePanel = _panel;
@@ -44,9 +42,6 @@ public class Game {
         prizeCount = 0;
         motionControl =new MotionControl();
         active =false;
-        visualFactory = new
-                VisualFactory(gamePanel);
-        visualGame = new VisualGame(visualFactory);
         animationTimer =new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -58,13 +53,13 @@ public class Game {
 
     public void addWall(Point start, Point end) {
         physicGame.addWall(start, end);
-        //gamePanel.getChildren().add(new Line(start.getX(), start.getY(), end.getX(), end.getY()));
+        gamePanel.getChildren().add(new Line(start.getX(), start.getY(), end.getX(), end.getY()));
     }
 
     public void addHero(Player hero) {
         this.hero = hero;
         physicGame.addBall(hero);
-        //visualObject.add(factory.createPlayer(hero));
+        visualObject.add(factory.createPlayer(hero));
     }
 
     private void createPrize() {
@@ -74,18 +69,18 @@ public class Game {
                                 Math.random() * 500,
                                 Math.random() * 500,
                                 15);
-        //visualObject.add(factory.createPrize(prize));
+        visualObject.add(factory.createPrize(prize));
         physicGame.addBall(prize);
     }
 
     public void addEnemy(Ball enemy) {
-        //visualObject.add(factory.createEnemy(enemy));
+        visualObject.add(factory.createEnemy(enemy));
         physicGame.addBall(enemy);
 
     }
 
     public void addPrize(Ball prize) {
-        //visualObject.add(factory.createPrize(prize));
+        visualObject.add(factory.createPrize(prize));
         physicGame.addBall(prize);
         prizeCount++;
     }
@@ -116,15 +111,12 @@ public class Game {
             for (VisualBall currentObject : visualObject) {
                 currentObject.update();
             }
-
-
             if (prizeCount == 0) {
                 createPrize();
                 prizeCount++;
             }
         }
-        visualGame.setObject(physicGame.getObjectList());
-        visualGame.update();
+
     }
 
     public boolean isActive() {

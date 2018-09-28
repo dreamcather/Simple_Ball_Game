@@ -70,8 +70,4 @@ public class PhysicGame {
     public void setMotionControl(MotionControl motionControl) {
         this.motionControl = motionControl;
     }
-
-    public ArrayList<GameObject> getObjectList(){
-        return gameObjectList;
-    }
 }

@@ -6,8 +6,6 @@ import interaction.ObjectInteractVisitor;
 
 public abstract class GameObject {
 
-    String type;
-
 
     public abstract <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor);
 
