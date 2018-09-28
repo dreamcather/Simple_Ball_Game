@@ -13,6 +13,7 @@ public class Writer {
     File file;
     FileWriter fileWriter;
 
+    
     public Writer(String path) throws IOException {
         this.path = path;
         file = new File(path);
