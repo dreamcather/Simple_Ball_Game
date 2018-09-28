@@ -1,8 +1,7 @@
 package interaction;
 
-import object.Ball;
-import object.Player;
-import object.Prize;
+import gameObject.Ball;
+import gameObject.Player;
 
 public class DestroyCollision extends Collision {
     private Player hero;

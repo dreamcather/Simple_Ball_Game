@@ -1,7 +1,7 @@
 package interaction;
 
-import object.Enemy;
-import object.Player;
+import gameObject.Enemy;
+import gameObject.Player;
 
 public class KillCollision extends Collision {
     Player hero;

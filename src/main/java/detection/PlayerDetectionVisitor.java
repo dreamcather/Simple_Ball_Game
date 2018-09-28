@@ -1,8 +1,9 @@
 package detection;
 
-import object.*;
+import gameObject.*;
+import interaction.ObjectInteractVisitor;
 
-public class PlayerDetectionVisitor implements ObjectDetectVisitor<Detection> {
+public class PlayerDetectionVisitor implements ObjectInteractVisitor<Detection> {
     Player player;
 
     public PlayerDetectionVisitor(Player player) {

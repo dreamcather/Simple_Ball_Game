@@ -1,6 +1,6 @@
 package detection;
 
-import object.Ball;
+import gameObject.Ball;
 
 public class RegularTwoBallDetection implements Detection {
     Ball first;

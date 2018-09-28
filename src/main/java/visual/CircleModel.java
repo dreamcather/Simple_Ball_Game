@@ -1,4 +1,4 @@
-package object;
+package visual;
 
 import geometry.Point;
 import javafx.scene.layout.AnchorPane;
@@ -7,17 +7,19 @@ import javafx.scene.shape.Circle;
 
 public class CircleModel extends Model {
     private Circle model;
+    public int mark;
 
-    CircleModel(Point center, double radius, Color color, AnchorPane anchorPane) {
+    public CircleModel(Point center, double radius, Color color, AnchorPane anchorPane) {
         model = new Circle(center.getX(), center.getY(), radius, color);
         this.anchorPane = anchorPane;
         anchorPane.getChildren().add(model);
     }
 
+
     @Override
-    public void refresh(double xOffset, double yOffset) {
-        model.setCenterX(xOffset);
-        model.setCenterY(yOffset);
+    public void refresh(VisualInformation visualInformation, Camera camera) {
+        model.setCenterX(visualInformation.ballPoint.getX()-camera.getPosition().getX()+250);
+        model.setCenterY(visualInformation.ballPoint.getY()-camera.getPosition().getY()+250);
     }
 
     @Override

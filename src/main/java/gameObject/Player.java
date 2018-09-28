@@ -1,10 +1,10 @@
-package object;
+package gameObject;
 
-import detection.ObjectDetectVisitor;
 import geometry.Vector;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 import javafx.scene.input.KeyCode;
+
 
 public class Player extends Ball {
 
@@ -16,16 +16,19 @@ public class Player extends Ball {
                   double _speed,
                   double xCoordinate,
                   double yCoordinate,
-                  double radius,
-                  KeyboardSubscription keyboardSubscription) {
+                  double radius) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
-        keyboardSubscription.subscribeToKey(this::move);
         score = 0;
         lifeCount = 3;
+        type ="P";
     }
 
     public int getScore() {
         return score;
+    }
+
+    public void setLifeCount(int lifeCount) {
+        this.lifeCount = lifeCount;
     }
 
     public int getLifeCount() {
@@ -36,7 +39,7 @@ public class Player extends Ball {
         this.lifeCount--;
     }
 
-    private void move(KeyCode keyCode) {
+    public void setKey(KeyCode keyCode) {
         if (keyCode == KeyCode.LEFT) {
             xCoefficient = xCoefficient * Math.cos(Math.toRadians(-15)) - yCoefficient * Math.sin(Math.toRadians(-15));
             yCoefficient = xCoefficient * Math.sin(Math.toRadians(-15)) + yCoefficient * Math.cos(Math.toRadians(-15));
@@ -61,14 +64,10 @@ public class Player extends Ball {
     }
 
     @Override
-    public <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor) {
+    public <T> T collision(ObjectInteractVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 
-    @Override
-    public <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor) {
-        return objectDetectVisitor.visit(this);
-    }
 
     @Override
     public void move(MotionControl motionControl){

@@ -3,7 +3,7 @@ package interaction;
 import geometry.Line;
 import geometry.Point;
 import geometry.Vector;
-import object.Ball;
+import gameObject.Ball;
 
 public class RegularCollision extends Collision {
     private Ball first;

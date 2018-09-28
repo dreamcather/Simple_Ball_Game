@@ -1,8 +1,7 @@
-package object;
+package gameObject;
 
 import geometry.Point;
 import geometry.Vector;
-import detection.ObjectDetectVisitor;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
@@ -55,6 +54,10 @@ public abstract class Ball extends GameObject {
         return new Point(xCoordinate, yCoordinate);
     }
 
+    public Point getPosition(Point point){
+        return new Point(xCoordinate+point.getX(),yCoordinate+point.getY());
+    }
+
     public void setPosition(Point point) {
         xCoordinate = point.getX();
         yCoordinate = point.getY();
@@ -70,9 +73,8 @@ public abstract class Ball extends GameObject {
         norm();
     }
 
-    public abstract <T> T collisionReaction(ObjectInteractVisitor<T> ballVisitor);
+    public abstract <T> T collision(ObjectInteractVisitor<T> ballVisitor);
 
-    public abstract  <T> T collisionDetection(ObjectDetectVisitor<T> objectDetectVisitor);
 
     public boolean isAlive() {
         return alive;
@@ -101,5 +103,10 @@ public abstract class Ball extends GameObject {
 
     public void setLiveStatus(boolean alive) {
         this.alive = alive;
+    }
+
+    public String toString(){
+        return new String(this.type+" "+xCoefficient+" "+yCoefficient+" "+speedOfMotion
+        +" "+xCoordinate+" "+yCoordinate+ " "+radius);
     }
 }

@@ -19,8 +19,10 @@ public class Vector {
 
     public void norm() {
         double length = Math.sqrt(Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
-        xCoefficient /= length;
-        yCoefficient /= length;
+        if(length!=0) {
+            xCoefficient /= length;
+            yCoefficient /= length;
+        }
     }
 
     public Vector(Point start, Point end) {

@@ -1,7 +1,7 @@
 package interaction;
 
-import object.Ball;
-import object.Wall;
+import gameObject.Ball;
+import gameObject.Wall;
 
 public class WallCollision extends Collision {
     Wall wall;

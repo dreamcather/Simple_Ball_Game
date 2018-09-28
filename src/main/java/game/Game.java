@@ -1,14 +1,19 @@
 package game;
 
+import save.Rider;
 import geometry.Point;
 import interaction.MotionControl;
 import javafx.animation.AnimationTimer;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.control.Label;
-import javafx.scene.shape.Line;
-import object.*;
+import gameObject.*;
+import visual.Camera;
+import visual.VisualBall;
+import visual.VisualFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -24,8 +29,12 @@ public class Game {
     MotionControl motionControl;
     AnimationTimer animationTimer;
     boolean active;
+    VisualGame visualGame;
+    VisualFactory visualFactory;
+    Camera camera;
+    Rider writer;
 
-    public Game(AnchorPane _panel) {
+    public Game(AnchorPane _panel) throws IOException {
         gamePanel = _panel;
         factory = new Factory(gamePanel);
         visualObject = new ArrayList<>();
@@ -40,8 +49,12 @@ public class Game {
         lifeCounter.setLayoutX(550);
         lifeCounter.setLayoutY(70);
         prizeCount = 0;
+        camera = new Camera(new Point(0,0));
         motionControl =new MotionControl();
-        active =false;
+        active =true;
+        visualFactory = new
+                VisualFactory(gamePanel);
+        visualGame = new VisualGame(visualFactory,camera);
         animationTimer =new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -51,15 +64,27 @@ public class Game {
 
     }
 
-    public void addWall(Point start, Point end) {
+    public void addWall(Point start, Point end){
         physicGame.addWall(start, end);
-        gamePanel.getChildren().add(new Line(start.getX(), start.getY(), end.getX(), end.getY()));
+
     }
 
     public void addHero(Player hero) {
         this.hero = hero;
         physicGame.addBall(hero);
-        visualObject.add(factory.createPlayer(hero));
+    }
+
+    public void addHero(String string) {
+        String[] strmas = string.split("  ", 6);
+        double xCoefficient = Double.parseDouble(strmas[0]);
+        double yCoefficient = Double.parseDouble(strmas[1]);
+        double speed = Double.parseDouble(strmas[2]);
+        double xCoordinate = Double.parseDouble(strmas[3]);
+        double yCoordinate = Double.parseDouble(strmas[4]);
+        double radius = Double.parseDouble(strmas[5]);
+        Player player = new Player(xCoefficient, yCoefficient, speed, xCoordinate, yCoordinate, radius);
+        this.hero = player;
+        physicGame.addPlayer(player);
     }
 
     private void createPrize() {
@@ -69,25 +94,54 @@ public class Game {
                                 Math.random() * 500,
                                 Math.random() * 500,
                                 15);
-        visualObject.add(factory.createPrize(prize));
         physicGame.addBall(prize);
     }
 
     public void addEnemy(Ball enemy) {
-        visualObject.add(factory.createEnemy(enemy));
         physicGame.addBall(enemy);
+
+    }
+    public void addEnemy(String string) {
+        String[] strmas = string.split("  ",6);
+        double xCoefficient = Double.parseDouble(strmas[0]);
+        double yCoefficient = Double.parseDouble(strmas[1]);
+        double speed = Double.parseDouble(strmas[2]);
+        double xCoordinate = Double.parseDouble(strmas[3]);
+        double yCoordinate = Double.parseDouble(strmas[4]);
+        double radius = Double.parseDouble(strmas[5]);
+        physicGame.addBall(new Enemy(xCoefficient,yCoefficient,speed,xCoordinate,yCoordinate,radius));
 
     }
 
     public void addPrize(Ball prize) {
-        visualObject.add(factory.createPrize(prize));
         physicGame.addBall(prize);
+        prizeCount++;
+    }
+    public void addPrize(String string) {
+        String[] strmas = string.split("  ",6);
+        double xCoefficient = Double.parseDouble(strmas[0]);
+        double yCoefficient = Double.parseDouble(strmas[1]);
+        double speed = Double.parseDouble(strmas[2]);
+        double xCoordinate = Double.parseDouble(strmas[3]);
+        double yCoordinate = Double.parseDouble(strmas[4]);
+        double radius = Double.parseDouble(strmas[5]);
+        physicGame.addBall(new Prize(xCoefficient,yCoefficient,speed,xCoordinate,yCoordinate,radius));
         prizeCount++;
     }
 
     public void mouseClick(MouseEvent event) {
-        motionControl = new MotionControl(event);
+        motionControl = new MotionControl(event,camera);
         physicGame.setMotionControl(motionControl);
+    }
+
+    public void click(KeyCode keyCode){
+        if(keyCode==KeyCode.Q)
+        camera.setPosition(new Point(camera.getPosition().getX()+10,camera.getPosition().getY()+10));
+        if(keyCode==KeyCode.A)
+            camera.setPosition(new Point(camera.getPosition().getX()-10,camera.getPosition().getY()-10));
+        if((keyCode == KeyCode.UP)||(keyCode==KeyCode.DOWN)||(keyCode==keyCode.LEFT)||(keyCode==keyCode.RIGHT)){
+            physicGame.player.setKey(keyCode);
+        }
     }
 
     public void start(){
@@ -99,8 +153,20 @@ public class Game {
         active =false;
     }
 
+    public void newGame(){
+        hero.setLifeCount(5);
+    }
+
+    public void gameOver(){
+        newGame();
+    }
+
     public void update() {
-        if (hero.getLifeCount() > -10) {
+        if (hero.getLifeCount()<=0) {
+            gameOver();
+        }
+        else{
+
             if (hero.getScore() != countPoint) {
                 score.setText("Score " + hero.getScore());
                 countPoint = hero.getScore();
@@ -111,12 +177,16 @@ public class Game {
             for (VisualBall currentObject : visualObject) {
                 currentObject.update();
             }
+
+
             if (prizeCount == 0) {
                 createPrize();
                 prizeCount++;
             }
         }
-
+        camera.setPosition(hero.getPosition());
+        visualGame.setObject(physicGame.getObjectList());
+        visualGame.update();
     }
 
     public boolean isActive() {
