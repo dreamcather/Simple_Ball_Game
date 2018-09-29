@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import geometry.Line;
 import geometry.Point;

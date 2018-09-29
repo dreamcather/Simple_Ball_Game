@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import interaction.ObjectVisitor;
 import gameObject.Enemy;

@@ -1,5 +1,7 @@
 package visual;
 
+import gameObject.Ball;
+import gameObject.GameObject;
 import gameObject.Wall;
 import geometry.Point;
 
@@ -24,19 +26,37 @@ public class Camera {
                 point.getY() - position.getY() + weight);
     }
 
+    public boolean isVisible(Point point){
+        Point transformPoint = transformPoint(point);
+        if((transformPoint.getY()<=2*weight)&&
+                (transformPoint.getY()>=0)&&
+                (transformPoint.getX()<=2*weight)&&
+                (transformPoint.getX()>=0))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isVisible(GameObject gameObject){
+        if(gameObject.type=="W"){
+            return true;
+        }
+        else
+        {
+            Ball ball = (Ball)gameObject;
+            if(isVisible(ball.getPosition())){
+                return true;
+            }
+            return false;
+        }
+    }
+
     public Point getPosition() {
         return position;
     }
 
     public void setPosition(Point position) {
         this.position = position;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 }

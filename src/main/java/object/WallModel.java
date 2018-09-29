@@ -3,6 +3,9 @@ package object;
 import geometry.Point;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import visual.Camera;
+import visual.Model;
+import visual.VisualInformation;
 
 public class WallModel extends Model {
 
@@ -12,7 +15,7 @@ public class WallModel extends Model {
     }
 
     @Override
-    public void refresh(double xOffset, double yOffset) {
+    public void refresh(VisualInformation visualInformation, Camera camera) {
 
     }
 

@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import geometry.Vector;
 import org.testng.Assert;

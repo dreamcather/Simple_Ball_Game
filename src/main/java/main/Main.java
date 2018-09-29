@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import save.Rider;
 import game.Game;

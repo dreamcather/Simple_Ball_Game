@@ -1,7 +1,12 @@
 package object;
 
+import gameObject.Ball;
+import gameObject.GameObject;
+import gameObject.Wall;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import visual.CircleModel;
+import visual.Model;
 
 public class VisualFactory {
     private AnchorPane anchorPane;

@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="29b9e346-2a33-4d5b-a40f-b9edd8f466d0" name="Add class Hero" comment="" />
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add camera">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Save/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Save/Rider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/object/VisualFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/VisualFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/object/WallModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/WallModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/visual/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sample/LineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/LineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/RegularCollisionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sample/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/VectorTest.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -148,11 +156,12 @@
         </entry>
       </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state relative-caret-position="278">
+              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#869#870#0" expanded="true" />
                 <element signature="e#928#929#0" expanded="true" />
               </folding>
@@ -160,17 +169,38 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WallModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/object/WallModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VisualFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/object/VisualFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Camera.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/visual/Camera.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+            <state relative-caret-position="45">
+              <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#360#361#0" expanded="true" />
-                <element signature="e#389#390#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
-                <element signature="e#466#467#0" expanded="true" />
+                <element signature="method#transformPoint#0;class#Camera#0" />
+                <element signature="method#isVisible#0;class#Camera#0" />
+                <element signature="method#isVisible#1;class#Camera#0" />
+                <element signature="e#1424#1425#0" expanded="true" />
+                <element signature="e#1455#1456#0" expanded="true" />
+                <element signature="e#1502#1503#0" expanded="true" />
+                <element signature="e#1542#1543#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,15 +214,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prize.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Prize.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -221,19 +242,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wall.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gameObject/Wall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Wall#0;class#Wall#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -254,7 +262,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/Enemy.java" />
         <option value="$PROJECT_DIR$/src/sample/Game.java" />
         <option value="$PROJECT_DIR$/src/sample/Hero.java" />
         <option value="$PROJECT_DIR$/src/sample/WallColection.java" />
@@ -271,8 +278,6 @@
         <option value="$PROJECT_DIR$/src/main/java/object/Ball.java" />
         <option value="$PROJECT_DIR$/src/main/java/geometry/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/object/Wall.java" />
-        <option value="$PROJECT_DIR$/src/main/java/object/WallModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/object/VisualFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/gameObject/Factory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Save/Writer.java" />
         <option value="$PROJECT_DIR$/src/main/java/geometry/Vector.java" />
@@ -286,7 +291,6 @@
         <option value="$PROJECT_DIR$/src/main/java/visual/CircleModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/WallModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/interaction/MotionControl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Game.java" />
         <option value="$PROJECT_DIR$/output.txt" />
@@ -304,6 +308,10 @@
         <option value="$PROJECT_DIR$/src/main/java/gameObject/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/gameObject/GameObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/interaction/ObjectVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/object/WallModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/object/VisualFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/Camera.java" />
       </list>
     </option>
@@ -424,7 +432,7 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="game" />
       <extension name="coverage">
         <pattern>
@@ -483,7 +491,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="sample" />
-      <option name="MAIN_CLASS_NAME" value="sample.RegularCollisionTest" />
+      <option name="MAIN_CLASS_NAME" value="main.RegularCollisionTest" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -512,7 +520,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="sample" />
-      <option name="MAIN_CLASS_NAME" value="sample.VectorTest" />
+      <option name="MAIN_CLASS_NAME" value="main.VectorTest" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -577,18 +585,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="sample" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="sample" />
+      <option name="PACKAGE_NAME" value="main" />
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
@@ -631,14 +639,14 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="TestNG.&lt;default&gt;" />
       <item itemvalue="TestNG.RegularCollisionTest" />
-      <item itemvalue="TestNG.sample" />
+      <item itemvalue="TestNG.main" />
       <item itemvalue="TestNG.VectorTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="TestNG.VectorTest" />
-        <item itemvalue="TestNG.sample" />
+        <item itemvalue="TestNG.main" />
         <item itemvalue="TestNG.RegularCollisionTest" />
         <item itemvalue="TestNG.&lt;default&gt;" />
       </list>
@@ -674,7 +682,7 @@
       <workItem from="1536508742949" duration="8312000" />
       <workItem from="1537892145098" duration="2316000" />
       <workItem from="1537938348857" duration="2848000" />
-      <workItem from="1538233163270" duration="841000" />
+      <workItem from="1538233163270" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="Add Abstract Class Ball">
       <created>1536314168551</created>
@@ -802,7 +810,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538050280111</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add camera class constructor and transformPoint method">
+      <created>1538234048685</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1538234048685</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -838,7 +853,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54325000" />
+    <option name="totallyTimeSpent" value="55010000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -855,7 +870,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.4951535" weight="0.32154882" />
+      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.4951535" weight="0.32114467" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -863,11 +878,11 @@
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.329429" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32750398" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47334412" weight="0.3529412" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47334412" visible="true" weight="0.3529412" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.32876712" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3191801" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3191801" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -948,7 +963,8 @@
     <MESSAGE value="Add input and output" />
     <MESSAGE value="bug" />
     <MESSAGE value="add camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="add camera" />
+    <MESSAGE value="add camera class constructor and transformPoint method" />
+    <option name="LAST_COMMIT_MESSAGE" value="add camera class constructor and transformPoint method" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -962,8 +978,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/object/WallCollection.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/shape/Circle.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
@@ -975,6 +989,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1194,7 +1211,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sample/RegularCollisionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/main/RegularCollisionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
@@ -1299,17 +1316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/save/Rider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="891">
@@ -1320,16 +1326,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Camera.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/object/WallModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/object/VisualFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#transformPoint#0;class#Camera#0" />
+            <element signature="method#isVisible#0;class#Camera#0" />
+            <element signature="method#isVisible#1;class#Camera#0" />
+            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
           </folding>
         </state>
       </provider>
