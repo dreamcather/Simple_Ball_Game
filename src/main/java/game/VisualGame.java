@@ -41,7 +41,7 @@ public class VisualGame {
     public void update(){
         for(int i=0;i< modelsList.size();i++){
             Model model = modelsList.get(i);
-            VisualInformation visualInformation = new VisualInformation(visualObjectList.get(i));
+            VisualInformation visualInformation = new VisualInformation(visualObjectList.get(i),camera);
             model.refresh(visualInformation,camera);
         }
 

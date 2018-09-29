@@ -11,14 +11,30 @@ public class VisualInformation {
     public Point wallStart;
     public Point wallEnd;
 
-    public VisualInformation(GameObject gameObject) {
+    public VisualInformation(GameObject gameObject,Camera camera) {
         if(gameObject.type!="W") {
-            ballPoint = gameObject.getPosition();
+            ballPoint = new Point(0,0);
+            ballPoint.setX(gameObject.getPosition().getX()-camera.getPosition().getX()+250);
+            ballPoint.setY(gameObject.getPosition().getY()-camera.getPosition().getY()+250);
         }
         else {
             Wall wall =(Wall) gameObject;
-            wallStart = wall.getStart();
-            wallEnd = wall.getEnd();
+            Wall transforWall = new Wall(camera.transformPoint(wall.getStart()),
+                    camera.transformPoint(wall.getEnd()));
+            Point start = transforWall.getStart();
+            Point end = transforWall.getEnd();
+            if(camera.isVisible(wall.getStart()))
+                start = transforWall.getStart();
+            else{
+                start = camera.getPoint(transforWall.getStart(),transforWall);
+            }
+            if(camera.isVisible(wall.getEnd()))
+                end = transforWall.getEnd();
+            else{
+                end = camera.getPoint(transforWall.getEnd(),transforWall);
+            }
+            wallStart = start;
+            wallEnd = end;
         }
     }
 }

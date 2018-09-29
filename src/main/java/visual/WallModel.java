@@ -20,10 +20,16 @@ public class WallModel extends Model {
 
     @Override
     public void refresh(VisualInformation visualInformation, Camera camera) {
-        line.setStartX(visualInformation.wallStart.getX()-camera.getPosition().getX()+250);
-        line.setStartY(visualInformation.wallStart.getY()-camera.getPosition().getY()+250);
-        line.setEndX(visualInformation.wallEnd.getX()-camera.getPosition().getX()+250);
-        line.setEndY(visualInformation.wallEnd.getY()-camera.getPosition().getY()+250);
+        try {
+
+            line.setStartX(visualInformation.wallStart.getX());
+            line.setStartY(visualInformation.wallStart.getY());
+            line.setEndX(visualInformation.wallEnd.getX());
+            line.setEndY(visualInformation.wallEnd.getY());
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Override

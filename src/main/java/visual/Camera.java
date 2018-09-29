@@ -7,6 +7,8 @@ import geometry.Line;
 import geometry.Point;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Camera {
     Point position;
@@ -82,6 +84,31 @@ public class Camera {
             }
         }
         return  minPoint;
+    }
+
+    public Point getPoint(Point point, Wall wall){
+        Point current;
+        ArrayList<Point> list = new ArrayList<>();
+        if((current=upHorizontal.getIntersectionPoint(wall))!=null)
+            list.add(current);
+        if((current=downHorzontal.getIntersectionPoint(wall))!=null)
+            list.add(current);
+        if((current=leftVertical.getIntersectionPoint(wall))!=null)
+            list.add(current);
+        if((current=rightVertical.getIntersectionPoint(wall))!=null)
+            list.add(current);
+        if(list.size()==0)
+            return null;
+        double distance = list.get(0).getDistanceToPoint(point);
+        current = list.get(0);
+        for(int i=1;i<list.size();i++){
+            double curDistance = list.get(i).getDistanceToPoint(point);
+            if(curDistance<distance){
+                current = list.get(i);
+                distance = curDistance;
+            }
+        }
+        return current;
     }
 
     public boolean isVisible(GameObject gameObject){
