@@ -28,6 +28,7 @@ public class Wall extends  GameObject{
         String[] substr = string.split("  ");
         start = new Point(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
         end = new Point(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
+        type = "W";
     }
 
     public Line getLine() {
@@ -89,5 +90,25 @@ public class Wall extends  GameObject{
     public String toString() {
         String res = new String(start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n");
         return res;
+    }
+
+    public boolean isBetween(Point point)
+    {
+        if(leftParallelLine.getSignEquationLine(point)*
+                rightParallelLine.getSignEquationLine(point)<0)
+            return true;
+        return false;
+    }
+
+    public Point getIntersectionPoint(Wall wall){
+        Point res = mainLine.getLineIntersectionPoint(wall.getLine());
+        if(res==null)
+            return null;
+        if(leftParallelLine.getSignEquationLine(res)*
+                rightParallelLine.getSignEquationLine(res)<0) {
+            if(wall.isBetween(res))
+            return res;
+        }
+        return null;
     }
 }

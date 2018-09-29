@@ -31,6 +31,8 @@ public class Line {
 
     public Point getLineIntersectionPoint(Line line) {
         double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
+        if(mainDeterminant==0)
+            return null;
         double xDeterminant = xCoefficient * line.freeCoefficient - line.xCoefficient * freeCoefficient;
         double yDeterminant = yCoefficient * line.freeCoefficient - line.yCoefficient * freeCoefficient;
 

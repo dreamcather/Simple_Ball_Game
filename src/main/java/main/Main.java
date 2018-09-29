@@ -1,5 +1,7 @@
 package main;
 
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import save.Rider;
 import game.Game;
 import javafx.application.Application;
@@ -23,6 +25,12 @@ public class Main extends Application {
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout, 700, 520);
         Game gameState = new game.Game(layout);
+        Rectangle leftBorder = new Rectangle(500,0,15,500);
+        leftBorder.setFill(Color.DARKBLUE);
+        Rectangle rightBorder = new Rectangle(0,500,500,15);
+        rightBorder.setFill(Color.DARKBLUE);
+        layout.getChildren().add(leftBorder);
+        layout.getChildren().add(rightBorder);
         Rider reader =new Rider("output.txt",gameState);
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

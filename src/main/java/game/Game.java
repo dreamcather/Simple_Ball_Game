@@ -66,7 +66,12 @@ public class Game {
 
     public void addWall(Point start, Point end){
         physicGame.addWall(start, end);
-
+    }
+    public void addWall(String string){
+        String[] substr = string.split("  ");
+        Point start = new Point(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
+        Point end = new Point(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
+        physicGame.addWall(start,end);
     }
 
     public void addHero(Player hero) {
@@ -185,7 +190,7 @@ public class Game {
             }
         }
         camera.setPosition(hero.getPosition());
-        visualGame.setObject(physicGame.getObjectList());
+        visualGame.setObject(physicGame.getObjectList(camera));
         visualGame.update();
     }
 

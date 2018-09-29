@@ -9,6 +9,7 @@ import javafx.animation.AnimationTimer;
 import gameObject.Ball;
 import gameObject.GameObject;
 import gameObject.Wall;
+import visual.Camera;
 
 import java.util.ArrayList;
 
@@ -80,15 +81,12 @@ public class PhysicGame {
         this.motionControl = motionControl;
     }
 
-    public ArrayList<GameObject> getObjectList(){
+    public ArrayList<GameObject> getObjectList(Camera camera){
         ArrayList<GameObject> output = new ArrayList<>();
         for(GameObject gameObject:gameObjectList){
+            if(camera.isVisible(gameObject))
                 output.add(gameObject);
         }
         return output;
-    }
-
-    public  Point getPlayerPosition(){
-        return player.getPosition();
     }
 }

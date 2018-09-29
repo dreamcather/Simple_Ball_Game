@@ -3,7 +3,10 @@ package visual;
 import gameObject.Ball;
 import gameObject.GameObject;
 import gameObject.Wall;
+import geometry.Line;
 import geometry.Point;
+
+import java.awt.*;
 
 public class Camera {
     Point position;
@@ -12,13 +15,21 @@ public class Camera {
     Wall downHorzontal;
     Wall leftVertical;
     Wall rightVertical;
+    Point leftUpPoint;
+    Point leftDownPoint;
+    Point rightUpPoint;
+    Point rightDownPoint;
 
     public Camera(Point position) {
         this.position = position;
-        upHorizontal = new Wall(new Point(0, 2 * weight), new Point(0, 0));
-        downHorzontal = new Wall(new Point(0, 2 * weight), new Point(2 * weight, 2 * weight));
-        leftVertical = new Wall(new Point(0, 0), new Point(0, 2 * weight));
-        rightVertical = new Wall(new Point(2 * weight, 2 * weight), new Point(2 * weight, 0));
+        leftUpPoint = new Point(0,0);
+        leftDownPoint = new Point(0,2*weight);
+        rightUpPoint = new Point(2*weight,0);
+        rightDownPoint = new Point(2*weight,2*weight);
+        upHorizontal = new Wall(rightUpPoint,leftUpPoint);
+        downHorzontal = new Wall(leftDownPoint,rightDownPoint);
+        leftVertical = new Wall(leftUpPoint,leftDownPoint);
+        rightVertical = new Wall(rightDownPoint,rightUpPoint);
     }
 
     public Point transformPoint(Point point) {
@@ -38,9 +49,53 @@ public class Camera {
         return false;
     }
 
+    public Point getIntersection(Point point, Wall wall) {
+        Point res = upHorizontal.getIntersectionPoint(wall);
+        double min =100;
+        Point minPoint = null;
+        if (res != null) {
+            min = res.getDistanceToPoint(point);
+            minPoint =res;
+        }
+        res = downHorzontal.getIntersectionPoint(wall);
+        if(res!=null)
+        {
+            if(res.getDistanceToPoint(point)<min){
+                min = res.getDistanceToPoint(point);
+                minPoint = res;
+            }
+        }
+        res = leftVertical.getIntersectionPoint(wall);
+        if(res!=null)
+        {
+            if(res.getDistanceToPoint(point)<min){
+                min = res.getDistanceToPoint(point);
+                minPoint = res;
+            }
+        }
+        res = rightVertical.getIntersectionPoint(wall);
+        if(res!=null)
+        {
+            if(res.getDistanceToPoint(point)<min){
+                min = res.getDistanceToPoint(point);
+                minPoint = res;
+            }
+        }
+        return  minPoint;
+    }
+
     public boolean isVisible(GameObject gameObject){
         if(gameObject.type=="W"){
+            Wall wall = (Wall)gameObject;
+            if(isVisible(wall.getStart())||isVisible(wall.getEnd()))
             return true;
+            else{
+                Wall transformWall = new Wall(transformPoint(wall.getStart()),
+                        transformPoint(wall.getEnd()));
+                if(getIntersection(transformPoint(wall.getStart()),transformWall)!=null)
+                return true;
+                else return false;
+            }
         }
         else
         {

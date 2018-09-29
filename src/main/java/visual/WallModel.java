@@ -12,6 +12,7 @@ public class WallModel extends Model {
     public WallModel(Point start, Point end, AnchorPane anchorPane) {
         line = new Line(start.getX(),start.getY(),end.getX(),end.getY());
         anchorPane.getChildren().add(line);
+        this.anchorPane =anchorPane;
         this.start =start;
         this.end = end;
     }
@@ -27,7 +28,7 @@ public class WallModel extends Model {
 
     @Override
     public void hide() {
-
+        anchorPane.getChildren().remove(line);
     }
 
 }
