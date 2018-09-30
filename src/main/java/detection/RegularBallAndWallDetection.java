@@ -1,6 +1,7 @@
 package detection;
 
 import gameObject.Wall;
+import geometry.GeometricalCalculation;
 import geometry.Point;
 import geometry.Vector;
 import gameObject.Ball;
@@ -38,12 +39,12 @@ public class RegularBallAndWallDetection implements Detection {
 
     @Override
     public boolean detect() {
-        if (wall.getStart().getDistanceToPoint(ball.getPosition()) <= ball.getRadius()
+        if (GeometricalCalculation.getDistanceBetweenTwoPoint(wall.getStart(),ball.getPosition()) <= ball.getRadius()
                 && (wall.getLine().getSignEquationLine(wall.getStart()) >= 0)) {
             normalizePoint(ball, wall.getStart());
             return true;
         }
-        if (wall.getEnd().getDistanceToPoint(ball.getPosition()) <= ball.getRadius()
+        if (GeometricalCalculation.getDistanceBetweenTwoPoint( wall.getEnd(),ball.getPosition()) <= ball.getRadius()
                 && (wall.getLine().getSignEquationLine(wall.getEnd()) >= 0)) {
             normalizePoint(ball, wall.getEnd());
             return true;

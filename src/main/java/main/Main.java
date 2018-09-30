@@ -27,7 +27,7 @@ public class Main extends Application {
         Game gameState = new game.Game(layout);
         Rectangle leftBorder = new Rectangle(500,0,15,500);
         leftBorder.setFill(Color.DARKBLUE);
-        Rectangle rightBorder = new Rectangle(0,500,500,15);
+        Rectangle rightBorder = new Rectangle(0,500,515,15);
         rightBorder.setFill(Color.DARKBLUE);
         layout.getChildren().add(leftBorder);
         layout.getChildren().add(rightBorder);

@@ -1,6 +1,7 @@
 package detection;
 
 import gameObject.Ball;
+import geometry.GeometricalCalculation;
 
 public class RegularTwoBallDetection implements Detection {
     Ball first;
@@ -13,7 +14,7 @@ public class RegularTwoBallDetection implements Detection {
 
     @Override
     public boolean detect() {
-        double distanceBetweenBall = first.getPosition().getDistanceToPoint(second.getPosition());
+        double distanceBetweenBall = GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
         double radiusSum = first.getRadius() + second.getRadius();
         if (distanceBetweenBall < radiusSum)
             return true;

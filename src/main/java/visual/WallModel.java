@@ -27,9 +27,7 @@ public class WallModel extends Model {
             line.setEndX(visualInformation.wallEnd.getX());
             line.setEndY(visualInformation.wallEnd.getY());
         }
-        catch (Exception e){
-            System.out.println(e);
-        }
+        catch (Exception e){}
     }
 
     @Override

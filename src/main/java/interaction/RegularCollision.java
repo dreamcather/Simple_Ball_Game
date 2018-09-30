@@ -1,5 +1,6 @@
 package interaction;
 
+import geometry.GeometricalCalculation;
 import geometry.Line;
 import geometry.Point;
 import geometry.Vector;
@@ -15,7 +16,7 @@ public class RegularCollision extends Collision {
     }
 
     private double getDistanceBetweenBall() {
-        return first.getPosition().getDistanceToPoint(second.getPosition());
+        return GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
     }
 
     private void correctionPosition() {

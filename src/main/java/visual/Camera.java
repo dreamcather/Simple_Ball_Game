@@ -3,12 +3,9 @@ package visual;
 import gameObject.Ball;
 import gameObject.GameObject;
 import gameObject.Wall;
-import geometry.Line;
+import geometry.GeometricalCalculation;
 import geometry.Point;
-
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Camera {
     Point position;
@@ -51,41 +48,6 @@ public class Camera {
         return false;
     }
 
-    public Point getIntersection(Point point, Wall wall) {
-        Point res = upHorizontal.getIntersectionPoint(wall);
-        double min =100;
-        Point minPoint = null;
-        if (res != null) {
-            min = res.getDistanceToPoint(point);
-            minPoint =res;
-        }
-        res = downHorzontal.getIntersectionPoint(wall);
-        if(res!=null)
-        {
-            if(res.getDistanceToPoint(point)<min){
-                min = res.getDistanceToPoint(point);
-                minPoint = res;
-            }
-        }
-        res = leftVertical.getIntersectionPoint(wall);
-        if(res!=null)
-        {
-            if(res.getDistanceToPoint(point)<min){
-                min = res.getDistanceToPoint(point);
-                minPoint = res;
-            }
-        }
-        res = rightVertical.getIntersectionPoint(wall);
-        if(res!=null)
-        {
-            if(res.getDistanceToPoint(point)<min){
-                min = res.getDistanceToPoint(point);
-                minPoint = res;
-            }
-        }
-        return  minPoint;
-    }
-
     public Point getPoint(Point point, Wall wall){
         Point current;
         ArrayList<Point> list = new ArrayList<>();
@@ -99,10 +61,10 @@ public class Camera {
             list.add(current);
         if(list.size()==0)
             return null;
-        double distance = list.get(0).getDistanceToPoint(point);
+        double distance = GeometricalCalculation.getDistanceBetweenTwoPoint(list.get(0),point);
         current = list.get(0);
         for(int i=1;i<list.size();i++){
-            double curDistance = list.get(i).getDistanceToPoint(point);
+            double curDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(list.get(i),point);
             if(curDistance<distance){
                 current = list.get(i);
                 distance = curDistance;
@@ -119,7 +81,8 @@ public class Camera {
             else{
                 Wall transformWall = new Wall(transformPoint(wall.getStart()),
                         transformPoint(wall.getEnd()));
-                if(getIntersection(transformPoint(wall.getStart()),transformWall)!=null)
+                if((getPoint(transformWall.getStart(),transformWall)!=null)||
+                        (getPoint(transformWall.getEnd(),transformWall)!=null))
                 return true;
                 else return false;
             }
@@ -139,6 +102,17 @@ public class Camera {
     }
 
     public void setPosition(Point position) {
-        this.position = position;
+        double x = position.getX();
+        double y = position.getY();
+        if(x<250)
+            x=250;
+        if(y<250)
+            y=250;
+        if(x>750)
+            x=750;
+        if(y>750)
+            y=750;
+        this.position.setX(x);
+        this.position.setY(y);
     }
 }

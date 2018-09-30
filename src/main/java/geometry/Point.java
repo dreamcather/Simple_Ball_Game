@@ -28,11 +28,6 @@ public class Point {
         return resX && resY;
 
     }
-
-    public double getDistanceToPoint(Point point) {
-        return Math.sqrt(Math.pow(x - point.getX(), 2) + Math.pow((y - point.getY()), 2));
-    }
-
     public void add(Point point){
         this.x+=point.getX();
         this.y+=point.getY();
