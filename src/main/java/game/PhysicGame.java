@@ -10,6 +10,7 @@ import gameObject.Ball;
 import gameObject.GameObject;
 import gameObject.Wall;
 import visual.Camera;
+import visual.VisualVisitor;
 
 import java.util.ArrayList;
 
@@ -84,7 +85,7 @@ public class PhysicGame {
     public ArrayList<GameObject> getObjectList(Camera camera){
         ArrayList<GameObject> output = new ArrayList<>();
         for(GameObject gameObject:gameObjectList){
-            if(camera.isVisible(gameObject))
+            if(gameObject.collision(new VisualVisitor()).isVisible(camera))
                 output.add(gameObject);
         }
         return output;
