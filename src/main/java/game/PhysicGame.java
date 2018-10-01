@@ -83,6 +83,7 @@ public class PhysicGame {
     }
 
     public ArrayList<GameObject> getObjectList(Camera camera){
+        camera.setPosition(player.getPosition());
         ArrayList<GameObject> output = new ArrayList<>();
         for(GameObject gameObject:gameObjectList){
             if(gameObject.collision(new VisualVisitor()).isVisible(camera))

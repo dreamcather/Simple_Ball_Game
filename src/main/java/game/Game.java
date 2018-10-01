@@ -4,11 +4,13 @@ import geometry.Point;
 import interaction.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import gameObject.*;
 import visual.Camera;
+import visual.PlayingField;
 import visual.VisualBall;
 import visual.VisualFactory;
 
@@ -32,6 +34,7 @@ public class Game {
     VisualFactory visualFactory;
     Camera camera;
     save.Rider writer;
+    PlayingField playingField;
 
     public Game(AnchorPane _panel) throws IOException {
         gamePanel = _panel;
@@ -48,12 +51,13 @@ public class Game {
         lifeCounter.setLayoutX(550);
         lifeCounter.setLayoutY(70);
         prizeCount = 0;
+        playingField = new PlayingField(1000,1000,gamePanel);
         camera = new Camera(new Point(0,0));
         motionControl =new MotionControl();
         active =true;
         visualFactory = new
                 VisualFactory(gamePanel);
-        visualGame = new VisualGame(visualFactory,camera);
+        visualGame = new VisualGame(visualFactory,camera,playingField);
         animationTimer =new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -79,13 +83,13 @@ public class Game {
     }
 
     public void addHero(String string) {
-        String[] strmas = string.split("  ", 6);
-        double xCoefficient = Double.parseDouble(strmas[0]);
-        double yCoefficient = Double.parseDouble(strmas[1]);
-        double speed = Double.parseDouble(strmas[2]);
-        double xCoordinate = Double.parseDouble(strmas[3]);
-        double yCoordinate = Double.parseDouble(strmas[4]);
-        double radius = Double.parseDouble(strmas[5]);
+        String[] strMas = string.split("  ", 6);
+        double xCoefficient = Double.parseDouble(strMas[0]);
+        double yCoefficient = Double.parseDouble(strMas[1]);
+        double speed = Double.parseDouble(strMas[2]);
+        double xCoordinate = Double.parseDouble(strMas[3]);
+        double yCoordinate = Double.parseDouble(strMas[4]);
+        double radius = Double.parseDouble(strMas[5]);
         Player player = new Player(xCoefficient, yCoefficient, speed, xCoordinate, yCoordinate, radius);
         this.hero = player;
         physicGame.addPlayer(player);
@@ -188,7 +192,6 @@ public class Game {
                 prizeCount++;
             }
         }
-        camera.setPosition(hero.getPosition());
         visualGame.setObject(physicGame.getObjectList(camera));
         visualGame.update();
     }

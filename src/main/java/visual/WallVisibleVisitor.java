@@ -12,19 +12,19 @@ public class WallVisibleVisitor implements Visible {
 
     @Override
     public boolean isVisible(Camera camera) {
-        Wall transforWall = new Wall(camera.transformPoint(wall.getStart()),
+        Wall transformWall = new Wall(camera.transformPoint(wall.getStart()),
                 camera.transformPoint(wall.getEnd()));
-        Point start = transforWall.getStart();
-        Point end = transforWall.getEnd();
+        Point start = null;
+        Point end = null;
         if(camera.isVisible(wall.getStart()))
-            start = transforWall.getStart();
+            start = transformWall.getStart();
         else{
-            start = camera.getPoint(transforWall.getStart(),transforWall);
+            start = camera.getPoint(transformWall.getStart(),transformWall);
         }
         if(camera.isVisible(wall.getEnd()))
-            end = transforWall.getEnd();
+            end = transformWall.getEnd();
         else{
-            end = camera.getPoint(transforWall.getEnd(),transforWall);
+            end = camera.getPoint(transformWall.getEnd(),transformWall);
         }
         if(start==null)
             return false;

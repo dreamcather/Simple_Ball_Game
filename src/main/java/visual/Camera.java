@@ -1,7 +1,5 @@
 package visual;
 
-import gameObject.Ball;
-import gameObject.GameObject;
 import gameObject.Wall;
 import geometry.GeometricalCalculation;
 import geometry.Point;
@@ -11,7 +9,7 @@ public class Camera {
     Point position;
     int weight = 250;
     Wall upHorizontal;
-    Wall downHorzontal;
+    Wall downHorizontal;
     Wall leftVertical;
     Wall rightVertical;
     Point leftUpPoint;
@@ -26,7 +24,7 @@ public class Camera {
         rightUpPoint = new Point(2*weight,0);
         rightDownPoint = new Point(2*weight,2*weight);
         upHorizontal = new Wall(rightUpPoint,leftUpPoint);
-        downHorzontal = new Wall(leftDownPoint,rightDownPoint);
+        downHorizontal = new Wall(leftDownPoint,rightDownPoint);
         leftVertical = new Wall(leftUpPoint,leftDownPoint);
         rightVertical = new Wall(rightDownPoint,rightUpPoint);
     }
@@ -53,7 +51,7 @@ public class Camera {
         ArrayList<Point> list = new ArrayList<>();
         if((current=upHorizontal.getIntersectionPoint(wall))!=null)
             list.add(current);
-        if((current=downHorzontal.getIntersectionPoint(wall))!=null)
+        if((current= downHorizontal.getIntersectionPoint(wall))!=null)
             list.add(current);
         if((current=leftVertical.getIntersectionPoint(wall))!=null)
             list.add(current);
@@ -71,30 +69,6 @@ public class Camera {
             }
         }
         return current;
-    }
-
-    public boolean isVisible(GameObject gameObject){
-        if(gameObject.type=="W"){
-            Wall wall = (Wall)gameObject;
-            if(isVisible(wall.getStart())||isVisible(wall.getEnd()))
-            return true;
-            else{
-                Wall transformWall = new Wall(transformPoint(wall.getStart()),
-                        transformPoint(wall.getEnd()));
-                if((getPoint(transformWall.getStart(),transformWall)!=null)||
-                        (getPoint(transformWall.getEnd(),transformWall)!=null))
-                return true;
-                else return false;
-            }
-        }
-        else
-        {
-            Ball ball = (Ball)gameObject;
-            if(isVisible(ball.getPosition())){
-                return true;
-            }
-            return false;
-        }
     }
 
     public Point getPosition() {
