@@ -4,7 +4,6 @@ package visual;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
@@ -33,7 +32,7 @@ public class PlayingField {
     }
 
     public void refresh(Camera camera){
-        currentImage.setImage(new WritableImage(pixelReader,(int)camera.position.getX()-250,(int)camera.position.getY()-250,
-                500,500));
+        currentImage.setImage(new WritableImage(pixelReader,(int)camera.position.getX()-camera.weight,(int)camera.position.getY()-camera.weight,
+                2*camera.weight,2*camera.weight));
     }
 }
