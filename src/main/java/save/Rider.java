@@ -17,7 +17,8 @@ public class Rider {
         String[] strmas = string.split("  ", 2);
         int wallCount = Integer.parseInt(strmas[1]);
         for (int i = 0; i < wallCount; i++) {
-            physicGame.addWall(bufferedReader.readLine());
+            Wall wall = new Wall(bufferedReader.readLine());
+            physicGame.addWall(wall.getStart(), wall.getEnd());
         }
         string = bufferedReader.readLine();
         physicGame.addHero(bufferedReader.readLine());

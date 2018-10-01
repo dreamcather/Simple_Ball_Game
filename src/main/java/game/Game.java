@@ -1,6 +1,5 @@
 package game;
 
-import save.Rider;
 import geometry.Point;
 import interaction.MotionControl;
 import javafx.animation.AnimationTimer;
@@ -32,7 +31,7 @@ public class Game {
     VisualGame visualGame;
     VisualFactory visualFactory;
     Camera camera;
-    Rider writer;
+    save.Rider writer;
 
     public Game(AnchorPane _panel) throws IOException {
         gamePanel = _panel;
