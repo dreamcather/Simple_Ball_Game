@@ -34,13 +34,13 @@ public class Game {
         gamePanel = _panel;
         physicGame = new PhysicGame();
         score = new Label("Score");
-        score.setLayoutX(550);
+        score.setLayoutX(650);
         score.setLayoutY(50);
         gamePanel.getChildren().add(score);
         countPoint = 0;
         lifeCounter = new Label("Life");
         gamePanel.getChildren().add(lifeCounter);
-        lifeCounter.setLayoutX(550);
+        lifeCounter.setLayoutX(650);
         lifeCounter.setLayoutY(70);
         prizeCount = 0;
         playingField = new PlayingField(1000,1000,gamePanel);
@@ -58,20 +58,11 @@ public class Game {
         };
 
     }
-
-    public void addWall(Point start, Point end){
-        physicGame.addWall(start, end);
-    }
     public void addWall(String string){
         String[] substr = string.split("  ");
         Point start = new Point(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
         Point end = new Point(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
         physicGame.addWall(start,end);
-    }
-
-    public void addHero(Player hero) {
-        this.hero = hero;
-        physicGame.addBall(hero);
     }
 
     public void addHero(String string) {
@@ -97,10 +88,6 @@ public class Game {
         physicGame.addBall(prize);
     }
 
-    public void addEnemy(Ball enemy) {
-        physicGame.addBall(enemy);
-
-    }
     public void addEnemy(String string) {
         String[] strmas = string.split("  ",6);
         double xCoefficient = Double.parseDouble(strmas[0]);
@@ -113,10 +100,6 @@ public class Game {
 
     }
 
-    public void addPrize(Ball prize) {
-        physicGame.addBall(prize);
-        prizeCount++;
-    }
     public void addPrize(String string) {
         String[] strmas = string.split("  ",6);
         double xCoefficient = Double.parseDouble(strmas[0]);

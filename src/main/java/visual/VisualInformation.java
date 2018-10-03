@@ -14,8 +14,8 @@ public class VisualInformation {
     public VisualInformation(GameObject gameObject,Camera camera) {
         if(gameObject.type!="W") {
             ballPoint = new Point(0,0);
-            ballPoint.setX(gameObject.getPosition().getX()-camera.getPosition().getX()+250);
-            ballPoint.setY(gameObject.getPosition().getY()-camera.getPosition().getY()+250);
+            ballPoint.setX(gameObject.getPosition().getX()-camera.getPosition().getX()+250+camera.getxOfsset());
+            ballPoint.setY(gameObject.getPosition().getY()-camera.getPosition().getY()+250+camera.getxOfsset());
         }
         else {
             Wall wall =(Wall) gameObject;
@@ -33,6 +33,10 @@ public class VisualInformation {
             else{
                 end = camera.getPoint(transforWall.getEnd(),transforWall);
             }
+            start.setX(start.getX()+camera.getxOfsset());
+            start.setY(start.getY()+camera.getxOfsset());
+            end.setX(end.getX()+camera.getxOfsset());
+            end.setY(end.getY()+camera.getxOfsset());
             wallStart = start;
             wallEnd = end;
         }

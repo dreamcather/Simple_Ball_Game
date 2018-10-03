@@ -1,11 +1,13 @@
 package game;
 
 import gameObject.GameObject;
+import geometry.Point;
 import visual.*;
 
 import java.util.ArrayList;
 
 public class VisualGame {
+    private Point position;
     private VisualFactory visualFactory;
     private ArrayList<GameObject> visualObjectList;
     private ArrayList<Model> modelsList;
