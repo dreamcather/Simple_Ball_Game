@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Camera {
     Point position;
     int weight = 250;
-    int xOfsset;
+    double xOfsset;
     Wall upHorizontal;
     Wall downHorizontal;
     Wall leftVertical;
@@ -18,8 +18,9 @@ public class Camera {
     Point rightUpPoint;
     Point rightDownPoint;
 
-    public Camera(Point position) {
+    public Camera(Point position, double ofsset) {
         this.position = position;
+        this.xOfsset = ofsset;
         leftUpPoint = new Point(0,0);
         leftDownPoint = new Point(0,2*weight);
         rightUpPoint = new Point(2*weight,0);
@@ -28,7 +29,6 @@ public class Camera {
         downHorizontal = new Wall(leftDownPoint,rightDownPoint);
         leftVertical = new Wall(leftUpPoint,leftDownPoint);
         rightVertical = new Wall(rightDownPoint,rightUpPoint);
-        xOfsset =50;
     }
 
     public Point transformPoint(Point point) {
@@ -92,7 +92,7 @@ public class Camera {
         this.position.setY(y);
     }
 
-    public int getxOfsset() {
+    public double getxOfsset() {
         return xOfsset;
     }
 }

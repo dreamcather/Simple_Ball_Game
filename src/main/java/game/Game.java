@@ -26,9 +26,8 @@ public class Game {
     AnimationTimer animationTimer;
     boolean active;
     VisualGame visualGame;
-    VisualFactory visualFactory;
+    int widht =500;
     Camera camera;
-    PlayingField playingField;
 
     public Game(AnchorPane _panel) throws IOException {
         gamePanel = _panel;
@@ -43,13 +42,10 @@ public class Game {
         lifeCounter.setLayoutX(650);
         lifeCounter.setLayoutY(70);
         prizeCount = 0;
-        playingField = new PlayingField(1000,1000,gamePanel);
-        camera = new Camera(new Point(0,0));
         motionControl =new MotionControl();
         active =true;
-        visualFactory = new
-                VisualFactory(gamePanel);
-        visualGame = new VisualGame(visualFactory,camera,playingField);
+        visualGame = new VisualGame(gamePanel,new Point(50,50),widht,1000,1000);
+        camera = visualGame.getCamera();
         animationTimer =new AnimationTimer() {
             @Override
             public void handle(long now) {

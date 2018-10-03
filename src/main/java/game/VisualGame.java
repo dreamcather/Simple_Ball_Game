@@ -2,24 +2,30 @@ package game;
 
 import gameObject.GameObject;
 import geometry.Point;
+import javafx.scene.layout.AnchorPane;
 import visual.*;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class VisualGame {
-    private Point position;
+    Point position;
+    int heiht;
     private VisualFactory visualFactory;
     private ArrayList<GameObject> visualObjectList;
     private ArrayList<Model> modelsList;
     PlayingField playingField;
     Camera camera;
 
-    VisualGame(VisualFactory visualFactory, Camera camera, PlayingField playingField){
-        this.visualFactory = visualFactory;
+    VisualGame(AnchorPane anchorPane,Point point,int weight, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
+        position =point;
+        heiht = weight;
+        playingField = new PlayingField(playingFieldHeight,playingFieldWidth,anchorPane);
+        visualFactory = new VisualFactory(anchorPane);
+        camera = new Camera(new Point(heiht,heiht),position.getX());
         visualObjectList = new ArrayList<>();
         modelsList = new ArrayList<>();
-        this.playingField =playingField;
-        this.camera =camera;
+
     }
 
     public void setObject(ArrayList<GameObject> inputList){
@@ -40,12 +46,21 @@ public class VisualGame {
     }
 
     public void update(){
-        playingField.refresh(camera);
-        for(int i=0;i< modelsList.size();i++){
-            Model model = modelsList.get(i);
-            VisualInformation visualInformation = new VisualInformation(visualObjectList.get(i),camera);
-            model.refresh(visualInformation);
+        try {
+            playingField.refresh(camera);
+            for (int i = 0; i < modelsList.size(); i++) {
+                Model model = modelsList.get(i);
+                VisualInformation visualInformation = new VisualInformation(visualObjectList.get(i), camera);
+                model.refresh(visualInformation);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
         }
 
+    }
+
+    public Camera getCamera() {
+        return camera;
     }
 }
