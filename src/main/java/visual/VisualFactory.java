@@ -16,25 +16,6 @@ public class VisualFactory {
         this.anchorPane = anchorPane;
     }
 
-    public Model create(GameObject object, Camera camera) {
-        if(object.type =="E") {
-            Ball ball =(Ball)object;
-            return new CircleModel(ball.getPosition(camera.getPosition()), ball.getRadius(), enemyColor, anchorPane,"E");
-        }
-        if(object.type =="P") {
-            Ball ball =(Ball)object;
-            return new CircleModel(ball.getPosition(camera.getPosition()), ball.getRadius(), playerColor, anchorPane,"P");
-        }
-        if(object.type =="Pr") {
-            Ball ball =(Ball)object;
-            return new CircleModel(ball.getPosition(camera.getPosition()), ball.getRadius(), prizeColor, anchorPane,"Pr");
-        }
-        if(object.type =="W") {
-            Wall wall =(Wall) object;
-            return new WallModel(wall.getStart(),wall.getEnd(),anchorPane);
-        }
-        else return null;
-    }
     public Model create(VisualInformation visualInformation) {
         if(visualInformation.type =="E") {
             return new CircleModel(visualInformation.ballPoint,15, enemyColor, anchorPane,"E");

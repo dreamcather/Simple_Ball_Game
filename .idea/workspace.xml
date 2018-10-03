@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="isVisible return VisualInformation">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="isVisible return VisualInformation. bug correct">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/VisualGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/VisualGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/BallVisibleVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/BallVisibleVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/WallVisibleVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/WallVisibleVisitor.java" afterDir="false" />
     </list>
     <list id="29b9e346-2a33-4d5b-a40f-b9edd8f466d0" name="Add class Hero" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -100,14 +94,14 @@
         <counts>
           <entry key="dummy" value="38" />
           <entry key="java" value="19493" />
-          <entry key="txt" value="567" />
+          <entry key="txt" value="581" />
           <entry key="xml" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="19493" />
-          <entry key="PLAIN_TEXT" value="605" />
+          <entry key="PLAIN_TEXT" value="619" />
           <entry key="XML" value="19" />
         </counts>
       </usages-collector>
@@ -129,10 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/VisualGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="-23">
               <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -219,7 +213,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/PhysicGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -406,7 +400,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538568006094" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538568965736" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -779,7 +773,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538565322442</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="isVisible return VisualInformation. bug correct">
+      <created>1538568079491</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1538568079491</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -830,7 +831,7 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3457189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3457189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -839,7 +840,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32828283" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47334412" visible="true" weight="0.35353535" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47334412" visible="true" weight="0.35353535" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.47819063" weight="0.3956229" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -931,7 +932,8 @@
     <MESSAGE value="add camera offset" />
     <MESSAGE value="add visualGame scene position" />
     <MESSAGE value="isVisible return VisualInformation" />
-    <option name="LAST_COMMIT_MESSAGE" value="isVisible return VisualInformation" />
+    <MESSAGE value="isVisible return VisualInformation. bug correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="isVisible return VisualInformation. bug correct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1286,18 +1288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/VisualGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2352#2353#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-188">
@@ -1324,6 +1314,18 @@
             <element signature="imports" expanded="true" />
             <element signature="method#addWall#0;class#PhysicGame#0" />
             <element signature="method#clear#0;class#PhysicGame#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/VisualGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2381#2382#0" expanded="true" />
           </folding>
         </state>
       </provider>
