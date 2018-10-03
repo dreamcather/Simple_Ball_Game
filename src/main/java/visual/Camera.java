@@ -25,10 +25,10 @@ public class Camera {
     public Camera(Point position, double ofsset,double minX,double maxX,double minY,double maxY) {
         this.position = position;
         this.xOfsset = ofsset;
-        this.minX = minX+ofsset+weight;
-        this.maxX = maxX+ofsset-weight;
-        this.minY = minY+ofsset+weight;
-        this.maxY = maxY+ofsset-weight;
+        this.minX = minX+weight;
+        this.maxX = maxX-weight;
+        this.minY = minY+weight;
+        this.maxY = maxY-weight;
         leftUpPoint = new Point(0,0);
         leftDownPoint = new Point(0,2*weight);
         rightUpPoint = new Point(2*weight,0);
@@ -40,16 +40,16 @@ public class Camera {
     }
 
     public Point transformPoint(Point point) {
-        return new Point(point.getX() - position.getX() + weight+xOfsset,
-                point.getY() - position.getY() + weight+xOfsset);
+        return new Point(point.getX() - position.getX() + weight,
+                point.getY() - position.getY() + weight);
     }
 
     public boolean isVisible(Point point){
         Point transformPoint = transformPoint(point);
-        if((transformPoint.getY()<=2*weight+xOfsset)&&
-                (transformPoint.getY()>=xOfsset)&&
-                (transformPoint.getX()<=2*weight+xOfsset)&&
-                (transformPoint.getX()>=xOfsset))
+        if((transformPoint.getY()<=2*weight)&&
+                (transformPoint.getY()>=0)&&
+                (transformPoint.getX()<=2*weight)&&
+                (transformPoint.getX()>=0))
         {
             return true;
         }

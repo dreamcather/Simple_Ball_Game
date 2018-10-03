@@ -16,6 +16,8 @@ public class BallVisibleVisitor implements Visible {
             VisualInformation visualInformation = new
                     VisualInformation("E");
             visualInformation.ballPoint = camera.transformPoint(ball.getPosition());
+            visualInformation.ballPoint.setX(camera.transformPoint(ball.getPosition()).getX()+camera.getxOfsset());
+            visualInformation.ballPoint.setY(camera.transformPoint(ball.getPosition()).getY()+camera.getxOfsset());
             return visualInformation;
         }
         return null;
