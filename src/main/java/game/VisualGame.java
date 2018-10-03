@@ -1,8 +1,6 @@
 package game;
 
 import gameObject.GameObject;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import visual.*;
 
 import java.util.ArrayList;
@@ -44,7 +42,7 @@ public class VisualGame {
         for(int i=0;i< modelsList.size();i++){
             Model model = modelsList.get(i);
             VisualInformation visualInformation = new VisualInformation(visualObjectList.get(i),camera);
-            model.refresh(visualInformation,camera);
+            model.refresh(visualInformation);
         }
 
     }

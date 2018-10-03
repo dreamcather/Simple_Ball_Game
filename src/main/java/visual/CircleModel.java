@@ -16,7 +16,7 @@ public class CircleModel extends Model {
 
 
     @Override
-    public void refresh(VisualInformation visualInformation, Camera camera) {
+    public void refresh(VisualInformation visualInformation) {
         model.setCenterX(visualInformation.ballPoint.getX());
         model.setCenterY(visualInformation.ballPoint.getY());
     }

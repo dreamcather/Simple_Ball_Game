@@ -19,7 +19,7 @@ public class WallModel extends Model {
 
 
     @Override
-    public void refresh(VisualInformation visualInformation, Camera camera) {
+    public void refresh(VisualInformation visualInformation) {
         try {
 
             line.setStartX(visualInformation.wallStart.getX());

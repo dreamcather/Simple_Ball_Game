@@ -1,6 +1,7 @@
 package visual;
 
 
+import geometry.Point;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
@@ -10,6 +11,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 
 public class PlayingField {
+    Point position;
     int height;
     int width;
     ImageView background;

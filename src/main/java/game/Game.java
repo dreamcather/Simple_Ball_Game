@@ -4,18 +4,15 @@ import geometry.Point;
 import interaction.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import gameObject.*;
 import visual.Camera;
 import visual.PlayingField;
-import visual.VisualBall;
 import visual.VisualFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Game {
     private AnchorPane gamePanel;
@@ -24,8 +21,6 @@ public class Game {
     private Label lifeCounter;
     private int countPoint;
     private PhysicGame physicGame;
-    private ArrayList<VisualBall> visualObject;
-    private Factory factory;
     private int prizeCount;
     MotionControl motionControl;
     AnimationTimer animationTimer;
@@ -33,13 +28,10 @@ public class Game {
     VisualGame visualGame;
     VisualFactory visualFactory;
     Camera camera;
-    save.Rider writer;
     PlayingField playingField;
 
     public Game(AnchorPane _panel) throws IOException {
         gamePanel = _panel;
-        factory = new Factory(gamePanel);
-        visualObject = new ArrayList<>();
         physicGame = new PhysicGame();
         score = new Label("Score");
         score.setLayoutX(550);
@@ -181,10 +173,6 @@ public class Game {
                 prizeCount--;
             }
             lifeCounter.setText("Life " + hero.getLifeCount());
-
-            for (VisualBall currentObject : visualObject) {
-                currentObject.update();
-            }
 
 
             if (prizeCount == 0) {
