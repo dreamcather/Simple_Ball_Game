@@ -1,5 +1,5 @@
 package visual;
 
 public interface Visible {
-    boolean isVisible(Camera camera);
+    VisualInformation isVisible(Camera camera);
 }

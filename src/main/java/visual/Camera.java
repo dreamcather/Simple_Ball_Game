@@ -9,6 +9,10 @@ public class Camera {
     Point position;
     int weight = 250;
     double xOfsset;
+    double minX;
+    double maxX;
+    double minY;
+    double maxY;
     Wall upHorizontal;
     Wall downHorizontal;
     Wall leftVertical;
@@ -18,9 +22,13 @@ public class Camera {
     Point rightUpPoint;
     Point rightDownPoint;
 
-    public Camera(Point position, double ofsset) {
+    public Camera(Point position, double ofsset,double minX,double maxX,double minY,double maxY) {
         this.position = position;
         this.xOfsset = ofsset;
+        this.minX = minX+ofsset+weight;
+        this.maxX = maxX+ofsset-weight;
+        this.minY = minY+ofsset+weight;
+        this.maxY = maxY+ofsset-weight;
         leftUpPoint = new Point(0,0);
         leftDownPoint = new Point(0,2*weight);
         rightUpPoint = new Point(2*weight,0);
@@ -32,16 +40,16 @@ public class Camera {
     }
 
     public Point transformPoint(Point point) {
-        return new Point(point.getX() - position.getX() + weight,
-                point.getY() - position.getY() + weight);
+        return new Point(point.getX() - position.getX() + weight+xOfsset,
+                point.getY() - position.getY() + weight+xOfsset);
     }
 
     public boolean isVisible(Point point){
         Point transformPoint = transformPoint(point);
-        if((transformPoint.getY()<=2*weight)&&
-                (transformPoint.getY()>=0)&&
-                (transformPoint.getX()<=2*weight)&&
-                (transformPoint.getX()>=0))
+        if((transformPoint.getY()<=2*weight+xOfsset)&&
+                (transformPoint.getY()>=xOfsset)&&
+                (transformPoint.getX()<=2*weight+xOfsset)&&
+                (transformPoint.getX()>=xOfsset))
         {
             return true;
         }
@@ -80,14 +88,14 @@ public class Camera {
     public void setPosition(Point position) {
         double x = position.getX();
         double y = position.getY();
-        if(x<250)
-            x=250;
-        if(y<250)
-            y=250;
-        if(x>750)
-            x=750;
-        if(y>750)
-            y=750;
+        if(x<minX)
+            x=minX;
+        if(y<minY)
+            y=minY;
+        if(x>maxX)
+            x=maxX;
+        if(y>maxY)
+            y=maxY;
         this.position.setX(x);
         this.position.setY(y);
     }

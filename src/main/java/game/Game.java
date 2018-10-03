@@ -9,8 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import gameObject.*;
 import visual.Camera;
-import visual.PlayingField;
-import visual.VisualFactory;
 
 import java.io.IOException;
 
@@ -26,7 +24,7 @@ public class Game {
     AnimationTimer animationTimer;
     boolean active;
     VisualGame visualGame;
-    int widht =500;
+    int width =500;
     Camera camera;
 
     public Game(AnchorPane _panel) throws IOException {
@@ -44,7 +42,7 @@ public class Game {
         prizeCount = 0;
         motionControl =new MotionControl();
         active =true;
-        visualGame = new VisualGame(gamePanel,new Point(50,50),widht,1000,1000);
+        visualGame = new VisualGame(gamePanel,new Point(50,50), width,1000,1000);
         camera = visualGame.getCamera();
         animationTimer =new AnimationTimer() {
             @Override
@@ -155,12 +153,11 @@ public class Game {
 
 
             if (prizeCount == 0) {
-                createPrize();
+                //createPrize();
                 prizeCount++;
             }
         }
-        visualGame.setObject(physicGame.getObjectList(camera));
-        visualGame.update();
+        visualGame.update(physicGame.getObjectList(camera));
     }
 
     public boolean isActive() {

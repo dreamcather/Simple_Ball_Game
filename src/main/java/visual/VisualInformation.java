@@ -1,12 +1,12 @@
 package visual;
 
-import gameObject.Ball;
 import gameObject.GameObject;
 import gameObject.Wall;
 import geometry.Point;
 
 
 public class VisualInformation {
+    public String type;
     public Point ballPoint;
     public Point wallStart;
     public Point wallEnd;
@@ -43,5 +43,9 @@ public class VisualInformation {
         }
         catch (Exception e){
         }
+    }
+
+    public VisualInformation(String type) {
+        this.type = type;
     }
 }

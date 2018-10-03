@@ -10,9 +10,14 @@ public class BallVisibleVisitor implements Visible {
     }
 
     @Override
-    public boolean isVisible(Camera camera) {
+    public VisualInformation isVisible(Camera camera) {
         if(camera.isVisible(ball.getPosition()))
-        return true;
-        return false;
+        {
+            VisualInformation visualInformation = new
+                    VisualInformation("E");
+            visualInformation.ballPoint = camera.transformPoint(ball.getPosition());
+            return visualInformation;
+        }
+        return null;
     }
 }

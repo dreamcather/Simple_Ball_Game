@@ -10,6 +10,7 @@ import gameObject.Ball;
 import gameObject.GameObject;
 import gameObject.Wall;
 import visual.Camera;
+import visual.VisualInformation;
 import visual.VisualVisitor;
 
 import java.util.ArrayList;
@@ -82,12 +83,13 @@ public class PhysicGame {
         this.motionControl = motionControl;
     }
 
-    public ArrayList<GameObject> getObjectList(Camera camera){
+    public ArrayList<VisualInformation> getObjectList(Camera camera){
         camera.setPosition(player.getPosition());
-        ArrayList<GameObject> output = new ArrayList<>();
+        ArrayList<VisualInformation> output = new ArrayList<>();
         for(GameObject gameObject:gameObjectList){
-            if(gameObject.collision(new VisualVisitor()).isVisible(camera))
-                output.add(gameObject);
+            VisualInformation visualInformation = gameObject.collision(new VisualVisitor()).isVisible(camera);
+            if(visualInformation!=null)
+                output.add(visualInformation);
         }
         return output;
     }

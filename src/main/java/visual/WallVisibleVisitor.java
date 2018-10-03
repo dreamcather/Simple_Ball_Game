@@ -11,7 +11,7 @@ public class WallVisibleVisitor implements Visible {
     }
 
     @Override
-    public boolean isVisible(Camera camera) {
+    public VisualInformation isVisible(Camera camera) {
         Wall transformWall = new Wall(camera.transformPoint(wall.getStart()),
                 camera.transformPoint(wall.getEnd()));
         Point start = null;
@@ -27,9 +27,12 @@ public class WallVisibleVisitor implements Visible {
             end = camera.getPoint(transformWall.getEnd(),transformWall);
         }
         if(start==null)
-            return false;
+            return null;
         if(end == null)
-            return false;
-        return true;
+            return null;
+        VisualInformation visualInformation = new VisualInformation("W");
+        visualInformation.wallStart = camera.transformPoint(start);
+        visualInformation.wallEnd = camera.transformPoint(end);
+        return visualInformation;
     }
 }

@@ -10,11 +10,13 @@ public class WallModel extends Model {
     Point end;
 
     public WallModel(Point start, Point end, AnchorPane anchorPane) {
+        super();
         line = new Line(start.getX(),start.getY(),end.getX(),end.getY());
         anchorPane.getChildren().add(line);
         this.anchorPane =anchorPane;
         this.start =start;
         this.end = end;
+        type ="W";
     }
 
 
