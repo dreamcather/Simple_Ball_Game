@@ -34,10 +34,10 @@ public class PlayingField {
     }
 
     public void refresh(Camera camera){
-        background.setX(camera.getxOfsset());
-        background.setY(camera.getxOfsset());
-        currentImage.setX(camera.getxOfsset());
-        currentImage.setY(camera.getxOfsset());
+        background.setX(camera.getXOffset());
+        background.setY(camera.getXOffset());
+        currentImage.setX(camera.getXOffset());
+        currentImage.setY(camera.getXOffset());
         currentImage.setImage(new WritableImage(pixelReader,(int)camera.position.getX()-camera.weight,(int)camera.position.getY()-camera.weight,
                 2*camera.weight,2*camera.weight));
     }

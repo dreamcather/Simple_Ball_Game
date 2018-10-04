@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Camera {
     Point position;
     int weight = 250;
-    double xOfsset;
+    double xOffset;
     double minX;
     double maxX;
     double minY;
@@ -22,9 +22,9 @@ public class Camera {
     Point rightUpPoint;
     Point rightDownPoint;
 
-    public Camera(Point position, double ofsset,double minX,double maxX,double minY,double maxY) {
+    public Camera(Point position, double offset,double minX,double maxX,double minY,double maxY) {
         this.position = position;
-        this.xOfsset = ofsset;
+        this.xOffset = offset;
         this.minX = minX+weight;
         this.maxX = maxX-weight;
         this.minY = minY+weight;
@@ -100,7 +100,7 @@ public class Camera {
         this.position.setY(y);
     }
 
-    public double getxOfsset() {
-        return xOfsset;
+    public double getXOffset() {
+        return xOffset;
     }
 }

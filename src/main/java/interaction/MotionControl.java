@@ -14,8 +14,8 @@ public class MotionControl {
         position =null;
     }
     public MotionControl(MouseEvent event, Camera camera){
-        position = new Point(event.getSceneX()+camera.getPosition().getX()-250-camera.getxOfsset(),
-                event.getSceneY()+camera.getPosition().getY()-250-camera.getxOfsset());
+        position = new Point(event.getSceneX()+camera.getPosition().getX()-250-camera.getXOffset(),
+                event.getSceneY()+camera.getPosition().getY()-250-camera.getXOffset());
     }
 
     public Point getPosition() {
