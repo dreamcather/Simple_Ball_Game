@@ -23,11 +23,11 @@ public class WallModel extends Model {
     @Override
     public void refresh(VisualInformation visualInformation) {
         try {
-
-            line.setStartX(visualInformation.wallStart.getX());
-            line.setStartY(visualInformation.wallStart.getY());
-            line.setEndX(visualInformation.wallEnd.getX());
-            line.setEndY(visualInformation.wallEnd.getY());
+            WallVisualInformation wallVisualInformation = (WallVisualInformation)visualInformation;
+            line.setStartX(wallVisualInformation.getStart().getX());
+            line.setStartY(wallVisualInformation.getStart().getY());
+            line.setEndX(wallVisualInformation.getEnd().getX());
+            line.setEndY(wallVisualInformation.getEnd().getY());
         }
         catch (Exception e){}
     }

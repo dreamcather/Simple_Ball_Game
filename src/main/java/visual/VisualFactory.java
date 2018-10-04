@@ -18,16 +18,20 @@ public class VisualFactory {
 
     public Model create(VisualInformation visualInformation) {
         if(visualInformation.type =="E") {
-            return new CircleModel(visualInformation.ballPoint,15, enemyColor, anchorPane,"E");
+            BallVisualInformation ballVisualInformation = (BallVisualInformation)visualInformation;
+            return new CircleModel(ballVisualInformation.getPosition(),15, enemyColor, anchorPane,"E");
         }
         if(visualInformation.type =="P") {
-            return new CircleModel(visualInformation.ballPoint, 15, playerColor, anchorPane,"P");
+            BallVisualInformation ballVisualInformation = (BallVisualInformation)visualInformation;
+            return new CircleModel(ballVisualInformation.getPosition(), 15, playerColor, anchorPane,"P");
         }
         if(visualInformation.type =="Pr") {
-            return new CircleModel(visualInformation.ballPoint, 15, prizeColor, anchorPane,"Pr");
+            BallVisualInformation ballVisualInformation = (BallVisualInformation)visualInformation;
+            return new CircleModel(ballVisualInformation.getPosition(), 15, prizeColor, anchorPane,"Pr");
         }
         if(visualInformation.type =="W") {
-            return new WallModel(visualInformation.wallStart,visualInformation.wallEnd,anchorPane);
+            WallVisualInformation wallVisualInformation  = (WallVisualInformation)visualInformation;
+            return new WallModel(wallVisualInformation.start,wallVisualInformation.end,anchorPane);
         }
         else return null;
     }

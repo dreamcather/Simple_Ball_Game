@@ -1,6 +1,8 @@
 package visual;
 
 import gameObject.Ball;
+import gameObject.Wall;
+import geometry.Point;
 
 public class BallVisibleVisitor implements Visible {
     Ball ball;
@@ -13,13 +15,24 @@ public class BallVisibleVisitor implements Visible {
     public VisualInformation isVisible(Camera camera) {
         if(camera.isVisible(ball.getPosition()))
         {
-            VisualInformation visualInformation = new
-                    VisualInformation(ball.type);
-            visualInformation.ballPoint = camera.transformPoint(ball.getPosition());
-            visualInformation.ballPoint.setX(camera.transformPoint(ball.getPosition()).getX()+camera.getXOffset());
-            visualInformation.ballPoint.setY(camera.transformPoint(ball.getPosition()).getY()+camera.getXOffset());
+            Point position = camera.transformPoint(ball.getPosition());
+            position.setX(position.getX()+camera.getXOffset());
+            position.setY(position.getY()+camera.getXOffset());
+            VisualInformation visualInformation = new BallVisualInformation(ball.type,"V",position);
             return visualInformation;
         }
-        return null;
+        else {
+            try{
+            Wall wall = new Wall(camera.transformPoint(ball.getPosition()),camera.transformPoint(camera.position));
+            Point res = camera.getPoint(camera.transformPoint(ball.getPosition()),wall);
+            res.setX(res.getX()+camera.getXOffset());
+            res.setY(res.getY()+camera.getXOffset());
+            VisualInformation visualInformation = new BallVisualInformation(ball.type,"T",res);
+            return visualInformation;}
+            catch (Exception e){
+                System.out.println(e);
+                return null;
+            }
+        }
     }
 }

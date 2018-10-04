@@ -19,8 +19,14 @@ public class CircleModel extends Model {
 
     @Override
     public void refresh(VisualInformation visualInformation) {
-        model.setCenterX(visualInformation.ballPoint.getX());
-        model.setCenterY(visualInformation.ballPoint.getY());
+        try {
+            BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
+            model.setCenterX(ballVisualInformation.getPosition().getX());
+            model.setCenterY(ballVisualInformation.getPosition().getY());
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Override

@@ -30,13 +30,11 @@ public class WallVisibleVisitor implements Visible {
             return null;
         if(end == null)
             return null;
-        VisualInformation visualInformation = new VisualInformation("W");
-        visualInformation.wallStart = start;
-        visualInformation.wallEnd = end;
-        visualInformation.wallStart.setX(start.getX()+camera.getXOffset());
-        visualInformation.wallStart.setY(start.getY()+camera.getXOffset());
-        visualInformation.wallEnd.setX(end.getX()+camera.getXOffset());
-        visualInformation.wallEnd.setY(end.getY()+camera.getXOffset());
+        start.setX(start.getX()+camera.getXOffset());
+        start.setY(start.getY()+camera.getXOffset());
+        end.setX(end.getX()+camera.getXOffset());
+        end.setY(end.getY()+camera.getXOffset());
+        VisualInformation visualInformation =new WallVisualInformation(start,end);
         return visualInformation;
     }
 }
