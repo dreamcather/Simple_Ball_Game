@@ -15,19 +15,20 @@ public class VisualGame {
     PlayingField playingField;
     Camera camera;
 
-    VisualGame(AnchorPane anchorPane,Point point,int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
-        position =point;
+    VisualGame(AnchorPane anchorPane, Point point, int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
+        position = point;
         this.height = height;
-        playingField = new PlayingField(playingFieldHeight,playingFieldWidth,anchorPane);
+        playingField = new PlayingField(playingFieldHeight, playingFieldWidth, anchorPane);
         this.visualFactory = new VisualFactory(anchorPane);
-        camera = new Camera(new Point(this.height, this.height),position.getX(),0,playingFieldHeight,0,playingFieldWidth);
+        camera = new Camera(new Point(this.height, this.height), position.getX(), 0, playingFieldHeight, 0, playingFieldWidth);
         modelsList = new ArrayList<>();
 
     }
-    private Model find(VisualInformation visualInformation){
+
+    private Model find(VisualInformation visualInformation) {
         Model res = null;
-        for(Model model:modelsList){
-            if(model.isUse()==false) {
+        for (Model model : modelsList) {
+            if (model.isUse() == false) {
                 if (model.type == visualInformation.type) {
                     res = model;
                 }
@@ -35,30 +36,31 @@ public class VisualGame {
         }
         return res;
     }
-    public void update(ArrayList<VisualInformation> inputList){
-            playingField.refresh(camera);
-            Model curentModel;
-            for (VisualInformation visualInformation : inputList) {
-                curentModel = find(visualInformation);
-                if (curentModel != null) {
-                    curentModel.setUse(true);
-                        curentModel.refresh(visualInformation);
-                } else {
-                        curentModel = visualFactory.create(visualInformation);
-                        curentModel.setUse(true);
-                        modelsList.add(curentModel);
-                }
-            }
-            for (int i = 0; i < modelsList.size(); i++) {
-                    if (modelsList.get(i).isUse() == false) {
-                        modelsList.get(i).hide();
-                        modelsList.remove(modelsList.get(i));
-                    }
 
+    public void update(ArrayList<VisualInformation> inputList) {
+        playingField.refresh(camera);
+        Model currentModel;
+        for (VisualInformation visualInformation : inputList) {
+            currentModel = find(visualInformation);
+            if (currentModel != null) {
+                currentModel.setUse(true);
+                currentModel.refresh(visualInformation);
+            } else {
+                currentModel = visualFactory.create(visualInformation);
+                currentModel.setUse(true);
+                modelsList.add(currentModel);
             }
-            for (Model model : modelsList) {
-                model.setUse(false);
+        }
+        for (int i = 0; i < modelsList.size(); i++) {
+            if (modelsList.get(i).isUse() == false) {
+                modelsList.get(i).hide();
+                modelsList.remove(modelsList.get(i));
             }
+
+        }
+        for (Model model : modelsList) {
+            model.setUse(false);
+        }
     }
 
     public Camera getCamera() {

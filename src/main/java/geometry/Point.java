@@ -17,6 +17,10 @@ public class Point {
         this.y = y;
     }
 
+    public double getDistanceToPoint(Point point){
+        return Math.sqrt(Math.pow(x-point.getX(),2)+Math.pow(y-point.getY(),2));
+    }
+
     public boolean equals(Point point) {
         double eps = 0.000001;
         boolean resX = false;
@@ -28,9 +32,10 @@ public class Point {
         return resX && resY;
 
     }
-    public void add(Point point){
-        this.x+=point.getX();
-        this.y+=point.getY();
+
+    public void add(Point point) {
+        this.x += point.getX();
+        this.y += point.getY();
     }
 
     public void setX(double x) {

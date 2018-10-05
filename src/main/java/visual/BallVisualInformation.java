@@ -6,15 +6,15 @@ public class BallVisualInformation extends VisualInformation {
     boolean visible;
     boolean tracked;
     Point position;
-    public BallVisualInformation(String type,String visibleType, Point point) {
+
+    public BallVisualInformation(String type, String visibleType, Point point) {
         super(type);
-        if(visibleType=="V"){
+        if (visibleType == "V") {
             visible = true;
             tracked = false;
-        }
-        else {
-            visible=false;
-            tracked =true;
+        } else {
+            visible = false;
+            tracked = true;
         }
         position = point;
     }

@@ -1,5 +1,6 @@
 package main;
 
+import geometry.GeometricalCalculation;
 import geometry.Line;
 import geometry.Point;
 import geometry.Vector;
@@ -203,7 +204,7 @@ public class LineTest {
         Point secondEnd = new Point(1,1);
         Line secondLine = new Line(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondLine);
+        Point actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
         Point expectedIntesectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntesectionPoint);
@@ -221,7 +222,7 @@ public class LineTest {
         Point secondEnd = new Point(1,1);
         Line secondLine = new Line(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondLine);
+        Point actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
         Point expectedIntersectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
@@ -239,7 +240,7 @@ public class LineTest {
         Vector secondVector = new Vector(1,0);
         Line secondLine = new Line(secondStart,secondVector);
 
-        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondLine);
+        Point actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
         Point expectedIntersectionPoint = new Point(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);

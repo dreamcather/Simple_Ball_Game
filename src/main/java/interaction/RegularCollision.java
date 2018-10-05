@@ -16,7 +16,7 @@ public class RegularCollision extends Collision {
     }
 
     private double getDistanceBetweenBall() {
-        return GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
+        return GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(), second.getPosition());
     }
 
     private void correctionPosition() {
@@ -40,9 +40,9 @@ public class RegularCollision extends Collision {
 
         Line lineParallelCollideThroughBallsCenter = new Line(first.getPosition(), second.getPosition());
         Line linePerpendicularCollideThroughFirstBallCenter = new Line(first.getPosition(),
-                                                                       lineParallelCollideThroughBallsCenter.getNormal());
+                lineParallelCollideThroughBallsCenter.getNormal());
         Line linePerpendicularCollideThroughSecondBallCenter = new Line(second.getPosition(),
-                                                                        lineParallelCollideThroughBallsCenter.getNormal());
+                lineParallelCollideThroughBallsCenter.getNormal());
 
         Point pointFirstBallVectorEnd = first.getFuturePosition();
         Point pointSecondBallVectorEnd = second.getFuturePosition();
@@ -54,17 +54,17 @@ public class RegularCollision extends Collision {
         Point pointSecondBallVectorEndProjectionOnLineParallelCollide = lineParallelCollideThroughBallsCenter.getProjectionPointToLine(pointSecondBallVectorEnd);
 
         Vector firstBallVectorProjectionOnLineParallelCollide = new Vector(first.getPosition(),
-                                                                           pointFirstBallVectorEndProjectionOnLineParallelCollide);
+                pointFirstBallVectorEndProjectionOnLineParallelCollide);
         Vector firstBallVectorProjectionOnLinePerpendicularCollide = new Vector(first.getPosition(),
-                                                                                pointFirstBallVectorEndProjectionOnLinePerpendicularCollide);
+                pointFirstBallVectorEndProjectionOnLinePerpendicularCollide);
 
         Vector secondBallVectorProjectionOnLineParallelCollide = new Vector(second.getPosition(),
-                                                                            pointSecondBallVectorEndProjectionOnLineParallelCollide);
+                pointSecondBallVectorEndProjectionOnLineParallelCollide);
         Vector secondBallVectorProjectionOnLinePerpendicularCollide = new Vector(second.getPosition(),
-                                                                                 pointSecondBallVectorEndProjectionOnLinePerpendicularCollide);
+                pointSecondBallVectorEndProjectionOnLinePerpendicularCollide);
 
-        Vector firstBallResultVector = firstBallVectorProjectionOnLinePerpendicularCollide.sumVector(secondBallVectorProjectionOnLineParallelCollide);
-        Vector secondBallResultVector = secondBallVectorProjectionOnLinePerpendicularCollide.sumVector(firstBallVectorProjectionOnLineParallelCollide);
+        Vector firstBallResultVector = GeometricalCalculation.vectorSum(firstBallVectorProjectionOnLinePerpendicularCollide,secondBallVectorProjectionOnLineParallelCollide);
+        Vector secondBallResultVector = GeometricalCalculation.vectorSum(secondBallVectorProjectionOnLinePerpendicularCollide,firstBallVectorProjectionOnLineParallelCollide);
 
         double firstBallResultVectorLength = firstBallResultVector.getLength();
         double secondBallResultVectorLength = secondBallResultVector.getLength();

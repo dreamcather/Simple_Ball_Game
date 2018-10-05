@@ -13,20 +13,14 @@ public class CircleModel extends Model {
         model = new Circle(center.getX(), center.getY(), radius, color);
         this.anchorPane = anchorPane;
         anchorPane.getChildren().add(model);
-        this.type =type;
+        this.type = type;
     }
-
 
     @Override
     public void refresh(VisualInformation visualInformation) {
-        try {
-            BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            model.setCenterX(ballVisualInformation.getPosition().getX());
-            model.setCenterY(ballVisualInformation.getPosition().getY());
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
+        BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
+        model.setCenterX(ballVisualInformation.getPosition().getX());
+        model.setCenterY(ballVisualInformation.getPosition().getY());
     }
 
     @Override

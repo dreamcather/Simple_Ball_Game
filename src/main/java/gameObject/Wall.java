@@ -1,5 +1,6 @@
 package gameObject;
 
+import geometry.GeometricalCalculation;
 import geometry.Line;
 import geometry.Point;
 import interaction.MotionControl;
@@ -51,17 +52,6 @@ public class Wall extends  GameObject{
         return end;
     }
 
-    public Point getStart(Point point) {
-        start.add(point);
-        return start;
-    }
-
-    public Point getEnd(Point point) {
-
-        end.add(point);
-        return end;
-    }
-
     public <T> T collision(ObjectInteractVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
@@ -101,7 +91,7 @@ public class Wall extends  GameObject{
     }
 
     public Point getIntersectionPoint(Wall wall){
-        Point res = mainLine.getLineIntersectionPoint(wall.getLine());
+        Point res = GeometricalCalculation.lineIntersection(mainLine,wall.getLine());
         if(res==null)
             return null;
         if(leftParallelLine.getSignEquationLine(res)*

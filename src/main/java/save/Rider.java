@@ -1,7 +1,6 @@
 package save;
 
 import game.Game;
-import gameObject.Wall;
 
 import java.io.*;
 

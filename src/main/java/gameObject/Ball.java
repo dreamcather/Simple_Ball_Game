@@ -1,5 +1,6 @@
 package gameObject;
 
+import geometry.GeometricalCalculation;
 import geometry.Point;
 import geometry.Vector;
 import interaction.MotionControl;
@@ -84,14 +85,14 @@ public abstract class Ball extends GameObject {
         if (perpendicularVector == null) {
             perpendicularVector = vector;
         } else {
-            perpendicularVector = perpendicularVector.sumVector(vector);
+            perpendicularVector.sumVector(vector);
         }
     }
 
     public void changeVector() {
         if (perpendicularVector != null) {
             Vector motionVector = this.getVector();
-            Vector res = motionVector.getReflectionThroughVector(perpendicularVector);
+            Vector res = GeometricalCalculation.vectorReflection(motionVector,perpendicularVector);
             this.changeVector(res);
             perpendicularVector = null;
         }

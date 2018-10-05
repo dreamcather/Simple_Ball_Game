@@ -19,7 +19,7 @@ public class Vector {
 
     public void norm() {
         double length = Math.sqrt(Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
-        if(length!=0) {
+        if (length != 0) {
             xCoefficient /= length;
             yCoefficient /= length;
         }
@@ -34,9 +34,9 @@ public class Vector {
         return new Point(start.getX() + xCoefficient, start.getY() + yCoefficient);
     }
 
-    public Vector sumVector(Vector addVector) {
-        Vector res = new Vector(this.xCoefficient + addVector.xCoefficient, this.yCoefficient + addVector.yCoefficient);
-        return res;
+    public void sumVector(Vector addVector) {
+        xCoefficient += addVector.getXCoefficient();
+        yCoefficient += addVector.getYCoefficient();
     }
 
     public boolean equals(Vector vector) {
@@ -48,18 +48,6 @@ public class Vector {
         if (Math.abs(vector.yCoefficient - this.yCoefficient) < eps)
             yRes = true;
         return xRes && yRes;
-    }
-
-    public Vector getReflectionThroughVector(Vector vector) {
-        Point start = new Point(-xCoefficient, -yCoefficient);
-        Point collisionPoint = new Point(0, 0);
-        Line perpendicularLine = new Line(collisionPoint, vector);
-        Vector perpendicularVector = perpendicularLine.getNormal();
-        Line parallelLine = new Line(start, perpendicularVector);
-        Point middlePoint = perpendicularLine.getLineIntersectionPoint(parallelLine);
-        Vector startToMiddle = new Vector(start, middlePoint);
-        Point endPoint = startToMiddle.getEndPointVector(middlePoint);
-        return new Vector(collisionPoint, endPoint);
     }
 
     public double getLength() {

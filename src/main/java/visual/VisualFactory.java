@@ -1,8 +1,5 @@
 package visual;
 
-import gameObject.Ball;
-import gameObject.GameObject;
-import gameObject.Wall;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
@@ -17,23 +14,22 @@ public class VisualFactory {
     }
 
     public Model create(VisualInformation visualInformation) {
-        if(visualInformation.type =="E") {
-            BallVisualInformation ballVisualInformation = (BallVisualInformation)visualInformation;
-            return new CircleModel(ballVisualInformation.getPosition(),15, enemyColor, anchorPane,"E");
+        if (visualInformation.type == "E") {
+            BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
+            return new CircleModel(ballVisualInformation.getPosition(), 15, enemyColor, anchorPane, "E");
         }
-        if(visualInformation.type =="P") {
-            BallVisualInformation ballVisualInformation = (BallVisualInformation)visualInformation;
-            return new CircleModel(ballVisualInformation.getPosition(), 15, playerColor, anchorPane,"P");
+        if (visualInformation.type == "P") {
+            BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
+            return new CircleModel(ballVisualInformation.getPosition(), 15, playerColor, anchorPane, "P");
         }
-        if(visualInformation.type =="Pr") {
-            BallVisualInformation ballVisualInformation = (BallVisualInformation)visualInformation;
-            return new CircleModel(ballVisualInformation.getPosition(), 15, prizeColor, anchorPane,"Pr");
+        if (visualInformation.type == "Pr") {
+            BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
+            return new CircleModel(ballVisualInformation.getPosition(), 15, prizeColor, anchorPane, "Pr");
         }
-        if(visualInformation.type =="W") {
-            WallVisualInformation wallVisualInformation  = (WallVisualInformation)visualInformation;
-            return new WallModel(wallVisualInformation.start,wallVisualInformation.end,anchorPane);
-        }
-        else return null;
+        if (visualInformation.type == "W") {
+            WallVisualInformation wallVisualInformation = (WallVisualInformation) visualInformation;
+            return new WallModel(wallVisualInformation.start, wallVisualInformation.end, anchorPane);
+        } else return null;
     }
 
 }

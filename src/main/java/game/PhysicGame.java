@@ -32,10 +32,12 @@ public class PhysicGame {
         };
         animationTimer.start();
     }
-    public void addPlayer(Player player){
+
+    public void addPlayer(Player player) {
         this.player = player;
         gameObjectList.add(player);
     }
+
     public void addBall(Ball ball) {
         gameObjectList.add(ball);
     }
@@ -52,12 +54,12 @@ public class PhysicGame {
                 gameObject.collision(currentObject.collision(new ObjectVisitor())).collide();
             }
         }
-        for(GameObject currentGameObject: gameObjectList){
+        for (GameObject currentGameObject : gameObjectList) {
             currentGameObject.changeVector();
         }
     }
 
-    public void stop(){
+    public void stop() {
         animationTimer.stop();
     }
 
@@ -70,8 +72,8 @@ public class PhysicGame {
     }
 
     public void move(MotionControl motionControl) {
-        for (int i = 0; i < gameObjectList.size(); i++){
-            collision(gameObjectList.get(i),i);
+        for (int i = 0; i < gameObjectList.size(); i++) {
+            collision(gameObjectList.get(i), i);
         }
         clear();
         for (GameObject currentObject : gameObjectList) {
@@ -83,12 +85,12 @@ public class PhysicGame {
         this.motionControl = motionControl;
     }
 
-    public ArrayList<VisualInformation> getObjectList(Camera camera){
+    public ArrayList<VisualInformation> getObjectList(Camera camera) {
         camera.setPosition(player.getPosition());
         ArrayList<VisualInformation> output = new ArrayList<>();
-        for(GameObject gameObject:gameObjectList){
+        for (GameObject gameObject : gameObjectList) {
             VisualInformation visualInformation = gameObject.collision(new VisualVisitor()).isVisible(camera);
-            if(visualInformation!=null)
+            if (visualInformation != null)
                 output.add(visualInformation);
         }
         return output;
