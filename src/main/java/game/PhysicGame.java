@@ -1,14 +1,11 @@
 package game;
 
-import gameObject.Player;
+import gameObject.*;
 import geometry.Point;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
 import interaction.ObjectVisitor;
 import javafx.animation.AnimationTimer;
-import gameObject.Ball;
-import gameObject.GameObject;
-import gameObject.Wall;
 import visual.Camera;
 import visual.VisualInformation;
 import visual.VisualVisitor;
@@ -24,6 +21,9 @@ public class PhysicGame {
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         motionControl = new MotionControl();
+        ClosedWall closedWall =new ClosedWall(new Point[]{new Point(550,500),new Point(600,500),
+        new Point(700,700)});
+        addClosedWall(closedWall);
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -45,6 +45,11 @@ public class PhysicGame {
     public void addWall(Point start, Point end) {
         Wall wall = new Wall(start, end);
         gameObjectList.add(wall);
+    }
+
+    public void addClosedWall(ClosedWall closedWall)
+    {
+        gameObjectList.add(closedWall);
     }
 
     private void collision(GameObject gameObject, int number) {

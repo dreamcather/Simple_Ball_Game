@@ -3,26 +3,26 @@ package detection;
 import gameObject.*;
 import interaction.ObjectInteractVisitor;
 
-public class WallDetectionVisitor implements ObjectInteractVisitor<Detection> {
-    Wall wall;
+public class ClosedWallDetectionVisitor implements ObjectInteractVisitor<Detection> {
+    ClosedWall closedWall;
 
-    public WallDetectionVisitor(Wall wall) {
-        this.wall = wall;
+    public ClosedWallDetectionVisitor(ClosedWall closedWall) {
+        this.closedWall = closedWall;
     }
 
     @Override
     public Detection visit(Enemy enemy) {
-        return new RegularBallAndWallDetection(enemy,wall);
+        return new RegularBallAndClosedWallDetection(closedWall,enemy);
     }
 
     @Override
     public Detection visit(Player player) {
-        return new RegularBallAndWallDetection(player,wall);
+        return new RegularBallAndClosedWallDetection(closedWall,player);
     }
 
     @Override
     public Detection visit(Prize prize) {
-        return new RegularBallAndWallDetection(prize,wall);
+        return new RegularBallAndClosedWallDetection(closedWall,prize);
     }
 
     @Override

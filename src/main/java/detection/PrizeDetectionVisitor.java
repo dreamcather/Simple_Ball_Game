@@ -29,4 +29,9 @@ public class PrizeDetectionVisitor implements ObjectInteractVisitor<Detection> {
     public Detection visit(Wall wall) {
         return new RegularBallAndWallDetection(prize,wall);
     }
+
+    @Override
+    public Detection visit(ClosedWall closedWall) {
+        return new RegularBallAndClosedWallDetection(closedWall,prize);
+    }
 }

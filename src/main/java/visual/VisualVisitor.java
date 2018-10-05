@@ -1,9 +1,6 @@
 package visual;
 
-import gameObject.Enemy;
-import gameObject.Player;
-import gameObject.Prize;
-import gameObject.Wall;
+import gameObject.*;
 import interaction.ObjectInteractVisitor;
 
 public class VisualVisitor implements ObjectInteractVisitor<Visible> {
@@ -25,5 +22,10 @@ public class VisualVisitor implements ObjectInteractVisitor<Visible> {
     @Override
     public Visible visit(Wall wall) {
         return new WallVisibleVisitor(wall);
+    }
+
+    @Override
+    public Visible visit(ClosedWall closedWall) {
+        return new ClosedWallVisitor(closedWall);
     }
 }

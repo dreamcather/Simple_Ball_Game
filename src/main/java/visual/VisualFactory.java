@@ -29,7 +29,13 @@ public class VisualFactory {
         if (visualInformation.type == "W") {
             WallVisualInformation wallVisualInformation = (WallVisualInformation) visualInformation;
             return new WallModel(wallVisualInformation.start, wallVisualInformation.end, anchorPane);
-        } else return null;
+        }
+        if(visualInformation.type =="CW")
+        {
+            ClosedWallVisualInformation closedWallVisualInformation = (ClosedWallVisualInformation)visualInformation;
+            return new ClosedWallModel(closedWallVisualInformation.points,anchorPane);
+        }
+        return null;
     }
 
 }

@@ -1,9 +1,6 @@
 package interaction;
 
-import gameObject.Enemy;
-import gameObject.Player;
-import gameObject.Prize;
-import gameObject.Wall;
+import gameObject.*;
 
 public class PrizeVisitor implements ObjectInteractVisitor<Collision> {
     private Prize prize;
@@ -30,5 +27,10 @@ public class PrizeVisitor implements ObjectInteractVisitor<Collision> {
     @Override
     public Collision visit(Wall wall) {
         return new WallCollision(wall,prize);
+    }
+
+    @Override
+    public Collision visit(ClosedWall closedWall) {
+        return new ClosedWallCollision(closedWall,prize);
     }
 }

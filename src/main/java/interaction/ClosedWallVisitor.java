@@ -2,26 +2,26 @@ package interaction;
 
 import gameObject.*;
 
-public class WallVisitor implements ObjectInteractVisitor<Collision> {
-    Wall wall;
+public class ClosedWallVisitor implements ObjectInteractVisitor<Collision> {
+    ClosedWall closedWall;
 
-    public WallVisitor(Wall wall) {
-        this.wall = wall;
+    public ClosedWallVisitor(ClosedWall closedWall) {
+        this.closedWall = closedWall;
     }
 
     @Override
     public Collision visit(Enemy enemy) {
-        return new WallCollision(wall,enemy);
+        return new ClosedWallCollision(closedWall,enemy);
     }
 
     @Override
     public Collision visit(Player player) {
-        return new WallCollision(wall,player);
+        return new ClosedWallCollision(closedWall,player);
     }
 
     @Override
     public Collision visit(Prize prize) {
-        return new WallCollision(wall,prize);
+        return new ClosedWallCollision(closedWall,prize);
     }
 
     @Override

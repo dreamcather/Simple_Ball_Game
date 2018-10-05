@@ -11,4 +11,6 @@ public interface ObjectInteractVisitor<T> {
     T visit(Prize prize);
 
     T visit(Wall wall);
+
+    T visit(ClosedWall closedWall);
 }

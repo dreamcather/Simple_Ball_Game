@@ -24,4 +24,9 @@ public class DetectionVisitor implements ObjectInteractVisitor<ObjectInteractVis
     public ObjectInteractVisitor<Detection> visit(Wall wall) {
         return new WallDetectionVisitor(wall);
     }
+
+    @Override
+    public ObjectInteractVisitor<Detection> visit(ClosedWall closedWall) {
+        return new ClosedWallDetectionVisitor(closedWall);
+    }
 }

@@ -13,6 +13,14 @@ public class LineSegment {
         length = GeometricalCalculation.getDistanceBetweenTwoPoint(start,end);
     }
 
+    public Point getStart() {
+        return start;
+    }
+
+    public Point getEnd() {
+        return end;
+    }
+
     public Line getMainLine() {
         return mainLine;
     }

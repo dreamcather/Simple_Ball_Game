@@ -60,6 +60,10 @@ public class Game {
         physicGame.addWall(start, end);
     }
 
+    public void addClosedWall(ClosedWall closedWall)
+    {
+    }
+
     public void addHero(String string) {
         String[] strMas = string.split("  ", 6);
         double xCoefficient = Double.parseDouble(strMas[0]);

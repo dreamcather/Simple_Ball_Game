@@ -29,4 +29,9 @@ public class EnemyDetectionVisitor implements ObjectInteractVisitor<Detection> {
     public Detection visit(Wall wall) {
         return new RegularBallAndWallDetection(enemy,wall);
     }
+
+    @Override
+    public Detection visit(ClosedWall closedWall) {
+        return new RegularBallAndClosedWallDetection(closedWall,enemy);
+    }
 }
