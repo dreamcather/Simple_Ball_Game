@@ -21,7 +21,7 @@ public class BallVisibleVisitor implements Visible {
             return visualInformation;
         } else {
             Wall wall = new Wall(camera.transformPoint(ball.getPosition()), camera.transformPoint(camera.position));
-            Point res = camera.getPoint(camera.transformPoint(ball.getPosition()), wall);
+            Point res = camera.getPoint(camera.transformPoint(ball.getPosition()), wall.lineSegment);
             res.setX(res.getX() + camera.getXOffset());
             res.setY(res.getY() + camera.getXOffset());
             VisualInformation visualInformation = new BallVisualInformation(ball.type, "T", res);

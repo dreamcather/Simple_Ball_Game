@@ -2,6 +2,8 @@ package visual;
 
 import gameObject.Wall;
 import geometry.GeometricalCalculation;
+import geometry.Line;
+import geometry.LineSegment;
 import geometry.Point;
 
 import java.util.ArrayList;
@@ -14,10 +16,10 @@ public class Camera {
     double maxX;
     double minY;
     double maxY;
-    Wall upHorizontal;
-    Wall downHorizontal;
-    Wall leftVertical;
-    Wall rightVertical;
+    LineSegment upHorizontal;
+    LineSegment downHorizontal;
+    LineSegment leftVertical;
+    LineSegment rightVertical;
     Point leftUpPoint;
     Point leftDownPoint;
     Point rightUpPoint;
@@ -34,10 +36,10 @@ public class Camera {
         leftDownPoint = new Point(0, 2 * weight);
         rightUpPoint = new Point(2 * weight, 0);
         rightDownPoint = new Point(2 * weight, 2 * weight);
-        upHorizontal = new Wall(rightUpPoint, leftUpPoint);
-        downHorizontal = new Wall(leftDownPoint, rightDownPoint);
-        leftVertical = new Wall(leftUpPoint, leftDownPoint);
-        rightVertical = new Wall(rightDownPoint, rightUpPoint);
+        upHorizontal = new LineSegment(rightUpPoint, leftUpPoint);
+        downHorizontal = new LineSegment(leftDownPoint, rightDownPoint);
+        leftVertical = new LineSegment(leftUpPoint, leftDownPoint);
+        rightVertical = new LineSegment(rightDownPoint, rightUpPoint);
     }
 
     public Point transformPoint(Point point) {
@@ -56,16 +58,16 @@ public class Camera {
         return false;
     }
 
-    public Point getPoint(Point point, Wall wall) {
+    public Point getPoint(Point point, LineSegment lineSegment) {
         Point current;
         ArrayList<Point> list = new ArrayList<>();
-        if ((current = upHorizontal.getIntersectionPoint(wall)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal,lineSegment)) != null)
             list.add(current);
-        if ((current = downHorizontal.getIntersectionPoint(wall)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(downHorizontal,lineSegment)) != null)
             list.add(current);
-        if ((current = leftVertical.getIntersectionPoint(wall)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(leftVertical,lineSegment)) != null)
             list.add(current);
-        if ((current = rightVertical.getIntersectionPoint(wall)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(rightVertical,lineSegment)) != null)
             list.add(current);
         if (list.size() == 0)
             return null;

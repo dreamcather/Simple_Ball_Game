@@ -2,6 +2,7 @@ package gameObject;
 
 import geometry.GeometricalCalculation;
 import geometry.Line;
+import geometry.LineSegment;
 import geometry.Point;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
@@ -9,6 +10,7 @@ import interaction.ObjectInteractVisitor;
 public class Wall extends  GameObject{
 
     private Line mainLine;
+    public LineSegment lineSegment;
     private Line leftParallelLine;
     private Line rightParallelLine;
     private Point start;
@@ -21,6 +23,7 @@ public class Wall extends  GameObject{
         end = _end;
         leftParallelLine = new Line(start, mainLine.getNormal());
         rightParallelLine = new Line(end, mainLine.getNormal());
+        lineSegment = new LineSegment(start,end);
         type ="W";
 
     }

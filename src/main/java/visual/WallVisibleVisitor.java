@@ -19,12 +19,12 @@ public class WallVisibleVisitor implements Visible {
         if (camera.isVisible(wall.getStart()))
             start = transformWall.getStart();
         else {
-            start = camera.getPoint(transformWall.getStart(), transformWall);
+            start = camera.getPoint(transformWall.getStart(), transformWall.lineSegment);
         }
         if (camera.isVisible(wall.getEnd()))
             end = transformWall.getEnd();
         else {
-            end = camera.getPoint(transformWall.getEnd(), transformWall);
+            end = camera.getPoint(transformWall.getEnd(), transformWall.lineSegment);
         }
         if (start == null)
             return null;

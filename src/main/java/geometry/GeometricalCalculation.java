@@ -1,5 +1,8 @@
 package geometry;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class GeometricalCalculation {
     public static double getDistanceBetweenTwoPoint(Point first, Point second) {
         return Math.sqrt(Math.pow(first.getX() - second.getX(), 2) + Math.pow((first.getY() - second.getY()), 2));
@@ -92,6 +95,15 @@ public class GeometricalCalculation {
         return new Point(start.getX()+vector.getXCoefficient(),start.getY()+vector.getYCoefficient());
     }
 
+    public static Point lineSegmentAndLineIntersection(LineSegment lineSegment,Line line){
+        Point intersectionPoint = lineIntersection(line,lineSegment.getMainLine());
+        if(intersectionPoint!=null){
+            if(lineSegment.isBelong(intersectionPoint))
+                return intersectionPoint;
+        }
+        return null;
+    }
+
     public static Point pushingPointAway(Point controlPoint, Point movePoint, double distance){
         if(getDistanceBetweenTwoPoint(controlPoint,movePoint)>0.001) {
             Vector vector = new Vector(controlPoint, movePoint);
@@ -99,6 +111,27 @@ public class GeometricalCalculation {
             return getEndVectorPoint(controlPoint, vector);
         }
         return movePoint;
+    }
+
+    public static Polygon narrowPolygon(Polygon polygon,Line line){
+        ArrayList<Point> intersectionPointList = new ArrayList<>();
+        for(int i=0;i<polygon.getSegmentCount();i++){
+            Point curent = lineSegmentAndLineIntersection(polygon.getSegment(i),line);
+            if(curent!=null)
+                intersectionPointList.add(curent);
+        }
+        Point[] points = polygon.getPoints();
+        if(intersectionPointList.size()==0){
+            for(int i=0;i<points.length;i++){
+               if(line.getSign(points[i])<0)
+                   return polygon;
+            }
+            return new Polygon(new Point[]{});
+        }
+        Point firstIntersectionPoint = intersectionPointList.get(0);
+        Point secondIntersectionPoint = intersectionPointList.get(1);
+        return polygon;
+
     }
 
 }

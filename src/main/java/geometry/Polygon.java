@@ -10,7 +10,9 @@ public class Polygon {
         for (int i = 0; i < segmentCount - 1; i++) {
             segments[i] = new LineSegment(points[i], points[i + 1]);
         }
-        segments[segmentCount - 1] = new LineSegment(points[segmentCount - 1], points[0]);
+        if(segmentCount>1) {
+            segments[segmentCount - 1] = new LineSegment(points[segmentCount - 1], points[0]);
+        }
     }
 
     public LineSegment getSegment(int i){
@@ -21,5 +23,13 @@ public class Polygon {
 
     public int getSegmentCount() {
         return segmentCount;
+    }
+
+    public Point[] getPoints(){
+        Point[]res = new Point[getSegmentCount()];
+        for(int i=0;i<getSegmentCount();i++){
+            res[i] = getSegment(i).getStart();
+        }
+        return res;
     }
 }
