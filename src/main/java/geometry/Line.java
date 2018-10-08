@@ -77,7 +77,7 @@ public class Line {
     }
 
     public double getDistanceToPoint(Point point){
-        return Math.abs(getSignEquationLine(point));
+        return calculateDistanceToPoint(point);
     }
 
     public boolean isBelongs(Point point){

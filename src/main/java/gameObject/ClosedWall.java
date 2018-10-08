@@ -1,47 +1,39 @@
 package gameObject;
 
-import geometry.LineSegment;
-import geometry.Point;
-import geometry.Vector;
+import geometry.*;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
 public class ClosedWall extends GameObject {
-    int segmentCount;
-    LineSegment[] segments;
+    Polygon polygon;
 
     public ClosedWall(Point[] points) {
-        segmentCount = points.length;
-        segments = new LineSegment[segmentCount];
-        for (int i = 0; i < segmentCount - 1; i++) {
-            segments[i] = new LineSegment(points[i], points[i + 1]);
-        }
-        segments[segmentCount - 1] = new LineSegment(points[segmentCount - 1], points[0]);
+        polygon = new Polygon(points);
         type ="CW";
     }
 
     public double getDistance(Point point) {
-        double min = segments[0].getDistanceToPoint(point);
-        for (int i = 1; i < segmentCount; i++) {
-            if (min > segments[i].getDistanceToPoint(point))
-                min = segments[i].getDistanceToPoint(point);
-        }
-        return min;
+        Point nearestPoint = GeometricalCalculation.getNearestPointOfPolygon(polygon,point);
+        return GeometricalCalculation.getDistanceBetweenTwoPoint(nearestPoint,point);
+    }
+
+    public Polygon getPolygon() {
+        return polygon;
     }
 
     public Vector getResultPerpendicularVector(Ball ball) {
         Vector res = new Vector(0, 0);
-        for (int i = 0; i < segmentCount; i++) {
-            if (segments[i].getDistanceToPoint(ball.getPosition()) < ball.getRadius())
-                res.sumVector(segments[i].getMainLine().getNormal());
+        for (int i = 0; i < polygon.getSegmentCount(); i++) {
+            if (polygon.getSegment(i).getDistanceToPoint(ball.getPosition()) <= ball.getRadius())
+                res.sumVector(polygon.getSegment(i).getMainLine().getNormal());
         }
         return res;
     }
 
     public Point[] getPoints(){
-        Point[]res = new Point[segmentCount];
-        for(int i=0;i<segmentCount;i++){
-            res[i] = segments[i].getStart();
+        Point[]res = new Point[polygon.getSegmentCount()];
+        for(int i=0;i<polygon.getSegmentCount();i++){
+            res[i] = polygon.getSegment(i).getStart();
         }
         return res;
     }

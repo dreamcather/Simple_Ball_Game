@@ -21,8 +21,8 @@ public class PhysicGame {
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         motionControl = new MotionControl();
-        ClosedWall closedWall =new ClosedWall(new Point[]{new Point(550,500),new Point(600,500),
-        new Point(700,700)});
+        ClosedWall closedWall =new ClosedWall(new Point[]{new Point(600,600),new Point(700,700),
+        new Point(600,800)});
         addClosedWall(closedWall);
         animationTimer = new AnimationTimer() {
             @Override

@@ -17,6 +17,11 @@ public class Point {
         this.y = y;
     }
 
+    public Point(Point tmp){
+        x=tmp.getX();
+        y= tmp.getY();
+    }
+
     public double getDistanceToPoint(Point point){
         return Math.sqrt(Math.pow(x-point.getX(),2)+Math.pow(y-point.getY(),2));
     }

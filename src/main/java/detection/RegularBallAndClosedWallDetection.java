@@ -15,8 +15,9 @@ public class RegularBallAndClosedWallDetection implements Detection {
     @Override
     public boolean detect() {
         double distanceToClosedWall = closedWall.getDistance(ball.getPosition());
-        if(distanceToClosedWall<=ball.getRadius())
+        if(distanceToClosedWall<=ball.getRadius()) {
             return true;
+        }
         return false;
     }
 }
