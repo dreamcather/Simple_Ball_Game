@@ -2,6 +2,10 @@ package visual;
 
 import gameObject.ClosedWall;
 import geometry.MyPoint;
+import org.locationtech.jts.algorithm.ConvexHull;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.GeometryFactory;
 
 public class ClosedWallVisitor implements Visible {
     private ClosedWall closedWall;
@@ -20,6 +24,20 @@ public class ClosedWallVisitor implements Visible {
             current.setY(current.getY()+camera.getXOffset());
             res[i] = current;
         }
-        return new ClosedWallVisualInformation(res);
+        Coordinate[] coordinates = new Coordinate[res.length];
+        for(int i=0;i<res.length;i++){
+            coordinates[i] = res[i].convertPoint().getCoordinate();
+        }
+        Geometry geometry = new ConvexHull(coordinates,new GeometryFactory()).getConvexHull();
+        Geometry camerGeometry = camera.convexHull.getConvexHull();
+        Geometry resGeometry = geometry.intersection(camerGeometry);
+        coordinates = resGeometry.getCoordinates();
+        if(coordinates.length<3)
+            return null;
+        MyPoint[] resPointArray = new MyPoint[coordinates.length];
+        for(int i=0;i<coordinates.length;i++){
+            resPointArray[i] = new MyPoint(coordinates[i]);
+        }
+        return new ClosedWallVisualInformation(resPointArray);
     }
 }

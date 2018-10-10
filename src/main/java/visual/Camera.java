@@ -3,6 +3,9 @@ package visual;
 import geometry.GeometricalCalculation;
 import geometry.LineSegment;
 import geometry.MyPoint;
+import org.locationtech.jts.algorithm.ConvexHull;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
 
 import java.util.ArrayList;
 
@@ -22,6 +25,7 @@ public class Camera {
     MyPoint leftDownPoint;
     MyPoint rightUpPoint;
     MyPoint rightDownPoint;
+    ConvexHull convexHull;
 
     public Camera(MyPoint position, double offset, double minX, double maxX, double minY, double maxY) {
         this.position = position;
@@ -34,6 +38,16 @@ public class Camera {
         leftDownPoint = new MyPoint(0, 2 * weight);
         rightUpPoint = new MyPoint(2 * weight, 0);
         rightDownPoint = new MyPoint(2 * weight, 2 * weight);
+        Coordinate[] coordinates = new Coordinate[4];
+        coordinates[0] = leftUpPoint.convertPoint().getCoordinate();
+        coordinates[1] = leftDownPoint.convertPoint().getCoordinate();
+        coordinates[2] = rightUpPoint.convertPoint().getCoordinate();
+        coordinates[3] = rightDownPoint.convertPoint().getCoordinate();
+        for(int i=0;i<4;i++){
+            coordinates[i].setX(coordinates[i].getX()+xOffset);
+            coordinates[i].setY(coordinates[i].getY()+xOffset);
+        }
+        convexHull = new ConvexHull(coordinates,new GeometryFactory());
         upHorizontal = new LineSegment(rightUpPoint, leftUpPoint);
         downHorizontal = new LineSegment(leftDownPoint, rightDownPoint);
         leftVertical = new LineSegment(leftUpPoint, leftDownPoint);
@@ -102,5 +116,9 @@ public class Camera {
 
     public double getXOffset() {
         return xOffset;
+    }
+
+    public ConvexHull getConvexHull() {
+        return convexHull;
     }
 }
