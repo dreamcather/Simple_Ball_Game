@@ -1,23 +1,23 @@
 package geometry;
 
 public class LineSegment {
-    private Point start;
-    private Point end;
+    private MyPoint start;
+    private MyPoint end;
     private Line mainLine;
     private double length;
 
-    public LineSegment(Point start, Point end) {
+    public LineSegment(MyPoint start, MyPoint end) {
         this.start = start;
         this.end = end;
         mainLine = new Line(start, end);
         length = GeometricalCalculation.getDistanceBetweenTwoPoint(start, end);
     }
 
-    public Point getStart() {
+    public MyPoint getStart() {
         return start;
     }
 
-    public Point getEnd() {
+    public MyPoint getEnd() {
         return end;
     }
 
@@ -25,7 +25,7 @@ public class LineSegment {
         return mainLine;
     }
 
-    public boolean isBelong(Point point) {
+    public boolean isBelong(MyPoint point) {
         if (mainLine.isBelongs(point)) {
             double leftDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(start, point);
             double rightDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(end, point);
@@ -35,11 +35,11 @@ public class LineSegment {
         return false;
     }
 
-    public double getDistanceToPoint(Point point) {
+    public double getDistanceToPoint(MyPoint point) {
         double distanceToStart = start.getDistanceToPoint(point);
         double distanceToEnd = end.getDistanceToPoint(point);
         double borderDistance = Math.min(distanceToEnd, distanceToStart);
-        Point projectionPoint = GeometricalCalculation.getProjectionPointToLine(mainLine, point);
+        MyPoint projectionPoint = GeometricalCalculation.getProjectionPointToLine(mainLine, point);
         if (isBelong(projectionPoint)) {
             return Math.min(borderDistance, GeometricalCalculation.getDistanceBetweenTwoPoint(point, projectionPoint));
         }

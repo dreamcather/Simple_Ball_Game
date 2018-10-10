@@ -1,6 +1,8 @@
 package geometry;
 
-public class Point {
+import org.locationtech.jts.geom.*;
+
+public class MyPoint {
     private double x;
     private double y;
 
@@ -12,21 +14,26 @@ public class Point {
         return y;
     }
 
-    public Point(double x, double y) {
+    public MyPoint(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public Point(Point tmp){
+    public MyPoint(MyPoint tmp){
         x=tmp.getX();
         y= tmp.getY();
     }
 
-    public double getDistanceToPoint(Point point){
+    public MyPoint(Coordinate coordinate){
+        x = coordinate.getX();
+        y =coordinate.getY();
+    }
+
+    public double getDistanceToPoint(MyPoint point){
         return Math.sqrt(Math.pow(x-point.getX(),2)+Math.pow(y-point.getY(),2));
     }
 
-    public boolean equals(Point point) {
+    public boolean equals(MyPoint point) {
         double eps = 0.000001;
         boolean resX = false;
         boolean resY = false;
@@ -38,7 +45,7 @@ public class Point {
 
     }
 
-    public void add(Point point) {
+    public void add(MyPoint point) {
         this.x += point.getX();
         this.y += point.getY();
     }
@@ -49,5 +56,10 @@ public class Point {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public Point convertPoint(){
+        GeometryFactory geometryFactory = new GeometryFactory();
+        return geometryFactory.createPoint(new Coordinate(x,y));
     }
 }

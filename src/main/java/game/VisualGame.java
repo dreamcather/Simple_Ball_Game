@@ -1,6 +1,6 @@
 package game;
 
-import geometry.Point;
+import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import visual.*;
 
@@ -8,19 +8,19 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class VisualGame {
-    Point position;
+    MyPoint position;
     int height;
     private VisualFactory visualFactory;
     private ArrayList<Model> modelsList;
     PlayingField playingField;
     Camera camera;
 
-    VisualGame(AnchorPane anchorPane, Point point, int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
+    VisualGame(AnchorPane anchorPane, MyPoint point, int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
         position = point;
         this.height = height;
         playingField = new PlayingField(playingFieldHeight, playingFieldWidth, anchorPane);
         this.visualFactory = new VisualFactory(anchorPane);
-        camera = new Camera(new Point(this.height, this.height), position.getX(), 0, playingFieldHeight, 0, playingFieldWidth);
+        camera = new Camera(new MyPoint(this.height, this.height), position.getX(), 0, playingFieldHeight, 0, playingFieldWidth);
         modelsList = new ArrayList<>();
 
     }

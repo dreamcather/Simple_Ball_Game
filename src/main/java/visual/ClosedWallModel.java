@@ -1,6 +1,6 @@
 package visual;
 
-import geometry.Point;
+import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ClosedWallModel extends Model {
     ArrayList<Line> lines;
 
-    public ClosedWallModel(Point[] points, AnchorPane anchorPane) {
+    public ClosedWallModel(MyPoint[] points, AnchorPane anchorPane) {
         super();
         type = "CW";
         this.anchorPane = anchorPane;

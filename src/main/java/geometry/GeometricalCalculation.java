@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class GeometricalCalculation {
-    public static double getDistanceBetweenTwoPoint(Point first, Point second) {
+    public static double getDistanceBetweenTwoPoint(MyPoint first, MyPoint second) {
         return Math.sqrt(Math.pow(first.getX() - second.getX(), 2) + Math.pow((first.getY() - second.getY()), 2));
     }
 
-    public static Point lineIntersection(Line first, Line second) {
+    public static MyPoint lineIntersection(Line first, Line second) {
         double mainDeterminant = first.getXCoefficient() * second.getYCoefficient()
                 - second.getXCoefficient() * first.getYCoefficient();
         if (mainDeterminant == 0)
@@ -21,7 +21,7 @@ public class GeometricalCalculation {
         double yCoordinateTouch = xDeterminant / mainDeterminant;
         double xCoordinateTouch = -yDeterminant / mainDeterminant;
 
-        return new Point(xCoordinateTouch, yCoordinateTouch);
+        return new MyPoint(xCoordinateTouch, yCoordinateTouch);
     }
 
     public static Vector vectorSum(Vector first, Vector second) {
@@ -30,19 +30,19 @@ public class GeometricalCalculation {
     }
 
     public static Vector vectorReflection(Vector reflected, Vector vector) {
-        Point start = new Point(-reflected.getXCoefficient(), -reflected.getYCoefficient());
-        Point collisionPoint = new Point(0, 0);
+        MyPoint start = new MyPoint(-reflected.getXCoefficient(), -reflected.getYCoefficient());
+        MyPoint collisionPoint = new MyPoint(0, 0);
         Line perpendicularLine = new Line(collisionPoint, vector);
         Vector perpendicularVector = perpendicularLine.getNormal();
         Line parallelLine = new Line(start, perpendicularVector);
-        Point middlePoint = GeometricalCalculation.lineIntersection(perpendicularLine, parallelLine);
+        MyPoint middlePoint = GeometricalCalculation.lineIntersection(perpendicularLine, parallelLine);
         Vector startToMiddle = new Vector(start, middlePoint);
-        Point endPoint = startToMiddle.getEndPointVector(middlePoint);
+        MyPoint endPoint = startToMiddle.getEndPointVector(middlePoint);
         return new Vector(collisionPoint, endPoint);
     }
 
-    public static Point lineSegmentIntersection(LineSegment first, LineSegment second) {
-        Point res = lineIntersection(first.getMainLine(), second.getMainLine());
+    public static MyPoint lineSegmentIntersection(LineSegment first, LineSegment second) {
+        MyPoint res = lineIntersection(first.getMainLine(), second.getMainLine());
         if (res == null)
             return null;
         if (first.isBelong(res) && second.isBelong(res))
@@ -50,7 +50,7 @@ public class GeometricalCalculation {
         return null;
     }
 
-    public static Point getProjectionPointToLine(Line line, Point point) {
+    public static MyPoint getProjectionPointToLine(Line line, MyPoint point) {
         double norma = Math.pow(line.getXCoefficient(), 2) + Math.pow(line.getYCoefficient(), 2);
         double x = (line.getYCoefficient()
                 * (line.getYCoefficient() * point.getX() - line.getXCoefficient() * point.getY())
@@ -60,13 +60,13 @@ public class GeometricalCalculation {
                 * (-line.getYCoefficient() * point.getX() + line.getXCoefficient() * point.getY())
                 - line.getYCoefficient() * line.getFreeCoefficient()) / norma;
 
-        return new Point(x, y);
+        return new MyPoint(x, y);
     }
     
-    public static Point getNearestPointOfLineSegment(LineSegment lineSegment,Point point){
+    public static MyPoint getNearestPointOfLineSegment(LineSegment lineSegment, MyPoint point){
         double distanceToStart = lineSegment.getStart().getDistanceToPoint(point);
         double distanceToEnd = lineSegment.getEnd().getDistanceToPoint(point);
-        Point projectionPointOnLine = getProjectionPointToLine(lineSegment.getMainLine(),point);
+        MyPoint projectionPointOnLine = getProjectionPointToLine(lineSegment.getMainLine(),point);
         if(lineSegment.isBelong(projectionPointOnLine)){
             double distanceToMain = lineSegment.getMainLine().calculateDistanceToPoint(point);
             if(distanceToMain == Math.min(distanceToMain,Math.min(distanceToStart,distanceToEnd)))
@@ -77,11 +77,11 @@ public class GeometricalCalculation {
         return lineSegment.getStart();
     }
 
-    public static Point getNearestPointOfPolygon(Polygon polygon,Point point){
-        Point minPoint =getNearestPointOfLineSegment(polygon.getSegment(0),point);
+    public static MyPoint getNearestPointOfPolygon(MyPolygon polygon, MyPoint point){
+        MyPoint minPoint =getNearestPointOfLineSegment(polygon.getSegment(0),point);
         double minDistance = getDistanceBetweenTwoPoint(point,minPoint);
         for(int i=1;i<polygon.getSegmentCount();i++){
-            Point currentPoint = getNearestPointOfLineSegment(polygon.getSegment(i),point);
+            MyPoint currentPoint = getNearestPointOfLineSegment(polygon.getSegment(i),point);
             double currentDistance = getDistanceBetweenTwoPoint(currentPoint,point);
             if(minDistance>currentDistance){
                 minDistance = currentDistance;
@@ -91,12 +91,12 @@ public class GeometricalCalculation {
         return minPoint;
     }
 
-    public static Point getEndVectorPoint(Point start,Vector vector){
-        return new Point(start.getX()+vector.getXCoefficient(),start.getY()+vector.getYCoefficient());
+    public static MyPoint getEndVectorPoint(MyPoint start, Vector vector){
+        return new MyPoint(start.getX()+vector.getXCoefficient(),start.getY()+vector.getYCoefficient());
     }
 
-    public static Point lineSegmentAndLineIntersection(LineSegment lineSegment,Line line){
-        Point intersectionPoint = lineIntersection(line,lineSegment.getMainLine());
+    public static MyPoint lineSegmentAndLineIntersection(LineSegment lineSegment, Line line){
+        MyPoint intersectionPoint = lineIntersection(line,lineSegment.getMainLine());
         if(intersectionPoint!=null){
             if(lineSegment.isBelong(intersectionPoint))
                 return intersectionPoint;
@@ -104,7 +104,7 @@ public class GeometricalCalculation {
         return null;
     }
 
-    public static Point pushingPointAway(Point controlPoint, Point movePoint, double distance){
+    public static MyPoint pushingPointAway(MyPoint controlPoint, MyPoint movePoint, double distance){
         if(getDistanceBetweenTwoPoint(controlPoint,movePoint)>0.001) {
             Vector vector = new Vector(controlPoint, movePoint);
             vector.setLength(distance);
@@ -113,24 +113,33 @@ public class GeometricalCalculation {
         return movePoint;
     }
 
-    public static Polygon narrowPolygon(Polygon polygon,Line line){
-        ArrayList<Point> intersectionPointList = new ArrayList<>();
+    public static MyPolygon narrowPolygon(MyPolygon polygon, Line line){
+        ArrayList<MyPoint> intersectionPointList = new ArrayList<>();
         for(int i=0;i<polygon.getSegmentCount();i++){
-            Point curent = lineSegmentAndLineIntersection(polygon.getSegment(i),line);
-            if(curent!=null)
-                intersectionPointList.add(curent);
+            MyPoint current = lineSegmentAndLineIntersection(polygon.getSegment(i),line);
+            if(current!=null)
+                intersectionPointList.add(current);
         }
-        Point[] points = polygon.getPoints();
+        MyPoint[] points = polygon.getPoints();
         if(intersectionPointList.size()==0){
-            for(int i=0;i<points.length;i++){
-               if(line.getSign(points[i])<0)
-                   return polygon;
-            }
-            return new Polygon(new Point[]{});
+            return new MyPolygon(new MyPoint[]{});
         }
-        Point firstIntersectionPoint = intersectionPointList.get(0);
-        Point secondIntersectionPoint = intersectionPointList.get(1);
-        return polygon;
+        MyPoint firstIntersectionPoint = intersectionPointList.get(0);
+        MyPoint secondIntersectionPoint = intersectionPointList.get(1);
+
+        LinkedList<MyPoint> res = new LinkedList<>();
+        for(int i=0;i<points.length;i++){
+            if(line.getSign(points[i])<0)
+                res.add(points[i]);
+        }
+        MyPoint[] resMas = new MyPoint[res.size()];
+        for(int i=0;i<resMas.length;i++){
+            resMas[i]=res.get(i);
+        }
+
+
+
+        return new MyPolygon(resMas);
 
     }
 

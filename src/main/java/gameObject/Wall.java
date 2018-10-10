@@ -3,7 +3,7 @@ package gameObject;
 import geometry.GeometricalCalculation;
 import geometry.Line;
 import geometry.LineSegment;
-import geometry.Point;
+import geometry.MyPoint;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
@@ -13,10 +13,10 @@ public class Wall extends  GameObject{
     public LineSegment lineSegment;
     private Line leftParallelLine;
     private Line rightParallelLine;
-    private Point start;
-    private Point end;
+    private MyPoint start;
+    private MyPoint end;
 
-    public Wall(Point _start, Point _end) {
+    public Wall(MyPoint _start, MyPoint _end) {
 
         mainLine = new Line(_start, _end);
         start = _start;
@@ -30,8 +30,8 @@ public class Wall extends  GameObject{
 
     public Wall(String string) {
         String[] substr = string.split("  ");
-        start = new Point(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
-        end = new Point(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
+        start = new MyPoint(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
+        end = new MyPoint(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
         type = "W";
     }
 
@@ -47,11 +47,11 @@ public class Wall extends  GameObject{
         return rightParallelLine;
     }
 
-    public Point getStart() {
+    public MyPoint getStart() {
         return start;
     }
 
-    public Point getEnd() {
+    public MyPoint getEnd() {
         return end;
     }
 
@@ -75,8 +75,8 @@ public class Wall extends  GameObject{
     }
 
     @Override
-    public Point getPosition() {
-        return new Point(0,0);
+    public MyPoint getPosition() {
+        return new MyPoint(0,0);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class Wall extends  GameObject{
         return res;
     }
 
-    public boolean isBetween(Point point)
+    public boolean isBetween(MyPoint point)
     {
         if(leftParallelLine.getSignEquationLine(point)*
                 rightParallelLine.getSignEquationLine(point)<0)
@@ -93,8 +93,8 @@ public class Wall extends  GameObject{
         return false;
     }
 
-    public Point getIntersectionPoint(Wall wall){
-        Point res = GeometricalCalculation.lineIntersection(mainLine,wall.getLine());
+    public MyPoint getIntersectionPoint(Wall wall){
+        MyPoint res = GeometricalCalculation.lineIntersection(mainLine,wall.getLine());
         if(res==null)
             return null;
         if(leftParallelLine.getSignEquationLine(res)*

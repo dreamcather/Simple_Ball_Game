@@ -1,7 +1,7 @@
 package visual;
 
 import gameObject.Wall;
-import geometry.Point;
+import geometry.MyPoint;
 
 public class WallVisibleVisitor implements Visible {
     Wall wall;
@@ -14,8 +14,8 @@ public class WallVisibleVisitor implements Visible {
     public VisualInformation isVisible(Camera camera) {
         Wall transformWall = new Wall(camera.transformPoint(wall.getStart()),
                 camera.transformPoint(wall.getEnd()));
-        Point start = null;
-        Point end = null;
+        MyPoint start = null;
+        MyPoint end = null;
         if (camera.isVisible(wall.getStart()))
             start = transformWall.getStart();
         else {

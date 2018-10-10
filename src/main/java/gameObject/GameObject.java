@@ -1,6 +1,6 @@
 package gameObject;
 
-import geometry.Point;
+import geometry.MyPoint;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
@@ -16,7 +16,7 @@ public abstract class GameObject {
 
     public abstract boolean isAlive();
 
-    public abstract Point getPosition();
+    public abstract MyPoint getPosition();
 
     public abstract String toString();
 }

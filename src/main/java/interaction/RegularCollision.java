@@ -2,7 +2,7 @@ package interaction;
 
 import geometry.GeometricalCalculation;
 import geometry.Line;
-import geometry.Point;
+import geometry.MyPoint;
 import geometry.Vector;
 import gameObject.Ball;
 
@@ -44,14 +44,14 @@ public class RegularCollision extends Collision {
         Line linePerpendicularCollideThroughSecondBallCenter = new Line(second.getPosition(),
                 lineParallelCollideThroughBallsCenter.getNormal());
 
-        Point pointFirstBallVectorEnd = first.getFuturePosition();
-        Point pointSecondBallVectorEnd = second.getFuturePosition();
+        MyPoint pointFirstBallVectorEnd = first.getFuturePosition();
+        MyPoint pointSecondBallVectorEnd = second.getFuturePosition();
 
-        Point pointFirstBallVectorEndProjectionOnLinePerpendicularCollide = linePerpendicularCollideThroughFirstBallCenter.getProjectionPointToLine(pointFirstBallVectorEnd);
-        Point pointFirstBallVectorEndProjectionOnLineParallelCollide = lineParallelCollideThroughBallsCenter.getProjectionPointToLine(pointFirstBallVectorEnd);
+        MyPoint pointFirstBallVectorEndProjectionOnLinePerpendicularCollide = linePerpendicularCollideThroughFirstBallCenter.getProjectionPointToLine(pointFirstBallVectorEnd);
+        MyPoint pointFirstBallVectorEndProjectionOnLineParallelCollide = lineParallelCollideThroughBallsCenter.getProjectionPointToLine(pointFirstBallVectorEnd);
 
-        Point pointSecondBallVectorEndProjectionOnLinePerpendicularCollide = linePerpendicularCollideThroughSecondBallCenter.getProjectionPointToLine(pointSecondBallVectorEnd);
-        Point pointSecondBallVectorEndProjectionOnLineParallelCollide = lineParallelCollideThroughBallsCenter.getProjectionPointToLine(pointSecondBallVectorEnd);
+        MyPoint pointSecondBallVectorEndProjectionOnLinePerpendicularCollide = linePerpendicularCollideThroughSecondBallCenter.getProjectionPointToLine(pointSecondBallVectorEnd);
+        MyPoint pointSecondBallVectorEndProjectionOnLineParallelCollide = lineParallelCollideThroughBallsCenter.getProjectionPointToLine(pointSecondBallVectorEnd);
 
         Vector firstBallVectorProjectionOnLineParallelCollide = new Vector(first.getPosition(),
                 pointFirstBallVectorEndProjectionOnLineParallelCollide);

@@ -2,7 +2,7 @@ package main;
 
 import geometry.GeometricalCalculation;
 import geometry.Line;
-import geometry.Point;
+import geometry.MyPoint;
 import geometry.Vector;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 public class LineTest {
     @Test
     public void twoPointConstructorTest1() {
-        Point start = new Point(0, 0);
-        Point end = new Point(1, 1);
+        MyPoint start = new MyPoint(0, 0);
+        MyPoint end = new MyPoint(1, 1);
         Line line = new Line(start, end);
 
         double expectedXCoefficient = 1;
@@ -41,8 +41,8 @@ public class LineTest {
     }
     @Test
     public void twoPointConstructorTest2(){
-        Point start = new Point(0,0);
-        Point end  = new Point(0,1);
+        MyPoint start = new MyPoint(0,0);
+        MyPoint end  = new MyPoint(0,1);
         Line line = new Line(start,end);
 
         double expectedXCoefficient = 1;
@@ -72,8 +72,8 @@ public class LineTest {
     }
     @Test
     public void twoPointConstructorTest3(){
-        Point start = new Point(0,0);
-        Point end  = new Point(1,0);
+        MyPoint start = new MyPoint(0,0);
+        MyPoint end  = new MyPoint(1,0);
         Line line = new Line(start,end);
 
         double expectedXCoefficient = 0;
@@ -103,7 +103,7 @@ public class LineTest {
     }
     @Test
     public void vectorPointConstructorTest1(){
-        Point point = new Point(0,0);
+        MyPoint point = new MyPoint(0,0);
         Vector vector = new Vector(1,1);
         Line line = new Line(point,vector);
 
@@ -134,7 +134,7 @@ public class LineTest {
     }
     @Test
     public void vectorPointConstructorTest2(){
-        Point point = new Point(5,5);
+        MyPoint point = new MyPoint(5,5);
         Vector vector = new Vector(1,1);
         Line line = new Line(point,vector);
 
@@ -165,7 +165,7 @@ public class LineTest {
     }
     @Test
     public void vectorPointConstructorTest3(){
-        Point point = new Point(1,0);
+        MyPoint point = new MyPoint(1,0);
         Vector vector = new Vector(0,1);
         Line line = new Line(point,vector);
 
@@ -196,16 +196,16 @@ public class LineTest {
     }
     @Test
     public  void intersectLineTest1(){
-        Point firstStart = new Point(1,1);
-        Point firstEnd = new Point(45,12);
+        MyPoint firstStart = new MyPoint(1,1);
+        MyPoint firstEnd = new MyPoint(45,12);
         Line firstLine = new Line(firstStart,firstEnd);
 
-        Point secondStart = new Point(76,34);
-        Point secondEnd = new Point(1,1);
+        MyPoint secondStart = new MyPoint(76,34);
+        MyPoint secondEnd = new MyPoint(1,1);
         Line secondLine = new Line(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
-        Point expectedIntesectionPoint = new Point(1,1);
+        MyPoint actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
+        MyPoint expectedIntesectionPoint = new MyPoint(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntesectionPoint);
 
@@ -214,16 +214,16 @@ public class LineTest {
     }
     @Test
     public  void intersectLineTest2(){
-        Point firstStart = new Point(1,1);
-        Point firstEnd = new Point(17,54);
+        MyPoint firstStart = new MyPoint(1,1);
+        MyPoint firstEnd = new MyPoint(17,54);
         Line firstLine = new Line(firstStart,firstEnd);
 
-        Point secondStart = new Point(36,11);
-        Point secondEnd = new Point(1,1);
+        MyPoint secondStart = new MyPoint(36,11);
+        MyPoint secondEnd = new MyPoint(1,1);
         Line secondLine = new Line(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
-        Point expectedIntersectionPoint = new Point(1,1);
+        MyPoint actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
+        MyPoint expectedIntersectionPoint = new MyPoint(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
 
@@ -232,16 +232,16 @@ public class LineTest {
     }
     @Test
     public  void intersectLineTest3(){
-        Point firstStart = new Point(1,75);
+        MyPoint firstStart = new MyPoint(1,75);
         Vector firstVector = new Vector(0,1);
         Line firstLine = new Line(firstStart,firstVector);
 
-        Point secondStart = new Point(36,1);
+        MyPoint secondStart = new MyPoint(36,1);
         Vector secondVector = new Vector(1,0);
         Line secondLine = new Line(secondStart,secondVector);
 
-        Point actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
-        Point expectedIntersectionPoint = new Point(1,1);
+        MyPoint actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine,secondLine);
+        MyPoint expectedIntersectionPoint = new MyPoint(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
 
@@ -250,17 +250,17 @@ public class LineTest {
     }
     @Test
     public  void intersectLineTest4() {
-        Point firstStart = new Point(1,1);
-        Point firstEnd = new Point(34,61);
+        MyPoint firstStart = new MyPoint(1,1);
+        MyPoint firstEnd = new MyPoint(34,61);
         Vector firstVector  = new Vector(firstStart,firstEnd);
         Line firstLine = new Line(firstStart,firstVector);
 
-        Point secondStart = new Point(59,33);
-        Point secondEnd = new Point(1,1);
+        MyPoint secondStart = new MyPoint(59,33);
+        MyPoint secondEnd = new MyPoint(1,1);
         Vector secondVector = new Vector(secondStart,secondEnd);
 
-        Point actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondStart,secondVector);
-        Point expectedIntersectionPoint = new Point(1,1);
+        MyPoint actualIntersectionPoint = firstLine.getLineIntersectionPoint(secondStart,secondVector);
+        MyPoint expectedIntersectionPoint = new MyPoint(1,1);
 
         boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
 
@@ -269,9 +269,9 @@ public class LineTest {
     }
     @Test
     public void distanceToPointTest(){
-        Point start = new Point(0,0);
-        Point end = new Point(1,0);
-        Point curentPoint = new Point(1,1);
+        MyPoint start = new MyPoint(0,0);
+        MyPoint end = new MyPoint(1,0);
+        MyPoint curentPoint = new MyPoint(1,1);
 
         Line line = new Line(start,end);
 
@@ -286,14 +286,14 @@ public class LineTest {
     }
     @Test
     public void proectionPointTest(){
-        Point start = new Point(2,0);
-        Point end = new Point(0,2);
-        Point curentPoint = new Point(0,0);
+        MyPoint start = new MyPoint(2,0);
+        MyPoint end = new MyPoint(0,2);
+        MyPoint curentPoint = new MyPoint(0,0);
 
         Line line = new Line(start,end);
 
-        Point actualProectionPoint = line.getProjectionPointToLine(curentPoint);
-        Point expectedProectionPoint = new Point(1,1);
+        MyPoint actualProectionPoint = line.getProjectionPointToLine(curentPoint);
+        MyPoint expectedProectionPoint = new MyPoint(1,1);
 
         boolean res = actualProectionPoint.equals(expectedProectionPoint);
 
@@ -302,8 +302,8 @@ public class LineTest {
     @Test
     public  void getNormalTest()
     {
-        Point start = new Point(2,0);
-        Point end = new Point(0,2);
+        MyPoint start = new MyPoint(2,0);
+        MyPoint end = new MyPoint(0,2);
         Line line = new Line(start,end);
         Vector actualVector = line.getNormal();
         Vector expectedVector = new Vector(2,2);

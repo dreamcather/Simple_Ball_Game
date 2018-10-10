@@ -1,7 +1,7 @@
 package game;
 
 import gameObject.*;
-import geometry.Point;
+import geometry.MyPoint;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
 import interaction.ObjectVisitor;
@@ -21,8 +21,8 @@ public class PhysicGame {
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         motionControl = new MotionControl();
-        ClosedWall closedWall =new ClosedWall(new Point[]{new Point(600,600),new Point(700,700),
-        new Point(600,800)});
+        ClosedWall closedWall =new ClosedWall(new MyPoint[]{new MyPoint(600,600),new MyPoint(650,800),new MyPoint(700,700),
+        new MyPoint(600,800)});
         addClosedWall(closedWall);
         animationTimer = new AnimationTimer() {
             @Override
@@ -42,7 +42,7 @@ public class PhysicGame {
         gameObjectList.add(ball);
     }
 
-    public void addWall(Point start, Point end) {
+    public void addWall(MyPoint start, MyPoint end) {
         Wall wall = new Wall(start, end);
         gameObjectList.add(wall);
     }

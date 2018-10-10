@@ -1,15 +1,13 @@
 package visual;
 
-import gameObject.Wall;
 import geometry.GeometricalCalculation;
-import geometry.Line;
 import geometry.LineSegment;
-import geometry.Point;
+import geometry.MyPoint;
 
 import java.util.ArrayList;
 
 public class Camera {
-    Point position;
+    MyPoint position;
     int weight = 250;
     double xOffset;
     double minX;
@@ -20,35 +18,35 @@ public class Camera {
     LineSegment downHorizontal;
     LineSegment leftVertical;
     LineSegment rightVertical;
-    Point leftUpPoint;
-    Point leftDownPoint;
-    Point rightUpPoint;
-    Point rightDownPoint;
+    MyPoint leftUpPoint;
+    MyPoint leftDownPoint;
+    MyPoint rightUpPoint;
+    MyPoint rightDownPoint;
 
-    public Camera(Point position, double offset, double minX, double maxX, double minY, double maxY) {
+    public Camera(MyPoint position, double offset, double minX, double maxX, double minY, double maxY) {
         this.position = position;
         this.xOffset = offset;
         this.minX = minX + weight;
         this.maxX = maxX - weight;
         this.minY = minY + weight;
         this.maxY = maxY - weight;
-        leftUpPoint = new Point(0, 0);
-        leftDownPoint = new Point(0, 2 * weight);
-        rightUpPoint = new Point(2 * weight, 0);
-        rightDownPoint = new Point(2 * weight, 2 * weight);
+        leftUpPoint = new MyPoint(0, 0);
+        leftDownPoint = new MyPoint(0, 2 * weight);
+        rightUpPoint = new MyPoint(2 * weight, 0);
+        rightDownPoint = new MyPoint(2 * weight, 2 * weight);
         upHorizontal = new LineSegment(rightUpPoint, leftUpPoint);
         downHorizontal = new LineSegment(leftDownPoint, rightDownPoint);
         leftVertical = new LineSegment(leftUpPoint, leftDownPoint);
         rightVertical = new LineSegment(rightDownPoint, rightUpPoint);
     }
 
-    public Point transformPoint(Point point) {
-        return new Point(point.getX() - position.getX() + weight,
+    public MyPoint transformPoint(MyPoint point) {
+        return new MyPoint(point.getX() - position.getX() + weight,
                 point.getY() - position.getY() + weight);
     }
 
-    public boolean isVisible(Point point) {
-        Point transformPoint = transformPoint(point);
+    public boolean isVisible(MyPoint point) {
+        MyPoint transformPoint = transformPoint(point);
         if ((transformPoint.getY() <= 2 * weight) &&
                 (transformPoint.getY() >= 0) &&
                 (transformPoint.getX() <= 2 * weight) &&
@@ -58,9 +56,9 @@ public class Camera {
         return false;
     }
 
-    public Point getPoint(Point point, LineSegment lineSegment) {
-        Point current;
-        ArrayList<Point> list = new ArrayList<>();
+    public MyPoint getPoint(MyPoint point, LineSegment lineSegment) {
+        MyPoint current;
+        ArrayList<MyPoint> list = new ArrayList<>();
         if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal,lineSegment)) != null)
             list.add(current);
         if ((current = GeometricalCalculation.lineSegmentIntersection(downHorizontal,lineSegment)) != null)
@@ -83,11 +81,11 @@ public class Camera {
         return current;
     }
 
-    public Point getPosition() {
+    public MyPoint getPosition() {
         return position;
     }
 
-    public void setPosition(Point position) {
+    public void setPosition(MyPoint position) {
         double x = position.getX();
         double y = position.getY();
         if (x < minX)

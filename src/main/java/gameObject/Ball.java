@@ -1,7 +1,7 @@
 package gameObject;
 
 import geometry.GeometricalCalculation;
-import geometry.Point;
+import geometry.MyPoint;
 import geometry.Vector;
 import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
@@ -43,23 +43,23 @@ public abstract class Ball extends GameObject {
         yCoefficient = yCoefficient / length;
     }
 
-    public Point getFuturePosition() {
-        return new Point(xCoordinate + xCoefficient * speedOfMotion, yCoordinate + yCoefficient * speedOfMotion);
+    public MyPoint getFuturePosition() {
+        return new MyPoint(xCoordinate + xCoefficient * speedOfMotion, yCoordinate + yCoefficient * speedOfMotion);
     }
 
     public double getSpeedOfMotion() {
         return speedOfMotion;
     }
 
-    public Point getPosition() {
-        return new Point(xCoordinate, yCoordinate);
+    public MyPoint getPosition() {
+        return new MyPoint(xCoordinate, yCoordinate);
     }
 
-    public Point getPosition(Point point){
-        return new Point(xCoordinate+point.getX(),yCoordinate+point.getY());
+    public MyPoint getPosition(MyPoint point){
+        return new MyPoint(xCoordinate+point.getX(),yCoordinate+point.getY());
     }
 
-    public void setPosition(Point point) {
+    public void setPosition(MyPoint point) {
         xCoordinate = point.getX();
         yCoordinate = point.getY();
     }

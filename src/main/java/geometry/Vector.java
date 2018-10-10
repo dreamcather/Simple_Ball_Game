@@ -25,13 +25,13 @@ public class Vector {
         }
     }
 
-    public Vector(Point start, Point end) {
+    public Vector(MyPoint start, MyPoint end) {
         xCoefficient = end.getX() - start.getX();
         yCoefficient = end.getY() - start.getY();
     }
 
-    public Point getEndPointVector(Point start) {
-        return new Point(start.getX() + xCoefficient, start.getY() + yCoefficient);
+    public MyPoint getEndPointVector(MyPoint start) {
+        return new MyPoint(start.getX() + xCoefficient, start.getY() + yCoefficient);
     }
 
     public void sumVector(Vector addVector) {

@@ -1,15 +1,15 @@
 package visual;
 
-import geometry.Point;
+import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 
 public class WallModel extends Model {
     Line line;
-    Point start;
-    Point end;
+    MyPoint start;
+    MyPoint end;
 
-    public WallModel(Point start, Point end, AnchorPane anchorPane) {
+    public WallModel(MyPoint start, MyPoint end, AnchorPane anchorPane) {
         super();
         line = new Line(start.getX(), start.getY(), end.getX(), end.getY());
         anchorPane.getChildren().add(line);

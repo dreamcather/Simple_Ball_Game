@@ -1,6 +1,6 @@
 package game;
 
-import geometry.Point;
+import geometry.MyPoint;
 import interaction.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.*;
@@ -42,7 +42,7 @@ public class Game {
         prizeCount = 0;
         motionControl = new MotionControl();
         active = true;
-        visualGame = new VisualGame(gamePanel, new Point(50, 50), width, 1000, 1000);
+        visualGame = new VisualGame(gamePanel, new MyPoint(50, 50), width, 1000, 1000);
         camera = visualGame.getCamera();
         animationTimer = new AnimationTimer() {
             @Override
@@ -55,8 +55,8 @@ public class Game {
 
     public void addWall(String string) {
         String[] substr = string.split("  ");
-        Point start = new Point(Double.parseDouble(substr[0]), Double.parseDouble(substr[1]));
-        Point end = new Point(Double.parseDouble(substr[2]), Double.parseDouble(substr[3]));
+        MyPoint start = new MyPoint(Double.parseDouble(substr[0]), Double.parseDouble(substr[1]));
+        MyPoint end = new MyPoint(Double.parseDouble(substr[2]), Double.parseDouble(substr[3]));
         physicGame.addWall(start, end);
     }
 
@@ -118,9 +118,9 @@ public class Game {
 
     public void click(KeyCode keyCode) {
         if (keyCode == KeyCode.Q)
-            camera.setPosition(new Point(camera.getPosition().getX() + 10, camera.getPosition().getY() + 10));
+            camera.setPosition(new MyPoint(camera.getPosition().getX() + 10, camera.getPosition().getY() + 10));
         if (keyCode == KeyCode.A)
-            camera.setPosition(new Point(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
+            camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
         if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == keyCode.LEFT) || (keyCode == keyCode.RIGHT)) {
             physicGame.player.setKey(keyCode);
         }

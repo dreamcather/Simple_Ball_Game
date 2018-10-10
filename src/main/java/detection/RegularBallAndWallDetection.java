@@ -2,7 +2,7 @@ package detection;
 
 import gameObject.Wall;
 import geometry.GeometricalCalculation;
-import geometry.Point;
+import geometry.MyPoint;
 import geometry.Vector;
 import gameObject.Ball;
 
@@ -15,19 +15,19 @@ public class RegularBallAndWallDetection implements Detection {
         this.wall = wall;
     }
 
-    private void normalizePoint(Ball ball, Point point) {
+    private void normalizePoint(Ball ball, MyPoint point) {
         Vector vector = new Vector(point, ball.getPosition());
         vector.setLength(ball.getRadius());
-        Point resPoint = vector.getEndPointVector(point);
+        MyPoint resPoint = vector.getEndPointVector(point);
         ball.setPosition(resPoint);
     }
 
     private void normalizeLine(Ball ball) {
-        Point collisionPoint = wall.getLine().getProjectionPointToLine(ball.getPosition());
+        MyPoint collisionPoint = wall.getLine().getProjectionPointToLine(ball.getPosition());
         normalizePoint(ball, collisionPoint);
     }
 
-    public boolean isBetween(Point point) {
+    public boolean isBetween(MyPoint point) {
         double leftCoefficient = wall.getLeftParallelLine().getSignEquationLine(point);
         double rightCoefficient = wall.getRightParallelLine().getSignEquationLine(point);
         if (leftCoefficient * rightCoefficient <= 0) {

@@ -1,22 +1,22 @@
 package visual;
 
-import geometry.Point;
+import geometry.MyPoint;
 
 public class WallVisualInformation extends VisualInformation {
-    Point start;
-    Point end;
+    MyPoint start;
+    MyPoint end;
 
-    public WallVisualInformation(Point start, Point end) {
+    public WallVisualInformation(MyPoint start, MyPoint end) {
         super("W");
         this.start = start;
         this.end = end;
     }
 
-    public Point getStart() {
+    public MyPoint getStart() {
         return start;
     }
 
-    public Point getEnd() {
+    public MyPoint getEnd() {
         return end;
     }
 }

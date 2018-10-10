@@ -1,10 +1,10 @@
 package visual;
 
-import geometry.Point;
+import geometry.MyPoint;
 
 public class ClosedWallVisualInformation extends VisualInformation {
-    Point[] points;
-    public ClosedWallVisualInformation(Point[] points) {
+    MyPoint[] points;
+    public ClosedWallVisualInformation(MyPoint[] points) {
         super("CW");
         this.points = points;
     }

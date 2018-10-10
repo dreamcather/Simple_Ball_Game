@@ -5,19 +5,19 @@ import interaction.MotionControl;
 import interaction.ObjectInteractVisitor;
 
 public class ClosedWall extends GameObject {
-    Polygon polygon;
+    MyPolygon polygon;
 
-    public ClosedWall(Point[] points) {
-        polygon = new Polygon(points);
+    public ClosedWall(MyPoint[] points) {
+        polygon = new MyPolygon(points);
         type ="CW";
     }
 
-    public double getDistance(Point point) {
-        Point nearestPoint = GeometricalCalculation.getNearestPointOfPolygon(polygon,point);
+    public double getDistance(MyPoint point) {
+        MyPoint nearestPoint = GeometricalCalculation.getNearestPointOfPolygon(polygon,point);
         return GeometricalCalculation.getDistanceBetweenTwoPoint(nearestPoint,point);
     }
 
-    public Polygon getPolygon() {
+    public MyPolygon getPolygon() {
         return polygon;
     }
 
@@ -30,8 +30,8 @@ public class ClosedWall extends GameObject {
         return res;
     }
 
-    public Point[] getPoints(){
-        Point[]res = new Point[polygon.getSegmentCount()];
+    public MyPoint[] getPoints(){
+        MyPoint[]res = new MyPoint[polygon.getSegmentCount()];
         for(int i=0;i<polygon.getSegmentCount();i++){
             res[i] = polygon.getSegment(i).getStart();
         }
@@ -59,7 +59,7 @@ public class ClosedWall extends GameObject {
     }
 
     @Override
-    public Point getPosition() {
+    public MyPoint getPosition() {
         return null;
     }
 

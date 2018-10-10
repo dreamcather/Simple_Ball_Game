@@ -17,19 +17,19 @@ public class Line {
         return freeCoefficient;
     }
 
-    public Line(Point start, Point end) {
+    public Line(MyPoint start, MyPoint end) {
         xCoefficient = start.getY() - end.getY();
         yCoefficient = end.getX() - start.getX();
         freeCoefficient = start.getX() * end.getY() - end.getX() * start.getY();
     }
 
-    public Line(Point point, Vector vector) {
+    public Line(MyPoint point, Vector vector) {
         xCoefficient = -vector.getYCoefficient();
         yCoefficient = vector.getXCoefficient();
         freeCoefficient = point.getX() * vector.getYCoefficient() - point.getY() * vector.getXCoefficient();
     }
 
-//    public Point getLineIntersectionPoint(Line line) {
+//    public MyPoint getLineIntersectionPoint(Line line) {
 //        double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
 //        if(mainDeterminant==0)
 //            return null;
@@ -39,17 +39,17 @@ public class Line {
 //        double yCoordinateTouch = xDeterminant / mainDeterminant;
 //        double xCoordinateTouch = -yDeterminant / mainDeterminant;
 //
-//        return new Point(xCoordinateTouch, yCoordinateTouch);
+//        return new MyPoint(xCoordinateTouch, yCoordinateTouch);
 //
 //    }
 
-    public Point getLineIntersectionPoint(Point point, Vector vector) {
+    public MyPoint getLineIntersectionPoint(MyPoint point, Vector vector) {
 
         Line crossLine = new Line(point, vector);
         return GeometricalCalculation.lineIntersection(this,crossLine);
     }
 
-    public double calculateDistanceToPoint(Point point) {
+    public double calculateDistanceToPoint(MyPoint point) {
 
         return Math.abs(xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient)
                 / Math.sqrt(Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
@@ -61,7 +61,7 @@ public class Line {
         return res;
     }
 
-    public Point getProjectionPointToLine(Point point) {
+    public MyPoint getProjectionPointToLine(MyPoint point) {
 
         double x = (yCoefficient * (yCoefficient * point.getX() - xCoefficient * point.getY())
                 - xCoefficient * freeCoefficient) / (Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
@@ -69,24 +69,24 @@ public class Line {
         double y = (xCoefficient * (-yCoefficient * point.getX() + xCoefficient * point.getY())
                 - yCoefficient * freeCoefficient) / (Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
 
-        return new Point(x, y);
+        return new MyPoint(x, y);
     }
 
-    public double getSignEquationLine(Point point) {
+    public double getSignEquationLine(MyPoint point) {
         return xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient;
     }
 
-    public double getDistanceToPoint(Point point){
+    public double getDistanceToPoint(MyPoint point){
         return calculateDistanceToPoint(point);
     }
 
-    public boolean isBelongs(Point point){
+    public boolean isBelongs(MyPoint point){
         if(Math.abs(getSignEquationLine(point))<0.0001)
             return true;
         return false;
     }
 
-    public int getSign(Point point){
+    public int getSign(MyPoint point){
         double equationRes = getSignEquationLine(point);
         if(equationRes>0)
             return 1;

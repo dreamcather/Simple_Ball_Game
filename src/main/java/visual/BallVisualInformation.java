@@ -1,13 +1,13 @@
 package visual;
 
-import geometry.Point;
+import geometry.MyPoint;
 
 public class BallVisualInformation extends VisualInformation {
     boolean visible;
     boolean tracked;
-    Point position;
+    MyPoint position;
 
-    public BallVisualInformation(String type, String visibleType, Point point) {
+    public BallVisualInformation(String type, String visibleType, MyPoint point) {
         super(type);
         if (visibleType == "V") {
             visible = true;
@@ -19,7 +19,7 @@ public class BallVisualInformation extends VisualInformation {
         position = point;
     }
 
-    public Point getPosition() {
+    public MyPoint getPosition() {
         return position;
     }
 }

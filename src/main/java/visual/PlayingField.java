@@ -1,7 +1,6 @@
 package visual;
 
 
-import geometry.Point;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
