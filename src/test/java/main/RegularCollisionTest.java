@@ -1,6 +1,6 @@
 package main;
 
-import interaction.ObjectVisitor;
+import detection.DetectionVisitor;
 import gameObject.Enemy;
 import gameObject.Prize;
 import org.testng.Assert;
@@ -13,7 +13,7 @@ public class RegularCollisionTest {
                 100,100,5);
         Prize second = new Prize(-1,0,3,
                 110,100,5);
-        first.collision(second.collision(new ObjectVisitor())).collide();
+        first.collision(second.collision(new DetectionVisitor())).collision();
 
         double expectedXCoefficient =-1;
         double expectedYCoefficient =0;

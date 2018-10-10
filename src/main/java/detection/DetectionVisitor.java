@@ -2,6 +2,8 @@ package detection;
 
 import gameObject.*;
 import interaction.ObjectInteractVisitor;
+import visual.Camera;
+import visual.VisualInformation;
 
 public class DetectionVisitor implements ObjectInteractVisitor<ObjectInteractVisitor<Detection>> {
 
@@ -28,5 +30,10 @@ public class DetectionVisitor implements ObjectInteractVisitor<ObjectInteractVis
     @Override
     public ObjectInteractVisitor<Detection> visit(ClosedWall closedWall) {
         return new ClosedWallDetectionVisitor(closedWall);
+    }
+
+    @Override
+    public VisualInformation isVisible(Camera camera) {
+        return null;
     }
 }

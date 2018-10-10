@@ -4,11 +4,9 @@ import gameObject.*;
 import geometry.MyPoint;
 import detection.DetectionVisitor;
 import interaction.MotionControl;
-import interaction.ObjectVisitor;
 import javafx.animation.AnimationTimer;
 import visual.Camera;
 import visual.VisualInformation;
-import visual.VisualVisitor;
 
 import java.util.ArrayList;
 
@@ -94,7 +92,7 @@ public class PhysicGame {
         camera.setPosition(player.getPosition());
         ArrayList<VisualInformation> output = new ArrayList<>();
         for (GameObject gameObject : gameObjectList) {
-            VisualInformation visualInformation = gameObject.collision(new VisualVisitor()).isVisible(camera);
+            VisualInformation visualInformation = gameObject.collision(new DetectionVisitor()).isVisible(camera);
             if (visualInformation != null)
                 output.add(visualInformation);
         }

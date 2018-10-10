@@ -1,6 +1,8 @@
 package interaction;
 
 import gameObject.*;
+import visual.Camera;
+import visual.VisualInformation;
 
 public interface ObjectInteractVisitor<T> {
 
@@ -13,4 +15,6 @@ public interface ObjectInteractVisitor<T> {
     T visit(Wall wall);
 
     T visit(ClosedWall closedWall);
+
+    VisualInformation isVisible(Camera camera);
 }
