@@ -1,4 +1,4 @@
-package detection;
+package interaction;
 
 import gameObject.Ball;
 import geometry.GeometricalCalculation;
@@ -6,11 +6,11 @@ import geometry.Line;
 import geometry.MyPoint;
 import geometry.Vector;
 
-public class RegularTwoBallDetection implements Detection {
+public class RegularTwoBallInteraction implements Interaction {
     Ball first;
     Ball second;
 
-    public RegularTwoBallDetection(Ball first, Ball second) {
+    public RegularTwoBallInteraction(Ball first, Ball second) {
         this.first = first;
         this.second = second;
     }

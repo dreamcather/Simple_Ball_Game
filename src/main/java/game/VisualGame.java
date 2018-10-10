@@ -3,6 +3,9 @@ package game;
 import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import visual.*;
+import visual.models.Model;
+import visual.models.VisualFactory;
+import visual.visualInformation.VisualInformation;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;

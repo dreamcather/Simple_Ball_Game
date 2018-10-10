@@ -1,42 +1,41 @@
-package detection;
+package interaction;
 
 import gameObject.*;
 import geometry.MyPoint;
-import interaction.ObjectInteractVisitor;
 import visual.Camera;
-import visual.VisualInformation;
-import visual.WallVisualInformation;
+import visual.visualInformation.VisualInformation;
+import visual.visualInformation.WallVisualInformation;
 
-public class WallDetectionVisitor implements ObjectInteractVisitor<Detection> {
+public class WallInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
     Wall wall;
 
-    public WallDetectionVisitor(Wall wall) {
+    public WallInteractionVisitor(Wall wall) {
         this.wall = wall;
     }
 
     @Override
-    public Detection visit(Enemy enemy) {
-        return new RegularBallAndWallDetection(enemy,wall);
+    public Interaction visit(Enemy enemy) {
+        return new RegularBallAndWallInteraction(enemy,wall);
     }
 
     @Override
-    public Detection visit(Player player) {
-        return new RegularBallAndWallDetection(player,wall);
+    public Interaction visit(Player player) {
+        return new RegularBallAndWallInteraction(player,wall);
     }
 
     @Override
-    public Detection visit(Prize prize) {
-        return new RegularBallAndWallDetection(prize,wall);
+    public Interaction visit(Prize prize) {
+        return new RegularBallAndWallInteraction(prize,wall);
     }
 
     @Override
-    public Detection visit(Wall wall) {
-        return new EmptyDetection();
+    public Interaction visit(Wall wall) {
+        return new EmptyInteraction();
     }
 
     @Override
-    public Detection visit(ClosedWall closedWall) {
-        return new EmptyDetection();
+    public Interaction visit(ClosedWall closedWall) {
+        return new EmptyInteraction();
     }
 
     @Override

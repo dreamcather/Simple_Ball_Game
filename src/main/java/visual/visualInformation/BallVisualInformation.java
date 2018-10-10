@@ -1,4 +1,4 @@
-package visual;
+package visual.visualInformation;
 
 import geometry.MyPoint;
 

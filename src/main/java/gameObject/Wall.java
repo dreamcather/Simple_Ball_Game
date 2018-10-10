@@ -4,8 +4,8 @@ import geometry.GeometricalCalculation;
 import geometry.Line;
 import geometry.LineSegment;
 import geometry.MyPoint;
-import interaction.MotionControl;
-import interaction.ObjectInteractVisitor;
+import control.MotionControl;
+import interaction.ObjectInteractionVisitor;
 
 public class Wall extends  GameObject{
 
@@ -55,7 +55,7 @@ public class Wall extends  GameObject{
         return end;
     }
 
-    public <T> T collision(ObjectInteractVisitor<T> objectDetectVisitor) {
+    public <T> T collision(ObjectInteractionVisitor<T> objectDetectVisitor) {
         return objectDetectVisitor.visit(this);
     }
 

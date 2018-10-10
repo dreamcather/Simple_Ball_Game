@@ -2,9 +2,9 @@ package interaction;
 
 import gameObject.*;
 import visual.Camera;
-import visual.VisualInformation;
+import visual.visualInformation.VisualInformation;
 
-public interface ObjectInteractVisitor<T> {
+public interface ObjectInteractionVisitor<T> {
 
     T visit(Enemy enemy);
 

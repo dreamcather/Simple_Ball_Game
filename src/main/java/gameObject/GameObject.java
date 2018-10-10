@@ -1,14 +1,14 @@
 package gameObject;
 
 import geometry.MyPoint;
-import interaction.MotionControl;
-import interaction.ObjectInteractVisitor;
+import control.MotionControl;
+import interaction.ObjectInteractionVisitor;
 
 public abstract class GameObject {
 
     public String type;
 
-    public abstract <T> T collision(ObjectInteractVisitor<T> ballVisitor);
+    public abstract <T> T collision(ObjectInteractionVisitor<T> ballVisitor);
 
     public abstract void changeVector();
 

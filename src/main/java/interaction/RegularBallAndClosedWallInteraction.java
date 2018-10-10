@@ -1,15 +1,15 @@
-package detection;
+package interaction;
 
 import gameObject.Ball;
 import gameObject.ClosedWall;
 import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 
-public class RegularBallAndClosedWallDetection implements Detection {
+public class RegularBallAndClosedWallInteraction implements Interaction {
     ClosedWall closedWall;
     Ball ball;
 
-    public RegularBallAndClosedWallDetection(ClosedWall closedWall, Ball ball) {
+    public RegularBallAndClosedWallInteraction(ClosedWall closedWall, Ball ball) {
         this.closedWall = closedWall;
         this.ball = ball;
     }

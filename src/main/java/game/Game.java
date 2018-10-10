@@ -1,7 +1,7 @@
 package game;
 
 import geometry.MyPoint;
-import interaction.MotionControl;
+import control.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;

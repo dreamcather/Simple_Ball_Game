@@ -1,6 +1,7 @@
-package visual;
+package visual.models;
 
 import javafx.scene.layout.AnchorPane;
+import visual.visualInformation.VisualInformation;
 
 public abstract class Model {
     protected AnchorPane anchorPane;

@@ -1,6 +1,6 @@
 package main;
 
-import detection.DetectionVisitor;
+import interaction.DetectionVisitor;
 import gameObject.Enemy;
 import gameObject.Prize;
 import org.testng.Assert;

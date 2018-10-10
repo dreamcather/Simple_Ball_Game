@@ -1,8 +1,8 @@
 package gameObject;
 
 import geometry.Vector;
-import interaction.MotionControl;
-import interaction.ObjectInteractVisitor;
+import control.MotionControl;
+import interaction.ObjectInteractionVisitor;
 import javafx.scene.input.KeyCode;
 
 
@@ -64,7 +64,7 @@ public class Player extends Ball {
     }
 
     @Override
-    public <T> T collision(ObjectInteractVisitor<T> ballVisitor) {
+    public <T> T collision(ObjectInteractionVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 

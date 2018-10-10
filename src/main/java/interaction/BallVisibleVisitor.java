@@ -1,17 +1,18 @@
-package visual;
+package interaction;
 
 import gameObject.Ball;
 import gameObject.Wall;
 import geometry.MyPoint;
+import visual.Camera;
+import visual.visualInformation.BallVisualInformation;
+import visual.visualInformation.VisualInformation;
 
-public class BallVisibleVisitor implements Visible {
+public class BallVisibleVisitor{
     Ball ball;
 
     public BallVisibleVisitor(Ball ball) {
         this.ball = ball;
     }
-
-    @Override
     public VisualInformation isVisible(Camera camera) {
         if (camera.isVisible(ball.getPosition())) {
             MyPoint position = camera.transformPoint(ball.getPosition());
@@ -20,7 +21,7 @@ public class BallVisibleVisitor implements Visible {
             VisualInformation visualInformation = new BallVisualInformation(ball.type, "V", position);
             return visualInformation;
         } else {
-            Wall wall = new Wall(camera.transformPoint(ball.getPosition()), camera.transformPoint(camera.position));
+            Wall wall = new Wall(camera.transformPoint(ball.getPosition()), camera.transformPoint(camera.getPosition()));
             MyPoint res = camera.getPoint(camera.transformPoint(ball.getPosition()), wall.lineSegment);
             res.setX(res.getX() + camera.getXOffset());
             res.setY(res.getY() + camera.getXOffset());

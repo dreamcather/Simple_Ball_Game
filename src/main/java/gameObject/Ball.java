@@ -3,8 +3,8 @@ package gameObject;
 import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 import geometry.Vector;
-import interaction.MotionControl;
-import interaction.ObjectInteractVisitor;
+import control.MotionControl;
+import interaction.ObjectInteractionVisitor;
 
 public abstract class Ball extends GameObject {
     protected double xCoefficient;
@@ -74,7 +74,7 @@ public abstract class Ball extends GameObject {
         norm();
     }
 
-    public abstract <T> T collision(ObjectInteractVisitor<T> ballVisitor);
+    public abstract <T> T collision(ObjectInteractionVisitor<T> ballVisitor);
 
 
     public boolean isAlive() {

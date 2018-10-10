@@ -1,8 +1,9 @@
-package visual;
+package visual.visualInformation;
 
 import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import visual.models.Model;
 
 public class WallModel extends Model {
     Line line;

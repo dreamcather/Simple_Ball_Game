@@ -1,7 +1,8 @@
-package visual;
+package visual.models;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import visual.visualInformation.*;
 
 public class VisualFactory {
     private AnchorPane anchorPane;
@@ -28,12 +29,12 @@ public class VisualFactory {
         }
         if (visualInformation.type == "W") {
             WallVisualInformation wallVisualInformation = (WallVisualInformation) visualInformation;
-            return new WallModel(wallVisualInformation.start, wallVisualInformation.end, anchorPane);
+            return new WallModel(wallVisualInformation.getStart(), wallVisualInformation.getEnd(), anchorPane);
         }
         if(visualInformation.type =="CW")
         {
             ClosedWallVisualInformation closedWallVisualInformation = (ClosedWallVisualInformation)visualInformation;
-            return new ClosedWallModel(closedWallVisualInformation.points,anchorPane);
+            return new ClosedWallModel(closedWallVisualInformation.getPoints(),anchorPane);
         }
         return null;
     }

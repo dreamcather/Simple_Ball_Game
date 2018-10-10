@@ -1,4 +1,4 @@
-package visual;
+package visual.visualInformation;
 
 public abstract class VisualInformation {
     public String type;

@@ -1,9 +1,11 @@
-package visual;
+package visual.models;
 
 import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import visual.visualInformation.BallVisualInformation;
+import visual.visualInformation.VisualInformation;
 
 public class CircleModel extends Model {
     private Circle model;

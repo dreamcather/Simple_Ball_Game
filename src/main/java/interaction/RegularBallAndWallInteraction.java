@@ -1,4 +1,4 @@
-package detection;
+package interaction;
 
 import gameObject.Wall;
 import geometry.GeometricalCalculation;
@@ -6,11 +6,11 @@ import geometry.MyPoint;
 import geometry.Vector;
 import gameObject.Ball;
 
-public class RegularBallAndWallDetection implements Detection {
+public class RegularBallAndWallInteraction implements Interaction {
     Ball ball;
     Wall wall;
 
-    public RegularBallAndWallDetection(Ball ball, Wall wall) {
+    public RegularBallAndWallInteraction(Ball ball, Wall wall) {
         this.ball = ball;
         this.wall = wall;
     }

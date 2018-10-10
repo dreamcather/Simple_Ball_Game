@@ -1,4 +1,4 @@
-package interaction;
+package control;
 
 import geometry.MyPoint;
 import javafx.scene.input.MouseEvent;

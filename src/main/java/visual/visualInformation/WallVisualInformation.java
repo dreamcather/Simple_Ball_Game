@@ -1,6 +1,7 @@
-package visual;
+package visual.visualInformation;
 
 import geometry.MyPoint;
+import visual.visualInformation.VisualInformation;
 
 public class WallVisualInformation extends VisualInformation {
     MyPoint start;

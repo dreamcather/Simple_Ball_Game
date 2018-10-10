@@ -1,6 +1,6 @@
 package gameObject;
 
-import interaction.ObjectInteractVisitor;
+import interaction.ObjectInteractionVisitor;
 
 public class Prize extends Ball {
 
@@ -10,7 +10,7 @@ public class Prize extends Ball {
     }
 
     @Override
-    public <T> T collision(ObjectInteractVisitor<T> ballVisitor) {
+    public <T> T collision(ObjectInteractionVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 

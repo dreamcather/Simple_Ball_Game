@@ -1,8 +1,8 @@
 package gameObject;
 
 import geometry.*;
-import interaction.MotionControl;
-import interaction.ObjectInteractVisitor;
+import control.MotionControl;
+import interaction.ObjectInteractionVisitor;
 
 public class ClosedWall extends GameObject {
     MyPolygon polygon;
@@ -39,7 +39,7 @@ public class ClosedWall extends GameObject {
     }
 
     @Override
-    public <T> T collision(ObjectInteractVisitor<T> ballVisitor) {
+    public <T> T collision(ObjectInteractionVisitor<T> ballVisitor) {
         return ballVisitor.visit(this);
     }
 

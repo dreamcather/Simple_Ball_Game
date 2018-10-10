@@ -1,6 +1,6 @@
-package detection;
+package interaction;
 
-public class EmptyDetection implements Detection {
+public class EmptyInteraction implements Interaction {
     @Override
     public boolean detect() {
         return false;

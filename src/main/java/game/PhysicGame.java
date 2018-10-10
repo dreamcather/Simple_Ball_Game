@@ -2,11 +2,11 @@ package game;
 
 import gameObject.*;
 import geometry.MyPoint;
-import detection.DetectionVisitor;
-import interaction.MotionControl;
+import interaction.DetectionVisitor;
+import control.MotionControl;
 import javafx.animation.AnimationTimer;
 import visual.Camera;
-import visual.VisualInformation;
+import visual.visualInformation.VisualInformation;
 
 import java.util.ArrayList;
 
