@@ -10,22 +10,22 @@ import org.locationtech.jts.geom.GeometryFactory;
 import java.util.ArrayList;
 
 public class Camera {
-    MyPoint position;
-    int weight = 250;
-    double xOffset;
-    double minX;
-    double maxX;
-    double minY;
-    double maxY;
-    LineSegment upHorizontal;
-    LineSegment downHorizontal;
-    LineSegment leftVertical;
-    LineSegment rightVertical;
-    MyPoint leftUpPoint;
-    MyPoint leftDownPoint;
-    MyPoint rightUpPoint;
-    MyPoint rightDownPoint;
-    ConvexHull convexHull;
+    private MyPoint position;
+    private int weight = 250;
+    private double xOffset;
+    private double minX;
+    private double maxX;
+    private double minY;
+    private double maxY;
+    private LineSegment upHorizontal;
+    private LineSegment downHorizontal;
+    private LineSegment leftVertical;
+    private LineSegment rightVertical;
+    private MyPoint leftUpPoint;
+    private MyPoint leftDownPoint;
+    private MyPoint rightUpPoint;
+    private MyPoint rightDownPoint;
+    private ConvexHull convexHull;
 
     public Camera(MyPoint position, double offset, double minX, double maxX, double minY, double maxY) {
         this.position = position;
@@ -43,11 +43,11 @@ public class Camera {
         coordinates[1] = leftDownPoint.convertPoint().getCoordinate();
         coordinates[2] = rightUpPoint.convertPoint().getCoordinate();
         coordinates[3] = rightDownPoint.convertPoint().getCoordinate();
-        for(int i=0;i<4;i++){
-            coordinates[i].setX(coordinates[i].getX()+xOffset);
-            coordinates[i].setY(coordinates[i].getY()+xOffset);
+        for (int i = 0; i < 4; i++) {
+            coordinates[i].setX(coordinates[i].getX() + xOffset);
+            coordinates[i].setY(coordinates[i].getY() + xOffset);
         }
-        convexHull = new ConvexHull(coordinates,new GeometryFactory());
+        convexHull = new ConvexHull(coordinates, new GeometryFactory());
         upHorizontal = new LineSegment(rightUpPoint, leftUpPoint);
         downHorizontal = new LineSegment(leftDownPoint, rightDownPoint);
         leftVertical = new LineSegment(leftUpPoint, leftDownPoint);
@@ -55,16 +55,13 @@ public class Camera {
     }
 
     public MyPoint transformPoint(MyPoint point) {
-        return new MyPoint(point.getX() - position.getX() + weight,
-                point.getY() - position.getY() + weight);
+        return new MyPoint(point.getX() - position.getX() + weight, point.getY() - position.getY() + weight);
     }
 
     public boolean isVisible(MyPoint point) {
         MyPoint transformPoint = transformPoint(point);
-        if ((transformPoint.getY() <= 2 * weight) &&
-                (transformPoint.getY() >= 0) &&
-                (transformPoint.getX() <= 2 * weight) &&
-                (transformPoint.getX() >= 0)) {
+        if ((transformPoint.getY() <= 2 * weight) && (transformPoint.getY() >= 0)
+                && (transformPoint.getX() <= 2 * weight) && (transformPoint.getX() >= 0)) {
             return true;
         }
         return false;
@@ -73,13 +70,13 @@ public class Camera {
     public MyPoint getPoint(MyPoint point, LineSegment lineSegment) {
         MyPoint current;
         ArrayList<MyPoint> list = new ArrayList<>();
-        if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal,lineSegment)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal, lineSegment)) != null)
             list.add(current);
-        if ((current = GeometricalCalculation.lineSegmentIntersection(downHorizontal,lineSegment)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(downHorizontal, lineSegment)) != null)
             list.add(current);
-        if ((current = GeometricalCalculation.lineSegmentIntersection(leftVertical,lineSegment)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(leftVertical, lineSegment)) != null)
             list.add(current);
-        if ((current = GeometricalCalculation.lineSegmentIntersection(rightVertical,lineSegment)) != null)
+        if ((current = GeometricalCalculation.lineSegmentIntersection(rightVertical, lineSegment)) != null)
             list.add(current);
         if (list.size() == 0)
             return null;
@@ -120,5 +117,9 @@ public class Camera {
 
     public ConvexHull getConvexHull() {
         return convexHull;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

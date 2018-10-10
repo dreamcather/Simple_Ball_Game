@@ -1,6 +1,5 @@
 package visual;
 
-
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
@@ -36,7 +35,10 @@ public class PlayingField {
         background.setY(camera.getXOffset());
         currentImage.setX(camera.getXOffset());
         currentImage.setY(camera.getXOffset());
-        currentImage.setImage(new WritableImage(pixelReader, (int) camera.position.getX() - camera.weight, (int) camera.position.getY() - camera.weight,
-                2 * camera.weight, 2 * camera.weight));
+        currentImage.setImage(new WritableImage(pixelReader,
+                                                (int) camera.getPosition().getX() - camera.getWeight(),
+                                                (int) camera.getPosition().getY() - camera.getWeight(),
+                                                2 * camera.getWeight(),
+                                                2 * camera.getWeight()));
     }
 }

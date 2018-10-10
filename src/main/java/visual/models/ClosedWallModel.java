@@ -1,9 +1,11 @@
-package visual.visualInformation;
+package visual.models;
 
 import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
-import visual.models.Model;
+
+import visual.visualInformation.ClosedWallVisualInformation;
+import visual.visualInformation.VisualInformation;
 
 import java.util.ArrayList;
 
@@ -31,16 +33,16 @@ public class ClosedWallModel extends Model {
         hide();
         lines.clear();
         ClosedWallVisualInformation closedWallVisualInformation = (ClosedWallVisualInformation) visualInformation;
-        for (int i = 0; i < closedWallVisualInformation.points.length - 1; i++) {
-            lines.add(new Line(closedWallVisualInformation.points[i].getX(),
-                               closedWallVisualInformation.points[i].getY(),
-                               closedWallVisualInformation.points[i + 1].getX(),
-                               closedWallVisualInformation.points[i + 1].getY()));
+        for (int i = 0; i < closedWallVisualInformation.getPoints().length - 1; i++) {
+            lines.add(new Line(closedWallVisualInformation.getPoints()[i].getX(),
+                               closedWallVisualInformation.getPoints()[i].getY(),
+                               closedWallVisualInformation.getPoints()[i + 1].getX(),
+                               closedWallVisualInformation.getPoints()[i + 1].getY()));
         }
-        lines.add(new Line(closedWallVisualInformation.points[0].getX(),
-                closedWallVisualInformation.points[0].getY(),
-                closedWallVisualInformation.points[closedWallVisualInformation.points.length - 1].getX(),
-                closedWallVisualInformation.points[closedWallVisualInformation.points.length - 1].getY()));
+        lines.add(new Line(closedWallVisualInformation.getPoints()[0].getX(),
+                closedWallVisualInformation.getPoints()[0].getY(),
+                closedWallVisualInformation.getPoints()[closedWallVisualInformation.getPoints().length - 1].getX(),
+                closedWallVisualInformation.getPoints()[closedWallVisualInformation.getPoints().length - 1].getY()));
         for (int i = 0; i < lines.size(); i++)
             anchorPane.getChildren().add(lines.get(i));
 
