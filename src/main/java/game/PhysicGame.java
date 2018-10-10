@@ -56,7 +56,7 @@ public class PhysicGame {
         for (int i = number + 1; i < gameObjectList.size(); i++) {
             GameObject currentObject = gameObjectList.get(i);
             if (gameObject.collision(currentObject.collision(new DetectionVisitor())).detect()) {
-                gameObject.collision(currentObject.collision(new ObjectVisitor())).collide();
+                gameObject.collision(currentObject.collision(new DetectionVisitor())).collision();
             }
         }
         for (GameObject currentGameObject : gameObjectList) {

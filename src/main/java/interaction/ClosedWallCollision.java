@@ -5,7 +5,7 @@ import gameObject.ClosedWall;
 import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 
-public class ClosedWallCollision extends Collision {
+public class ClosedWallCollision implements Collision {
     ClosedWall closedWall;
     Ball ball;
 

@@ -6,7 +6,7 @@ import geometry.MyPoint;
 import geometry.Vector;
 import gameObject.Ball;
 
-public class RegularCollision extends Collision {
+public class RegularCollision implements Collision {
     private Ball first;
     private Ball second;
 

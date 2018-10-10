@@ -3,7 +3,7 @@ package interaction;
 import gameObject.Ball;
 import gameObject.Wall;
 
-public class WallCollision extends Collision {
+public class WallCollision implements Collision {
     Wall wall;
     Ball ball;
 

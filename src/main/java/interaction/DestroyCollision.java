@@ -3,7 +3,7 @@ package interaction;
 import gameObject.Ball;
 import gameObject.Player;
 
-public class DestroyCollision extends Collision {
+public class DestroyCollision implements Collision {
     private Player hero;
     private Ball pray;
 

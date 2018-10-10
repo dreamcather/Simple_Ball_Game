@@ -5,4 +5,9 @@ public class EmptyDetection implements Detection {
     public boolean detect() {
         return false;
     }
+
+    @Override
+    public void collision() {
+
+    }
 }

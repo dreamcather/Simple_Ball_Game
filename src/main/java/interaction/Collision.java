@@ -1,5 +1,5 @@
 package interaction;
 
-public abstract class Collision {
-    public abstract void collide();
+public interface Collision {
+    void collide();
 }

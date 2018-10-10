@@ -56,4 +56,9 @@ public class RegularBallAndWallDetection implements Detection {
         }
         return false;
     }
+
+    @Override
+    public void collision() {
+        ball.sumPerpendicularVector(wall.getLine().getNormal());
+    }
 }

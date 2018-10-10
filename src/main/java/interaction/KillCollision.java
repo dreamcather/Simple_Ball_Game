@@ -3,7 +3,7 @@ package interaction;
 import gameObject.Enemy;
 import gameObject.Player;
 
-public class KillCollision extends Collision {
+public class KillCollision implements Collision {
     Player hero;
     Enemy enemy;
 
