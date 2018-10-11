@@ -9,15 +9,11 @@ import java.io.File;
 import java.net.MalformedURLException;
 
 public class PlayingField {
-    int height;
-    int width;
-    ImageView background;
-    ImageView currentImage;
-    PixelReader pixelReader;
+    private ImageView background;
+    private ImageView currentImage;
+    private PixelReader pixelReader;
 
     public PlayingField(int height, int width, AnchorPane anchorPane) throws MalformedURLException {
-        this.height = height;
-        this.width = width;
         File file = new File("src/main/resource/BrickBorder.jpg");
         String localUrl = file.toURI().toURL().toString();
         background = new ImageView(localUrl);

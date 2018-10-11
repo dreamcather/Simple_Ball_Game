@@ -6,7 +6,6 @@ import geometry.MyLineSegment;
 import geometry.MyPoint;
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;
-import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 
 import java.util.ArrayList;
@@ -58,11 +57,8 @@ public class Camera {
 
     public boolean isVisible(MyPoint point) {
         MyPoint transformPoint = transformPoint(point);
-        if ((transformPoint.getY() <= 2 * weight) && (transformPoint.getY() >= 0)
-                && (transformPoint.getX() <= 2 * weight) && (transformPoint.getX() >= 0)) {
-            return true;
-        }
-        return false;
+        return (transformPoint.getY() <= 2 * weight) && (transformPoint.getY() >= 0)
+                && (transformPoint.getX() <= 2 * weight) && (transformPoint.getX() >= 0);
     }
 
     public MyPoint getPoint(MyPoint point, LineSegment lineSegment) {

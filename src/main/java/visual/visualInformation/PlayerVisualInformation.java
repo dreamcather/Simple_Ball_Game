@@ -4,7 +4,7 @@ import geometry.MyPoint;
 
 public class PlayerVisualInformation extends BallVisualInformation {
     static private String type = "P";
-    public PlayerVisualInformation(String visibleType, MyPoint point) {
-        super(type, visibleType, point);
+    public PlayerVisualInformation(MyPoint point) {
+        super(type, point);
     }
 }

@@ -4,7 +4,7 @@ import geometry.MyPoint;
 import visual.visualInformation.VisualInformation;
 
 public class ClosedWallVisualInformation extends VisualInformation {
-    MyPoint[] points;
+    private MyPoint[] points;
     public ClosedWallVisualInformation(MyPoint[] points) {
         super("CW");
         this.points = points;

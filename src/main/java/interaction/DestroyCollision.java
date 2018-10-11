@@ -4,8 +4,8 @@ import gameObject.Player;
 import gameObject.Prize;
 
 public class DestroyCollision implements Interaction {
-    Player player;
-    Prize prize;
+    private Player player;
+    private Prize prize;
 
     public DestroyCollision(Player player, Prize prize) {
         this.player = player;

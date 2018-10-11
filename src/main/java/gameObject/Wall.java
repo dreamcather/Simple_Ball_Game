@@ -26,7 +26,7 @@ public class Wall extends  GameObject{
     }
 
     public Wall(String string) {
-        String[] substr = string.split("  ");
+        String[] substr = string.split(" ");
         start = new MyPoint(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
         end = new MyPoint(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
         type = "W";
@@ -78,27 +78,7 @@ public class Wall extends  GameObject{
 
     @Override
     public String toString() {
-        String res = new String(start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n");
-        return res;
+        return start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n";
     }
 
-    public boolean isBetween(MyPoint point)
-    {
-        if(leftParallelLine.getSignEquationLine(point)*
-                rightParallelLine.getSignEquationLine(point)<0)
-            return true;
-        return false;
-    }
-
-    public MyPoint getIntersectionPoint(Wall wall){
-        MyPoint res = GeometricalCalculation.lineIntersection(mainLine,wall.getLine());
-        if(res==null)
-            return null;
-        if(leftParallelLine.getSignEquationLine(res)*
-                rightParallelLine.getSignEquationLine(res)<0) {
-            if(wall.isBetween(res))
-            return res;
-        }
-        return null;
-    }
 }

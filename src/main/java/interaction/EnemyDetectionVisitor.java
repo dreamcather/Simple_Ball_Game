@@ -5,7 +5,7 @@ import visual.Camera;
 import visual.visualInformation.VisualInformation;
 
 public class EnemyDetectionVisitor implements ObjectInteractionVisitor<Interaction> {
-    Enemy enemy;
+    private Enemy enemy;
 
     public EnemyDetectionVisitor(Enemy enemy) {
         this.enemy = enemy;

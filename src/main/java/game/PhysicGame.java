@@ -14,7 +14,6 @@ public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
     Player player;
     MotionControl motionControl;
-    private AnimationTimer animationTimer;
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
@@ -22,7 +21,7 @@ public class PhysicGame {
         ClosedWall closedWall =new ClosedWall(new MyPoint[]{new MyPoint(600,600),new MyPoint(650,800),new MyPoint(700,700),
         new MyPoint(600,800)});
         addClosedWall(closedWall);
-        animationTimer = new AnimationTimer() {
+        AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 move(motionControl);
@@ -57,21 +56,18 @@ public class PhysicGame {
                 gameObject.collision(currentObject.collision(new DetectionVisitor())).collision();
             }
         }
-        for (GameObject currentGameObject : gameObjectList) {
-            currentGameObject.changeVector();
-        }
+        for (GameObject currentGameObject : gameObjectList) currentGameObject.changeVector();
     }
 
-
+//не будет ли проскакивания?
     private void clear() {
-        for (int i = 0; i < gameObjectList.size(); i++) {
+        for (int i = 0; i < gameObjectList.size(); i++)
             if (gameObjectList.get(i).isAlive() == false) {
                 gameObjectList.remove(i);
             }
-        }
     }
 
-    public void move(MotionControl motionControl) {
+    private void move(MotionControl motionControl) {
         for (int i = 0; i < gameObjectList.size(); i++) {
             collision(gameObjectList.get(i), i);
         }

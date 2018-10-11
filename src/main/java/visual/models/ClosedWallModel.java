@@ -10,7 +10,7 @@ import visual.visualInformation.VisualInformation;
 import java.util.ArrayList;
 
 public class ClosedWallModel extends Model {
-    ArrayList<Line> lines;
+    private ArrayList<Line> lines;
 
     public ClosedWallModel(MyPoint[] points, AnchorPane anchorPane) {
         super();
@@ -24,8 +24,8 @@ public class ClosedWallModel extends Model {
                            points[0].getY(),
                            points[points.length - 1].getX(),
                            points[points.length - 1].getY()));
-        for (int i = 0; i < lines.size(); i++)
-            anchorPane.getChildren().add(lines.get(i));
+        for (Line line : lines)
+            anchorPane.getChildren().add(line);
     }
 
     @Override
@@ -40,17 +40,19 @@ public class ClosedWallModel extends Model {
                                closedWallVisualInformation.getPoints()[i + 1].getY()));
         }
         lines.add(new Line(closedWallVisualInformation.getPoints()[0].getX(),
-                closedWallVisualInformation.getPoints()[0].getY(),
-                closedWallVisualInformation.getPoints()[closedWallVisualInformation.getPoints().length - 1].getX(),
-                closedWallVisualInformation.getPoints()[closedWallVisualInformation.getPoints().length - 1].getY()));
-        for (int i = 0; i < lines.size(); i++)
-            anchorPane.getChildren().add(lines.get(i));
+                           closedWallVisualInformation.getPoints()[0].getY(),
+                           closedWallVisualInformation.getPoints()[closedWallVisualInformation.getPoints().length
+                                   - 1].getX(),
+                           closedWallVisualInformation.getPoints()[closedWallVisualInformation.getPoints().length
+                                   - 1].getY()));
+        for (Line line : lines)
+            anchorPane.getChildren().add(line);
 
     }
 
     @Override
     public void hide() {
-        for (int i = 0; i < lines.size(); i++)
-            anchorPane.getChildren().remove(lines.get(i));
+        for (Line line : lines)
+            anchorPane.getChildren().remove(line);
     }
 }

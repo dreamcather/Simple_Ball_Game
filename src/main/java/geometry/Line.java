@@ -81,9 +81,7 @@ public class Line {
     }
 
     public boolean isBelongs(MyPoint point){
-        if(Math.abs(getSignEquationLine(point))<0.0001)
-            return true;
-        return false;
+        return Math.abs(getSignEquationLine(point)) < 0.0001;
     }
 
     public int getSign(MyPoint point){

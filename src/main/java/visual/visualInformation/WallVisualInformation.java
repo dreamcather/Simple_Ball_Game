@@ -1,11 +1,10 @@
 package visual.visualInformation;
 
 import geometry.MyPoint;
-import visual.visualInformation.VisualInformation;
 
 public class WallVisualInformation extends VisualInformation {
-    MyPoint start;
-    MyPoint end;
+    private MyPoint start;
+    private MyPoint end;
 
     public WallVisualInformation(MyPoint start, MyPoint end) {
         super("W");

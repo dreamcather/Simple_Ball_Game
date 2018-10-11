@@ -5,6 +5,6 @@ import geometry.MyPoint;
 public class EnemyVisualInformation extends BallVisualInformation {
     static private String type ="E";
     public EnemyVisualInformation(String visibleType, MyPoint point) {
-        super(type, visibleType, point);
+        super(type, point);
     }
 }

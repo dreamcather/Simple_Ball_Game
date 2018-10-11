@@ -7,7 +7,7 @@ import visual.visualInformation.VisualInformation;
 import visual.visualInformation.WallVisualInformation;
 
 public class WallInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
-    Wall wall;
+    private Wall wall;
 
     public WallInteractionVisitor(Wall wall) {
         this.wall = wall;
@@ -42,8 +42,8 @@ public class WallInteractionVisitor implements ObjectInteractionVisitor<Interact
     public VisualInformation isVisible(Camera camera) {
         Wall transformWall = new Wall(camera.transformPoint(wall.getStart()),
                 camera.transformPoint(wall.getEnd()));
-        MyPoint start = null;
-        MyPoint end = null;
+        MyPoint start;
+        MyPoint end;
         if (camera.isVisible(wall.getStart()))
             start = transformWall.getStart();
         else {

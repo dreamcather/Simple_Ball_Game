@@ -5,7 +5,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
 
 public class LibraryLineSegment implements LineSegment {
-    org.locationtech.jts.geom.LineSegment lineSegment;
+    private org.locationtech.jts.geom.LineSegment lineSegment;
 
     public LibraryLineSegment(MyPoint start,MyPoint end){
         lineSegment=new org.locationtech.jts.geom.LineSegment(start.convertPoint().getCoordinate(),end.convertPoint().getCoordinate());
@@ -31,9 +31,7 @@ public class LibraryLineSegment implements LineSegment {
         Geometry geometry = lineSegment.toGeometry(new GeometryFactory());
         Point point1 = point.convertPoint();
         Geometry geometry1 = geometry.intersection(point1);
-        if(geometry1.isEmpty())
-        return false;
-        return true;
+        return !geometry1.isEmpty();
     }
 
     @Override

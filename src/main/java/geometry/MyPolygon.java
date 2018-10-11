@@ -8,14 +8,13 @@ import org.locationtech.jts.geom.GeometryFactory;
 public class MyPolygon {
     private MyLineSegment[] segments;
     private int segmentCount;
-    private ConvexHull convexHull;
 
     public MyPolygon(MyPoint[] points) {
         Coordinate[] otherPoints = new Coordinate[points.length];
         for(int i=0;i<points.length;i++){
             otherPoints[i] = points[i].convertPoint().getCoordinate();
         }
-        convexHull = new ConvexHull(otherPoints,new GeometryFactory());
+        ConvexHull convexHull = new ConvexHull(otherPoints,new GeometryFactory());
         Geometry geometry =convexHull.getConvexHull();
         otherPoints = geometry.getCoordinates();
         MyPoint[] newPoints = new MyPoint[otherPoints.length];

@@ -7,8 +7,8 @@ import geometry.MyPoint;
 import geometry.Vector;
 
 public class RegularTwoBallInteraction implements Interaction {
-    Ball first;
-    Ball second;
+    private Ball first;
+    private Ball second;
 
     public RegularTwoBallInteraction(Ball first, Ball second) {
         this.first = first;
@@ -38,10 +38,7 @@ public class RegularTwoBallInteraction implements Interaction {
     public boolean detect() {
         double distanceBetweenBall = GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
         double radiusSum = first.getRadius() + second.getRadius();
-        if (distanceBetweenBall < radiusSum)
-            return true;
-        else
-            return false;
+        return distanceBetweenBall < radiusSum;
     }
 
     @Override

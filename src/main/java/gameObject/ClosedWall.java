@@ -5,7 +5,7 @@ import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 
 public class ClosedWall extends GameObject {
-    MyPolygon polygon;
+    private MyPolygon polygon;
 
     public ClosedWall(MyPoint[] points) {
         polygon = new MyPolygon(points);

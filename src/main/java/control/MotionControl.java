@@ -6,8 +6,8 @@ import visual.Camera;
 
 
 public class MotionControl {
-    double rad;
-    MyPoint position;
+    private double rad;
+    private MyPoint position;
 
     public MotionControl() {
         rad =0;

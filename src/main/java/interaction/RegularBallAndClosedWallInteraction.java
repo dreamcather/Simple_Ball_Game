@@ -6,8 +6,8 @@ import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 
 public class RegularBallAndClosedWallInteraction implements Interaction {
-    ClosedWall closedWall;
-    Ball ball;
+    private ClosedWall closedWall;
+    private Ball ball;
 
     public RegularBallAndClosedWallInteraction(ClosedWall closedWall, Ball ball) {
         this.closedWall = closedWall;
@@ -17,10 +17,7 @@ public class RegularBallAndClosedWallInteraction implements Interaction {
     @Override
     public boolean detect() {
         double distanceToClosedWall = closedWall.getDistance(ball.getPosition());
-        if(distanceToClosedWall<=ball.getRadius()) {
-            return true;
-        }
-        return false;
+        return distanceToClosedWall <= ball.getRadius();
     }
 
     @Override

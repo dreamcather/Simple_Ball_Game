@@ -7,8 +7,8 @@ import geometry.Vector;
 import gameObject.Ball;
 
 public class RegularBallAndWallInteraction implements Interaction {
-    Ball ball;
-    Wall wall;
+    private Ball ball;
+    private Wall wall;
 
     public RegularBallAndWallInteraction(Ball ball, Wall wall) {
         this.ball = ball;
@@ -27,13 +27,10 @@ public class RegularBallAndWallInteraction implements Interaction {
         normalizePoint(ball, collisionPoint);
     }
 
-    public boolean isBetween(MyPoint point) {
+    private boolean isBetween(MyPoint point) {
         double leftCoefficient = wall.getLeftParallelLine().getSignEquationLine(point);
         double rightCoefficient = wall.getRightParallelLine().getSignEquationLine(point);
-        if (leftCoefficient * rightCoefficient <= 0) {
-            return true;
-        }
-        return false;
+        return leftCoefficient * rightCoefficient <= 0;
 
     }
 

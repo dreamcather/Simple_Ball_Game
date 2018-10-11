@@ -29,8 +29,7 @@ public class MyLineSegment implements LineSegment {
         if (mainLine.isBelongs(point)) {
             double leftDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(start, point);
             double rightDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(end, point);
-            if (leftDistance + rightDistance - length < 0.0001)
-                return true;
+            return leftDistance + rightDistance - length < 0.0001;
         }
         return false;
     }

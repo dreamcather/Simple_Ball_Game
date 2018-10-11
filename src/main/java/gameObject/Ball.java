@@ -107,7 +107,7 @@ public abstract class Ball extends GameObject {
     }
 
     public String toString(){
-        return new String(this.type+" "+xCoefficient+" "+yCoefficient+" "+speedOfMotion
-        +" "+xCoordinate+" "+yCoordinate+ " "+radius);
+        return this.type + " " + xCoefficient + " " + yCoefficient + " " + speedOfMotion
+                + " " + xCoordinate + " " + yCoordinate + " " + radius;
     }
 }

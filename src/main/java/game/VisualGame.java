@@ -11,19 +11,15 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class VisualGame {
-    MyPoint position;
-    int height;
     private VisualFactory visualFactory;
     private ArrayList<Model> modelsList;
-    PlayingField playingField;
-    Camera camera;
+    private PlayingField playingField;
+    private Camera camera;
 
     VisualGame(AnchorPane anchorPane, MyPoint point, int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
-        position = point;
-        this.height = height;
         playingField = new PlayingField(playingFieldHeight, playingFieldWidth, anchorPane);
         this.visualFactory = new VisualFactory(anchorPane);
-        camera = new Camera(new MyPoint(this.height, this.height), position.getX(), 0, playingFieldHeight, 0, playingFieldWidth);
+        camera = new Camera(new MyPoint(height, height), point.getX(), 0, playingFieldHeight, 0, playingFieldWidth);
         modelsList = new ArrayList<>();
 
     }
@@ -31,8 +27,8 @@ public class VisualGame {
     private Model find(VisualInformation visualInformation) {
         Model res = null;
         for (Model model : modelsList) {
-            if (model.isUse() == false) {
-                if (model.type == visualInformation.type) {
+            if (!model.isUse()) {
+                if (model.type.equals(visualInformation.type)) {
                     res = model;
                 }
             }
@@ -55,7 +51,7 @@ public class VisualGame {
             }
         }
         for (int i = 0; i < modelsList.size(); i++) {
-            if (modelsList.get(i).isUse() == false) {
+            if (!modelsList.get(i).isUse()) {
                 modelsList.get(i).hide();
                 modelsList.remove(modelsList.get(i));
             }

@@ -14,9 +14,6 @@ public class RegularTwoBallDetection {
     public boolean detect(){
         double distanceBetweenBall = GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
         double radiusSum = first.getRadius() + second.getRadius();
-        if (distanceBetweenBall < radiusSum)
-            return true;
-        else
-            return false;
+        return distanceBetweenBall < radiusSum;
     }
 }

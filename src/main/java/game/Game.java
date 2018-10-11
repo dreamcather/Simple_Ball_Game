@@ -13,36 +13,34 @@ import visual.Camera;
 import java.io.IOException;
 
 public class Game {
-    private AnchorPane gamePanel;
     private Player hero;
     private Label score;
     private Label lifeCounter;
     private int countPoint;
     private PhysicGame physicGame;
     private int prizeCount;
-    MotionControl motionControl;
-    AnimationTimer animationTimer;
-    boolean active;
-    VisualGame visualGame;
-    int width = 500;
-    Camera camera;
+    private MotionControl motionControl;
+    private AnimationTimer animationTimer;
+    private boolean active;
+    private VisualGame visualGame;
+    private Camera camera;
 
-    public Game(AnchorPane _panel) throws IOException {
-        gamePanel = _panel;
+    public Game(AnchorPane panel) throws IOException {
         physicGame = new PhysicGame();
         score = new Label("Score");
         score.setLayoutX(650);
         score.setLayoutY(50);
-        gamePanel.getChildren().add(score);
+        panel.getChildren().add(score);
         countPoint = 0;
         lifeCounter = new Label("Life");
-        gamePanel.getChildren().add(lifeCounter);
+        panel.getChildren().add(lifeCounter);
         lifeCounter.setLayoutX(650);
         lifeCounter.setLayoutY(70);
         prizeCount = 0;
         motionControl = new MotionControl();
         active = true;
-        visualGame = new VisualGame(gamePanel, new MyPoint(50, 50), width, 1000, 1000);
+        int width = 500;
+        visualGame = new VisualGame(panel, new MyPoint(50, 50), width, 1000, 1000);
         camera = visualGame.getCamera();
         animationTimer = new AnimationTimer() {
             @Override
@@ -54,18 +52,17 @@ public class Game {
     }
 
     public void addWall(String string) {
-        String[] substr = string.split("  ");
+        String[] substr = string.split(" ");
         MyPoint start = new MyPoint(Double.parseDouble(substr[0]), Double.parseDouble(substr[1]));
         MyPoint end = new MyPoint(Double.parseDouble(substr[2]), Double.parseDouble(substr[3]));
         physicGame.addWall(start, end);
     }
 
-    public void addClosedWall(ClosedWall closedWall)
-    {
+    public void addClosedWall(ClosedWall closedWall) {
     }
 
     public void addHero(String string) {
-        String[] strMas = string.split("  ", 6);
+        String[] strMas = string.split(" ", 6);
         double xCoefficient = Double.parseDouble(strMas[0]);
         double yCoefficient = Double.parseDouble(strMas[1]);
         double speed = Double.parseDouble(strMas[2]);
@@ -79,16 +76,16 @@ public class Game {
 
     private void createPrize() {
         Prize prize = new Prize(Math.random(),
-                Math.random(),
-                Math.random() * 5,
-                Math.random() * 500,
-                Math.random() * 500,
-                15);
+                                Math.random(),
+                                Math.random() * 5,
+                                Math.random() * 500,
+                                Math.random() * 500,
+                                15);
         physicGame.addBall(prize);
     }
 
     public void addEnemy(String string) {
-        String[] strmas = string.split("  ", 6);
+        String[] strmas = string.split(" ", 6);
         double xCoefficient = Double.parseDouble(strmas[0]);
         double yCoefficient = Double.parseDouble(strmas[1]);
         double speed = Double.parseDouble(strmas[2]);
@@ -100,7 +97,7 @@ public class Game {
     }
 
     public void addPrize(String string) {
-        String[] strmas = string.split("  ", 6);
+        String[] strmas = string.split(" ", 6);
         double xCoefficient = Double.parseDouble(strmas[0]);
         double yCoefficient = Double.parseDouble(strmas[1]);
         double speed = Double.parseDouble(strmas[2]);
@@ -121,7 +118,8 @@ public class Game {
             camera.setPosition(new MyPoint(camera.getPosition().getX() + 10, camera.getPosition().getY() + 10));
         if (keyCode == KeyCode.A)
             camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
-        if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == keyCode.LEFT) || (keyCode == keyCode.RIGHT)) {
+        if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT)
+                || (keyCode == KeyCode.RIGHT)) {
             physicGame.player.setKey(keyCode);
         }
     }
@@ -136,15 +134,15 @@ public class Game {
         active = false;
     }
 
-    public void newGame() {
+    private void newGame() {
         hero.setLifeCount(5);
     }
 
-    public void gameOver() {
+    private void gameOver() {
         newGame();
     }
 
-    public void update() {
+    private void update() {
         if (hero.getLifeCount() <= 0) {
             gameOver();
         } else {
@@ -155,7 +153,6 @@ public class Game {
                 prizeCount--;
             }
             lifeCounter.setText("Life " + hero.getLifeCount());
-
 
             if (prizeCount == 0) {
                 createPrize();
