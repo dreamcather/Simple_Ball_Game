@@ -45,10 +45,14 @@ public class Player extends Ball {
             norm();
         }
         if (keyCode == KeyCode.UP) {
-            speedOfMotion += 0.1;
+            speedOfMotion += 1;
+            if(speedOfMotion>10)
+                speedOfMotion=10;
         }
         if (keyCode == KeyCode.DOWN) {
-            speedOfMotion -= 0.1;
+            speedOfMotion -= 1;
+            if(speedOfMotion<0)
+                speedOfMotion=0;
         }
 
     }
