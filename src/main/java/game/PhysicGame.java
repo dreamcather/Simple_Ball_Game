@@ -62,9 +62,6 @@ public class PhysicGame {
         }
     }
 
-    public void stop() {
-        animationTimer.stop();
-    }
 
     private void clear() {
         for (int i = 0; i < gameObjectList.size(); i++) {

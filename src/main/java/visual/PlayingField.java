@@ -23,8 +23,8 @@ public class PlayingField {
         background = new ImageView(localUrl);
         background.setFitHeight(height);
         background.setFitWidth(width);
-        background.setX(0);
-        background.setY(0);
+        background.setX(100);
+        background.setY(100);
         pixelReader = background.getImage().getPixelReader();
         currentImage = new ImageView();
         anchorPane.getChildren().add(currentImage);

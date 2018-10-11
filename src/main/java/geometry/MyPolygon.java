@@ -4,10 +4,9 @@ import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
-import org.locationtech.jts.geom.Polygon;
 
 public class MyPolygon {
-    private LineSegment[] segments;
+    private MyLineSegment[] segments;
     private int segmentCount;
     private ConvexHull convexHull;
 
@@ -24,16 +23,16 @@ public class MyPolygon {
             newPoints[i] = new MyPoint(otherPoints[i]);
         }
         segmentCount = newPoints.length;
-        segments = new LineSegment[segmentCount];
+        segments = new MyLineSegment[segmentCount];
         for (int i = 0; i < segmentCount - 1; i++) {
-            segments[i] = new LineSegment(newPoints[i], newPoints[i + 1]);
+            segments[i] = new MyLineSegment(newPoints[i], newPoints[i + 1]);
         }
         if(segmentCount>1) {
-            segments[segmentCount - 1] = new LineSegment(newPoints[segmentCount - 1], newPoints[0]);
+            segments[segmentCount - 1] = new MyLineSegment(newPoints[segmentCount - 1], newPoints[0]);
         }
     }
 
-    public LineSegment getSegment(int i){
+    public MyLineSegment getSegment(int i){
         if(i<segmentCount)
             return segments[i];
         return null;

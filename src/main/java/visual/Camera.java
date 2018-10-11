@@ -2,9 +2,11 @@ package visual;
 
 import geometry.GeometricalCalculation;
 import geometry.LineSegment;
+import geometry.MyLineSegment;
 import geometry.MyPoint;
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 
 import java.util.ArrayList;
@@ -17,14 +19,10 @@ public class Camera {
     private double maxX;
     private double minY;
     private double maxY;
-    private LineSegment upHorizontal;
-    private LineSegment downHorizontal;
-    private LineSegment leftVertical;
-    private LineSegment rightVertical;
-    private MyPoint leftUpPoint;
-    private MyPoint leftDownPoint;
-    private MyPoint rightUpPoint;
-    private MyPoint rightDownPoint;
+    private MyLineSegment upHorizontal;
+    private MyLineSegment downHorizontal;
+    private MyLineSegment leftVertical;
+    private MyLineSegment rightVertical;
     private ConvexHull convexHull;
 
     public Camera(MyPoint position, double offset, double minX, double maxX, double minY, double maxY) {
@@ -34,10 +32,10 @@ public class Camera {
         this.maxX = maxX - weight;
         this.minY = minY + weight;
         this.maxY = maxY - weight;
-        leftUpPoint = new MyPoint(0, 0);
-        leftDownPoint = new MyPoint(0, 2 * weight);
-        rightUpPoint = new MyPoint(2 * weight, 0);
-        rightDownPoint = new MyPoint(2 * weight, 2 * weight);
+        MyPoint leftUpPoint = new MyPoint(0, 0);
+        MyPoint leftDownPoint = new MyPoint(0, 2 * weight);
+        MyPoint rightUpPoint = new MyPoint(2 * weight, 0);
+        MyPoint rightDownPoint = new MyPoint(2 * weight, 2 * weight);
         Coordinate[] coordinates = new Coordinate[4];
         coordinates[0] = leftUpPoint.convertPoint().getCoordinate();
         coordinates[1] = leftDownPoint.convertPoint().getCoordinate();
@@ -48,10 +46,10 @@ public class Camera {
             coordinates[i].setY(coordinates[i].getY() + xOffset);
         }
         convexHull = new ConvexHull(coordinates, new GeometryFactory());
-        upHorizontal = new LineSegment(rightUpPoint, leftUpPoint);
-        downHorizontal = new LineSegment(leftDownPoint, rightDownPoint);
-        leftVertical = new LineSegment(leftUpPoint, leftDownPoint);
-        rightVertical = new LineSegment(rightDownPoint, rightUpPoint);
+        upHorizontal = new MyLineSegment(rightUpPoint, leftUpPoint);
+        downHorizontal = new MyLineSegment(leftDownPoint, rightDownPoint);
+        leftVertical = new MyLineSegment(leftUpPoint, leftDownPoint);
+        rightVertical = new MyLineSegment(rightDownPoint, rightUpPoint);
     }
 
     public MyPoint transformPoint(MyPoint point) {
@@ -69,26 +67,39 @@ public class Camera {
 
     public MyPoint getPoint(MyPoint point, LineSegment lineSegment) {
         MyPoint current;
-        ArrayList<MyPoint> list = new ArrayList<>();
-        if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal, lineSegment)) != null)
-            list.add(current);
-        if ((current = GeometricalCalculation.lineSegmentIntersection(downHorizontal, lineSegment)) != null)
-            list.add(current);
-        if ((current = GeometricalCalculation.lineSegmentIntersection(leftVertical, lineSegment)) != null)
-            list.add(current);
-        if ((current = GeometricalCalculation.lineSegmentIntersection(rightVertical, lineSegment)) != null)
-            list.add(current);
-        if (list.size() == 0)
-            return null;
-        double distance = GeometricalCalculation.getDistanceBetweenTwoPoint(list.get(0), point);
-        current = list.get(0);
-        for (int i = 1; i < list.size(); i++) {
-            double curDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(list.get(i), point);
-            if (curDistance < distance) {
-                current = list.get(i);
-                distance = curDistance;
-            }
-        }
+//        org.locationtech.jts.geom.LineSegment currentLineSegment = new org.locationtech.jts.geom.LineSegment(lineSegment.getStart()
+//                                                                                                                        .convertPoint()
+//                                                                                                                        .getCoordinate(),
+//                                                                                                             lineSegment.getEnd()
+//                                                                                                                        .convertPoint()
+//                                                                                                                        .getCoordinate());
+//        Geometry geometry = convexHull.getConvexHull().intersection(currentLineSegment.toGeometry(new GeometryFactory()));
+//        if (geometry.isEmpty()) {
+//            return null;
+//        }
+//        current = new MyPoint(geometry.getCoordinate());
+//        current.setX(current.getX() - xOffset);
+//        current.setY(current.getY() - xOffset);
+         ArrayList<MyPoint> list = new ArrayList<>();
+         if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal, lineSegment)) != null)
+         list.add(current);
+         if ((current = GeometricalCalculation.lineSegmentIntersection(downHorizontal, lineSegment)) != null)
+         list.add(current);
+         if ((current = GeometricalCalculation.lineSegmentIntersection(leftVertical, lineSegment)) != null)
+         list.add(current);
+         if ((current = GeometricalCalculation.lineSegmentIntersection(rightVertical, lineSegment)) != null)
+         list.add(current);
+         if (list.size() == 0)
+         return null;
+         double distance = GeometricalCalculation.getDistanceBetweenTwoPoint(list.get(0), point);
+         current = list.get(0);
+         for (int i = 1; i < list.size(); i++) {
+         double curDistance = GeometricalCalculation.getDistanceBetweenTwoPoint(list.get(i), point);
+         if (curDistance < distance) {
+         current = list.get(i);
+         distance = curDistance;
+         }
+         }
         return current;
     }
 

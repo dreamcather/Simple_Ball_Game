@@ -158,7 +158,7 @@ public class Game {
 
 
             if (prizeCount == 0) {
-                //createPrize();
+                createPrize();
                 prizeCount++;
             }
         }

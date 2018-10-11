@@ -1,14 +1,14 @@
 package main;
 
-import geometry.LineSegment;
+import geometry.MyLineSegment;
 import geometry.MyPoint;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LineSegmentTest {
+public class MyLineSegmentTest {
     @Test
     public void lineSegmentDistanceToPointTest(){
-        LineSegment lineSegment = new LineSegment(new MyPoint(0,0),new MyPoint(0,10));
+        MyLineSegment lineSegment = new MyLineSegment(new MyPoint(0,0),new MyPoint(0,10));
         MyPoint point = new MyPoint(-5,5);
 
         double actual = lineSegment.getDistanceToPoint(point);

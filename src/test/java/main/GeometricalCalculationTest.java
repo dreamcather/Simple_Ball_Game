@@ -1,9 +1,6 @@
 package main;
 
-import geometry.GeometricalCalculation;
-import geometry.Line;
-import geometry.MyPoint;
-import geometry.MyPolygon;
+import geometry.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -72,5 +69,17 @@ public class GeometricalCalculationTest {
         Assert.assertTrue(actual.equals(expected));
 
     }
+
+    @Test
+    public void LineSegmentIntersectionTest1(){
+        LineSegment first = new LibraryLineSegment(new MyPoint(0,0),new MyPoint(10,10));
+        LineSegment second = new LibraryLineSegment(new MyPoint(0,10),new MyPoint(10,0));
+
+        MyPoint actual = GeometricalCalculation.lineSegmentIntersection(first,second);
+        MyPoint expected = new MyPoint(5,5);
+
+        Assert.assertTrue(actual.equals(expected));
+    }
+
 
 }

@@ -23,6 +23,8 @@ public class BallVisibleVisitor{
         } else {
             Wall wall = new Wall(camera.transformPoint(ball.getPosition()), camera.transformPoint(camera.getPosition()));
             MyPoint res = camera.getPoint(camera.transformPoint(ball.getPosition()), wall.lineSegment);
+            if(res==null)
+                return null;
             res.setX(res.getX() + camera.getXOffset());
             res.setY(res.getY() + camera.getXOffset());
             VisualInformation visualInformation = new BallVisualInformation(ball.type, "T", res);

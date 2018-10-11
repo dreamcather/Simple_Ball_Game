@@ -18,7 +18,7 @@ public class PrizeInteractionVisitor implements ObjectInteractionVisitor<Interac
 
     @Override
     public Interaction visit(Player player) {
-        return new RegularTwoBallInteraction(prize,player);
+        return new DestroyCollision(player,prize);
     }
 
     @Override
