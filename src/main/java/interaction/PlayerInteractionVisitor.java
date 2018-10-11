@@ -13,7 +13,7 @@ public class PlayerInteractionVisitor implements ObjectInteractionVisitor<Intera
 
     @Override
     public Interaction visit(Enemy enemy) {
-        return new RegularTwoBallInteraction(player, enemy);
+        return new KillCollision(player, enemy);
     }
 
     @Override

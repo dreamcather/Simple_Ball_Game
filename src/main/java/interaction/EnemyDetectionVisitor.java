@@ -18,7 +18,7 @@ public class EnemyDetectionVisitor implements ObjectInteractionVisitor<Interacti
 
     @Override
     public Interaction visit(Player player) {
-        return new RegularTwoBallInteraction(enemy,player);
+        return new KillCollision(player,enemy);
     }
 
     @Override
