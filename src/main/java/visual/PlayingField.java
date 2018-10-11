@@ -19,22 +19,22 @@ public class PlayingField {
         background = new ImageView(localUrl);
         background.setFitHeight(height);
         background.setFitWidth(width);
-        background.setX(100);
-        background.setY(100);
+        background.setX(0);
+        background.setY(0);
         pixelReader = background.getImage().getPixelReader();
         currentImage = new ImageView();
         anchorPane.getChildren().add(currentImage);
     }
 
     public void refresh(Camera camera) {
-        background.setX(camera.getXOffset());
-        background.setY(camera.getXOffset());
-        currentImage.setX(camera.getXOffset());
-        currentImage.setY(camera.getXOffset());
+        background.setX(camera.getOffset());
+        background.setY(camera.getOffset());
+        currentImage.setX(camera.getOffset());
+        currentImage.setY(camera.getOffset());
         currentImage.setImage(new WritableImage(pixelReader,
-                                                (int) camera.getPosition().getX() - camera.getWeight(),
-                                                (int) camera.getPosition().getY() - camera.getWeight(),
-                                                2 * camera.getWeight(),
-                                                2 * camera.getWeight()));
+                                                (int) camera.getPosition().getX() - camera.getSize(),
+                                                (int) camera.getPosition().getY() - camera.getSize(),
+                                                2 * camera.getSize(),
+                                                2 * camera.getSize()));
     }
 }

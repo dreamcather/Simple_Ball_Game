@@ -5,6 +5,7 @@ import visual.visualInformation.VisualInformation;
 
 public class ClosedWallVisualInformation extends VisualInformation {
     private MyPoint[] points;
+
     public ClosedWallVisualInformation(MyPoint[] points) {
         super("CW");
         this.points = points;

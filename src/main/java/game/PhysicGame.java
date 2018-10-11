@@ -18,8 +18,11 @@ public class PhysicGame {
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         motionControl = new MotionControl();
-        ClosedWall closedWall =new ClosedWall(new MyPoint[]{new MyPoint(600,600),new MyPoint(650,800),new MyPoint(700,700),
-        new MyPoint(600,800)});
+        ClosedWall closedWall = new ClosedWall(new MyPoint[] {
+                new MyPoint(600, 600),
+                new MyPoint(650, 800),
+                new MyPoint(700, 700),
+                new MyPoint(600, 800) });
         addClosedWall(closedWall);
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
@@ -44,8 +47,7 @@ public class PhysicGame {
         gameObjectList.add(wall);
     }
 
-    public void addClosedWall(ClosedWall closedWall)
-    {
+    public void addClosedWall(ClosedWall closedWall) {
         gameObjectList.add(closedWall);
     }
 
@@ -56,10 +58,11 @@ public class PhysicGame {
                 gameObject.collision(currentObject.collision(new DetectionVisitor())).collision();
             }
         }
-        for (GameObject currentGameObject : gameObjectList) currentGameObject.changeVector();
+        for (GameObject currentGameObject : gameObjectList)
+            currentGameObject.changeVector();
     }
 
-//не будет ли проскакивания?
+    // не будет ли проскакивания?
     private void clear() {
         for (int i = 0; i < gameObjectList.size(); i++)
             if (gameObjectList.get(i).isAlive() == false) {

@@ -19,17 +19,17 @@ public class ClosedWallInteractionVisitor implements ObjectInteractionVisitor<In
 
     @Override
     public Interaction visit(Enemy enemy) {
-        return new RegularBallAndClosedWallInteraction(closedWall,enemy);
+        return new RegularBallAndClosedWallInteraction(closedWall, enemy);
     }
 
     @Override
     public Interaction visit(Player player) {
-        return new RegularBallAndClosedWallInteraction(closedWall,player);
+        return new RegularBallAndClosedWallInteraction(closedWall, player);
     }
 
     @Override
     public Interaction visit(Prize prize) {
-        return new RegularBallAndClosedWallInteraction(closedWall,prize);
+        return new RegularBallAndClosedWallInteraction(closedWall, prize);
     }
 
     @Override
@@ -46,24 +46,24 @@ public class ClosedWallInteractionVisitor implements ObjectInteractionVisitor<In
     public VisualInformation isVisible(Camera camera) {
         MyPoint[] points = closedWall.getPoints();
         MyPoint[] res = new MyPoint[points.length];
-        for(int i = 0;i<res.length;i++){
+        for (int i = 0; i < res.length; i++) {
             MyPoint current = camera.transformPoint(points[i]);
-            current.setX(current.getX()+camera.getXOffset());
-            current.setY(current.getY()+camera.getXOffset());
+            current.setX(current.getX() + camera.getOffset());
+            current.setY(current.getY() + camera.getOffset());
             res[i] = current;
         }
         Coordinate[] coordinates = new Coordinate[res.length];
-        for(int i=0;i<res.length;i++){
+        for (int i = 0; i < res.length; i++) {
             coordinates[i] = res[i].convertPoint().getCoordinate();
         }
-        Geometry geometry = new ConvexHull(coordinates,new GeometryFactory()).getConvexHull();
+        Geometry geometry = new ConvexHull(coordinates, new GeometryFactory()).getConvexHull();
         Geometry camerGeometry = camera.getConvexHull().getConvexHull();
         Geometry resGeometry = geometry.intersection(camerGeometry);
         coordinates = resGeometry.getCoordinates();
-        if(coordinates.length<3)
+        if (coordinates.length < 3)
             return null;
         MyPoint[] resPointArray = new MyPoint[coordinates.length];
-        for(int i=0;i<coordinates.length;i++){
+        for (int i = 0; i < coordinates.length; i++) {
             resPointArray[i] = new MyPoint(coordinates[i]);
         }
         return new ClosedWallVisualInformation(resPointArray);

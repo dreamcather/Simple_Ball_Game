@@ -55,8 +55,8 @@ public abstract class Ball extends GameObject {
         return new MyPoint(xCoordinate, yCoordinate);
     }
 
-    public MyPoint getPosition(MyPoint point){
-        return new MyPoint(xCoordinate+point.getX(),yCoordinate+point.getY());
+    public MyPoint getPosition(MyPoint point) {
+        return new MyPoint(xCoordinate + point.getX(), yCoordinate + point.getY());
     }
 
     public void setPosition(MyPoint point) {
@@ -76,7 +76,6 @@ public abstract class Ball extends GameObject {
 
     public abstract <T> T collision(ObjectInteractionVisitor<T> ballVisitor);
 
-
     public boolean isAlive() {
         return alive;
     }
@@ -92,7 +91,7 @@ public abstract class Ball extends GameObject {
     public void changeVector() {
         if (perpendicularVector != null) {
             Vector motionVector = this.getVector();
-            Vector res = GeometricalCalculation.vectorReflection(motionVector,perpendicularVector);
+            Vector res = GeometricalCalculation.vectorReflection(motionVector, perpendicularVector);
             this.changeVector(res);
             perpendicularVector = null;
         }
@@ -106,8 +105,8 @@ public abstract class Ball extends GameObject {
         this.alive = alive;
     }
 
-    public String toString(){
-        return this.type + " " + xCoefficient + " " + yCoefficient + " " + speedOfMotion
-                + " " + xCoordinate + " " + yCoordinate + " " + radius;
+    public String toString() {
+        return this.type + " " + xCoefficient + " " + yCoefficient + " " + speedOfMotion + " " + xCoordinate + " "
+                + yCoordinate + " " + radius;
     }
 }

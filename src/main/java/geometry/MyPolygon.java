@@ -11,14 +11,14 @@ public class MyPolygon {
 
     public MyPolygon(MyPoint[] points) {
         Coordinate[] otherPoints = new Coordinate[points.length];
-        for(int i=0;i<points.length;i++){
+        for (int i = 0; i < points.length; i++) {
             otherPoints[i] = points[i].convertPoint().getCoordinate();
         }
-        ConvexHull convexHull = new ConvexHull(otherPoints,new GeometryFactory());
-        Geometry geometry =convexHull.getConvexHull();
+        ConvexHull convexHull = new ConvexHull(otherPoints, new GeometryFactory());
+        Geometry geometry = convexHull.getConvexHull();
         otherPoints = geometry.getCoordinates();
         MyPoint[] newPoints = new MyPoint[otherPoints.length];
-        for(int i = 0;i<otherPoints.length;i++){
+        for (int i = 0; i < otherPoints.length; i++) {
             newPoints[i] = new MyPoint(otherPoints[i]);
         }
         segmentCount = newPoints.length;
@@ -26,13 +26,13 @@ public class MyPolygon {
         for (int i = 0; i < segmentCount - 1; i++) {
             segments[i] = new MyLineSegment(newPoints[i], newPoints[i + 1]);
         }
-        if(segmentCount>1) {
+        if (segmentCount > 1) {
             segments[segmentCount - 1] = new MyLineSegment(newPoints[segmentCount - 1], newPoints[0]);
         }
     }
 
-    public MyLineSegment getSegment(int i){
-        if(i<segmentCount)
+    public MyLineSegment getSegment(int i) {
+        if (i < segmentCount)
             return segments[i];
         return null;
     }
@@ -41,9 +41,9 @@ public class MyPolygon {
         return segmentCount;
     }
 
-    public MyPoint[] getPoints(){
-        MyPoint[]res = new MyPoint[getSegmentCount()];
-        for(int i=0;i<getSegmentCount();i++){
+    public MyPoint[] getPoints() {
+        MyPoint[] res = new MyPoint[getSegmentCount()];
+        for (int i = 0; i < getSegmentCount(); i++) {
             res[i] = getSegment(i).getStart();
         }
         return res;

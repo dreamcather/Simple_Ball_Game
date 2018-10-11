@@ -11,8 +11,10 @@ public class RegularTwoBallDetection {
         this.first = first;
         this.second = second;
     }
-    public boolean detect(){
-        double distanceBetweenBall = GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
+
+    public boolean detect() {
+        double distanceBetweenBall = GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),
+                                                                                       second.getPosition());
         double radiusSum = first.getRadius() + second.getRadius();
         return distanceBetweenBall < radiusSum;
     }

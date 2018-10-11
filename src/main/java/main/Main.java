@@ -25,19 +25,19 @@ public class Main extends Application {
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout, 750, 600);
         Game gameState = new game.Game(layout);
-        Rectangle leftBorder = new Rectangle(550,50,15,500);
+        Rectangle leftBorder = new Rectangle(550, 50, 15, 500);
         leftBorder.setFill(Color.DARKBLUE);
-        Rectangle rightBorder = new Rectangle(50,550,515,15);
+        Rectangle rightBorder = new Rectangle(50, 550, 515, 15);
         rightBorder.setFill(Color.DARKBLUE);
-        Rectangle downBorder = new Rectangle(35,35,15,530);
+        Rectangle downBorder = new Rectangle(35, 35, 15, 530);
         downBorder.setFill(Color.DARKBLUE);
-        Rectangle upBorder = new Rectangle(50,35,515,15);
+        Rectangle upBorder = new Rectangle(50, 35, 515, 15);
         upBorder.setFill(Color.DARKBLUE);
         layout.getChildren().add(leftBorder);
         layout.getChildren().add(rightBorder);
         layout.getChildren().add(upBorder);
         layout.getChildren().add(downBorder);
-        Rider reader =new Rider("output.txt",gameState);
+        Rider reader = new Rider("output.txt", gameState);
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -57,7 +57,7 @@ public class Main extends Application {
                     else
                         gameState.start();
                 }
-                    gameState.click(event.getCode());
+                gameState.click(event.getCode());
             }
         });
     }

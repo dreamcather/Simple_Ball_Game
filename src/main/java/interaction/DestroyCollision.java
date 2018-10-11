@@ -14,7 +14,7 @@ public class DestroyCollision implements Interaction {
 
     @Override
     public boolean detect() {
-        return new RegularTwoBallDetection(player,prize).detect();
+        return new RegularTwoBallDetection(player, prize).detect();
     }
 
     @Override

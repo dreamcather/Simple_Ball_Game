@@ -7,8 +7,9 @@ import org.locationtech.jts.geom.Point;
 public class LibraryLineSegment implements LineSegment {
     private org.locationtech.jts.geom.LineSegment lineSegment;
 
-    public LibraryLineSegment(MyPoint start,MyPoint end){
-        lineSegment=new org.locationtech.jts.geom.LineSegment(start.convertPoint().getCoordinate(),end.convertPoint().getCoordinate());
+    public LibraryLineSegment(MyPoint start, MyPoint end) {
+        lineSegment = new org.locationtech.jts.geom.LineSegment(start.convertPoint().getCoordinate(),
+                                                                end.convertPoint().getCoordinate());
     }
 
     @Override
@@ -23,7 +24,7 @@ public class LibraryLineSegment implements LineSegment {
 
     @Override
     public Line getMainLine() {
-        return new Line(getStart(),getEnd());
+        return new Line(getStart(), getEnd());
     }
 
     @Override

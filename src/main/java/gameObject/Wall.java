@@ -4,7 +4,7 @@ import geometry.*;
 import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 
-public class Wall extends  GameObject{
+public class Wall extends GameObject {
 
     private Line mainLine;
     public LineSegment lineSegment;
@@ -20,15 +20,15 @@ public class Wall extends  GameObject{
         end = _end;
         leftParallelLine = new Line(start, mainLine.getNormal());
         rightParallelLine = new Line(end, mainLine.getNormal());
-        lineSegment = new MyLineSegment(start,end);
-        type ="W";
+        lineSegment = new MyLineSegment(start, end);
+        type = "W";
 
     }
 
     public Wall(String string) {
         String[] substr = string.split(" ");
-        start = new MyPoint(Double.parseDouble(substr[0]),Double.parseDouble(substr[1]));
-        end = new MyPoint(Double.parseDouble(substr[2]),Double.parseDouble(substr[3]));
+        start = new MyPoint(Double.parseDouble(substr[0]), Double.parseDouble(substr[1]));
+        end = new MyPoint(Double.parseDouble(substr[2]), Double.parseDouble(substr[3]));
         type = "W";
     }
 
@@ -73,12 +73,12 @@ public class Wall extends  GameObject{
 
     @Override
     public MyPoint getPosition() {
-        return new MyPoint(0,0);
+        return new MyPoint(0, 0);
     }
 
     @Override
     public String toString() {
-        return start.getX()+"  "+start.getY()+ "  "+end.getX()+"  "+end.getY()+"\n";
+        return start.getX() + "  " + start.getY() + "  " + end.getX() + "  " + end.getY() + "\n";
     }
 
 }

@@ -29,24 +29,24 @@ public class Line {
         freeCoefficient = point.getX() * vector.getYCoefficient() - point.getY() * vector.getXCoefficient();
     }
 
-//    public MyPoint getLineIntersectionPoint(Line line) {
-//        double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
-//        if(mainDeterminant==0)
-//            return null;
-//        double xDeterminant = xCoefficient * line.freeCoefficient - line.xCoefficient * freeCoefficient;
-//        double yDeterminant = yCoefficient * line.freeCoefficient - line.yCoefficient * freeCoefficient;
-//
-//        double yCoordinateTouch = xDeterminant / mainDeterminant;
-//        double xCoordinateTouch = -yDeterminant / mainDeterminant;
-//
-//        return new MyPoint(xCoordinateTouch, yCoordinateTouch);
-//
-//    }
+    // public MyPoint getLineIntersectionPoint(Line line) {
+    // double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
+    // if(mainDeterminant==0)
+    // return null;
+    // double xDeterminant = xCoefficient * line.freeCoefficient - line.xCoefficient * freeCoefficient;
+    // double yDeterminant = yCoefficient * line.freeCoefficient - line.yCoefficient * freeCoefficient;
+    //
+    // double yCoordinateTouch = xDeterminant / mainDeterminant;
+    // double xCoordinateTouch = -yDeterminant / mainDeterminant;
+    //
+    // return new MyPoint(xCoordinateTouch, yCoordinateTouch);
+    //
+    // }
 
     public MyPoint getLineIntersectionPoint(MyPoint point, Vector vector) {
 
         Line crossLine = new Line(point, vector);
-        return GeometricalCalculation.lineIntersection(this,crossLine);
+        return GeometricalCalculation.lineIntersection(this, crossLine);
     }
 
     public double calculateDistanceToPoint(MyPoint point) {
@@ -76,19 +76,19 @@ public class Line {
         return xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient;
     }
 
-    public double getDistanceToPoint(MyPoint point){
+    public double getDistanceToPoint(MyPoint point) {
         return calculateDistanceToPoint(point);
     }
 
-    public boolean isBelongs(MyPoint point){
+    public boolean isBelongs(MyPoint point) {
         return Math.abs(getSignEquationLine(point)) < 0.0001;
     }
 
-    public int getSign(MyPoint point){
+    public int getSign(MyPoint point) {
         double equationRes = getSignEquationLine(point);
-        if(equationRes>0)
+        if (equationRes > 0)
             return 1;
-        if(equationRes<0)
+        if (equationRes < 0)
             return -1;
         return 0;
     }

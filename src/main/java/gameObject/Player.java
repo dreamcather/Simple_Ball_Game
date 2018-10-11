@@ -5,22 +5,16 @@ import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import javafx.scene.input.KeyCode;
 
-
 public class Player extends Ball {
 
     private int score;
     private int lifeCount;
 
-    public Player(double _x,
-                  double _y,
-                  double _speed,
-                  double xCoordinate,
-                  double yCoordinate,
-                  double radius) {
+    public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
         score = 0;
         lifeCount = 3;
-        type ="P";
+        type = "P";
     }
 
     public int getScore() {
@@ -68,16 +62,14 @@ public class Player extends Ball {
         return ballVisitor.visit(this);
     }
 
-
     @Override
-    public void move(MotionControl motionControl){
-        if(motionControl.getPosition()!=null){
+    public void move(MotionControl motionControl) {
+        if (motionControl.getPosition() != null) {
             Vector motion = new Vector(this.getPosition(), motionControl.getPosition());
             motion.norm();
             this.changeVector(motion);
             motionControl.setPosition(null);
-        }
-        else{
+        } else {
             xCoordinate += xCoefficient * speedOfMotion;
             yCoordinate += yCoefficient * speedOfMotion;
         }

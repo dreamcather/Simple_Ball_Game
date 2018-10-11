@@ -13,7 +13,6 @@ public class Writer {
     File file;
     FileWriter fileWriter;
 
-
     public Writer(String path) throws IOException {
         this.path = path;
         file = new File(path);
@@ -26,10 +25,9 @@ public class Writer {
         wallCounter++;
         fileWriter.flush();
     }
+
     public void close() throws IOException {
         fileWriter.close();
     }
-
-
 
 }

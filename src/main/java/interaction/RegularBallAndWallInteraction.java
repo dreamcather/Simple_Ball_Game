@@ -30,18 +30,21 @@ public class RegularBallAndWallInteraction implements Interaction {
     private boolean isBetween(MyPoint point) {
         double leftCoefficient = wall.getLeftParallelLine().getSignEquationLine(point);
         double rightCoefficient = wall.getRightParallelLine().getSignEquationLine(point);
-        return leftCoefficient * rightCoefficient <= 0;
+        if (leftCoefficient * rightCoefficient <= 0) {
+            return true;
+        }
+        return false;
 
     }
 
     @Override
     public boolean detect() {
-        if (GeometricalCalculation.getDistanceBetweenTwoPoint(wall.getStart(),ball.getPosition()) <= ball.getRadius()
+        if (GeometricalCalculation.getDistanceBetweenTwoPoint(wall.getStart(), ball.getPosition()) <= ball.getRadius()
                 && (wall.getLine().getSignEquationLine(wall.getStart()) >= 0)) {
             normalizePoint(ball, wall.getStart());
             return true;
         }
-        if (GeometricalCalculation.getDistanceBetweenTwoPoint( wall.getEnd(),ball.getPosition()) <= ball.getRadius()
+        if (GeometricalCalculation.getDistanceBetweenTwoPoint(wall.getEnd(), ball.getPosition()) <= ball.getRadius()
                 && (wall.getLine().getSignEquationLine(wall.getEnd()) >= 0)) {
             normalizePoint(ball, wall.getEnd());
             return true;

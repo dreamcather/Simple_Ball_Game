@@ -13,7 +13,7 @@ public class VisualFactory {
     public Model create(VisualInformation visualInformation) {
         if (visualInformation.type.equals("E")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new EnemyModel(ballVisualInformation.getPosition(), 15,anchorPane, "E");
+            return new EnemyModel(ballVisualInformation.getPosition(), 15, anchorPane, "E");
         }
         if (visualInformation.type.equals("P")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
@@ -27,10 +27,9 @@ public class VisualFactory {
             WallVisualInformation wallVisualInformation = (WallVisualInformation) visualInformation;
             return new WallModel(wallVisualInformation.getStart(), wallVisualInformation.getEnd(), anchorPane);
         }
-        if(visualInformation.type.equals("CW"))
-        {
-            ClosedWallVisualInformation closedWallVisualInformation = (ClosedWallVisualInformation)visualInformation;
-            return new ClosedWallModel(closedWallVisualInformation.getPoints(),anchorPane);
+        if (visualInformation.type.equals("CW")) {
+            ClosedWallVisualInformation closedWallVisualInformation = (ClosedWallVisualInformation) visualInformation;
+            return new ClosedWallModel(closedWallVisualInformation.getPoints(), anchorPane);
         }
         return null;
     }

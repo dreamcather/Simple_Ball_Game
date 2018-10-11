@@ -9,12 +9,12 @@ public class ClosedWall extends GameObject {
 
     public ClosedWall(MyPoint[] points) {
         polygon = new MyPolygon(points);
-        type ="CW";
+        type = "CW";
     }
 
     public double getDistance(MyPoint point) {
-        MyPoint nearestPoint = GeometricalCalculation.getNearestPointOfPolygon(polygon,point);
-        return GeometricalCalculation.getDistanceBetweenTwoPoint(nearestPoint,point);
+        MyPoint nearestPoint = GeometricalCalculation.getNearestPointOfPolygon(polygon, point);
+        return GeometricalCalculation.getDistanceBetweenTwoPoint(nearestPoint, point);
     }
 
     public MyPolygon getPolygon() {
@@ -30,9 +30,9 @@ public class ClosedWall extends GameObject {
         return res;
     }
 
-    public MyPoint[] getPoints(){
-        MyPoint[]res = new MyPoint[polygon.getSegmentCount()];
-        for(int i=0;i<polygon.getSegmentCount();i++){
+    public MyPoint[] getPoints() {
+        MyPoint[] res = new MyPoint[polygon.getSegmentCount()];
+        for (int i = 0; i < polygon.getSegmentCount(); i++) {
             res[i] = polygon.getSegment(i).getStart();
         }
         return res;

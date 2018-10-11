@@ -16,7 +16,8 @@ public class VisualGame {
     private PlayingField playingField;
     private Camera camera;
 
-    VisualGame(AnchorPane anchorPane, MyPoint point, int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
+    VisualGame(AnchorPane anchorPane, MyPoint point, int height, int playingFieldHeight, int playingFieldWidth)
+            throws MalformedURLException {
         playingField = new PlayingField(playingFieldHeight, playingFieldWidth, anchorPane);
         this.visualFactory = new VisualFactory(anchorPane);
         camera = new Camera(new MyPoint(height, height), point.getX(), 0, playingFieldHeight, 0, playingFieldWidth);
@@ -25,15 +26,14 @@ public class VisualGame {
     }
 
     private Model find(VisualInformation visualInformation) {
-        Model res = null;
         for (Model model : modelsList) {
             if (!model.isUse()) {
                 if (model.type.equals(visualInformation.type)) {
-                    res = model;
+                    return model;
                 }
             }
         }
-        return res;
+        return null;
     }
 
     public void update(ArrayList<VisualInformation> inputList) {

@@ -1,10 +1,6 @@
 package interaction;
 
 import gameObject.Ball;
-import geometry.GeometricalCalculation;
-import geometry.Line;
-import geometry.MyPoint;
-import geometry.Vector;
 
 public class RegularTwoBallInteraction implements Interaction {
     private Ball first;
@@ -17,13 +13,11 @@ public class RegularTwoBallInteraction implements Interaction {
 
     @Override
     public boolean detect() {
-        double distanceBetweenBall = GeometricalCalculation.getDistanceBetweenTwoPoint(first.getPosition(),second.getPosition());
-        double radiusSum = first.getRadius() + second.getRadius();
-        return distanceBetweenBall < radiusSum;
+        return new RegularTwoBallDetection(first, second).detect();
     }
 
     @Override
     public void collision() {
-        new RegularTwoBallCollision(first,second).collide();
+        new RegularTwoBallCollision(first, second).collide();
     }
 }

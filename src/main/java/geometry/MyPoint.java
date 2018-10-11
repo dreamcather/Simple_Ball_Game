@@ -19,18 +19,18 @@ public class MyPoint {
         this.y = y;
     }
 
-    public MyPoint(MyPoint tmp){
-        x=tmp.getX();
-        y= tmp.getY();
+    public MyPoint(MyPoint tmp) {
+        x = tmp.getX();
+        y = tmp.getY();
     }
 
-    public MyPoint(Coordinate coordinate){
+    public MyPoint(Coordinate coordinate) {
         x = coordinate.getX();
-        y =coordinate.getY();
+        y = coordinate.getY();
     }
 
-    public double getDistanceToPoint(MyPoint point){
-        return Math.sqrt(Math.pow(x-point.getX(),2)+Math.pow(y-point.getY(),2));
+    public double getDistanceToPoint(MyPoint point) {
+        return Math.sqrt(Math.pow(x - point.getX(), 2) + Math.pow(y - point.getY(), 2));
     }
 
     public boolean equals(MyPoint point) {
@@ -58,8 +58,8 @@ public class MyPoint {
         this.y = y;
     }
 
-    public Point convertPoint(){
+    public Point convertPoint() {
         GeometryFactory geometryFactory = new GeometryFactory();
-        return geometryFactory.createPoint(new Coordinate(x,y));
+        return geometryFactory.createPoint(new Coordinate(x, y));
     }
 }
