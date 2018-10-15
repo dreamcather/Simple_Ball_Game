@@ -11,23 +11,23 @@ public class VisualFactory {
     }
 
     public Model create(VisualInformation visualInformation) {
-        if (visualInformation.type.equals("E")) {
+        if (visualInformation.getGameObject().type.equals("E")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new EnemyModel(ballVisualInformation.getPosition(), 15, anchorPane, "E");
+            return new EnemyModel(ballVisualInformation.getPosition(), 15, anchorPane);
         }
-        if (visualInformation.type.equals("P")) {
+        if (visualInformation.getGameObject().type.equals("P")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new PlayerModel(ballVisualInformation.getPosition(), 15, anchorPane, "P");
+            return new PlayerModel(ballVisualInformation.getPosition(), 15, anchorPane);
         }
-        if (visualInformation.type.equals("Pr")) {
+        if (visualInformation.getGameObject().type.equals("Pr")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new PrizeModel(ballVisualInformation.getPosition(), 15, anchorPane, "Pr");
+            return new PrizeModel(ballVisualInformation.getPosition(), 15, anchorPane);
         }
-        if (visualInformation.type.equals("W")) {
+        if (visualInformation.getGameObject().type.equals("W")) {
             WallVisualInformation wallVisualInformation = (WallVisualInformation) visualInformation;
             return new WallModel(wallVisualInformation.getStart(), wallVisualInformation.getEnd(), anchorPane);
         }
-        if (visualInformation.type.equals("CW")) {
+        if (visualInformation.getGameObject().type.equals("CW")) {
             ClosedWallVisualInformation closedWallVisualInformation = (ClosedWallVisualInformation) visualInformation;
             return new ClosedWallModel(closedWallVisualInformation.getPoints(), anchorPane);
         }

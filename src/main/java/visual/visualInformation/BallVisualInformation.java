@@ -1,12 +1,13 @@
 package visual.visualInformation;
 
+import gameObject.GameObject;
 import geometry.MyPoint;
 
 public class BallVisualInformation extends VisualInformation {
     private MyPoint position;
 
-    public BallVisualInformation(String type, MyPoint point) {
-        super(type);
+    public BallVisualInformation(MyPoint point, GameObject gameObject) {
+        super(gameObject);
         position = point;
     }
 

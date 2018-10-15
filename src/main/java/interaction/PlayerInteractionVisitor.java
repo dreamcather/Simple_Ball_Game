@@ -36,8 +36,4 @@ public class PlayerInteractionVisitor implements ObjectInteractionVisitor<Intera
         return new RegularBallAndClosedWallInteraction(closedWall, player);
     }
 
-    @Override
-    public VisualInformation isVisible(Camera camera) {
-        return new BallVisibleVisitor(player).isVisible(camera);
-    }
 }

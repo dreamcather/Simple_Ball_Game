@@ -6,7 +6,6 @@ import visual.visualInformation.VisualInformation;
 public abstract class Model {
     protected AnchorPane anchorPane;
     private boolean isUse;
-    public String type;
 
     public Model() {
         isUse = false;

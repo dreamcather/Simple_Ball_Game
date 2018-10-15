@@ -88,7 +88,7 @@ public class PhysicGame {
         camera.setPosition(player.getPosition());
         ArrayList<VisualInformation> output = new ArrayList<>();
         for (GameObject gameObject : gameObjectList) {
-            VisualInformation visualInformation = gameObject.collision(new DetectionVisitor()).isVisible(camera);
+            VisualInformation visualInformation = gameObject.isVisible(camera);
             if (visualInformation != null)
                 output.add(visualInformation);
         }

@@ -24,10 +24,10 @@ public class RegularBallAndClosedWallInteraction implements Interaction {
     public void collision() {
         ball.sumPerpendicularVector(closedWall.getResultPerpendicularVector(ball));
         MyPoint collisionPoint = GeometricalCalculation.getNearestPointOfPolygon(closedWall.getPolygon(),
-                                                                                 ball.getPosition());
+                ball.getPosition());
         MyPoint correctPoint = GeometricalCalculation.pushingPointAway(collisionPoint,
-                                                                       ball.getPosition(),
-                                                                       ball.getRadius());
+                ball.getPosition(),
+                ball.getRadius());
         ball.setPosition(correctPoint);
     }
 }

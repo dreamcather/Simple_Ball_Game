@@ -45,10 +45,6 @@ public class MyPoint {
 
     }
 
-    public void add(MyPoint point) {
-        this.x += point.getX();
-        this.y += point.getY();
-    }
 
     public void setX(double x) {
         this.x = x;

@@ -1,8 +1,5 @@
 package geometry;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 public class GeometricalCalculation {
     public static double getDistanceBetweenTwoPoint(MyPoint first, MyPoint second) {
         return Math.sqrt(Math.pow(first.getX() - second.getX(), 2) + Math.pow((first.getY() - second.getY()), 2));
@@ -113,32 +110,5 @@ public class GeometricalCalculation {
         return movePoint;
     }
 
-    public static MyPolygon narrowPolygon(MyPolygon polygon, Line line) {
-        ArrayList<MyPoint> intersectionPointList = new ArrayList<>();
-        for (int i = 0; i < polygon.getSegmentCount(); i++) {
-            MyPoint current = lineSegmentAndLineIntersection(polygon.getSegment(i), line);
-            if (current != null)
-                intersectionPointList.add(current);
-        }
-        MyPoint[] points = polygon.getPoints();
-        if (intersectionPointList.size() == 0) {
-            return new MyPolygon(new MyPoint[] {});
-        }
-        MyPoint firstIntersectionPoint = intersectionPointList.get(0);
-        MyPoint secondIntersectionPoint = intersectionPointList.get(1);
-
-        LinkedList<MyPoint> res = new LinkedList<>();
-        for (int i = 0; i < points.length; i++) {
-            if (line.getSign(points[i]) < 0)
-                res.add(points[i]);
-        }
-        MyPoint[] resMas = new MyPoint[res.size()];
-        for (int i = 0; i < resMas.length; i++) {
-            resMas[i] = res.get(i);
-        }
-
-        return new MyPolygon(resMas);
-
-    }
 
 }

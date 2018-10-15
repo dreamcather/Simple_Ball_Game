@@ -35,10 +35,4 @@ public class EnemyDetectionVisitor implements ObjectInteractionVisitor<Interacti
     public Interaction visit(ClosedWall closedWall) {
         return new RegularBallAndClosedWallInteraction(closedWall, enemy);
     }
-
-    @Override
-    public VisualInformation isVisible(Camera camera) {
-        return new BallVisibleVisitor(enemy).isVisible(camera);
-
-    }
 }

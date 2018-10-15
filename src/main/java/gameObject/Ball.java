@@ -5,6 +5,9 @@ import geometry.MyPoint;
 import geometry.Vector;
 import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
+import visual.Camera;
+import visual.visualInformation.BallVisualInformation;
+import visual.visualInformation.VisualInformation;
 
 public abstract class Ball extends GameObject {
     protected double xCoefficient;
@@ -108,5 +111,23 @@ public abstract class Ball extends GameObject {
     public String toString() {
         return this.type + " " + xCoefficient + " " + yCoefficient + " " + speedOfMotion + " " + xCoordinate + " "
                 + yCoordinate + " " + radius;
+    }
+
+    public VisualInformation isVisible(Camera camera){
+        if (camera.isVisible(getPosition())) {
+            MyPoint position = camera.transformPoint(getPosition());
+            position.setX(position.getX() + camera.getOffset());
+            position.setY(position.getY() + camera.getOffset());
+            return new BallVisualInformation(position,this);
+        } else {
+            Wall wall = new Wall(camera.transformPoint(getPosition()),
+                    camera.transformPoint(camera.getPosition()));
+            MyPoint res = camera.getPoint(camera.transformPoint(getPosition()), wall.lineSegment);
+            if (res == null)
+                return null;
+            res.setX(res.getX() + camera.getOffset());
+            res.setY(res.getY() + camera.getOffset());
+            return new BallVisualInformation(res,this);
+        }
     }
 }

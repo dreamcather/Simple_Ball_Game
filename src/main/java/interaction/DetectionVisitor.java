@@ -30,9 +30,4 @@ public class DetectionVisitor implements ObjectInteractionVisitor<ObjectInteract
     public ObjectInteractionVisitor<Interaction> visit(ClosedWall closedWall) {
         return new ClosedWallInteractionVisitor(closedWall);
     }
-
-    @Override
-    public VisualInformation isVisible(Camera camera) {
-        return null;
-    }
 }

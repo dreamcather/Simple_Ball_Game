@@ -1,9 +1,16 @@
 package visual.visualInformation;
 
-public abstract class VisualInformation {
-    public String type;
+import gameObject.GameObject;
+import visual.models.Model;
 
-    public VisualInformation(String type) {
-        this.type = type;
+public abstract class VisualInformation {
+    private GameObject gameObject;
+
+    public VisualInformation(GameObject gameObject) {
+        this.gameObject = gameObject;
+    }
+
+    public GameObject getGameObject() {
+        return gameObject;
     }
 }

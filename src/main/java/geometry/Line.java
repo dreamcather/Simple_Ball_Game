@@ -76,21 +76,10 @@ public class Line {
         return xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient;
     }
 
-    public double getDistanceToPoint(MyPoint point) {
-        return calculateDistanceToPoint(point);
-    }
 
     public boolean isBelongs(MyPoint point) {
         return Math.abs(getSignEquationLine(point)) < 0.0001;
     }
 
-    public int getSign(MyPoint point) {
-        double equationRes = getSignEquationLine(point);
-        if (equationRes > 0)
-            return 1;
-        if (equationRes < 0)
-            return -1;
-        return 0;
-    }
 
 }

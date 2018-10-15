@@ -1,13 +1,14 @@
 package visual.visualInformation;
 
+import gameObject.GameObject;
 import geometry.MyPoint;
 
 public class WallVisualInformation extends VisualInformation {
     private MyPoint start;
     private MyPoint end;
 
-    public WallVisualInformation(MyPoint start, MyPoint end) {
-        super("W");
+    public WallVisualInformation(MyPoint start, MyPoint end, GameObject gameObject) {
+        super(gameObject);
         this.start = start;
         this.end = end;
     }

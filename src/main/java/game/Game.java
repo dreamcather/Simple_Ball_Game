@@ -139,7 +139,7 @@ public class Game {
     }
 
     private void gameOver() {
-        newGame();
+        stop();
     }
 
     private void update() {

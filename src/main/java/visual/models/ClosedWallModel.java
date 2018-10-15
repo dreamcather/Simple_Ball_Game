@@ -14,7 +14,6 @@ public class ClosedWallModel extends Model {
 
     public ClosedWallModel(MyPoint[] points, AnchorPane anchorPane) {
         super();
-        type = "CW";
         this.anchorPane = anchorPane;
         lines = new ArrayList<>();
         for (int i = 0; i < points.length - 1; i++) {

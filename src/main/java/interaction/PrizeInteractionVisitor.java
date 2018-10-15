@@ -36,8 +36,4 @@ public class PrizeInteractionVisitor implements ObjectInteractionVisitor<Interac
         return new RegularBallAndClosedWallInteraction(closedWall, prize);
     }
 
-    @Override
-    public VisualInformation isVisible(Camera camera) {
-        return new BallVisibleVisitor(prize).isVisible(camera);
-    }
 }

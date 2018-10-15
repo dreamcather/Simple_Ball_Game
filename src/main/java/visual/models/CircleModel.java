@@ -10,12 +10,11 @@ import visual.visualInformation.VisualInformation;
 public class CircleModel extends Model {
     private Circle model;
 
-    public CircleModel(MyPoint center, double radius, Color color, AnchorPane anchorPane, String type) {
+    public CircleModel(MyPoint center, double radius, Color color, AnchorPane anchorPane) {
         super();
         model = new Circle(center.getX(), center.getY(), radius, color);
         this.anchorPane = anchorPane;
         anchorPane.getChildren().add(model);
-        this.type = type;
     }
 
     @Override

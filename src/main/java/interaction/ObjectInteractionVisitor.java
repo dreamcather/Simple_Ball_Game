@@ -15,6 +15,4 @@ public interface ObjectInteractionVisitor<T> {
     T visit(Wall wall);
 
     T visit(ClosedWall closedWall);
-
-    VisualInformation isVisible(Camera camera);
 }

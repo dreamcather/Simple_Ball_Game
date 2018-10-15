@@ -14,7 +14,6 @@ public class WallModel extends Model {
         line = new Line(start.getX(), start.getY(), end.getX(), end.getY());
         anchorPane.getChildren().add(line);
         this.anchorPane = anchorPane;
-        type = "W";
     }
 
     @Override
