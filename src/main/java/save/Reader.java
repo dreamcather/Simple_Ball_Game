@@ -4,8 +4,8 @@ import game.Game;
 
 import java.io.*;
 
-public class Rider {
-    public Rider(String path, Game physicGame) throws IOException {
+public class Reader {
+    public Reader(String path, Game physicGame) throws IOException {
         File file = new File(path);
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

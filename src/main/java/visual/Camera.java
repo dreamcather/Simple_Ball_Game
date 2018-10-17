@@ -63,21 +63,6 @@ public class Camera {
 
     public MyPoint getPoint(MyPoint point, LineSegment lineSegment) {
         MyPoint current;
-        // org.locationtech.jts.geom.LineSegment currentLineSegment = new
-        // org.locationtech.jts.geom.LineSegment(lineSegment.getStart()
-        // .convertPoint()
-        // .getCoordinate(),
-        // lineSegment.getEnd()
-        // .convertPoint()
-        // .getCoordinate());
-        // Geometry geometry = convexHull.getConvexHull().intersection(currentLineSegment.toGeometry(new
-        // GeometryFactory()));
-        // if (geometry.isEmpty()) {
-        // return null;
-        // }
-        // current = new MyPoint(geometry.getCoordinate());
-        // current.setX(current.getX() - offset);
-        // current.setY(current.getY() - offset);
         ArrayList<MyPoint> list = new ArrayList<>();
         if ((current = GeometricalCalculation.lineSegmentIntersection(upHorizontal, lineSegment)) != null)
             list.add(current);

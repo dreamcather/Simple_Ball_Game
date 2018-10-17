@@ -2,7 +2,7 @@ package main;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import save.Rider;
+import save.Reader;
 import game.Game;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -37,7 +37,7 @@ public class Main extends Application {
         layout.getChildren().add(rightBorder);
         layout.getChildren().add(upBorder);
         layout.getChildren().add(downBorder);
-        Rider reader = new Rider("output.txt", gameState);
+        Reader reader = new Reader("output.txt", gameState);
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

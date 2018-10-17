@@ -5,11 +5,9 @@ import javafx.scene.input.MouseEvent;
 import visual.Camera;
 
 public class MotionControl {
-    private double rad;
     private MyPoint position;
 
     public MotionControl() {
-        rad = 0;
         position = null;
     }
 

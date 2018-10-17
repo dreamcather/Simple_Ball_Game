@@ -37,7 +37,7 @@ public class ClosedWall extends GameObject {
         return res;
     }
 
-    public MyPoint[] getPoints() {
+    private MyPoint[] getPoints() {
         MyPoint[] res = new MyPoint[polygon.getSegmentCount()];
         for (int i = 0; i < polygon.getSegmentCount(); i++) {
             res[i] = polygon.getSegment(i).getStart();

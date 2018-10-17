@@ -120,7 +120,7 @@ public class Game {
             camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
         if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT)
                 || (keyCode == KeyCode.RIGHT)) {
-            physicGame.player.setKey(keyCode);
+            physicGame.getPlayer().setKey(keyCode);
         }
     }
 

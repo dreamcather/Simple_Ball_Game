@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
-    Player player;
-    MotionControl motionControl;
+    private Player player;
+    private MotionControl motionControl;
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
@@ -65,7 +65,7 @@ public class PhysicGame {
     // не будет ли проскакивания?
     private void clear() {
         for (int i = 0; i < gameObjectList.size(); i++)
-            if (gameObjectList.get(i).isAlive() == false) {
+            if (!gameObjectList.get(i).isAlive()) {
                 gameObjectList.remove(i);
             }
     }
@@ -93,5 +93,9 @@ public class PhysicGame {
                 output.add(visualInformation);
         }
         return output;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
