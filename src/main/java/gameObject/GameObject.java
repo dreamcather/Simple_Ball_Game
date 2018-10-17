@@ -6,7 +6,9 @@ import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.VisualInformation;
 
-public abstract class GameObject {
+import java.io.Serializable;
+
+public abstract class GameObject implements Serializable {
 
     public String type;
 

@@ -1,5 +1,6 @@
 package game;
 
+import client.Client;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
@@ -13,12 +14,12 @@ import visual.Camera;
 
 import java.io.IOException;
 
-public class Game {
+public class ClientGame {
     private Player hero;
     private Label score;
     private Label lifeCounter;
     private int countPoint;
-    private PhysicGame physicGame;
+    private Client client;
     private int prizeCount;
     private MotionControl motionControl;
     private AnimationTimer animationTimer;
@@ -26,10 +27,9 @@ public class Game {
     private VisualGame visualGame;
     private Camera camera;
 
-    public Game(AnchorPane panel) throws IOException {
-        physicGame = new PhysicGame();
-        Reader reader = new Reader("output.txt",physicGame);
-        hero = physicGame.getPlayer();
+    public ClientGame(AnchorPane panel, Client client) throws IOException {
+        this.client = client;
+        hero = client.getPlayer();
         score = new Label("Score");
         score.setLayoutX(650);
         score.setLayoutY(50);
@@ -56,17 +56,17 @@ public class Game {
 
     private void createPrize() {
         Prize prize = new Prize(Math.random(),
-                                Math.random(),
-                                Math.random() * 5,
-                                Math.random() * 500,
-                                Math.random() * 500,
-                                15);
-        physicGame.addBall(prize);
+                Math.random(),
+                Math.random() * 5,
+                Math.random() * 500,
+                Math.random() * 500,
+                15);
+
     }
 
     public void mouseClick(MouseEvent event) {
         motionControl = new MotionControl(event, camera);
-        physicGame.setMotionControl(motionControl);
+
     }
 
     public void click(KeyCode keyCode) {
@@ -76,7 +76,7 @@ public class Game {
             camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
         if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT)
                 || (keyCode == KeyCode.RIGHT)) {
-            physicGame.getPlayer().setKey(keyCode);
+
         }
     }
 
@@ -115,8 +115,8 @@ public class Game {
                 prizeCount++;
             }
         }
-        visualGame.update(physicGame.getObjectList());
-        camera.setPosition(physicGame.getPlayer().getPosition());
+        visualGame.update(client.getObjectList());
+        camera.setPosition(client.getPlayer().getPosition());
 
     }
 
@@ -126,7 +126,6 @@ public class Game {
 
     public void exit(){
         stop();
-        physicGame.exit();
     }
 
 }

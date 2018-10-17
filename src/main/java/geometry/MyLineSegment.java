@@ -1,6 +1,8 @@
 package geometry;
 
-public class MyLineSegment implements LineSegment {
+import java.io.Serializable;
+
+public class MyLineSegment implements LineSegment, Serializable {
     private MyPoint start;
     private MyPoint end;
     private Line mainLine;

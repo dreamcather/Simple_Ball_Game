@@ -5,7 +5,9 @@ import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 
-public class MyPolygon {
+import java.io.Serializable;
+
+public class MyPolygon implements Serializable {
     private MyLineSegment[] segments;
     private int segmentCount;
 

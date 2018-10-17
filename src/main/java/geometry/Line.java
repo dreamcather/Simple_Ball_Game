@@ -1,6 +1,8 @@
 package geometry;
 
-public class Line {
+import java.io.Serializable;
+
+public class Line implements Serializable {
     private double xCoefficient;
     private double yCoefficient;
     private double freeCoefficient;

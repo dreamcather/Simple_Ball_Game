@@ -90,9 +90,9 @@ public class Camera {
         return position;
     }
 
-    public void setPosition(MyPoint position) {
-        double x = position.getX();
-        double y = position.getY();
+    public void setPosition(MyPoint point) {
+        double x = point.getX();
+        double y = point.getY();
         if (x < minX)
             x = minX;
         if (y < minY)

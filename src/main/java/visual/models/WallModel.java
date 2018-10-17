@@ -23,11 +23,12 @@ public class WallModel extends Model {
         line.setStartY(wallVisualInformation.getStart().getY());
         line.setEndX(wallVisualInformation.getEnd().getX());
         line.setEndY(wallVisualInformation.getEnd().getY());
+        line.setVisible(true);
     }
 
     @Override
     public void hide() {
-        anchorPane.getChildren().remove(line);
+        line.setVisible(false);
     }
 
 }

@@ -15,8 +15,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    Stage window;
-    Scene scene;
+    private Stage window;
+    private Scene scene;
+    private Game gameState;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -24,7 +25,7 @@ public class Main extends Application {
         window.setTitle("Game");
         AnchorPane layout = new AnchorPane();
         scene = new Scene(layout, 750, 600);
-        Game gameState = new game.Game(layout);
+        gameState = new game.Game(layout);
         Rectangle leftBorder = new Rectangle(550, 50, 15, 500);
         leftBorder.setFill(Color.DARKBLUE);
         Rectangle rightBorder = new Rectangle(50, 550, 515, 15);
@@ -37,7 +38,7 @@ public class Main extends Application {
         layout.getChildren().add(rightBorder);
         layout.getChildren().add(upBorder);
         layout.getChildren().add(downBorder);
-        Reader reader = new Reader("output.txt", gameState);
+        //Reader reader = new Reader("output.txt", gameState);
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -61,7 +62,10 @@ public class Main extends Application {
             }
         });
     }
+    public void stop(){
+        gameState.exit();
 
+    }
     public static void main(String[] args) {
         launch(args);
     }

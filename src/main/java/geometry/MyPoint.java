@@ -2,7 +2,9 @@ package geometry;
 
 import org.locationtech.jts.geom.*;
 
-public class MyPoint {
+import java.io.Serializable;
+
+public class MyPoint implements Serializable {
     private double x;
     private double y;
 

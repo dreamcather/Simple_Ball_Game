@@ -4,33 +4,36 @@ import gameObject.*;
 import geometry.MyPoint;
 import interaction.DetectionVisitor;
 import control.MotionControl;
-import javafx.animation.AnimationTimer;
-import visual.Camera;
-import visual.visualInformation.VisualInformation;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
     private Player player;
     private MotionControl motionControl;
+    private int prizeCount;
+    private Timer timer;
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         motionControl = new MotionControl();
+        prizeCount=0;
         ClosedWall closedWall = new ClosedWall(new MyPoint[] {
                 new MyPoint(600, 600),
                 new MyPoint(650, 800),
                 new MyPoint(700, 700),
                 new MyPoint(600, 800) });
         addClosedWall(closedWall);
-        AnimationTimer animationTimer = new AnimationTimer() {
+        TimerTask timerTask = new TimerTask() {
             @Override
-            public void handle(long now) {
+            public void run() {
                 move(motionControl);
             }
         };
-        animationTimer.start();
+        timer = new Timer(true);
+        timer.scheduleAtFixedRate(timerTask,0,16);
     }
 
     public void addPlayer(Player player) {
@@ -84,18 +87,18 @@ public class PhysicGame {
         this.motionControl = motionControl;
     }
 
-    public ArrayList<VisualInformation> getObjectList(Camera camera) {
-        camera.setPosition(player.getPosition());
-        ArrayList<VisualInformation> output = new ArrayList<>();
-        for (GameObject gameObject : gameObjectList) {
-            VisualInformation visualInformation = gameObject.isVisible(camera);
-            if (visualInformation != null)
-                output.add(visualInformation);
-        }
-        return output;
+    public ArrayList<GameObject> getObjectList() {
+        return gameObjectList;
     }
 
     public Player getPlayer() {
         return player;
+    }
+
+    public void incrementPrizeCount(){
+        prizeCount++;
+    }
+
+    public void exit(){
     }
 }

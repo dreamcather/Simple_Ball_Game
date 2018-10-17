@@ -17,7 +17,7 @@ public class VisualGame {
     private ArrayList<Model> modelsList;
     private PlayingField playingField;
     private Camera camera;
-    private HashMap<GameObject,Model> hashMap;
+    private HashMap<GameObject, Model> hashMap;
 
     VisualGame(AnchorPane anchorPane, MyPoint point, int height, int playingFieldHeight, int playingFieldWidth)
             throws MalformedURLException {
@@ -33,24 +33,30 @@ public class VisualGame {
         return hashMap.get(gameObject);
     }
 
-    public void update(ArrayList<VisualInformation> inputList) {
+    public void update(ArrayList<GameObject> inputList) {
         playingField.refresh(camera);
         Model currentModel;
-        for (VisualInformation visualInformation : inputList) {
-            currentModel = find(visualInformation.getGameObject());
-            if (currentModel != null) {
-                currentModel.setUse(true);
-                currentModel.refresh(visualInformation);
-            } else {
-                currentModel = visualFactory.create(visualInformation);
-                hashMap.put(visualInformation.getGameObject(),currentModel);
-                currentModel.setUse(true);
-                modelsList.add(currentModel);
+        for (GameObject gameObject : inputList) {
+            VisualInformation visualInformation = gameObject.isVisible(camera);
+            if (visualInformation != null) {
+                currentModel = find(gameObject);
+                if (currentModel != null) {
+                    currentModel.setUse(true);
+                    currentModel.refresh(visualInformation);
+                } else {
+                    currentModel = visualFactory.create(visualInformation);
+                    hashMap.put(gameObject, currentModel);
+                    currentModel.setUse(true);
+                    modelsList.add(currentModel);
+                }
+                currentModel = null;
             }
+
         }
         for (int i = 0; i < modelsList.size(); i++) {
             if (!modelsList.get(i).isUse()) {
                 modelsList.get(i).hide();
+                hashMap.remove(modelsList.get(i));
                 modelsList.remove(modelsList.get(i));
             }
 
