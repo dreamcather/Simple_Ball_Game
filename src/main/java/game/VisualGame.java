@@ -56,8 +56,6 @@ public class VisualGame {
         for (int i = 0; i < modelsList.size(); i++) {
             if (!modelsList.get(i).isUse()) {
                 modelsList.get(i).hide();
-                hashMap.remove(modelsList.get(i));
-                modelsList.remove(modelsList.get(i));
             }
 
         }

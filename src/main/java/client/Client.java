@@ -1,5 +1,7 @@
 package client;
 
+import control.MotionControl;
+import game.State;
 import gameObject.GameObject;
 import gameObject.Player;
 import geometry.MyPoint;
@@ -25,12 +27,20 @@ public class Client {
         return null;
     }
 
-    public ArrayList<GameObject> getObjectList() {
+    public State getObjectList() {
         try {
             return bridge.getObjectList();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void sendMotion(MotionControl motionControl){
+        try {
+            bridge.setMotionControl(motionControl);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -115,8 +115,9 @@ public class Game {
                 prizeCount++;
             }
         }
-        visualGame.update(physicGame.getObjectList());
-        camera.setPosition(physicGame.getPlayer().getPosition());
+        State state = physicGame.getObjectList();
+        visualGame.update(state.gameObjects);
+        camera.setPosition(state.player.getPosition());
 
     }
 

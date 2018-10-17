@@ -4,7 +4,9 @@ import geometry.MyPoint;
 import javafx.scene.input.MouseEvent;
 import visual.Camera;
 
-public class MotionControl {
+import java.io.Serializable;
+
+public class MotionControl implements Serializable {
     private MyPoint position;
 
     public MotionControl() {

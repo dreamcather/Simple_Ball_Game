@@ -87,8 +87,8 @@ public class PhysicGame {
         this.motionControl = motionControl;
     }
 
-    public ArrayList<GameObject> getObjectList() {
-        return gameObjectList;
+    public State getObjectList() {
+        return new State(player,gameObjectList);
     }
 
     public Player getPlayer() {

@@ -5,6 +5,7 @@ import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -12,6 +13,7 @@ import gameObject.*;
 import save.Reader;
 import visual.Camera;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class ClientGame {
@@ -66,6 +68,7 @@ public class ClientGame {
 
     public void mouseClick(MouseEvent event) {
         motionControl = new MotionControl(event, camera);
+        client.sendMotion(motionControl);
 
     }
 
@@ -95,7 +98,7 @@ public class ClientGame {
     }
 
     private void gameOver() {
-        stop();
+        newGame();
     }
 
     private void update() {
@@ -115,8 +118,9 @@ public class ClientGame {
                 prizeCount++;
             }
         }
-        visualGame.update(client.getObjectList());
-        camera.setPosition(client.getPlayer().getPosition());
+       State state = client.getObjectList();
+        visualGame.update(state.gameObjects);
+        camera.setPosition(state.player.getPosition());
 
     }
 

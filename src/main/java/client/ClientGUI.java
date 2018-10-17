@@ -3,7 +3,9 @@ package client;
 import game.ClientGame;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -31,5 +33,11 @@ public class ClientGUI extends Application {
         window.show();
         ClientGame clientGame = new ClientGame(layout,client);
         clientGame.start();
+        scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                clientGame.mouseClick(event);
+            }
+        });
     }
 }

@@ -1,5 +1,7 @@
 package server;
 
+import control.MotionControl;
+import game.State;
 import gameObject.GameObject;
 import gameObject.Player;
 import org.locationtech.jts.geom.Point;
@@ -15,6 +17,8 @@ public interface Bridge extends Remote {
 
     Player getPlayer() throws RemoteException;
 
-    ArrayList<GameObject> getObjectList() throws RemoteException;
+    State getObjectList() throws RemoteException;
+
+    void setMotionControl(MotionControl motionControl) throws RemoteException;
 
 }

@@ -1,6 +1,8 @@
 package server;
 
+import control.MotionControl;
 import game.PhysicGame;
+import game.State;
 import gameObject.GameObject;
 import gameObject.Player;
 import org.locationtech.jts.geom.Point;
@@ -24,7 +26,11 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge{
     public Player getPlayer() throws RemoteException {
         return physicGame.getPlayer();
     }
-    public ArrayList<GameObject> getObjectList() throws RemoteException {
+    public State getObjectList() throws RemoteException {
         return physicGame.getObjectList();
+    }
+
+    public void setMotionControl(MotionControl motionControl) throws RemoteException {
+        physicGame.setMotionControl(motionControl);
     }
 }
