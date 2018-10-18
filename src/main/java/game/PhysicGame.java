@@ -12,6 +12,7 @@ import java.util.TimerTask;
 
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
+    private ArrayList<GameObject> currentState;
     private Player player;
     private MotionControl motionControl;
     private int objectCounter;
@@ -20,6 +21,7 @@ public class PhysicGame {
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
+        currentState = (ArrayList<GameObject>) gameObjectList.clone();
         motionControl = new MotionControl();
         prizeCount = 0;
         objectCounter = 0;
@@ -32,14 +34,7 @@ public class PhysicGame {
             }
         };
         timer = new Timer(true);
-        timer.scheduleAtFixedRate(timerTask, 0, 16);
-//        AnimationTimer animationTimer =new AnimationTimer() {
-//            @Override
-//            public void handle(long now) {
-//                move(motionControl);
-//            }
-//        };
-//        animationTimer.start();
+        timer.scheduleAtFixedRate(timerTask, 0, 1);
     }
 
     public void addPlayer(String string) {
@@ -56,7 +51,6 @@ public class PhysicGame {
     }
 
     public void addPlayer(Player player) {
-        this.player = player;
         gameObjectList.add(player);
     }
 
@@ -133,14 +127,18 @@ public class PhysicGame {
         for (GameObject currentObject : gameObjectList) {
             currentObject.move(motionControl);
         }
+        currentState = new ArrayList<>();
+        for (GameObject gameObject : gameObjectList) {
+            currentState.add(gameObject);
+        }
     }
 
     public void setMotionControl(MotionControl motionControl) {
         this.motionControl = motionControl;
     }
 
-    public synchronized State getObjectList() {
-        return new State(player, gameObjectList);
+    public synchronized ArrayList<GameObject> getObjectList() {
+        return gameObjectList;
     }
 
     public Player getPlayer() {

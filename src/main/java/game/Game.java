@@ -100,25 +100,10 @@ public class Game {
     }
 
     private void update() {
-        if (hero.getLifeCount() <= 0) {
-            gameOver();
-        } else {
-
-            if (hero.getScore() != countPoint) {
-                score.setText("Score " + hero.getScore());
-                countPoint = hero.getScore();
-                prizeCount--;
-            }
-            lifeCounter.setText("Life " + hero.getLifeCount());
-
-            if (prizeCount == 0) {
-                //createPrize();
-                prizeCount++;
-            }
-        }
-        State state = physicGame.getObjectList();
-        camera.setPosition(findPlayer(state.gameObjects).getPosition());
-        visualGame.update(state.gameObjects);
+        ArrayList<GameObject> state = physicGame.getObjectList();
+        Player player =findPlayer(state);
+        camera.setPosition(player.getPosition());
+        visualGame.update(state);
 
 
     }

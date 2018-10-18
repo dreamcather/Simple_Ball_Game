@@ -34,7 +34,15 @@ public abstract class GameObject implements Serializable {
     public abstract VisualInformation isVisible(Camera camera);
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameObject that = (GameObject) o;
+        return key == that.key;
+    }
+
+    @Override
     public int hashCode() {
-        return key;
+        return Objects.hash(key);
     }
 }

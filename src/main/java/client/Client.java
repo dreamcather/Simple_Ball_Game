@@ -4,8 +4,6 @@ import control.MotionControl;
 import game.State;
 import gameObject.GameObject;
 import gameObject.Player;
-import geometry.MyPoint;
-import org.locationtech.jts.geom.Point;
 import server.Bridge;
 
 import java.rmi.RemoteException;
@@ -13,9 +11,15 @@ import java.util.ArrayList;
 
 public class Client {
     Bridge bridge;
+    int id;
 
     public Client(Bridge bridge) {
         this.bridge = bridge;
+        try {
+            id = bridge.getId();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     public Player getPlayer(){
@@ -27,7 +31,7 @@ public class Client {
         return null;
     }
 
-    public State getObjectList() {
+    public ArrayList<GameObject> getObjectList() {
         try {
             return bridge.getObjectList();
         } catch (RemoteException e) {

@@ -17,7 +17,7 @@ public class VisualGame {
     private ArrayList<Model> modelsList;
     private PlayingField playingField;
     private Camera camera;
-    private HashMap<Integer, Model> hashMap;
+    private HashMap<GameObject, Model> hashMap;
 
     public VisualGame(AnchorPane anchorPane, MyPoint point, int height, int playingFieldHeight, int playingFieldWidth) throws MalformedURLException {
         playingField = new PlayingField(playingFieldHeight, playingFieldWidth, anchorPane);
@@ -29,7 +29,7 @@ public class VisualGame {
     }
 
     private Model find(GameObject gameObject) {
-        return hashMap.get(gameObject.hashCode());
+        return hashMap.get(gameObject);
     }
 
     public void update(ArrayList<GameObject> inputList) {
@@ -44,7 +44,7 @@ public class VisualGame {
                     currentModel.refresh(visualInformation);
                 } else {
                     currentModel = visualFactory.create(visualInformation);
-                    hashMap.put(gameObject.hashCode(), currentModel);
+                    hashMap.put(gameObject, currentModel);
                     System.out.println(gameObject.hashCode());
                     currentModel.setUse(true);
                     modelsList.add(currentModel);

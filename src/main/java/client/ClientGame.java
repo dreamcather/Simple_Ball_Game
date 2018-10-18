@@ -1,21 +1,17 @@
 package client;
 
-import client.Client;
 import game.State;
 import game.VisualGame;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
-import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import gameObject.*;
-import save.Reader;
 import visual.Camera;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -111,13 +107,13 @@ public class ClientGame {
             lifeCounter.setText("Life " + hero.getLifeCount());
 
             if (prizeCount == 0) {
-                createPrize();
+                //createPrize();
                 prizeCount++;
             }
         }
-        State state = client.getObjectList();
-        visualGame.update(state.gameObjects);
-        camera.setPosition(findPlayer(state.gameObjects).getPosition());
+        ArrayList<GameObject> state = client.getObjectList();
+        visualGame.update(state);
+        camera.setPosition(findPlayer(state).getPosition());
 
     }
 
