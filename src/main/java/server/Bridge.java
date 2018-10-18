@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public interface Bridge extends Remote {
     String NAME = "Bridge";
 
-    Player getPlayer() throws RemoteException;
+    Player getPlayer(int id) throws RemoteException;
 
     void setPlayer(Player player) throws RemoteException;
 

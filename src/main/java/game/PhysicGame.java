@@ -4,7 +4,6 @@ import gameObject.*;
 import geometry.MyPoint;
 import interaction.DetectionVisitor;
 import control.MotionControl;
-import javafx.animation.AnimationTimer;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -37,7 +36,7 @@ public class PhysicGame {
         timer.scheduleAtFixedRate(timerTask, 0, 1);
     }
 
-    public void addPlayer(String string) {
+    public Player addPlayer(String string) {
         String[] strMas = string.split(" ", 6);
         double xCoefficient = Double.parseDouble(strMas[0]);
         double yCoefficient = Double.parseDouble(strMas[1]);
@@ -48,6 +47,7 @@ public class PhysicGame {
         Player player = new Player(xCoefficient, yCoefficient, speed, xCoordinate, yCoordinate, radius, objectCounter);
         objectCounter++;
         addPlayer(player);
+        return player;
     }
 
     public void addPlayer(Player player) {
@@ -111,7 +111,6 @@ public class PhysicGame {
             currentGameObject.changeVector();
     }
 
-    // не будет ли проскакивания?
     private void clear() {
         for (int i = 0; i < gameObjectList.size(); i++)
             if (!gameObjectList.get(i).isAlive()) {

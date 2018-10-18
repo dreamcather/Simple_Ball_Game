@@ -95,22 +95,6 @@ public class ClientGame {
     }
 
     private void update() {
-        if (hero.getLifeCount() <= 0) {
-            gameOver();
-        } else {
-
-            if (hero.getScore() != countPoint) {
-                score.setText("Score " + hero.getScore());
-                countPoint = hero.getScore();
-                prizeCount--;
-            }
-            lifeCounter.setText("Life " + hero.getLifeCount());
-
-            if (prizeCount == 0) {
-                //createPrize();
-                prizeCount++;
-            }
-        }
         ArrayList<GameObject> state = client.getObjectList();
         visualGame.update(state);
         camera.setPosition(findPlayer(state).getPosition());

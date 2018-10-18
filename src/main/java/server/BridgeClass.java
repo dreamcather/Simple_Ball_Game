@@ -2,7 +2,6 @@ package server;
 
 import control.MotionControl;
 import game.PhysicGame;
-import game.State;
 import gameObject.GameObject;
 import gameObject.Player;
 import save.Reader;
@@ -11,9 +10,7 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Map;
 
 public class BridgeClass extends UnicastRemoteObject implements Bridge{
     PhysicGame physicGame;
@@ -27,10 +24,9 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge{
         playerMap = new HashMap<>();
     }
 
-    public Player getPlayer() throws RemoteException {
-        return physicGame.getPlayer();
+    public Player getPlayer(int id) throws RemoteException {
+        return playerMap.get(id);
     }
-
     public void setPlayer(Player player) throws RemoteException {
 
     }
@@ -46,6 +42,8 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge{
     @Override
     public int getId() throws RemoteException {
         clientCounter++;
+        Player player = physicGame.addPlayer("1 0 0.3 310 50 15");
+        playerMap.put(clientCounter,player);
         return clientCounter;
     }
 }

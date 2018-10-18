@@ -24,7 +24,7 @@ public class Client {
 
     public Player getPlayer(){
         try {
-            return bridge.getPlayer();
+            return bridge.getPlayer(id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
