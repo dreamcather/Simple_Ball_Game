@@ -10,9 +10,9 @@ public class RegularCollisionTest {
     @Test
     public void collisionTest1() {
         Enemy first = new Enemy(1,0,3,
-                100,100,5);
+                100,100,5,0);
         Prize second = new Prize(-1,0,3,
-                110,100,5);
+                110,100,5,0);
         first.collision(second.collision(new DetectionVisitor())).collision();
 
         double expectedXCoefficient =-1;

@@ -10,8 +10,8 @@ public class Player extends Ball {
     private int score;
     private int lifeCount;
 
-    public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
-        super(_x, _y, _speed, xCoordinate, yCoordinate, radius);
+    public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius,int key) {
+        super(_x, _y, _speed, xCoordinate, yCoordinate, radius,key);
         score = 0;
         lifeCount = 3;
         type = "P";

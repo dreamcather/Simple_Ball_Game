@@ -16,8 +16,9 @@ public class Wall extends GameObject {
     private MyPoint start;
     private MyPoint end;
 
-    public Wall(MyPoint _start, MyPoint _end) {
+    public Wall(MyPoint _start, MyPoint _end,int key) {
 
+        super(key);
         mainLine = new Line(_start, _end);
         start = _start;
         end = _end;
@@ -28,7 +29,8 @@ public class Wall extends GameObject {
 
     }
 
-    public Wall(String string) {
+    public Wall(String string,int key) {
+        super(key);
         String[] substr = string.split(" ");
         start = new MyPoint(Double.parseDouble(substr[0]), Double.parseDouble(substr[1]));
         end = new MyPoint(Double.parseDouble(substr[2]), Double.parseDouble(substr[3]));
@@ -86,7 +88,7 @@ public class Wall extends GameObject {
 
     @Override
     public VisualInformation isVisible(Camera camera) {
-        Wall transformWall = new Wall(camera.transformPoint(getStart()), camera.transformPoint(getEnd()));
+        Wall transformWall = new Wall(camera.transformPoint(getStart()), camera.transformPoint(getEnd()),0);
         MyPoint start;
         MyPoint end;
         if (camera.isVisible(getStart()))

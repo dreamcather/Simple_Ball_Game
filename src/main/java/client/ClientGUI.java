@@ -1,6 +1,5 @@
 package client;
 
-import game.ClientGame;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;

@@ -1,6 +1,8 @@
-package game;
+package client;
 
 import client.Client;
+import game.State;
+import game.VisualGame;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
@@ -15,6 +17,7 @@ import visual.Camera;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ClientGame {
     private Player hero;
@@ -57,12 +60,7 @@ public class ClientGame {
     }
 
     private void createPrize() {
-        Prize prize = new Prize(Math.random(),
-                Math.random(),
-                Math.random() * 5,
-                Math.random() * 500,
-                Math.random() * 500,
-                15);
+        Prize prize = new Prize(Math.random(), Math.random(), Math.random() * 5, Math.random() * 500, Math.random() * 500, 15, 0);
 
     }
 
@@ -77,8 +75,7 @@ public class ClientGame {
             camera.setPosition(new MyPoint(camera.getPosition().getX() + 10, camera.getPosition().getY() + 10));
         if (keyCode == KeyCode.A)
             camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
-        if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT)
-                || (keyCode == KeyCode.RIGHT)) {
+        if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT) || (keyCode == KeyCode.RIGHT)) {
 
         }
     }
@@ -118,9 +115,9 @@ public class ClientGame {
                 prizeCount++;
             }
         }
-       State state = client.getObjectList();
+        State state = client.getObjectList();
         visualGame.update(state.gameObjects);
-        camera.setPosition(state.player.getPosition());
+        camera.setPosition(findPlayer(state.gameObjects).getPosition());
 
     }
 
@@ -128,7 +125,16 @@ public class ClientGame {
         return active;
     }
 
-    public void exit(){
+    private Player findPlayer(ArrayList<GameObject> gameObjects) {
+        for (GameObject gameObject : gameObjects) {
+            if(gameObject.type.equals("P")){
+                return (Player)gameObject;
+            }
+        }
+        return null;
+    }
+
+    public void exit() {
         stop();
     }
 

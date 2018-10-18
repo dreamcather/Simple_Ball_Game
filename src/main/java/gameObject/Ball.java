@@ -19,7 +19,8 @@ public abstract class Ball extends GameObject {
     private Vector perpendicularVector;
     private boolean alive;
 
-    Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius) {
+    Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius,int key) {
+        super(key);
         xCoefficient = _x;
         yCoefficient = _y;
         speedOfMotion = _speed;
@@ -121,7 +122,7 @@ public abstract class Ball extends GameObject {
             return new BallVisualInformation(position,this);
         } else {
             Wall wall = new Wall(camera.transformPoint(getPosition()),
-                    camera.transformPoint(camera.getPosition()));
+                    camera.transformPoint(camera.getPosition()),0);
             MyPoint res = camera.getPoint(camera.transformPoint(getPosition()), wall.lineSegment);
             if (res == null)
                 return null;

@@ -12,6 +12,7 @@ import save.Reader;
 import visual.Camera;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Game {
     private Player hero;
@@ -60,7 +61,7 @@ public class Game {
                                 Math.random() * 5,
                                 Math.random() * 500,
                                 Math.random() * 500,
-                                15);
+                                15,0);
         physicGame.addBall(prize);
     }
 
@@ -111,16 +112,25 @@ public class Game {
             lifeCounter.setText("Life " + hero.getLifeCount());
 
             if (prizeCount == 0) {
-                createPrize();
+                //createPrize();
                 prizeCount++;
             }
         }
         State state = physicGame.getObjectList();
+        camera.setPosition(findPlayer(state.gameObjects).getPosition());
         visualGame.update(state.gameObjects);
-        camera.setPosition(state.player.getPosition());
+
 
     }
 
+    private Player findPlayer(ArrayList<GameObject> gameObjects) {
+        for (GameObject gameObject : gameObjects) {
+            if(gameObject.type.equals("P")){
+                return (Player)gameObject;
+            }
+        }
+        return null;
+    }
     public boolean isActive() {
         return active;
     }
