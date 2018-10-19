@@ -23,12 +23,12 @@ public class PhysicGame {
         motionControl = new MotionControl();
         prizeCount = 0;
         objectCounter = 0;
-//        ClosedWall closedWall = new ClosedWall(new MyPoint[] {
-//                new MyPoint(600, 600),
-//                new MyPoint(650, 800),
-//                new MyPoint(700, 700),
-//                new MyPoint(600, 800) }, objectCounter);
-//        addClosedWall(closedWall);
+        // ClosedWall closedWall = new ClosedWall(new MyPoint[] {
+        // new MyPoint(600, 600),
+        // new MyPoint(650, 800),
+        // new MyPoint(700, 700),
+        // new MyPoint(600, 800) }, objectCounter);
+        // addClosedWall(closedWall);
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -96,6 +96,13 @@ public class PhysicGame {
         Wall wall = new Wall(start, end, objectCounter);
         objectCounter++;
         gameObjectList.add(wall);
+    }
+
+    public Player createPlayer() {
+        Player player = new Player(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+        objectCounter++;
+        addPlayer(player);
+        return player;
     }
 
     public void addClosedWall(ClosedWall closedWall) {

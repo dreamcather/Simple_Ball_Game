@@ -22,8 +22,6 @@ public class Reader {
         for (int i = 0; i < wallCount; i++) {
             physicGame.addWall(bufferedReader.readLine());
         }
-        bufferedReader.readLine();
-        physicGame.addPlayer(bufferedReader.readLine());
         string = bufferedReader.readLine();
         strmas = string.split(" ", 2);
         int enemyCount = Integer.parseInt(strmas[1]);

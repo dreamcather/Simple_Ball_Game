@@ -20,13 +20,9 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge{
 
     public BridgeClass() throws IOException {
         physicGame = new PhysicGame();
-        Player playerOne = physicGame.addPlayer("0 1 0.3 310 50 15");
-        Player playerTwo = physicGame.addPlayer("0 1 0.3 310 50 15");
         Reader reader = new Reader("output.txt",physicGame);
         clientCounter=0;
         playerMap = new HashMap<>();
-        playerMap.put(1,playerOne);
-        playerMap.put(2,playerTwo);
     }
 
     public Player getPlayer(int id) throws RemoteException {
@@ -48,6 +44,8 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge{
     @Override
     public int getId() throws RemoteException {
         clientCounter++;
+        Player player = physicGame.createPlayer();
+        playerMap.put(clientCounter,player);
         System.out.println(playerMap.get(clientCounter));
         return clientCounter;
     }
