@@ -1,13 +1,9 @@
 package save;
 
 import game.PhysicGame;
-import gameObject.Enemy;
-import gameObject.Player;
-import gameObject.Prize;
 import geometry.MyPoint;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class Reader {
     PhysicGame physicGame;

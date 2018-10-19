@@ -79,6 +79,11 @@ public class PhysicGame {
 
     public Player createPlayer() {
         Player player = new Player(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+        MyPoint point;
+        do{
+            point = new MyPoint(Math.random()*300,Math.random()*300);
+        }while (areaMap.isBelong(point));
+        player.setPosition(point);
         objectCounter++;
         addPlayer(player);
         return player;

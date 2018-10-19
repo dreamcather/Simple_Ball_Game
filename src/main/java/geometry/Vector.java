@@ -1,6 +1,8 @@
 package geometry;
 
-public class Vector {
+import java.io.Serializable;
+
+public class Vector implements Serializable {
     private double xCoefficient;
     private double yCoefficient;
 
