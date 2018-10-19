@@ -95,9 +95,9 @@ public class ClientGame {
     }
 
     private void update() {
-        ArrayList<GameObject> state = client.getObjectList();
-        visualGame.update(state);
-        camera.setPosition(findPlayer(state).getPosition());
+        State state = client.getObjectList();
+        visualGame.update(state.gameObjects);
+        camera.setPosition(state.player.getPosition());
 
     }
 

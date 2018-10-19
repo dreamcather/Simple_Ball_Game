@@ -10,7 +10,6 @@ import visual.visualInformation.VisualInformation;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public interface Bridge extends Remote {
     String NAME = "Bridge";
@@ -19,9 +18,9 @@ public interface Bridge extends Remote {
 
     void setPlayer(Player player) throws RemoteException;
 
-    ArrayList<GameObject> getObjectList() throws RemoteException;
+    State getObjectList(int id) throws RemoteException;
 
-    void setMotionControl(MotionControl motionControl) throws RemoteException;
+    void setMotionControl(MotionControl motionControl,int id) throws RemoteException;
 
     int getId() throws RemoteException;
 

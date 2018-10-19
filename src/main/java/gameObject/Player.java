@@ -5,6 +5,8 @@ import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import javafx.scene.input.KeyCode;
 
+import java.awt.*;
+
 public class Player extends Ball {
 
     private int score;
@@ -76,6 +78,15 @@ public class Player extends Ball {
         } else {
             xCoordinate += xCoefficient * speedOfMotion;
             yCoordinate += yCoefficient * speedOfMotion;
+        }
+    }
+
+    public void setMotionControl(MotionControl motionControl){
+        if (motionControl.getPosition() != null) {
+            Vector motion = new Vector(this.getPosition(), motionControl.getPosition());
+            motion.norm();
+            this.changeVector(motion);
+            motionControl.setPosition(null);
         }
     }
 }

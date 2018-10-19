@@ -17,6 +17,7 @@ public class Client {
         this.bridge = bridge;
         try {
             id = bridge.getId();
+            System.out.println(id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -31,9 +32,9 @@ public class Client {
         return null;
     }
 
-    public ArrayList<GameObject> getObjectList() {
+    public State getObjectList() {
         try {
-            return bridge.getObjectList();
+            return bridge.getObjectList(id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -42,7 +43,7 @@ public class Client {
 
     public void sendMotion(MotionControl motionControl){
         try {
-            bridge.setMotionControl(motionControl);
+            bridge.setMotionControl(motionControl,id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

@@ -12,7 +12,6 @@ import java.util.TimerTask;
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
     private ArrayList<GameObject> currentState;
-    private Player player;
     private MotionControl motionControl;
     private int objectCounter;
     private int prizeCount;
@@ -24,8 +23,12 @@ public class PhysicGame {
         motionControl = new MotionControl();
         prizeCount = 0;
         objectCounter = 0;
-        ClosedWall closedWall = new ClosedWall(new MyPoint[]{new MyPoint(600, 600), new MyPoint(650, 800), new MyPoint(700, 700), new MyPoint(600, 800)}, objectCounter);
-        addClosedWall(closedWall);
+//        ClosedWall closedWall = new ClosedWall(new MyPoint[] {
+//                new MyPoint(600, 600),
+//                new MyPoint(650, 800),
+//                new MyPoint(700, 700),
+//                new MyPoint(600, 800) }, objectCounter);
+//        addClosedWall(closedWall);
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -138,10 +141,6 @@ public class PhysicGame {
 
     public synchronized ArrayList<GameObject> getObjectList() {
         return gameObjectList;
-    }
-
-    public Player getPlayer() {
-        return player;
     }
 
     public void incrementPrizeCount() {

@@ -45,11 +45,9 @@ public class VisualGame {
                 } else {
                     currentModel = visualFactory.create(visualInformation);
                     hashMap.put(gameObject, currentModel);
-                    System.out.println(gameObject.hashCode());
                     currentModel.setUse(true);
                     modelsList.add(currentModel);
                 }
-                currentModel = null;
             }
 
         }

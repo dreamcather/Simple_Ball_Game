@@ -18,7 +18,7 @@ public class PlayerInteractionVisitor implements ObjectInteractionVisitor<Intera
 
     @Override
     public Interaction visit(Player player) {
-        return null;
+        return new EmptyInteraction();
     }
 
     @Override

@@ -30,7 +30,6 @@ public class Game {
     public Game(AnchorPane panel) throws IOException {
         physicGame = new PhysicGame();
         Reader reader = new Reader("output.txt",physicGame);
-        hero = physicGame.getPlayer();
         score = new Label("Score");
         score.setLayoutX(650);
         score.setLayoutY(50);
@@ -71,14 +70,6 @@ public class Game {
     }
 
     public void click(KeyCode keyCode) {
-        if (keyCode == KeyCode.Q)
-            camera.setPosition(new MyPoint(camera.getPosition().getX() + 10, camera.getPosition().getY() + 10));
-        if (keyCode == KeyCode.A)
-            camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
-        if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT)
-                || (keyCode == KeyCode.RIGHT)) {
-            physicGame.getPlayer().setKey(keyCode);
-        }
     }
 
     public void start() {
