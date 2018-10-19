@@ -9,13 +9,12 @@ import save.Reader;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BridgeClass extends UnicastRemoteObject implements Bridge{
-    PhysicGame physicGame;
+    private PhysicGame physicGame;
     private int clientCounter;
-    HashMap<Integer,Player> playerMap;
+    private HashMap<Integer,Player> playerMap;
 
     public BridgeClass() throws IOException {
         physicGame = new PhysicGame();

@@ -16,4 +16,10 @@ EnemyCount 6
 2 3 0.3 150 260 15
 2 3 0.3 150 290 15
 PrizeCount 0
+ClosedWallCount 1
+4
+100 100
+150 100
+100 150
+150 150
 

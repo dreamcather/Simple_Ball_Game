@@ -3,7 +3,6 @@ package game;
 import gameObject.*;
 import geometry.MyPoint;
 import interaction.DetectionVisitor;
-import control.MotionControl;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -88,8 +87,9 @@ public class PhysicGame {
         gameObjectList.add(prize);
     }
 
-    public void addClosedWall(ClosedWall closedWall) {
+    public void addClosedWall(MyPoint[] points) {
         objectCounter++;
+        ClosedWall closedWall = new ClosedWall(points,objectCounter);
         gameObjectList.add(closedWall);
     }
 
@@ -134,10 +134,4 @@ public class PhysicGame {
         return gameObjectList;
     }
 
-    public void incrementPrizeCount() {
-        prizeCount++;
-    }
-
-    public void exit() {
-    }
 }

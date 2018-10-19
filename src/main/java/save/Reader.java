@@ -7,6 +7,7 @@ import gameObject.Prize;
 import geometry.MyPoint;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Reader {
     PhysicGame physicGame;
@@ -34,7 +35,21 @@ public class Reader {
         int prizeCount = Integer.parseInt(strmas[1]);
         for (int i = 0; i < prizeCount; i++) {
             physicGame.addPrize(bufferedReader.readLine());
-
+        }
+        string = bufferedReader.readLine();
+        strmas = string.split(" ",2);
+        int closedWallCount = Integer.parseInt(strmas[1]);
+        for(int i=0;i<closedWallCount;i++){
+            string = bufferedReader.readLine();
+            int pointCount = Integer.parseInt(string);
+            MyPoint[] points = new MyPoint[pointCount];
+            for(int j=0;j<pointCount;j++){
+                string = bufferedReader.readLine();
+                strmas = string.split(" ",2);
+                MyPoint point = new MyPoint(Integer.parseInt(strmas[0]),Integer.parseInt(strmas[1]));
+                points[j] =point;
+            }
+            physicGame.addClosedWall(points);
         }
     }
 
