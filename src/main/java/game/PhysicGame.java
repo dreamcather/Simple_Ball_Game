@@ -1,6 +1,7 @@
 package game;
 
 import gameObject.*;
+import geometry.AreaMap;
 import geometry.MyPoint;
 import interaction.DetectionVisitor;
 
@@ -13,11 +14,13 @@ public class PhysicGame {
     private ArrayList<GameObject> currentState;
     private int objectCounter;
     private int prizeCount;
+    private AreaMap areaMap;
     private Timer timer;
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         currentState = (ArrayList<GameObject>) gameObjectList.clone();
+        areaMap = new AreaMap();
         prizeCount = 0;
         objectCounter = 0;
         TimerTask timerTask = new TimerTask() {
@@ -81,7 +84,11 @@ public class PhysicGame {
         return player;
     }
     public void createPrize() {
-        Prize prize = new Prize(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+        Prize prize;
+        do {
+            prize = new Prize(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+        }
+        while (areaMap.isBelong(prize.getPosition()));
         prizeCount++;
         objectCounter++;
         gameObjectList.add(prize);
@@ -91,6 +98,7 @@ public class PhysicGame {
         objectCounter++;
         ClosedWall closedWall = new ClosedWall(points,objectCounter);
         gameObjectList.add(closedWall);
+        areaMap.add(closedWall.getPolygon());
     }
 
     private void collision(GameObject gameObject, int number) {

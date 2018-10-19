@@ -50,4 +50,17 @@ public class MyPolygon implements Serializable {
         }
         return res;
     }
+
+    public boolean isBelong(MyPoint point){
+        MyPoint[] points =getPoints();
+        Coordinate[] otherPoints = new Coordinate[points.length];
+        for (int i = 0; i < points.length; i++) {
+            otherPoints[i] = points[i].convertPoint().getCoordinate();
+        }
+        ConvexHull convexHull = new ConvexHull(otherPoints, new GeometryFactory());
+        Geometry geometry = convexHull.getConvexHull().intersection(point.convertPoint());
+        if(geometry.isEmpty())
+            return false;
+        return true;
+    }
 }
