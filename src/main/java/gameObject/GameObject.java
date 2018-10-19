@@ -23,7 +23,7 @@ public abstract class GameObject implements Serializable {
 
     public abstract void changeVector();
 
-    public abstract void move(MotionControl motionControl);
+    public abstract void move();
 
     public abstract boolean isAlive();
 

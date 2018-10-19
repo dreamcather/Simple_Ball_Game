@@ -12,7 +12,6 @@ import java.util.TimerTask;
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
     private ArrayList<GameObject> currentState;
-    private MotionControl motionControl;
     private int objectCounter;
     private int prizeCount;
     private Timer timer;
@@ -20,39 +19,17 @@ public class PhysicGame {
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
         currentState = (ArrayList<GameObject>) gameObjectList.clone();
-        motionControl = new MotionControl();
         prizeCount = 0;
         objectCounter = 0;
-        // ClosedWall closedWall = new ClosedWall(new MyPoint[] {
-        // new MyPoint(600, 600),
-        // new MyPoint(650, 800),
-        // new MyPoint(700, 700),
-        // new MyPoint(600, 800) }, objectCounter);
-        // addClosedWall(closedWall);
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                move(motionControl);
+                move();
             }
         };
         timer = new Timer(true);
         timer.scheduleAtFixedRate(timerTask, 0, 1);
     }
-
-    public Player addPlayer(String string) {
-        String[] strMas = string.split(" ", 6);
-        double xCoefficient = Double.parseDouble(strMas[0]);
-        double yCoefficient = Double.parseDouble(strMas[1]);
-        double speed = Double.parseDouble(strMas[2]);
-        double xCoordinate = Double.parseDouble(strMas[3]);
-        double yCoordinate = Double.parseDouble(strMas[4]);
-        double radius = Double.parseDouble(strMas[5]);
-        Player player = new Player(xCoefficient, yCoefficient, speed, xCoordinate, yCoordinate, radius, objectCounter);
-        objectCounter++;
-        addPlayer(player);
-        return player;
-    }
-
     public void addPlayer(Player player) {
         gameObjectList.add(player);
     }
@@ -104,6 +81,12 @@ public class PhysicGame {
         addPlayer(player);
         return player;
     }
+    public void createPrize() {
+        Prize prize = new Prize(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+        prizeCount++;
+        objectCounter++;
+        gameObjectList.add(prize);
+    }
 
     public void addClosedWall(ClosedWall closedWall) {
         objectCounter++;
@@ -124,26 +107,27 @@ public class PhysicGame {
     private void clear() {
         for (int i = 0; i < gameObjectList.size(); i++)
             if (!gameObjectList.get(i).isAlive()) {
+                if(gameObjectList.get(i).type.equals("Pr"))
+                    prizeCount--;
                 gameObjectList.remove(i);
+            }
+            if(prizeCount<1){
+                createPrize();
             }
     }
 
-    private synchronized void move(MotionControl motionControl) {
+    private synchronized void move() {
         for (int i = 0; i < gameObjectList.size(); i++) {
             collision(gameObjectList.get(i), i);
         }
         clear();
         for (GameObject currentObject : gameObjectList) {
-            currentObject.move(motionControl);
+            currentObject.move();
         }
         currentState = new ArrayList<>();
         for (GameObject gameObject : gameObjectList) {
             currentState.add(gameObject);
         }
-    }
-
-    public void setMotionControl(MotionControl motionControl) {
-        this.motionControl = motionControl;
     }
 
     public synchronized ArrayList<GameObject> getObjectList() {

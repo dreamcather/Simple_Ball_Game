@@ -55,25 +55,10 @@ public class ClientGame {
 
     }
 
-    private void createPrize() {
-        Prize prize = new Prize(Math.random(), Math.random(), Math.random() * 5, Math.random() * 500, Math.random() * 500, 15, 0);
-
-    }
-
     public void mouseClick(MouseEvent event) {
         motionControl = new MotionControl(event, camera);
         client.sendMotion(motionControl);
 
-    }
-
-    public void click(KeyCode keyCode) {
-        if (keyCode == KeyCode.Q)
-            camera.setPosition(new MyPoint(camera.getPosition().getX() + 10, camera.getPosition().getY() + 10));
-        if (keyCode == KeyCode.A)
-            camera.setPosition(new MyPoint(camera.getPosition().getX() - 10, camera.getPosition().getY() - 10));
-        if ((keyCode == KeyCode.UP) || (keyCode == KeyCode.DOWN) || (keyCode == KeyCode.LEFT) || (keyCode == KeyCode.RIGHT)) {
-
-        }
     }
 
     public void start() {
@@ -98,6 +83,9 @@ public class ClientGame {
         State state = client.getObjectList();
         visualGame.update(state.gameObjects);
         camera.setPosition(state.player.getPosition());
+        score.setText("Score " + state.player.getScore());
+        lifeCounter.setText("Life " + state.player.getLifeCount());
+
 
     }
 

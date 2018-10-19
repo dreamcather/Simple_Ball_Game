@@ -12,8 +12,8 @@ public class Player extends Ball {
     private int score;
     private int lifeCount;
 
-    public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius,int key) {
-        super(_x, _y, _speed, xCoordinate, yCoordinate, radius,key);
+    public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius, int key) {
+        super(_x, _y, _speed, xCoordinate, yCoordinate, radius, key);
         score = 0;
         lifeCount = 3;
         type = "P";
@@ -48,13 +48,13 @@ public class Player extends Ball {
         }
         if (keyCode == KeyCode.UP) {
             speedOfMotion += 1;
-            if(speedOfMotion>10)
-                speedOfMotion=10;
+            if (speedOfMotion > 10)
+                speedOfMotion = 10;
         }
         if (keyCode == KeyCode.DOWN) {
             speedOfMotion -= 1;
-            if(speedOfMotion<0)
-                speedOfMotion=0;
+            if (speedOfMotion < 0)
+                speedOfMotion = 0;
         }
 
     }
@@ -69,19 +69,12 @@ public class Player extends Ball {
     }
 
     @Override
-    public void move(MotionControl motionControl) {
-        if (motionControl.getPosition() != null) {
-            Vector motion = new Vector(this.getPosition(), motionControl.getPosition());
-            motion.norm();
-            this.changeVector(motion);
-            motionControl.setPosition(null);
-        } else {
-            xCoordinate += xCoefficient * speedOfMotion;
-            yCoordinate += yCoefficient * speedOfMotion;
-        }
+    public void move() {
+        xCoordinate += xCoefficient * speedOfMotion;
+        yCoordinate += yCoefficient * speedOfMotion;
     }
 
-    public void setMotionControl(MotionControl motionControl){
+    public void setMotionControl(MotionControl motionControl) {
         if (motionControl.getPosition() != null) {
             Vector motion = new Vector(this.getPosition(), motionControl.getPosition());
             motion.norm();

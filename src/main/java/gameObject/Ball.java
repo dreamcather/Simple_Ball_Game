@@ -32,7 +32,7 @@ public abstract class Ball extends GameObject {
         norm();
     }
 
-    public void move(MotionControl motionControl) {
+    public void move() {
         xCoordinate += xCoefficient * speedOfMotion;
         yCoordinate += yCoefficient * speedOfMotion;
     }

@@ -57,7 +57,7 @@ public class ClosedWall extends GameObject {
     }
 
     @Override
-    public void move(MotionControl motionControl) {
+    public void move() {
 
     }
 

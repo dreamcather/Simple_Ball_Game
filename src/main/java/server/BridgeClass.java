@@ -3,7 +3,6 @@ package server;
 import control.MotionControl;
 import game.PhysicGame;
 import game.State;
-import gameObject.GameObject;
 import gameObject.Player;
 import save.Reader;
 
