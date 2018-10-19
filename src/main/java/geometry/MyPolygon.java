@@ -10,13 +10,14 @@ import java.io.Serializable;
 public class MyPolygon implements Serializable {
     private MyLineSegment[] segments;
     private int segmentCount;
+    private transient ConvexHull convexHull;
 
     public MyPolygon(MyPoint[] points) {
         Coordinate[] otherPoints = new Coordinate[points.length];
         for (int i = 0; i < points.length; i++) {
             otherPoints[i] = points[i].convertPoint().getCoordinate();
         }
-        ConvexHull convexHull = new ConvexHull(otherPoints, new GeometryFactory());
+        convexHull = new ConvexHull(otherPoints, new GeometryFactory());
         Geometry geometry = convexHull.getConvexHull();
         otherPoints = geometry.getCoordinates();
         MyPoint[] newPoints = new MyPoint[otherPoints.length];
@@ -52,12 +53,6 @@ public class MyPolygon implements Serializable {
     }
 
     public boolean isBelong(MyPoint point){
-        MyPoint[] points =getPoints();
-        Coordinate[] otherPoints = new Coordinate[points.length];
-        for (int i = 0; i < points.length; i++) {
-            otherPoints[i] = points[i].convertPoint().getCoordinate();
-        }
-        ConvexHull convexHull = new ConvexHull(otherPoints, new GeometryFactory());
         Geometry geometry = convexHull.getConvexHull().intersection(point.convertPoint());
         if(geometry.isEmpty())
             return false;

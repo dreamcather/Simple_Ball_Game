@@ -16,6 +16,7 @@ public class PhysicGame {
     private int prizeCount;
     private AreaMap areaMap;
     private Timer timer;
+    private TimerTask timerTask;
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
@@ -23,14 +24,14 @@ public class PhysicGame {
         areaMap = new AreaMap();
         prizeCount = 0;
         objectCounter = 0;
-        TimerTask timerTask = new TimerTask() {
+        timerTask = new TimerTask() {
             @Override
             public void run() {
                 move();
             }
         };
         timer = new Timer(true);
-        timer.scheduleAtFixedRate(timerTask, 0, 1);
+
     }
     public void addPlayer(Player player) {
         gameObjectList.add(player);
@@ -38,6 +39,10 @@ public class PhysicGame {
 
     public void addBall(Ball ball) {
         gameObjectList.add(ball);
+    }
+
+    public void start(){
+        timer.scheduleAtFixedRate(timerTask, 0, 1);
     }
 
     public void addEnemy(String string) {

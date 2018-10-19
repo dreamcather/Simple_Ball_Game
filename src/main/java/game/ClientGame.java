@@ -1,5 +1,6 @@
-package client;
+package game;
 
+import client.Client;
 import game.State;
 import game.VisualGame;
 import geometry.MyPoint;

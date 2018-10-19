@@ -47,6 +47,7 @@ public class Reader {
             }
             physicGame.addClosedWall(points);
         }
+        physicGame.start();
     }
 
 }

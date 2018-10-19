@@ -1,5 +1,6 @@
 package client;
 
+import game.ClientGame;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
