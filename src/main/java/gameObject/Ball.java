@@ -17,7 +17,7 @@ public abstract class Ball extends GameObject {
     protected double yCoordinate;
     private double radius;
     private Vector perpendicularVector;
-    private boolean alive;
+    protected boolean alive;
 
     Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius,int key) {
         super(key);

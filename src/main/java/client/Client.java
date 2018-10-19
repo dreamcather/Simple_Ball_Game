@@ -41,6 +41,14 @@ public class Client {
         return null;
     }
 
+    public void remove(){
+        try {
+            bridge.remove(id);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void sendMotion(MotionControl motionControl){
         try {
             bridge.setMotionControl(motionControl,id);

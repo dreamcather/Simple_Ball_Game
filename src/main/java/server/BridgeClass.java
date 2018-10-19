@@ -48,4 +48,10 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge{
         System.out.println(playerMap.get(clientCounter));
         return clientCounter;
     }
+
+    public void remove(int id) throws RemoteException {
+        Player player =playerMap.get(id);
+        player.kill();
+
+    }
 }

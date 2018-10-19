@@ -24,4 +24,6 @@ public interface Bridge extends Remote {
 
     int getId() throws RemoteException;
 
+    void remove(int id) throws RemoteException;
+
 }

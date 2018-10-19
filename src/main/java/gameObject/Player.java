@@ -82,4 +82,8 @@ public class Player extends Ball {
             motionControl.setPosition(null);
         }
     }
+
+    public void kill(){
+        alive =false;
+    }
 }

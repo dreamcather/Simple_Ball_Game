@@ -1,12 +1,10 @@
 package client;
 
-import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import server.Bridge;
 
@@ -38,5 +36,11 @@ public class ClientGUI extends Application {
                 clientGame.mouseClick(event);
             }
         });
+    }
+
+    @Override
+    public void stop() throws Exception {
+        client.remove();
+        super.stop();
     }
 }
