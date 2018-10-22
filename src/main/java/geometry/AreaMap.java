@@ -16,8 +16,8 @@ public class AreaMap {
     public boolean isBelong(MyPoint point) {
         boolean flag = false;
         for (MyPolygon myPolygon : myPolygons) {
-            if(myPolygon.isBelong(point))
-                flag =true;
+            if (myPolygon.isBelong(point))
+                flag = true;
         }
         return flag;
     }

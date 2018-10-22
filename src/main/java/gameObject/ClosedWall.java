@@ -13,7 +13,7 @@ import visual.visualInformation.VisualInformation;
 public class ClosedWall extends GameObject {
     private MyPolygon polygon;
 
-    public ClosedWall(MyPoint[] points,int key) {
+    public ClosedWall(MyPoint[] points, int key) {
         super(key);
         polygon = new MyPolygon(points);
         type = "CW";
@@ -90,8 +90,8 @@ public class ClosedWall extends GameObject {
             coordinates[i] = res[i].convertPoint().getCoordinate();
         }
         Geometry geometry = new ConvexHull(coordinates, new GeometryFactory()).getConvexHull();
-        Geometry camerGeometry = camera.getConvexHull().getConvexHull();
-        Geometry resGeometry = geometry.intersection(camerGeometry);
+        Geometry cameraGeometry = camera.getConvexHull().getConvexHull();
+        Geometry resGeometry = geometry.intersection(cameraGeometry);
         coordinates = resGeometry.getCoordinates();
         if (coordinates.length < 3)
             return null;
@@ -99,6 +99,6 @@ public class ClosedWall extends GameObject {
         for (int i = 0; i < coordinates.length; i++) {
             resPointArray[i] = new MyPoint(coordinates[i]);
         }
-        return new ClosedWallVisualInformation(resPointArray,this);
+        return new ClosedWallVisualInformation(resPointArray, this);
     }
 }

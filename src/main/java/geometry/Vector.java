@@ -45,9 +45,9 @@ public class Vector implements Serializable {
         boolean xRes = false;
         boolean yRes = false;
         double eps = 0.00001;
-        if (Math.abs(vector.xCoefficient - this.xCoefficient) < eps)
+        if (Math.abs(vector.xCoefficient) - Math.abs(this.xCoefficient) < eps)
             xRes = true;
-        if (Math.abs(vector.yCoefficient - this.yCoefficient) < eps)
+        if (Math.abs(vector.yCoefficient) - Math.abs(this.yCoefficient) < eps)
             yRes = true;
         return xRes && yRes;
     }

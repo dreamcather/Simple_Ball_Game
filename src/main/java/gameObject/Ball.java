@@ -19,7 +19,7 @@ public abstract class Ball extends GameObject {
     private Vector perpendicularVector;
     protected boolean alive;
 
-    Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius,int key) {
+    Ball(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius, int key) {
         super(key);
         xCoefficient = _x;
         yCoefficient = _y;
@@ -114,21 +114,20 @@ public abstract class Ball extends GameObject {
                 + yCoordinate + " " + radius;
     }
 
-    public VisualInformation isVisible(Camera camera){
+    public VisualInformation isVisible(Camera camera) {
         if (camera.isVisible(getPosition())) {
             MyPoint position = camera.transformPoint(getPosition());
             position.setX(position.getX() + camera.getOffset());
             position.setY(position.getY() + camera.getOffset());
-            return new BallVisualInformation(position,this);
+            return new BallVisualInformation(position, this);
         } else {
-            Wall wall = new Wall(camera.transformPoint(getPosition()),
-                    camera.transformPoint(camera.getPosition()),0);
+            Wall wall = new Wall(camera.transformPoint(getPosition()), camera.transformPoint(camera.getPosition()), 0);
             MyPoint res = camera.getPoint(camera.transformPoint(getPosition()), wall.lineSegment);
             if (res == null)
                 return null;
             res.setX(res.getX() + camera.getOffset());
             res.setY(res.getY() + camera.getOffset());
-            return new BallVisualInformation(res,this);
+            return new BallVisualInformation(res, this);
         }
     }
 }

@@ -33,17 +33,17 @@ public class Reader {
             physicGame.addPrize(bufferedReader.readLine());
         }
         string = bufferedReader.readLine();
-        strmas = string.split(" ",2);
+        strmas = string.split(" ", 2);
         int closedWallCount = Integer.parseInt(strmas[1]);
-        for(int i=0;i<closedWallCount;i++){
+        for (int i = 0; i < closedWallCount; i++) {
             string = bufferedReader.readLine();
             int pointCount = Integer.parseInt(string);
             MyPoint[] points = new MyPoint[pointCount];
-            for(int j=0;j<pointCount;j++){
+            for (int j = 0; j < pointCount; j++) {
                 string = bufferedReader.readLine();
-                strmas = string.split(" ",2);
-                MyPoint point = new MyPoint(Integer.parseInt(strmas[0]),Integer.parseInt(strmas[1]));
-                points[j] =point;
+                strmas = string.split(" ", 2);
+                MyPoint point = new MyPoint(Integer.parseInt(strmas[0]), Integer.parseInt(strmas[1]));
+                points[j] = point;
             }
             physicGame.addClosedWall(points);
         }

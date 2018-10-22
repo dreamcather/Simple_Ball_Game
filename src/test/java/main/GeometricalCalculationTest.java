@@ -64,23 +64,22 @@ public class GeometricalCalculationTest {
         double distance = 10;
 
         MyPoint actual = GeometricalCalculation.pushingPointAway(controlPoint, movePoint, distance);
-        MyPoint expected = new MyPoint(10,0);
+        MyPoint expected = new MyPoint(10, 0);
 
         Assert.assertTrue(actual.equals(expected));
 
     }
 
     @Test
-    public void LineSegmentIntersectionTest1(){
-        LineSegment first = new LibraryLineSegment(new MyPoint(0,0),new MyPoint(10,10));
-        LineSegment second = new LibraryLineSegment(new MyPoint(0,10),new MyPoint(10,0));
+    public void LineSegmentIntersectionTest1() {
+        LineSegment first = new LibraryLineSegment(new MyPoint(0, 0), new MyPoint(10, 10));
+        LineSegment second = new LibraryLineSegment(new MyPoint(0, 10), new MyPoint(10, 0));
 
-        MyPoint actual = GeometricalCalculation.lineSegmentIntersection(first,second);
-        MyPoint expected = new MyPoint(5,5);
+        MyPoint actual = GeometricalCalculation.lineSegmentIntersection(first, second);
+        MyPoint expected = new MyPoint(5, 5);
 
         assert actual != null;
         Assert.assertTrue(actual.equals(expected));
     }
-
 
 }

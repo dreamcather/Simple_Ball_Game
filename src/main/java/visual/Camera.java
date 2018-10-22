@@ -24,7 +24,12 @@ public class Camera {
     private MyLineSegment rightVertical;
     private ConvexHull convexHull;
 
-    public Camera(MyPoint position, double offset, double minX, double playingFieldHeight, double playingFieldWidth, double maxY) {
+    public Camera(MyPoint position,
+                  double offset,
+                  double minX,
+                  double playingFieldHeight,
+                  double playingFieldWidth,
+                  double maxY) {
         this.position = position;
         this.offset = offset;
         this.minX = minX + size;

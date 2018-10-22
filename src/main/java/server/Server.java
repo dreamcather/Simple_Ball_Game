@@ -9,6 +9,6 @@ public class Server {
     public static void main(final String[] args) throws IOException, AlreadyBoundException {
         BridgeClass bridge = new BridgeClass();
         Registry localReg = LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
-        localReg.bind(bridge.NAME,bridge);
+        localReg.bind(bridge.NAME, bridge);
     }
 }

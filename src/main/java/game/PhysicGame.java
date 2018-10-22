@@ -31,6 +31,7 @@ public class PhysicGame {
         timer = new Timer(true);
 
     }
+
     private void addPlayer(Player player) {
         gameObjectList.add(player);
     }
@@ -39,7 +40,7 @@ public class PhysicGame {
         gameObjectList.add(ball);
     }
 
-    public void start(){
+    public void start() {
         timer.scheduleAtFixedRate(timerTask, 0, 1);
     }
 
@@ -83,20 +84,20 @@ public class PhysicGame {
     public Player createPlayer() {
         Player player = new Player(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
         MyPoint point;
-        do{
-            point = new MyPoint(Math.random()*300,Math.random()*300);
-        }while (areaMap.isBelong(point));
+        do {
+            point = new MyPoint(Math.random() * 300, Math.random() * 300);
+        } while (areaMap.isBelong(point));
         player.setPosition(point);
         objectCounter++;
         addPlayer(player);
         return player;
     }
+
     private void createPrize() {
         Prize prize;
         do {
             prize = new Prize(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
-        }
-        while (areaMap.isBelong(prize.getPosition()));
+        } while (areaMap.isBelong(prize.getPosition()));
         prizeCount++;
         objectCounter++;
         gameObjectList.add(prize);
@@ -104,7 +105,7 @@ public class PhysicGame {
 
     public void addClosedWall(MyPoint[] points) {
         objectCounter++;
-        ClosedWall closedWall = new ClosedWall(points,objectCounter);
+        ClosedWall closedWall = new ClosedWall(points, objectCounter);
         gameObjectList.add(closedWall);
         areaMap.add(closedWall.getPolygon());
     }
@@ -123,13 +124,13 @@ public class PhysicGame {
     private void clear() {
         for (int i = 0; i < gameObjectList.size(); i++)
             if (!gameObjectList.get(i).isAlive()) {
-                if(gameObjectList.get(i).type.equals("Pr"))
+                if (gameObjectList.get(i).type.equals("Pr"))
                     prizeCount--;
                 gameObjectList.remove(i);
             }
-            if(prizeCount<1){
-                createPrize();
-            }
+        if (prizeCount < 1) {
+            createPrize();
+        }
     }
 
     private synchronized void move() {

@@ -64,10 +64,8 @@ public class Line implements Serializable {
         return xCoefficient * point.getX() + yCoefficient * point.getY() + freeCoefficient;
     }
 
-
     public boolean isBelongs(MyPoint point) {
         return Math.abs(getSignEquationLine(point)) < 0.0001;
     }
-
 
 }

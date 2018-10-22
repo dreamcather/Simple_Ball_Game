@@ -16,7 +16,7 @@ public class PlayerInteractionVisitor implements ObjectInteractionVisitor<Intera
 
     @Override
     public Interaction visit(Player player) {
-        return new RegularTwoBallInteraction(player,this.player);
+        return new RegularTwoBallInteraction(player, this.player);
     }
 
     @Override

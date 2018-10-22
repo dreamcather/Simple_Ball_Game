@@ -16,7 +16,7 @@ public interface Bridge extends Remote {
 
     State getObjectList(int id) throws RemoteException;
 
-    void setMotionControl(MotionControl motionControl,int id) throws RemoteException;
+    void setMotionControl(MotionControl motionControl, int id) throws RemoteException;
 
     int getId() throws RemoteException;
 

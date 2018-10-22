@@ -19,10 +19,10 @@ public class ClosedWallModel extends Model {
         for (int i = 0; i < points.length - 1; i++) {
             lines.add(new Line(points[i].getX(), points[i].getY(), points[i + 1].getX(), points[i + 1].getY()));
         }
-        lines.add(new Line(points[0].getX(),
-                           points[0].getY(),
-                           points[points.length - 1].getX(),
-                           points[points.length - 1].getY()));
+//        lines.add(new Line(points[0].getX(),
+//                           points[0].getY(),
+//                           points[points.length - 1].getX(),
+//                           points[points.length - 1].getY()));
         for (Line line : lines)
             anchorPane.getChildren().add(line);
     }

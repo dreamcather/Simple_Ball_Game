@@ -9,14 +9,12 @@ import org.testng.annotations.Test;
 public class RegularCollisionTest {
     @Test
     public void collisionTest1() {
-        Enemy first = new Enemy(1,0,3,
-                100,100,5,0);
-        Prize second = new Prize(-1,0,3,
-                110,100,5,0);
+        Enemy first = new Enemy(1, 0, 3, 100, 100, 5, 0);
+        Prize second = new Prize(-1, 0, 3, 110, 100, 5, 0);
         first.collision(second.collision(new DetectionVisitor())).collision();
 
-        double expectedXCoefficient =-1;
-        double expectedYCoefficient =0;
+        double expectedXCoefficient = -1;
+        double expectedYCoefficient = 0;
 
         double actualXCoefficient = first.getVector().getXCoefficient();
         double actualYCoefficient = first.getVector().getYCoefficient();

@@ -16,10 +16,11 @@ public class AreaTest {
                 new MyPoint(0, 100),
                 new MyPoint(100, 0) });
         areaMap.add(myPolygon);
-        MyPoint point = new MyPoint(50,50);
+        MyPoint point = new MyPoint(50, 50);
 
         Assert.assertTrue(areaMap.isBelong(point));
     }
+
     @Test
     public void isBelongTest2() {
         AreaMap areaMap = new AreaMap();
@@ -29,10 +30,11 @@ public class AreaTest {
                 new MyPoint(0, 100),
                 new MyPoint(100, 0) });
         areaMap.add(myPolygon);
-        MyPoint point = new MyPoint(150,50);
+        MyPoint point = new MyPoint(150, 50);
 
         Assert.assertFalse(areaMap.isBelong(point));
     }
+
     @Test
     public void isBelongTest3() {
         AreaMap areaMap = new AreaMap();
@@ -42,7 +44,7 @@ public class AreaTest {
                 new MyPoint(0, 100),
                 new MyPoint(100, 0) });
         areaMap.add(myPolygon);
-        MyPoint point = new MyPoint(100,50);
+        MyPoint point = new MyPoint(100, 50);
 
         Assert.assertTrue(areaMap.isBelong(point));
     }

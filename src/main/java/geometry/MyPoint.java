@@ -47,7 +47,6 @@ public class MyPoint implements Serializable {
 
     }
 
-
     public void setX(double x) {
         this.x = x;
     }
