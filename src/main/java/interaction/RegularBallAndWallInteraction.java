@@ -30,10 +30,7 @@ public class RegularBallAndWallInteraction implements Interaction {
     private boolean isBetween(MyPoint point) {
         double leftCoefficient = wall.getLeftParallelLine().getSignEquationLine(point);
         double rightCoefficient = wall.getRightParallelLine().getSignEquationLine(point);
-        if (leftCoefficient * rightCoefficient <= 0) {
-            return true;
-        }
-        return false;
+        return leftCoefficient * rightCoefficient <= 0;
 
     }
 

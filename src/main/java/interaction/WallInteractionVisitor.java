@@ -1,10 +1,6 @@
 package interaction;
 
 import gameObject.*;
-import geometry.MyPoint;
-import visual.Camera;
-import visual.visualInformation.VisualInformation;
-import visual.visualInformation.WallVisualInformation;
 
 public class WallInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
     private Wall wall;

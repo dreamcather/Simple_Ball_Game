@@ -2,7 +2,6 @@ package visual.visualInformation;
 
 import gameObject.GameObject;
 import geometry.MyPoint;
-import visual.visualInformation.VisualInformation;
 
 public class ClosedWallVisualInformation extends VisualInformation {
     private MyPoint[] points;

@@ -1,7 +1,6 @@
 package visual.visualInformation;
 
 import gameObject.GameObject;
-import visual.models.Model;
 
 public abstract class VisualInformation {
     private GameObject gameObject;

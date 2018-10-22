@@ -6,7 +6,7 @@ import geometry.MyPoint;
 import java.io.*;
 
 public class Reader {
-    PhysicGame physicGame;
+    private PhysicGame physicGame;
 
     public Reader(String path, PhysicGame game) throws IOException {
         File file = new File(path);

@@ -1,11 +1,9 @@
 package interaction;
 
 import gameObject.*;
-import visual.Camera;
-import visual.visualInformation.VisualInformation;
 
 public class PrizeInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
-    Prize prize;
+    private Prize prize;
 
     public PrizeInteractionVisitor(Prize prize) {
         this.prize = prize;

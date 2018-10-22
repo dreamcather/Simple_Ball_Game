@@ -1,17 +1,9 @@
 package interaction;
 
 import gameObject.*;
-import geometry.MyPoint;
-import org.locationtech.jts.algorithm.ConvexHull;
-import org.locationtech.jts.geom.Coordinate;
-import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.GeometryFactory;
-import visual.Camera;
-import visual.visualInformation.ClosedWallVisualInformation;
-import visual.visualInformation.VisualInformation;
 
 public class ClosedWallInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
-    ClosedWall closedWall;
+    private ClosedWall closedWall;
 
     public ClosedWallInteractionVisitor(ClosedWall closedWall) {
         this.closedWall = closedWall;

@@ -1,8 +1,6 @@
 package interaction;
 
 import gameObject.*;
-import visual.Camera;
-import visual.visualInformation.VisualInformation;
 
 public interface ObjectInteractionVisitor<T> {
 

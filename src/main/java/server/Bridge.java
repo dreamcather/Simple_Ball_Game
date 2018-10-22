@@ -2,11 +2,7 @@ package server;
 
 import control.MotionControl;
 import game.State;
-import gameObject.GameObject;
 import gameObject.Player;
-import org.locationtech.jts.geom.Point;
-import visual.Camera;
-import visual.visualInformation.VisualInformation;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

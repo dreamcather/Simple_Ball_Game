@@ -78,6 +78,7 @@ public class GeometricalCalculationTest {
         MyPoint actual = GeometricalCalculation.lineSegmentIntersection(first,second);
         MyPoint expected = new MyPoint(5,5);
 
+        assert actual != null;
         Assert.assertTrue(actual.equals(expected));
     }
 
