@@ -50,10 +50,10 @@ public class ClientGame implements EventHandler<MouseEvent> {
 
     private void update() {
         State state = client.getObjectList();
-        visualGame.update(state.gameObjects);
-        camera.setPosition(state.player.getPosition());
-        score.setText("Score " + state.player.getScore());
-        lifeCounter.setText("Life " + state.player.getLifeCount());
+        visualGame.update(state.getGameObjects());
+        camera.setPosition(state.getPlayer().getPosition());
+        score.setText("Score " + state.getPlayer().getScore());
+        lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
 
     }
 
