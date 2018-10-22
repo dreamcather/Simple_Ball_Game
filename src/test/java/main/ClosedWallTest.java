@@ -8,6 +8,7 @@ import geometry.Vector;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import visual.Camera;
+import visual.visualInformation.ClosedWallVisualInformation;
 import visual.visualInformation.VisualInformation;
 
 public class ClosedWallTest {
@@ -60,16 +61,31 @@ public class ClosedWallTest {
     }
 
     @Test
-    public void isVisibleTest1(){
+    public void isVisibleTest1() {
         ClosedWall closedWall = new ClosedWall(new MyPoint[] {
                 new MyPoint(0, 0),
                 new MyPoint(750, 0),
                 new MyPoint(750, 750),
                 new MyPoint(0, 750) }, 0);
-        Camera camera = new Camera(new MyPoint(200,200),0,0,1000,1000,1000);
+        Camera camera = new Camera(new MyPoint(200, 200), 0, 0, 1000, 1000, 1000);
 
-        VisualInformation visualInformation =closedWall.isVisible(camera);
+        VisualInformation visualInformation = closedWall.isVisible(camera);
+        MyPoint[] actual = ((ClosedWallVisualInformation) visualInformation).getPoints();
+        MyPoint[] expected = new MyPoint[] {
+                new MyPoint(50, 50),
+                new MyPoint(50, 500),
+                new MyPoint(500, 500),
+                new MyPoint(500, 50) };
 
+        boolean flag = true;
+
+        for (int i = 0;i<actual.length;i++) {
+            if(!actual[i].equals(expected[i])){
+                flag = false;
+            }
+        }
+
+        Assert.assertTrue(flag);
 
     }
 

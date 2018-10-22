@@ -95,8 +95,8 @@ public class ClosedWall extends GameObject {
         coordinates = resGeometry.getCoordinates();
         if (coordinates.length < 3)
             return null;
-        MyPoint[] resPointArray = new MyPoint[coordinates.length];
-        for (int i = 0; i < coordinates.length; i++) {
+        MyPoint[] resPointArray = new MyPoint[coordinates.length-1];
+        for (int i = 0; i < coordinates.length-1; i++) {
             resPointArray[i] = new MyPoint(coordinates[i]);
         }
         return new ClosedWallVisualInformation(resPointArray, this);
