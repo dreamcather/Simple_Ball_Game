@@ -1,7 +1,6 @@
 package gameObject;
 
 import geometry.MyPoint;
-import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.VisualInformation;

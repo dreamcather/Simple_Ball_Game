@@ -1,7 +1,6 @@
 package gameObject;
 
 import geometry.*;
-import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.VisualInformation;
@@ -109,8 +108,7 @@ public class Wall extends GameObject {
         start.setY(start.getY() + camera.getOffset());
         end.setX(end.getX() + camera.getOffset());
         end.setY(end.getY() + camera.getOffset());
-        VisualInformation visualInformation = new WallVisualInformation(start, end,this);
-        return visualInformation;
+        return new WallVisualInformation(start, end, this);
     }
 
 }

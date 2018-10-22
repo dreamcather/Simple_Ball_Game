@@ -1,7 +1,6 @@
 package gameObject;
 
 import geometry.*;
-import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;

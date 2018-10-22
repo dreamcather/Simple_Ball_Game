@@ -33,6 +33,7 @@ public class GeometricalCalculation {
         Vector perpendicularVector = perpendicularLine.getNormal();
         Line parallelLine = new Line(start, perpendicularVector);
         MyPoint middlePoint = GeometricalCalculation.lineIntersection(perpendicularLine, parallelLine);
+        assert middlePoint != null;
         Vector startToMiddle = new Vector(start, middlePoint);
         MyPoint endPoint = startToMiddle.getEndPointVector(middlePoint);
         return new Vector(collisionPoint, endPoint);
@@ -60,7 +61,7 @@ public class GeometricalCalculation {
         return new MyPoint(x, y);
     }
 
-    public static MyPoint getNearestPointOfLineSegment(LineSegment lineSegment, MyPoint point) {
+    private static MyPoint getNearestPointOfLineSegment(LineSegment lineSegment, MyPoint point) {
         double distanceToStart = lineSegment.getStart().getDistanceToPoint(point);
         double distanceToEnd = lineSegment.getEnd().getDistanceToPoint(point);
         MyPoint projectionPointOnLine = getProjectionPointToLine(lineSegment.getMainLine(), point);
@@ -88,17 +89,8 @@ public class GeometricalCalculation {
         return minPoint;
     }
 
-    public static MyPoint getEndVectorPoint(MyPoint start, Vector vector) {
+    private static MyPoint getEndVectorPoint(MyPoint start, Vector vector) {
         return new MyPoint(start.getX() + vector.getXCoefficient(), start.getY() + vector.getYCoefficient());
-    }
-
-    public static MyPoint lineSegmentAndLineIntersection(LineSegment lineSegment, Line line) {
-        MyPoint intersectionPoint = lineIntersection(line, lineSegment.getMainLine());
-        if (intersectionPoint != null) {
-            if (lineSegment.isBelong(intersectionPoint))
-                return intersectionPoint;
-        }
-        return null;
     }
 
     public static MyPoint pushingPointAway(MyPoint controlPoint, MyPoint movePoint, double distance) {
@@ -109,6 +101,5 @@ public class GeometricalCalculation {
         }
         return movePoint;
     }
-
 
 }

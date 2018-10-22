@@ -31,20 +31,6 @@ public class Line implements Serializable {
         freeCoefficient = point.getX() * vector.getYCoefficient() - point.getY() * vector.getXCoefficient();
     }
 
-    // public MyPoint getLineIntersectionPoint(Line line) {
-    // double mainDeterminant = line.xCoefficient * yCoefficient - xCoefficient * line.yCoefficient;
-    // if(mainDeterminant==0)
-    // return null;
-    // double xDeterminant = xCoefficient * line.freeCoefficient - line.xCoefficient * freeCoefficient;
-    // double yDeterminant = yCoefficient * line.freeCoefficient - line.yCoefficient * freeCoefficient;
-    //
-    // double yCoordinateTouch = xDeterminant / mainDeterminant;
-    // double xCoordinateTouch = -yDeterminant / mainDeterminant;
-    //
-    // return new MyPoint(xCoordinateTouch, yCoordinateTouch);
-    //
-    // }
-
     public MyPoint getLineIntersectionPoint(MyPoint point, Vector vector) {
 
         Line crossLine = new Line(point, vector);

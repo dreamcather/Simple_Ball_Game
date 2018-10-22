@@ -44,18 +44,8 @@ public class MyPolygon implements Serializable {
         return segmentCount;
     }
 
-    public MyPoint[] getPoints() {
-        MyPoint[] res = new MyPoint[getSegmentCount()];
-        for (int i = 0; i < getSegmentCount(); i++) {
-            res[i] = getSegment(i).getStart();
-        }
-        return res;
-    }
-
     public boolean isBelong(MyPoint point){
         Geometry geometry = convexHull.getConvexHull().intersection(point.convertPoint());
-        if(geometry.isEmpty())
-            return false;
-        return true;
+        return !geometry.isEmpty();
     }
 }

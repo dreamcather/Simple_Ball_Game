@@ -1,11 +1,10 @@
 package game;
 
 import client.Client;
-import game.State;
-import game.VisualGame;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -13,13 +12,12 @@ import visual.Camera;
 
 import java.io.IOException;
 
-public class ClientGame {
+public class ClientGame implements EventHandler<MouseEvent> {
     private Label score;
     private Label lifeCounter;
     private Client client;
     private MotionControl motionControl;
     private AnimationTimer animationTimer;
-    private boolean active;
     private VisualGame visualGame;
     private Camera camera;
 
@@ -34,7 +32,6 @@ public class ClientGame {
         lifeCounter.setLayoutX(650);
         lifeCounter.setLayoutY(70);
         motionControl = new MotionControl();
-        active = true;
         int width = 500;
         visualGame = new VisualGame(panel, new MyPoint(50, 50), width, 1000, 1000);
         camera = visualGame.getCamera();
@@ -47,20 +44,8 @@ public class ClientGame {
 
     }
 
-    public void mouseClick(MouseEvent event) {
-        motionControl = new MotionControl(event, camera);
-        client.sendMotion(motionControl);
-
-    }
-
     public void start() {
         animationTimer.start();
-        active = true;
-    }
-
-    public void stop() {
-        animationTimer.stop();
-        active = false;
     }
 
     private void update() {
@@ -70,6 +55,11 @@ public class ClientGame {
         score.setText("Score " + state.player.getScore());
         lifeCounter.setText("Life " + state.player.getLifeCount());
 
+    }
 
+    @Override
+    public void handle(MouseEvent event) {
+        motionControl = new MotionControl(event, camera);
+        client.sendMotion(motionControl);
     }
 }

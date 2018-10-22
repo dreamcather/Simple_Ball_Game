@@ -11,7 +11,6 @@ import java.util.TimerTask;
 
 public class PhysicGame {
     private ArrayList<GameObject> gameObjectList;
-    private ArrayList<GameObject> currentState;
     private int objectCounter;
     private int prizeCount;
     private AreaMap areaMap;
@@ -20,7 +19,6 @@ public class PhysicGame {
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();
-        currentState = (ArrayList<GameObject>) gameObjectList.clone();
         areaMap = new AreaMap();
         prizeCount = 0;
         objectCounter = 0;
@@ -33,11 +31,11 @@ public class PhysicGame {
         timer = new Timer(true);
 
     }
-    public void addPlayer(Player player) {
+    private void addPlayer(Player player) {
         gameObjectList.add(player);
     }
 
-    public void addBall(Ball ball) {
+    private void addBall(Ball ball) {
         gameObjectList.add(ball);
     }
 
@@ -76,7 +74,7 @@ public class PhysicGame {
         addWall(start, end);
     }
 
-    public void addWall(MyPoint start, MyPoint end) {
+    private void addWall(MyPoint start, MyPoint end) {
         Wall wall = new Wall(start, end, objectCounter);
         objectCounter++;
         gameObjectList.add(wall);
@@ -93,7 +91,7 @@ public class PhysicGame {
         addPlayer(player);
         return player;
     }
-    public void createPrize() {
+    private void createPrize() {
         Prize prize;
         do {
             prize = new Prize(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
@@ -141,10 +139,6 @@ public class PhysicGame {
         clear();
         for (GameObject currentObject : gameObjectList) {
             currentObject.move();
-        }
-        currentState = new ArrayList<>();
-        for (GameObject gameObject : gameObjectList) {
-            currentState.add(gameObject);
         }
     }
 

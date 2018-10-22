@@ -2,28 +2,24 @@ package client;
 
 import control.MotionControl;
 import game.State;
-import gameObject.GameObject;
 import gameObject.Player;
 import server.Bridge;
-
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class Client {
-    Bridge bridge;
-    int id;
+    private Bridge bridge;
+    private int id;
 
     public Client(Bridge bridge) {
         this.bridge = bridge;
         try {
             id = bridge.getId();
-            System.out.println(id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         try {
             return bridge.getPlayer(id);
         } catch (RemoteException e) {
@@ -41,7 +37,7 @@ public class Client {
         return null;
     }
 
-    public void remove(){
+    public void remove() {
         try {
             bridge.remove(id);
         } catch (RemoteException e) {
@@ -49,9 +45,9 @@ public class Client {
         }
     }
 
-    public void sendMotion(MotionControl motionControl){
+    public void sendMotion(MotionControl motionControl) {
         try {
-            bridge.setMotionControl(motionControl,id);
+            bridge.setMotionControl(motionControl, id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

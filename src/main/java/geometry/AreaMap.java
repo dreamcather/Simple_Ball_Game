@@ -3,7 +3,7 @@ package geometry;
 import java.util.ArrayList;
 
 public class AreaMap {
-    ArrayList<MyPolygon> myPolygons;
+    private ArrayList<MyPolygon> myPolygons;
 
     public AreaMap() {
         myPolygons = new ArrayList<>();
