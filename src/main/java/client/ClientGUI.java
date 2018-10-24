@@ -18,7 +18,6 @@ public class ClientGUI extends Application {
     private Client client;
     private Bridge bridge;
     private ClientGame clientGame;
-    private AnchorPane layout;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -57,6 +56,7 @@ public class ClientGUI extends Application {
 
     @Override
     public void stop() throws Exception {
+        client.remove();
     }
 
 }
