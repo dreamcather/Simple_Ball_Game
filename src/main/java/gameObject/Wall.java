@@ -33,6 +33,10 @@ public class Wall extends GameObject {
         String[] substr = string.split(" ");
         start = new MyPoint(Double.parseDouble(substr[0]), Double.parseDouble(substr[1]));
         end = new MyPoint(Double.parseDouble(substr[2]), Double.parseDouble(substr[3]));
+        mainLine = new Line(start, end);
+        leftParallelLine = new Line(start, mainLine.getNormal());
+        rightParallelLine = new Line(end, mainLine.getNormal());
+        lineSegment = new MyLineSegment(start, end);
         type = "W";
     }
 

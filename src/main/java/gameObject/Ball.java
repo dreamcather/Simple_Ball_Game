@@ -41,7 +41,7 @@ public abstract class Ball extends GameObject {
         return radius;
     }
 
-    protected void norm() {
+    private void norm() {
         double length = Math.sqrt(Math.pow(xCoefficient, 2) + Math.pow(yCoefficient, 2));
         xCoefficient = xCoefficient / length;
         yCoefficient = yCoefficient / length;
