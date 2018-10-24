@@ -1,12 +1,10 @@
 package client;
 
-import client.Client;
 import game.State;
 import game.VisualGame;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;

@@ -9,7 +9,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import server.Bridge;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.Optional;
 
 public class ClientGUI extends Application {
@@ -18,17 +22,38 @@ public class ClientGUI extends Application {
     private ClientGame clientGame;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("Game");
         AnchorPane layout = new AnchorPane();
-        bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
-        client = new Client(bridge);
-        Scene scene = new Scene(layout, 750, 600);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        clientGame = new ClientGame(layout, client, this);
-        clientGame.start();
-        scene.setOnMouseClicked(clientGame);
+        try {
+            bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
+            client = new Client(bridge);
+            Scene scene = new Scene(layout, 750, 600);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            try {
+                clientGame = new ClientGame(layout, client, this);
+            } catch (IOException e) {
+                disconnect();
+            }
+            clientGame.start();
+            scene.setOnMouseClicked(clientGame);
+        } catch (NotBoundException e) {
+            disconnect();
+        } catch (MalformedURLException e) {
+            disconnect();
+        } catch (RemoteException e) {
+            disconnect();
+        }
+    }
+
+    private void disconnect(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText("Can't connect");
+        alert.setContentText("Ooops, there was an error!");
+
+        alert.showAndWait();
     }
 
     public void gameOver() {
@@ -53,6 +78,8 @@ public class ClientGUI extends Application {
 
     @Override
     public void stop() throws Exception {
+        super.stop();
+        if(client!=null)
         client.remove();
     }
 
