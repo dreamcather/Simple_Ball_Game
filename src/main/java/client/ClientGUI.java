@@ -9,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import server.Bridge;
 
-import java.io.IOException;
+import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Optional;
@@ -23,8 +23,7 @@ public class ClientGUI extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Game");
         AnchorPane layout = new AnchorPane();
-        Registry reg = LocateRegistry.getRegistry("localhost");
-        bridge = (Bridge) reg.lookup(Bridge.NAME);
+        bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/abc");
         client = new Client(bridge);
         Scene scene = new Scene(layout, 750, 600);
         primaryStage.setScene(scene);
