@@ -1,4 +1,4 @@
-package main;
+package main.object;
 
 import gameObject.Ball;
 import gameObject.ClosedWall;

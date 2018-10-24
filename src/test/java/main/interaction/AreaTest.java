@@ -1,4 +1,4 @@
-package main;
+package main.interaction;
 
 import geometry.AreaMap;
 import geometry.MyPoint;

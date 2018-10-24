@@ -128,7 +128,7 @@ public class PhysicGame {
                     prizeCount--;
                 gameObjectList.remove(i);
             }
-        if (prizeCount < 1) {
+        if (prizeCount < 3) {
             createPrize();
         }
     }

@@ -1,4 +1,4 @@
-package main;
+package main.geometry;
 
 import geometry.MyLineSegment;
 import geometry.MyPoint;

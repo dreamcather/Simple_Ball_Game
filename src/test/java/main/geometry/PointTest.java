@@ -1,4 +1,4 @@
-package main;
+package main.geometry;
 
 import geometry.MyPoint;
 import org.locationtech.jts.geom.Point;

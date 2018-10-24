@@ -1,4 +1,4 @@
-package main;
+package main.interaction;
 
 import gameObject.Ball;
 import gameObject.Player;
