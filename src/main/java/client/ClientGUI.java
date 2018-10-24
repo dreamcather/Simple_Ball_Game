@@ -10,8 +10,6 @@ import javafx.stage.Stage;
 import server.Bridge;
 
 import java.rmi.Naming;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.Optional;
 
 public class ClientGUI extends Application {
@@ -23,7 +21,7 @@ public class ClientGUI extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Game");
         AnchorPane layout = new AnchorPane();
-        bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/abc");
+        bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
         client = new Client(bridge);
         Scene scene = new Scene(layout, 750, 600);
         primaryStage.setScene(scene);
