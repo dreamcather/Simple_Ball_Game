@@ -20,6 +20,7 @@ public class DestroyCollision implements Interaction {
     @Override
     public void collision() {
         player.incrementPrizeCount();
+        player.addLife();
         prize.setLiveStatus(false);
 
     }

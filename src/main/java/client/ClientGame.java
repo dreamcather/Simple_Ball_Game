@@ -1,6 +1,8 @@
-package game;
+package client;
 
 import client.Client;
+import game.State;
+import game.VisualGame;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
@@ -14,7 +16,7 @@ import visual.Camera;
 import java.io.IOException;
 
 public class ClientGame implements EventHandler<MouseEvent> {
-    private Application application;
+    private ClientGUI application;
     private Label score;
     private Label lifeCounter;
     private Client client;
@@ -23,7 +25,7 @@ public class ClientGame implements EventHandler<MouseEvent> {
     private VisualGame visualGame;
     private Camera camera;
 
-    public ClientGame(AnchorPane panel, Client client, Application application) throws IOException {
+    public ClientGame(AnchorPane panel, Client client, ClientGUI application) throws IOException {
         this.application = application;
         this.client = client;
         score = new Label("Score");
@@ -50,7 +52,7 @@ public class ClientGame implements EventHandler<MouseEvent> {
     private void gameOver(){
         try {
             stop();
-            application.stop();
+            application.gameOver();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,10 +72,15 @@ public class ClientGame implements EventHandler<MouseEvent> {
         camera.setPosition(state.getPlayer().getPosition());
         score.setText("Score " + state.getPlayer().getScore());
         lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
-        if(state.getPlayer().getLifeCount()<0){
+        if(state.getPlayer().getLifeCount()<=0){
             gameOver();
         }
 
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+        start();
     }
 
     @Override

@@ -12,7 +12,7 @@ public class Player extends Ball {
     public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, double radius, int key) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius, key);
         score = 0;
-        lifeCount = 3;
+        lifeCount = 1;
         type = "P";
     }
 
@@ -26,6 +26,11 @@ public class Player extends Ball {
 
     public void eraseLife() {
         this.lifeCount--;
+    }
+
+    public void addLife(){
+        if(lifeCount<10)
+            lifeCount++;
     }
 
     public void incrementPrizeCount() {
