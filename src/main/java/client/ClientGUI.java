@@ -2,9 +2,11 @@ package client;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import server.Bridge;
@@ -20,40 +22,49 @@ public class ClientGUI extends Application {
     private Client client;
     private Bridge bridge;
     private ClientGame clientGame;
+    private Stage stage;
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Game");
+        stage =primaryStage;
         AnchorPane layout = new AnchorPane();
         try {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
             client = new Client(bridge);
-            Scene scene = new Scene(layout, 750, 600);
-            primaryStage.setScene(scene);
-            primaryStage.show();
             try {
                 clientGame = new ClientGame(layout, client, this);
             } catch (IOException e) {
                 disconnect();
             }
             clientGame.start();
+            Scene scene = new Scene(layout, 750, 600);
+            primaryStage.setScene(scene);
+            primaryStage.show();
             scene.setOnMouseClicked(clientGame);
-        } catch (NotBoundException e) {
-            disconnect();
-        } catch (MalformedURLException e) {
-            disconnect();
-        } catch (RemoteException e) {
+        } catch (NotBoundException | RemoteException | MalformedURLException e) {
             disconnect();
         }
     }
 
-    private void disconnect(){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Dialog");
-        alert.setHeaderText("Can't connect");
-        alert.setContentText("Ooops, there was an error!");
+    protected void disconnect() {
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Can't connect");
+            alert.setContentText("Ooops, there was an error!");
+            alert.setX(stage.getX()+stage.getWidth()/2-250);
+            alert.setY(stage.getY()+stage.getHeight()/2-200);
+            System.out.println(alert.widthProperty());
+            alert.setOnHidden(new EventHandler<DialogEvent>() {
+                @Override
+                public void handle(DialogEvent event) {
+                    Platform.exit();
+                }
+            });
 
-        alert.showAndWait();
+            alert.show();
+        });
     }
 
     public void gameOver() {
@@ -79,8 +90,8 @@ public class ClientGUI extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        if(client!=null)
-        client.remove();
+        if (client != null)
+            client.remove();
     }
 
 }

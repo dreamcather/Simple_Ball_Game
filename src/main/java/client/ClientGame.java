@@ -47,7 +47,12 @@ public class ClientGame implements EventHandler<MouseEvent> {
 
     }
 
-    private void gameOver(){
+    private void disconnect() {
+        stop();
+        application.disconnect();
+    }
+
+    private void gameOver() {
         try {
             stop();
             application.gameOver();
@@ -60,18 +65,22 @@ public class ClientGame implements EventHandler<MouseEvent> {
         animationTimer.start();
     }
 
-    private void stop(){
+    private void stop() {
         animationTimer.stop();
     }
 
     private void update() {
-        State state = client.getObjectList();
-        visualGame.update(state.getGameObjects());
-        camera.setPosition(state.getPlayer().getPosition());
-        score.setText("Score " + state.getPlayer().getScore());
-        lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
-        if(state.getPlayer().getLifeCount()<=0){
-            gameOver();
+        try {
+            State state = client.getObjectList();
+            visualGame.update(state.getGameObjects());
+            camera.setPosition(state.getPlayer().getPosition());
+            score.setText("Score " + state.getPlayer().getScore());
+            lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
+            if (state.getPlayer().getLifeCount() <= 0) {
+                gameOver();
+            }
+        } catch (Exception e) {
+            disconnect();
         }
 
     }

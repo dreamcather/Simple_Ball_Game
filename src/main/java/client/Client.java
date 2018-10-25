@@ -32,7 +32,8 @@ public class Client {
         try {
             return bridge.getObjectList(id);
         } catch (RemoteException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Error");
         }
         return null;
     }
@@ -41,7 +42,8 @@ public class Client {
         try {
             bridge.remove(id);
         } catch (RemoteException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Error");
         }
     }
 
@@ -49,7 +51,8 @@ public class Client {
         try {
             bridge.setMotionControl(motionControl, id);
         } catch (RemoteException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Error");
         }
     }
 }
