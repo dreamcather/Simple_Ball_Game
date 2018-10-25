@@ -13,15 +13,15 @@ public class VisualFactory {
     public Model create(VisualInformation visualInformation) {
         if (visualInformation.getGameObject().type.equals("E")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new EnemyModel(ballVisualInformation.getPosition(), 15, anchorPane);
+            return new EnemyModel(ballVisualInformation.getPosition(), ballVisualInformation.getRadius(), anchorPane);
         }
         if (visualInformation.getGameObject().type.equals("P")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new PlayerModel(ballVisualInformation.getPosition(), 15, anchorPane);
+            return new PlayerModel(ballVisualInformation.getPosition(), ballVisualInformation.getRadius(), anchorPane);
         }
         if (visualInformation.getGameObject().type.equals("Pr")) {
             BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
-            return new PrizeModel(ballVisualInformation.getPosition(), 15, anchorPane);
+            return new PrizeModel(ballVisualInformation.getPosition(), ballVisualInformation.getRadius(), anchorPane);
         }
         if (visualInformation.getGameObject().type.equals("W")) {
             WallVisualInformation wallVisualInformation = (WallVisualInformation) visualInformation;

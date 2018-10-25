@@ -22,6 +22,7 @@ public class CircleModel extends Model {
         BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
         model.setCenterX(ballVisualInformation.getPosition().getX());
         model.setCenterY(ballVisualInformation.getPosition().getY());
+        model.setRadius(((BallVisualInformation) visualInformation).getRadius());
     }
 
     @Override

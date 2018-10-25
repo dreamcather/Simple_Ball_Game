@@ -21,6 +21,7 @@ public class DestroyCollision implements Interaction {
     public void collision() {
         player.incrementPrizeCount();
         player.addLife();
+        player.growUp();
         prize.setLiveStatus(false);
 
     }

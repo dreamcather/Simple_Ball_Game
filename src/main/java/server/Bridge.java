@@ -8,7 +8,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface Bridge extends Remote {
-    String NAME = "Bridge";
 
     Player getPlayer(int id) throws RemoteException;
 

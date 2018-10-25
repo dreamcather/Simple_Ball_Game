@@ -7,9 +7,11 @@ import gameObject.Player;
 import save.Reader;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 public class BridgeClass extends UnicastRemoteObject implements Bridge {
@@ -18,7 +20,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private HashMap<Integer, Player> playerMap;
     private Connection connect;
 
-    public void insert(String name, int value) {
+    private void insert(String name, int value) {
         String sql = "INSERT INTO Record(name,value) VALUES(?,?)";
 
         try (PreparedStatement pstmt = connect.prepareStatement(sql)) {
@@ -29,36 +31,15 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
             System.out.println(e.getMessage());
         }
     }
-    public void selectAll(){
-        String sql = "SELECT name, value FROM Record";
 
-        try (
-             Statement stmt  = connect.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
+    private boolean find(String name) throws SQLException {
+        String sql = "SELECT * FROM Record WHERE name = ?";
 
-            // loop through the result set
-            while (rs.next()) {
-                System.out.println(rs.getString("name") +  "\t" +
-                        rs.getInt("value") + "\t");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    public boolean find(String name){
-        String sql = "SELECT * FROM Record WHERE name = '"+name+"'";
-
-        try (
-                Statement stmt  = connect.createStatement();
-                ResultSet rs    = stmt.executeQuery(sql)){
-
-            // loop through the result set
-            while (rs.next()) {
-                return true;
-            }
-            return false;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        PreparedStatement statement = connect.prepareStatement(sql);
+        statement.setString(1, name);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            return true;
         }
         return false;
     }
@@ -103,10 +84,13 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     }
 
     @Override
-    public void sendRecord(int id,String name) throws RemoteException {
-        if(!find(name)){
-            insert(name,playerMap.get(id).getScore());
-            selectAll();
+    public void sendRecord(int id, String name) {
+        try {
+            if (!find(name)) {
+                insert(name, playerMap.get(id).getScore());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }

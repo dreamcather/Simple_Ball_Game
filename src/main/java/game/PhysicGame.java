@@ -51,7 +51,7 @@ public class PhysicGame {
         double speed = Double.parseDouble(strmas[2]);
         double xCoordinate = Double.parseDouble(strmas[3]);
         double yCoordinate = Double.parseDouble(strmas[4]);
-        double radius = Double.parseDouble(strmas[5]);
+        int radius = Integer.parseInt(strmas[5]);
         addBall(new Enemy(xCoefficient, yCoefficient, speed, xCoordinate, yCoordinate, radius, objectCounter));
         objectCounter++;
     }
@@ -63,7 +63,7 @@ public class PhysicGame {
         double speed = Double.parseDouble(strmas[2]);
         double xCoordinate = Double.parseDouble(strmas[3]);
         double yCoordinate = Double.parseDouble(strmas[4]);
-        double radius = Double.parseDouble(strmas[5]);
+        int radius = Integer.parseInt(strmas[5]);
         addBall(new Prize(xCoefficient, yCoefficient, speed, xCoordinate, yCoordinate, radius, objectCounter));
         objectCounter++;
     }
