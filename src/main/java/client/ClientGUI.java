@@ -2,13 +2,15 @@ package client;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogEvent;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import server.Bridge;
 
 import java.io.IOException;
@@ -23,12 +25,14 @@ public class ClientGUI extends Application {
     private Bridge bridge;
     private ClientGame clientGame;
     private Stage stage;
+    private AnchorPane anchorPane;
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Game");
         stage =primaryStage;
         AnchorPane layout = new AnchorPane();
+        anchorPane =layout;
         try {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
             client = new Client(bridge);
@@ -56,12 +60,7 @@ public class ClientGUI extends Application {
             alert.setX(stage.getX()+stage.getWidth()/2-250);
             alert.setY(stage.getY()+stage.getHeight()/2-200);
             System.out.println(alert.widthProperty());
-            alert.setOnHidden(new EventHandler<DialogEvent>() {
-                @Override
-                public void handle(DialogEvent event) {
-                    Platform.exit();
-                }
-            });
+            alert.setOnHidden(event -> Platform.exit());
 
             alert.show();
         });
@@ -73,14 +72,26 @@ public class ClientGUI extends Application {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             ButtonType buttonTypeOne = new ButtonType("New game");
             ButtonType buttonTypeTwo = new ButtonType("Exit");
+
             alert.setTitle("Information");
             alert.setHeaderText(null);
             alert.setContentText("You lose!");
             alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get().getText() == "Exit") {
+            if (result.get().getText().equals("Exit")) {
+                TextInputDialog dialog = new TextInputDialog("Tran");
+
+                dialog.setTitle("Record");
+                dialog.setHeaderText("Enter your name:");
+                dialog.setContentText("Name:");
+
+                Optional<String> result1 = dialog.showAndWait();
+
+                result1.ifPresent(name -> {
+                    client.sendRecord(name);
+                });
                 Platform.exit();
-            } else if (result.get().getText() == "New game") {
+            } else if (result.get().getText().equals("New game")) {
                 client = new Client(bridge);
                 clientGame.setClient(client);
             }

@@ -22,4 +22,5 @@ public interface Bridge extends Remote {
 
     void remove(int id) throws RemoteException;
 
+    void sendRecord(int id,String name) throws RemoteException;
 }

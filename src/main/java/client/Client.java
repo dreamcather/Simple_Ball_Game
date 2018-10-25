@@ -55,4 +55,12 @@ public class Client {
             System.out.println("Error");
         }
     }
+
+    public void sendRecord(String name) {
+        try {
+            bridge.sendRecord(id,name);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 }
