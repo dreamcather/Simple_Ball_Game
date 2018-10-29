@@ -3,8 +3,10 @@ package client;
 import control.MotionControl;
 import game.State;
 import gameObject.Player;
+import javafx.util.Pair;
 import server.Bridge;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class Client {
     private Bridge bridge;
@@ -62,5 +64,14 @@ public class Client {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Pair<String,Integer>> get10MaxRecords(){
+        try {
+            return bridge.get10MaxRecords();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

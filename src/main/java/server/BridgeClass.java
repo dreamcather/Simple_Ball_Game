@@ -5,6 +5,7 @@ import game.PhysicGame;
 import game.State;
 import gameObject.Player;
 import geometry.Line;
+import javafx.util.Pair;
 import save.Reader;
 
 import java.io.IOException;
@@ -20,13 +21,12 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private HashMap<Integer, Player> playerMap;
     private Connection connect;
 
-    private void insert(int number, String name, int value) {
-        String sql = "INSERT INTO Record(id,name,value) VALUES(?,?,?)";
+    private void insert(String name, int value) {
+        String sql = "INSERT INTO Record(name,score) VALUES(?,?)";
 
         try (PreparedStatement pstmt = connect.prepareStatement(sql)) {
-            pstmt.setInt(1, number);
-            pstmt.setString(2, name);
-            pstmt.setInt(3, value);
+            pstmt.setString(1, name);
+            pstmt.setInt(2, value);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -46,46 +46,58 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
 
     }
 
-    private void reducePosition(int number){
+    private void reducePosition(int number) {
         String sql = "UPDATE Record SET id = id+1 WHERE id >= ? ";
 
         try (PreparedStatement pstmt = connect.prepareStatement(sql)) {
-            pstmt.setInt(1,number);
-        }
-        catch (SQLException e){
+            pstmt.setInt(1, number);
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void selectAll(int number,String name){
-        String sql = "SELECT id, value FROM Record";
+    public void selectAll(int number, String name) {
+        String sql = "SELECT rowid,name,score FROM Record";
 
-        try (
-             Statement stmt  = connect.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
+        try (Statement stmt = connect.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 
             ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
             // loop through the result set
             while (rs.next()) {
-               arrayList.add(rs.getInt("value"));
+                arrayList.add(rs.getInt("value"));
             }
             arrayList.add(number);
             arrayList.sort(new Comparator<Integer>() {
                 @Override
                 public int compare(Integer o1, Integer o2) {
-                    return o2-o1 ;
+                    return o2 - o1;
                 }
             });
-            int count= arrayList.indexOf(number);
+            int count = arrayList.indexOf(number);
             reducePosition(count);
-            insert(count,name,number);
+            insert(name, number);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
+    public ArrayList<Pair<String, Integer>> get10MaxRecords() {
+        String sql = "SELECT Name, Score FROM Record ORDER BY Score DESC LIMIT 10";
+        ArrayList<Pair<String,Integer>> recordPair = new ArrayList<>();
+        Statement stmt = null;
+        try {
+            stmt = connect.createStatement();
+            ResultSet resultSet = stmt.executeQuery(sql);
+            while (resultSet.next()) {
+                recordPair.add(new Pair<>(resultSet.getString("Name"), resultSet.getInt("Score")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return recordPair;
+    }
 
     private boolean find(String name) throws SQLException {
         String sql = "SELECT * FROM Record WHERE name = ?";
@@ -140,8 +152,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
 
     @Override
     public void sendRecord(int id, String name) {
-        reducePosition(1);
-        selectAll(playerMap.get(id).getScore(),name);
+        insert(name, playerMap.get(id).getScore());
 
     }
 }

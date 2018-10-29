@@ -3,9 +3,11 @@ package server;
 import control.MotionControl;
 import game.State;
 import gameObject.Player;
+import javafx.util.Pair;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public interface Bridge extends Remote {
 
@@ -22,4 +24,6 @@ public interface Bridge extends Remote {
     void remove(int id) throws RemoteException;
 
     void sendRecord(int id,String name) throws RemoteException;
+
+    public ArrayList<Pair<String, Integer>> get10MaxRecords() throws RemoteException;
 }

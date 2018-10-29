@@ -8,6 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 import server.Bridge;
 
 import java.io.IOException;
@@ -15,7 +16,9 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ClientGUI extends Application {
     private Client client;
@@ -62,7 +65,6 @@ public class ClientGUI extends Application {
     }
 
     public void gameOver() {
-        client.remove();
         Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             ButtonType buttonTypeOne = new ButtonType("New game");
@@ -82,11 +84,27 @@ public class ClientGUI extends Application {
 
                 Optional<String> result1 = dialog.showAndWait();
 
+                String playerName = result1.get();
                 result1.ifPresent(name -> {
                     client.sendRecord(name);
                 });
+                Alert recordInfo = new Alert(Alert.AlertType.INFORMATION);
+                recordInfo.setTitle("Record's Table");
+                ArrayList<Pair<String,Integer>> records = client.get10MaxRecords();
+                String recordsTable = "";
+                for(int i=0;i< records.size();i++){
+                    recordsTable+=i+1+": "+ records.get(i).getKey()+"  "+records.get(i).getValue()+"\n";
+                }
+                recordsTable+="\n\n You: "+playerName+"  "+client.getPlayer().getScore();
+                recordInfo.setHeaderText("Our winners");
+                recordInfo.setContentText(recordsTable);
+
+                recordInfo.showAndWait();
+
                 Platform.exit();
+
             } else if (result.get().getText().equals("New game")) {
+                client.remove();
                 client = new Client(bridge);
                 clientGame.setClient(client);
             }
