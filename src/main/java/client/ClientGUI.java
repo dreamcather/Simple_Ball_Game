@@ -16,7 +16,6 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class ClientGUI extends Application {
     private Client client;
@@ -83,14 +82,13 @@ public class ClientGUI extends Application {
             Alert recordInfo = new Alert(Alert.AlertType.INFORMATION);
             recordInfo.setTitle("Record's Table");
             ArrayList<Pair<String, Integer>> records = client.get10MaxRecords();
-            String recordsTable = "";
+            StringBuilder recordsTable = new StringBuilder();
             for (int i = 0; i < records.size(); i++) {
-                recordsTable += i + 1 + ": " + records.get(i).getKey() + "  " + records.get(i).getValue()
-                        + "\n";
+                recordsTable.append(i).append(1).append(": ").append(records.get(i).getKey()).append("  ").append(records.get(i).getValue()).append("\n");
             }
-            recordsTable += "\n\n You: " + playerName + "  " + client.getPlayer().getScore();
+            recordsTable.append("\n\n You: ").append(playerName).append("  ").append(client.getPlayer().getScore());
             recordInfo.setHeaderText("Our winners");
-            recordInfo.setContentText(recordsTable);
+            recordInfo.setContentText(recordsTable.toString());
 
             recordInfo.showAndWait();
 

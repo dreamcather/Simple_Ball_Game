@@ -25,5 +25,5 @@ public interface Bridge extends Remote {
 
     void sendRecord(int id,String name) throws RemoteException;
 
-    public ArrayList<Pair<String, Integer>> get10MaxRecords() throws RemoteException;
+    ArrayList<Pair<String, Integer>> get10MaxRecords() throws RemoteException;
 }
