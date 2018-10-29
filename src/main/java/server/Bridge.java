@@ -13,8 +13,6 @@ public interface Bridge extends Remote {
 
     Player getPlayer(int id) throws RemoteException;
 
-    void setPlayer(Player player) throws RemoteException;
-
     State getObjectList(int id) throws RemoteException;
 
     void setMotionControl(MotionControl motionControl, int id) throws RemoteException;

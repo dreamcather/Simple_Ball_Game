@@ -232,7 +232,10 @@ public class LineTest {
         MyPoint actualIntersectionPoint = GeometricalCalculation.lineIntersection(firstLine, secondLine);
         MyPoint expectedIntersectionPoint = new MyPoint(1, 1);
 
-        boolean res = actualIntersectionPoint.equals(expectedIntersectionPoint);
+        boolean res = false;
+        if (actualIntersectionPoint != null) {
+            res = actualIntersectionPoint.equals(expectedIntersectionPoint);
+        }
 
         Assert.assertTrue(res);
 

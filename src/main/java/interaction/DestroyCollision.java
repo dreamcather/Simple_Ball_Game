@@ -4,8 +4,8 @@ import gameObject.Player;
 import gameObject.Prize;
 
 public class DestroyCollision implements Interaction {
-    private Player player;
-    private Prize prize;
+    private final Player player;
+    private final Prize prize;
 
     public DestroyCollision(Player player, Prize prize) {
         this.player = player;
@@ -19,12 +19,13 @@ public class DestroyCollision implements Interaction {
 
     @Override
     public void collision() {
-        if(player.isClossed()){
+        if(player.isClosed()){
             new RegularTwoBallCollision(player,prize).collide();
         }
         else {
             player.incrementPrizeCount();
             player.addLife();
+            player.growUp();
             prize.setLiveStatus(false);
         }
 

@@ -3,9 +3,9 @@ package geometry;
 import java.io.Serializable;
 
 public class Line implements Serializable {
-    private double xCoefficient;
-    private double yCoefficient;
-    private double freeCoefficient;
+    private final double xCoefficient;
+    private final double yCoefficient;
+    private final double freeCoefficient;
 
     public double getXCoefficient() {
         return xCoefficient;

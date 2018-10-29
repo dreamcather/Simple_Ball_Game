@@ -8,12 +8,12 @@ import visual.visualInformation.WallVisualInformation;
 
 public class Wall extends GameObject {
 
-    private Line mainLine;
-    public LineSegment lineSegment;
-    private Line leftParallelLine;
-    private Line rightParallelLine;
-    private MyPoint start;
-    private MyPoint end;
+    private final Line mainLine;
+    public final LineSegment lineSegment;
+    private final Line leftParallelLine;
+    private final Line rightParallelLine;
+    private final MyPoint start;
+    private final MyPoint end;
 
     public Wall(MyPoint _start, MyPoint _end, int key) {
 

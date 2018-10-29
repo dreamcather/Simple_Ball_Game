@@ -7,7 +7,6 @@ import javafx.scene.input.MouseEvent;
 import visual.Camera;
 
 import java.io.Serializable;
-import java.security.Key;
 
 public class MotionControl implements Serializable {
     private MyPoint position;

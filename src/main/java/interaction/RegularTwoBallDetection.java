@@ -4,8 +4,8 @@ import gameObject.Ball;
 import geometry.GeometricalCalculation;
 
 public class RegularTwoBallDetection {
-    private Ball first;
-    private Ball second;
+    private final Ball first;
+    private final Ball second;
 
     public RegularTwoBallDetection(Ball first, Ball second) {
         this.first = first;

@@ -4,7 +4,7 @@ import gameObject.GameObject;
 import geometry.MyPoint;
 
 public class ClosedWallVisualInformation extends VisualInformation {
-    private MyPoint[] points;
+    private final MyPoint[] points;
 
     public ClosedWallVisualInformation(MyPoint[] points, GameObject gameObject) {
         super(gameObject);

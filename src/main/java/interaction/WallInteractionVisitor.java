@@ -3,7 +3,7 @@ package interaction;
 import gameObject.*;
 
 public class WallInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
-    private Wall wall;
+    private final Wall wall;
 
     public WallInteractionVisitor(Wall wall) {
         this.wall = wall;

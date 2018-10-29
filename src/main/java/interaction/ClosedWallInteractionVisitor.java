@@ -3,7 +3,7 @@ package interaction;
 import gameObject.*;
 
 public class ClosedWallInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
-    private ClosedWall closedWall;
+    private final ClosedWall closedWall;
 
     public ClosedWallInteractionVisitor(ClosedWall closedWall) {
         this.closedWall = closedWall;

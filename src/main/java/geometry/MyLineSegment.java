@@ -3,10 +3,10 @@ package geometry;
 import java.io.Serializable;
 
 public class MyLineSegment implements LineSegment, Serializable {
-    private MyPoint start;
-    private MyPoint end;
-    private Line mainLine;
-    private double length;
+    private final MyPoint start;
+    private final MyPoint end;
+    private final Line mainLine;
+    private final double length;
 
     public MyLineSegment(MyPoint start, MyPoint end) {
         this.start = start;

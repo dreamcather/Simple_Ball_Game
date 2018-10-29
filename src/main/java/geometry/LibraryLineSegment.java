@@ -5,7 +5,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
 
 public class LibraryLineSegment implements LineSegment {
-    private org.locationtech.jts.geom.LineSegment lineSegment;
+    private final org.locationtech.jts.geom.LineSegment lineSegment;
 
     public LibraryLineSegment(MyPoint start, MyPoint end) {
         lineSegment = new org.locationtech.jts.geom.LineSegment(start.convertPoint().getCoordinate(),

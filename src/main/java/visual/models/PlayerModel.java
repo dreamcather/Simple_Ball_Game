@@ -8,13 +8,13 @@ import visual.visualInformation.PlayerVisualInformation;
 import visual.visualInformation.VisualInformation;
 
 public class PlayerModel extends CircleModel {
-    static private Color playerColor = Color.BLUE;
-    static private Color closedPlayerColor = Color.GRAY;
+    static private final Color playerColor = Color.BLUE;
+    static private final Color closedPlayerColor = Color.GRAY;
     private boolean closed;
 
     public PlayerModel(MyPoint center, double radius, AnchorPane anchorPane) {
-        super(center, radius, playerColor, anchorPane);
-        closed = false;
+        super(center, radius, closedPlayerColor, anchorPane);
+        closed = true;
     }
 
     @Override
@@ -23,9 +23,9 @@ public class PlayerModel extends CircleModel {
         model.setCenterX(ballVisualInformation.getPosition().getX());
         model.setCenterY(ballVisualInformation.getPosition().getY());
         model.setRadius(((BallVisualInformation) visualInformation).getRadius());
-        if(closed!=ballVisualInformation.isClossed()) {
-            closed =ballVisualInformation.isClossed();
-            if (ballVisualInformation.isClossed()) model.setFill(closedPlayerColor);
+        if(closed!=ballVisualInformation.isClosed()) {
+            closed =ballVisualInformation.isClosed();
+            if (ballVisualInformation.isClosed()) model.setFill(closedPlayerColor);
             else model.setFill(playerColor);
         }
     }

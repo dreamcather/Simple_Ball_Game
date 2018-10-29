@@ -7,8 +7,8 @@ import geometry.MyPoint;
 import geometry.Vector;
 
 public class RegularTwoBallCollision {
-    private Ball first;
-    private Ball second;
+    private final Ball first;
+    private final Ball second;
 
     public RegularTwoBallCollision(Ball first, Ball second) {
         this.first = first;

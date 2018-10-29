@@ -7,8 +7,8 @@ import geometry.Vector;
 import gameObject.Ball;
 
 public class RegularBallAndWallInteraction implements Interaction {
-    private Ball ball;
-    private Wall wall;
+    private final Ball ball;
+    private final Wall wall;
 
     public RegularBallAndWallInteraction(Ball ball, Wall wall) {
         this.ball = ball;

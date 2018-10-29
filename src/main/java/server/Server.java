@@ -1,22 +1,36 @@
 package server;
 
-import java.io.IOException;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+
+import java.awt.*;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Server {
-    public static void main(final String[] args) throws IOException {
+public class Server extends Application {
+    private Stage stage;
+    private  Connection connection;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         String url = "jdbc:sqlite:src/main/resource/Records.db";
-        Connection connection = null;
         try {
             connection = DriverManager.getConnection(url);
         } catch (SQLException e) {
@@ -26,6 +40,23 @@ public class Server {
         LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
         Naming.rebind("rmi://192.168.1.111/key", bridge);
 
-        System.out.println("Server work");
+        primaryStage.setTitle("Game");
+        stage = primaryStage;
+        BorderPane layout = new BorderPane();
+        Scene scene = new Scene(layout, 300, 300);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        Button closeServer = new Button("Close server");
+        layout.setCenter(closeServer);
+        closeServer.setOnAction(event -> Platform.exit());
+
+    }
+
+    @Override
+    public void stop() throws Exception {
+        connection.close();
+        Naming.unbind("rmi://192.168.1.111/key");
+        super.stop();
+        System.exit(0);
     }
 }

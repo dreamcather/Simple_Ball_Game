@@ -3,7 +3,7 @@ package interaction;
 import gameObject.*;
 
 public class PrizeInteractionVisitor implements ObjectInteractionVisitor<Interaction> {
-    private Prize prize;
+    private final Prize prize;
 
     public PrizeInteractionVisitor(Prize prize) {
         this.prize = prize;

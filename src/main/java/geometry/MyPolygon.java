@@ -8,9 +8,9 @@ import org.locationtech.jts.geom.GeometryFactory;
 import java.io.Serializable;
 
 public class MyPolygon implements Serializable {
-    private MyLineSegment[] segments;
-    private int segmentCount;
-    private transient ConvexHull convexHull;
+    private final MyLineSegment[] segments;
+    private final int segmentCount;
+    private final transient ConvexHull convexHull;
 
     public MyPolygon(MyPoint[] points) {
         Coordinate[] otherPoints = new Coordinate[points.length];

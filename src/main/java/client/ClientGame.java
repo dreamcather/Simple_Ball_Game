@@ -15,9 +15,9 @@ import visual.Camera;
 import java.io.IOException;
 
 public class ClientGame implements EventHandler<MouseEvent> {
-    private ClientGUI application;
-    private Label score;
-    private Label lifeCounter;
+    private final ClientGUI application;
+    private final Label score;
+    private final Label lifeCounter;
     private Client client;
     private MotionControl motionControl;
     private AnimationTimer animationTimer;

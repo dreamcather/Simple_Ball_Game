@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class Client {
-    private Bridge bridge;
+    private final Bridge bridge;
     private int id;
 
     public Client(Bridge bridge) {

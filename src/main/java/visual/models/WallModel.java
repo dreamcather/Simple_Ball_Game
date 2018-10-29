@@ -7,7 +7,7 @@ import visual.visualInformation.VisualInformation;
 import visual.visualInformation.WallVisualInformation;
 
 public class WallModel extends Model {
-    private Line line;
+    private final Line line;
 
     public WallModel(MyPoint start, MyPoint end, AnchorPane anchorPane) {
         super();

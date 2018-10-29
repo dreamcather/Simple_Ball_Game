@@ -4,8 +4,8 @@ import gameObject.GameObject;
 import geometry.MyPoint;
 
 public class WallVisualInformation extends VisualInformation {
-    private MyPoint start;
-    private MyPoint end;
+    private final MyPoint start;
+    private final MyPoint end;
 
     public WallVisualInformation(MyPoint start, MyPoint end, GameObject gameObject) {
         super(gameObject);

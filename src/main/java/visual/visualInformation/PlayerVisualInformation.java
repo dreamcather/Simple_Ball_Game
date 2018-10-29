@@ -4,13 +4,13 @@ import gameObject.GameObject;
 import geometry.MyPoint;
 
 public class PlayerVisualInformation extends BallVisualInformation {
-    private boolean clossed;
-    public PlayerVisualInformation(MyPoint point, int radius,boolean clossed, GameObject gameObject) {
+    private final boolean closed;
+    public PlayerVisualInformation(MyPoint point, int radius, boolean closed, GameObject gameObject) {
         super(point, radius, gameObject);
-        this.clossed =clossed;
+        this.closed = closed;
     }
 
-    public boolean isClossed() {
-        return clossed;
+    public boolean isClosed() {
+        return closed;
     }
 }

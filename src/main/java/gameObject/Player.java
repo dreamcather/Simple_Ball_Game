@@ -13,13 +13,13 @@ public class Player extends Ball {
 
     private int score;
     private int lifeCount;
-    private boolean clossed;
+    private boolean closed;
 
     public Player(double _x, double _y, double _speed, double xCoordinate, double yCoordinate, int radius, int key) {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius, key);
         score = 0;
         lifeCount = 1;
-        clossed=false;
+        closed =true;
         type = "P";
     }
 
@@ -48,8 +48,8 @@ public class Player extends Ball {
         radius+=5;
     }
 
-    private void changeclossedFlag(){
-        clossed=!clossed;
+    private void changeClosedFlag(){
+        closed =!closed;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class Player extends Ball {
             motionControl.setPosition(null);
         }
         if(motionControl.getKey()== KeyCode.SPACE){
-            changeclossedFlag();
+            changeClosedFlag();
             motionControl.setKey(null);
         }
     }
@@ -80,13 +80,13 @@ public class Player extends Ball {
         alive = false;
     }
 
-    public boolean isClossed() {
-        return clossed;
+    public boolean isClosed() {
+        return closed;
     }
 
     @Override
     public VisualInformation isVisible(Camera camera) {
         BallVisualInformation visualInformation= (BallVisualInformation) super.isVisible(camera);
-        return new PlayerVisualInformation(visualInformation.getPosition(),visualInformation.getRadius(),clossed,this);
+        return new PlayerVisualInformation(visualInformation.getPosition(),visualInformation.getRadius(), closed,this);
     }
 }

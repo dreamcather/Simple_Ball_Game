@@ -3,7 +3,7 @@ package interaction;
 import gameObject.*;
 
 public class EnemyDetectionVisitor implements ObjectInteractionVisitor<Interaction> {
-    private Enemy enemy;
+    private final Enemy enemy;
 
     public EnemyDetectionVisitor(Enemy enemy) {
         this.enemy = enemy;

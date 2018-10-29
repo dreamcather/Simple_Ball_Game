@@ -10,7 +10,7 @@ import visual.visualInformation.VisualInformation;
 import java.util.ArrayList;
 
 public class ClosedWallModel extends Model {
-    private ArrayList<Line> lines;
+    private final ArrayList<Line> lines;
 
     public ClosedWallModel(MyPoint[] points, AnchorPane anchorPane) {
         super();

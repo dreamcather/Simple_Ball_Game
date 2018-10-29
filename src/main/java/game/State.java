@@ -7,8 +7,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class State implements Serializable {
-    private Player player;
-    private ArrayList<GameObject> gameObjects;
+    private final Player player;
+    private final ArrayList<GameObject> gameObjects;
 
     public State(Player player, ArrayList<GameObject> gameObjects) {
         this.player = player;

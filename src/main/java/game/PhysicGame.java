@@ -10,12 +10,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PhysicGame {
-    private ArrayList<GameObject> gameObjectList;
+    private final ArrayList<GameObject> gameObjectList;
     private int objectCounter;
     private int prizeCount;
-    private AreaMap areaMap;
-    private Timer timer;
-    private TimerTask timerTask;
+    private final AreaMap areaMap;
+    private final Timer timer;
+    private final TimerTask timerTask;
 
     public PhysicGame() {
         gameObjectList = new ArrayList<>();

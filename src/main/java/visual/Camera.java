@@ -11,18 +11,18 @@ import org.locationtech.jts.geom.GeometryFactory;
 import java.util.ArrayList;
 
 public class Camera {
-    private MyPoint position;
-    private int size = 250;
-    private double offset;
-    private double minX;
-    private double maxX;
-    private double minY;
-    private double maxY;
-    private MyLineSegment upHorizontal;
-    private MyLineSegment downHorizontal;
-    private MyLineSegment leftVertical;
-    private MyLineSegment rightVertical;
-    private ConvexHull convexHull;
+    private final MyPoint position;
+    private final int size = 250;
+    private final double offset;
+    private final double minX;
+    private final double maxX;
+    private final double minY;
+    private final double maxY;
+    private final MyLineSegment upHorizontal;
+    private final MyLineSegment downHorizontal;
+    private final MyLineSegment leftVertical;
+    private final MyLineSegment rightVertical;
+    private final ConvexHull convexHull;
 
     public Camera(MyPoint position,
                   double offset,

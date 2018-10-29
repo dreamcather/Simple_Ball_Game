@@ -4,8 +4,8 @@ import gameObject.GameObject;
 import geometry.MyPoint;
 
 public class BallVisualInformation extends VisualInformation {
-    private MyPoint position;
-    private int radius;
+    private final MyPoint position;
+    private final int radius;
 
     public BallVisualInformation(MyPoint point,int radius, GameObject gameObject) {
         super(gameObject);

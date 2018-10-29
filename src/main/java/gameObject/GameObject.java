@@ -12,7 +12,7 @@ public abstract class GameObject implements Serializable {
 
     public String type;
 
-    private int key;
+    private final int key;
 
     public GameObject(int key) {
         this.key = key;

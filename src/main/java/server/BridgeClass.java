@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BridgeClass extends UnicastRemoteObject implements Bridge {
-    private PhysicGame physicGame;
+    private final PhysicGame physicGame;
     private int clientCounter;
     private HashMap<Integer, Player> playerMap;
-    private Connection connect;
+    private final Connection connect;
 
     private void insert(String name, int value) {
         String sql = "INSERT INTO Record(name,score) VALUES(?,?)";
@@ -57,10 +57,6 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
 
     public Player getPlayer(int id) {
         return playerMap.get(id);
-    }
-
-    public void setPlayer(Player player) {
-
     }
 
     public State getObjectList(int id) {

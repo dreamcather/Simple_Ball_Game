@@ -4,8 +4,8 @@ import gameObject.Enemy;
 import gameObject.Player;
 
 public class KillCollision implements Interaction {
-    private Player player;
-    private Enemy enemy;
+    private final Player player;
+    private final Enemy enemy;
 
     public KillCollision(Player player, Enemy enemy) {
         this.player = player;
@@ -19,7 +19,7 @@ public class KillCollision implements Interaction {
 
     @Override
     public void collision() {
-        if(player.isClossed()){
+        if(player.isClosed()){
             new RegularTwoBallCollision(player,enemy).collide();
         }
         else {

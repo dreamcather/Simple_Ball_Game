@@ -6,8 +6,8 @@ import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 
 public class RegularBallAndClosedWallInteraction implements Interaction {
-    private ClosedWall closedWall;
-    private Ball ball;
+    private final ClosedWall closedWall;
+    private final Ball ball;
 
     public RegularBallAndClosedWallInteraction(ClosedWall closedWall, Ball ball) {
         this.closedWall = closedWall;

@@ -11,7 +11,7 @@ import visual.visualInformation.ClosedWallVisualInformation;
 import visual.visualInformation.VisualInformation;
 
 public class ClosedWall extends GameObject {
-    private MyPolygon polygon;
+    private final MyPolygon polygon;
 
     public ClosedWall(MyPoint[] points, int key) {
         super(key);

@@ -3,8 +3,8 @@ package interaction;
 import gameObject.Ball;
 
 public class RegularTwoBallInteraction implements Interaction {
-    private Ball first;
-    private Ball second;
+    private final Ball first;
+    private final Ball second;
 
     public RegularTwoBallInteraction(Ball first, Ball second) {
         this.first = first;

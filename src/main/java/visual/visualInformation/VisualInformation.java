@@ -3,7 +3,7 @@ package visual.visualInformation;
 import gameObject.GameObject;
 
 public abstract class VisualInformation {
-    private GameObject gameObject;
+    private final GameObject gameObject;
 
     public VisualInformation(GameObject gameObject) {
         this.gameObject = gameObject;

@@ -3,7 +3,6 @@ package gameObject;
 import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 import geometry.Vector;
-import control.MotionControl;
 import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.BallVisualInformation;

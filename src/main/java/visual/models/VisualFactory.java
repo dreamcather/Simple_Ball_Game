@@ -4,7 +4,7 @@ import javafx.scene.layout.AnchorPane;
 import visual.visualInformation.*;
 
 public class VisualFactory {
-    private AnchorPane anchorPane;
+    private final AnchorPane anchorPane;
 
     public VisualFactory(AnchorPane anchorPane) {
         this.anchorPane = anchorPane;
