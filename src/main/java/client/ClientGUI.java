@@ -3,9 +3,7 @@ package client;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Pair;
@@ -29,7 +27,7 @@ public class ClientGUI extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Game");
-        stage =primaryStage;
+        stage = primaryStage;
         AnchorPane layout = new AnchorPane();
         try {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
@@ -55,13 +53,58 @@ public class ClientGUI extends Application {
             alert.setTitle("Error Dialog");
             alert.setHeaderText("Can't connect");
             alert.setContentText("Ooops, there was an error!");
-            alert.setX(stage.getX()+stage.getWidth()/2-250);
-            alert.setY(stage.getY()+stage.getHeight()/2-200);
+            alert.setX(stage.getX() + stage.getWidth() / 2 - 250);
+            alert.setY(stage.getY() + stage.getHeight() / 2 - 200);
             System.out.println(alert.widthProperty());
             alert.setOnHidden(event -> Platform.exit());
 
             alert.show();
         });
+    }
+
+    private void createNewGame() {
+        client.remove();
+        client = new Client(bridge);
+        clientGame.setClient(client);
+    }
+
+    private void showRecordsDialog(Alert alert) {
+        TextInputDialog dialog = new TextInputDialog("Tran");
+
+        dialog.setTitle("Record");
+        dialog.setHeaderText("Enter your name:");
+        dialog.setContentText("Name:");
+
+        Optional<String> result1 = dialog.showAndWait();
+
+        if (result1.isPresent()) {
+            String playerName = result1.get();
+            result1.ifPresent(name -> client.sendRecord(name));
+            Alert recordInfo = new Alert(Alert.AlertType.INFORMATION);
+            recordInfo.setTitle("Record's Table");
+            ArrayList<Pair<String, Integer>> records = client.get10MaxRecords();
+            String recordsTable = "";
+            for (int i = 0; i < records.size(); i++) {
+                recordsTable += i + 1 + ": " + records.get(i).getKey() + "  " + records.get(i).getValue()
+                        + "\n";
+            }
+            recordsTable += "\n\n You: " + playerName + "  " + client.getPlayer().getScore();
+            recordInfo.setHeaderText("Our winners");
+            recordInfo.setContentText(recordsTable);
+
+            recordInfo.showAndWait();
+
+            Platform.exit();
+        } else {
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get().getText().equals("Exit")) {
+                showRecordsDialog(alert);
+
+            } else if (result.get().getText().equals("New game")) {
+                createNewGame();
+            }
+        }
+
     }
 
     public void gameOver() {
@@ -76,37 +119,10 @@ public class ClientGUI extends Application {
             alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get().getText().equals("Exit")) {
-                TextInputDialog dialog = new TextInputDialog("Tran");
-
-                dialog.setTitle("Record");
-                dialog.setHeaderText("Enter your name:");
-                dialog.setContentText("Name:");
-
-                Optional<String> result1 = dialog.showAndWait();
-
-                String playerName = result1.get();
-                result1.ifPresent(name -> {
-                    client.sendRecord(name);
-                });
-                Alert recordInfo = new Alert(Alert.AlertType.INFORMATION);
-                recordInfo.setTitle("Record's Table");
-                ArrayList<Pair<String,Integer>> records = client.get10MaxRecords();
-                String recordsTable = "";
-                for(int i=0;i< records.size();i++){
-                    recordsTable+=i+1+": "+ records.get(i).getKey()+"  "+records.get(i).getValue()+"\n";
-                }
-                recordsTable+="\n\n You: "+playerName+"  "+client.getPlayer().getScore();
-                recordInfo.setHeaderText("Our winners");
-                recordInfo.setContentText(recordsTable);
-
-                recordInfo.showAndWait();
-
-                Platform.exit();
+                showRecordsDialog(alert);
 
             } else if (result.get().getText().equals("New game")) {
-                client.remove();
-                client = new Client(bridge);
-                clientGame.setClient(client);
+                createNewGame();
             }
         });
     }
