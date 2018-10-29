@@ -7,6 +7,7 @@ import control.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import visual.Camera;
@@ -90,9 +91,17 @@ public class ClientGame implements EventHandler<MouseEvent> {
         start();
     }
 
+    public void handle(KeyEvent event){
+        motionControl = new MotionControl(event);
+        client.sendMotion(motionControl);
+
+    }
+
+
     @Override
     public void handle(MouseEvent event) {
         motionControl = new MotionControl(event, camera);
         client.sendMotion(motionControl);
     }
+
 }

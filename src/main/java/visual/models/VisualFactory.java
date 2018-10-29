@@ -16,7 +16,7 @@ public class VisualFactory {
             return new EnemyModel(ballVisualInformation.getPosition(), ballVisualInformation.getRadius(), anchorPane);
         }
         if (visualInformation.getGameObject().type.equals("P")) {
-            BallVisualInformation ballVisualInformation = (BallVisualInformation) visualInformation;
+            BallVisualInformation ballVisualInformation = (PlayerVisualInformation) visualInformation;
             return new PlayerModel(ballVisualInformation.getPosition(), ballVisualInformation.getRadius(), anchorPane);
         }
         if (visualInformation.getGameObject().type.equals("Pr")) {

@@ -2,8 +2,10 @@ package client;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Pair;
@@ -41,6 +43,7 @@ public class ClientGUI extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
             scene.setOnMouseClicked(clientGame);
+            scene.setOnKeyPressed(event -> clientGame.handle(event));
         } catch (NotBoundException | RemoteException | MalformedURLException e) {
             disconnect();
         }
@@ -62,9 +65,14 @@ public class ClientGUI extends Application {
     }
 
     private void createNewGame() {
-        client.remove();
-        client = new Client(bridge);
-        clientGame.setClient(client);
+        try {
+            client.remove();
+            client = new Client(bridge);
+            clientGame.setClient(client);
+        }
+        catch (Exception e){
+            disconnect();
+        }
     }
 
     private void showRecordsDialog(Alert alert) {

@@ -8,7 +8,7 @@ import visual.visualInformation.BallVisualInformation;
 import visual.visualInformation.VisualInformation;
 
 public class CircleModel extends Model {
-    private Circle model;
+    protected Circle model;
 
     public CircleModel(MyPoint center, double radius, Color color, AnchorPane anchorPane) {
         super();

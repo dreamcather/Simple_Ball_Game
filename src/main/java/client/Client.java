@@ -30,13 +30,8 @@ public class Client {
         return null;
     }
 
-    public State getObjectList() {
-        try {
-            return bridge.getObjectList(id);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public State getObjectList() throws RemoteException {
+        return bridge.getObjectList(id);
     }
 
     public void remove() {
@@ -57,13 +52,13 @@ public class Client {
 
     public void sendRecord(String name) {
         try {
-            bridge.sendRecord(id,name);
+            bridge.sendRecord(id, name);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
-    public ArrayList<Pair<String,Integer>> get10MaxRecords(){
+    public ArrayList<Pair<String, Integer>> get10MaxRecords() {
         try {
             return bridge.get10MaxRecords();
         } catch (RemoteException e) {

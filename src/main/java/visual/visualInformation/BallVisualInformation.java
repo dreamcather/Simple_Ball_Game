@@ -20,4 +20,6 @@ public class BallVisualInformation extends VisualInformation {
     public int getRadius() {
         return radius;
     }
+
+
 }
