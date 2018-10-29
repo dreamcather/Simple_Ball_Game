@@ -66,11 +66,6 @@ public class ClosedWall extends GameObject {
     }
 
     @Override
-    public MyPoint getPosition() {
-        return null;
-    }
-
-    @Override
     public String toString() {
         return null;
     }

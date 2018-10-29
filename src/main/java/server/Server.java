@@ -2,7 +2,6 @@ package server;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +20,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Server extends Application {
-    private Stage stage;
     private  Connection connection;
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -41,7 +39,7 @@ public class Server extends Application {
         Naming.rebind("rmi://192.168.1.111/key", bridge);
 
         primaryStage.setTitle("Game");
-        stage = primaryStage;
+        Stage stage = primaryStage;
         BorderPane layout = new BorderPane();
         Scene scene = new Scene(layout, 300, 300);
         primaryStage.setScene(scene);

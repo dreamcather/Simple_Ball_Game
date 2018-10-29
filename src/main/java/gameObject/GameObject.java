@@ -26,8 +26,6 @@ public abstract class GameObject implements Serializable {
 
     public abstract boolean isAlive();
 
-    public abstract MyPoint getPosition();
-
     public abstract String toString();
 
     public abstract VisualInformation isVisible(Camera camera);

@@ -80,11 +80,6 @@ public class Wall extends GameObject {
     }
 
     @Override
-    public MyPoint getPosition() {
-        return new MyPoint(0, 0);
-    }
-
-    @Override
     public String toString() {
         return start.getX() + "  " + start.getY() + "  " + end.getX() + "  " + end.getY() + "\n";
     }

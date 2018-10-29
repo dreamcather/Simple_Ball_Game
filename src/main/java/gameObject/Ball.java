@@ -58,10 +58,6 @@ public abstract class Ball extends GameObject {
         return new MyPoint(xCoordinate, yCoordinate);
     }
 
-    public MyPoint getPosition(MyPoint point) {
-        return new MyPoint(xCoordinate + point.getX(), yCoordinate + point.getY());
-    }
-
     public void setPosition(MyPoint point) {
         xCoordinate = point.getX();
         yCoordinate = point.getY();
