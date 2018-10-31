@@ -37,6 +37,8 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         textArea.setLayoutX(550);
         textArea.setLayoutY(250);
         textArea.setEditable(false);
+        textArea.setDisable(true);
+        System.out.println(textArea.disabledProperty().toString());
         panel.getChildren().addAll(score, textArea);
         lifeCounter = new Label("Life");
         panel.getChildren().add(lifeCounter);

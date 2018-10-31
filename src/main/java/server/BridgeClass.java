@@ -99,7 +99,9 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
 
     public void remove(int id) {
         Player player = playerMap.get(id);
+        clientMap.remove(id);
         player.kill();
+        sendMessageAll("Player "+id+" left game");
 
     }
 

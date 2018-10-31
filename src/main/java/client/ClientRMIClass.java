@@ -12,7 +12,7 @@ public class ClientRMIClass extends UnicastRemoteObject implements ClientRMIInte
     }
 
     @Override
-    public void sendMessage(String string) throws RemoteException {
+    public void sendMessage(String string) {
         client.sendMessage(string);
     }
 }

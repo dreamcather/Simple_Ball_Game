@@ -7,7 +7,9 @@ import javafx.util.Pair;
 import server.Bridge;
 
 import java.io.Serializable;
+import java.rmi.NoSuchObjectException;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class Client implements Serializable {
@@ -86,5 +88,13 @@ public class Client implements Serializable {
 
     public void sendMessage(String string) {
         clientGame.printMessage(string);
+    }
+
+    public void exit(){
+        try {
+            UnicastRemoteObject.unexportObject(clientRMIInterface,true);
+        } catch (NoSuchObjectException e) {
+            e.printStackTrace();
+        }
     }
 }
