@@ -32,7 +32,7 @@ public class ClientGUI extends Application {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
             client = new Client(bridge);
             try {
-                clientGame = new ClientGame(layout, client, this);
+                clientGame = new ClientGame(layout,client, this);
                 client.setControl(clientGame);
                 client.sendMe();
             } catch (IOException e) {

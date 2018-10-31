@@ -51,13 +51,13 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     }
 
     @Override
-    public void sendClient(ClientRMIInterface clientRMIInterface,Integer id) throws RemoteException {
+    public void sendClient(ClientRMIInterface clientRMIInterface,Integer id) {
         clientMap.put(id,clientRMIInterface);
         sendMessageAll("Player "+id+" joined");
     }
 
     @Override
-    public void sendMessageAll(String string) throws RemoteException {
+    public void sendMessageAll(String string) {
         clientMap.forEach((k,v)-> {
             try {
                 v.sendMessage(string);

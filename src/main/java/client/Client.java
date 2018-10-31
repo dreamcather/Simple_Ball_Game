@@ -7,8 +7,6 @@ import javafx.util.Pair;
 import server.Bridge;
 
 import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -23,7 +21,7 @@ public class Client implements Serializable {
         try {
             id = bridge.getId();
             clientRMIInterface = new ClientRMIClass(this);
-        } catch (RemoteException | MalformedURLException | AlreadyBoundException e) {
+        } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
@@ -86,7 +84,7 @@ public class Client implements Serializable {
         this.clientGame = clientGame;
     }
 
-    public void sendMessage(String string) throws RemoteException {
+    public void sendMessage(String string) {
         clientGame.printMessage(string);
     }
 }

@@ -1,15 +1,13 @@
 package client;
 
 import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class ClientRMIClass extends UnicastRemoteObject implements ClientRMIInterface, Serializable {
     private Client client;
 
-    public ClientRMIClass(Client client) throws RemoteException, MalformedURLException, AlreadyBoundException {
+    public ClientRMIClass(Client client) throws RemoteException {
         this.client = client;
     }
 
