@@ -106,7 +106,7 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
     }
 
     public void printMessage(String string){
-        textArea.setText(string);
+        textArea.setText(textArea.getText()+string+'\n');
     }
 
 
