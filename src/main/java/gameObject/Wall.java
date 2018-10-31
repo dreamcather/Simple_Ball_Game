@@ -1,6 +1,9 @@
 package gameObject;
 
-import geometry.*;
+import geometry.Line;
+import geometry.LineSegment;
+import geometry.MyLineSegment;
+import geometry.MyPoint;
 import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.VisualInformation;

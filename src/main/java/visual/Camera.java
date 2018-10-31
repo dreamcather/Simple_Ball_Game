@@ -1,18 +1,19 @@
 package visual;
 
-import geometry.GeometricalCalculation;
-import geometry.LineSegment;
-import geometry.MyLineSegment;
-import geometry.MyPoint;
+import java.util.ArrayList;
+
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 
-import java.util.ArrayList;
+import geometry.GeometricalCalculation;
+import geometry.LineSegment;
+import geometry.MyLineSegment;
+import geometry.MyPoint;
 
 public class Camera {
     private final MyPoint position;
-    private final int size = 250;
+    private final int size = 200;
     private final double offset;
     private final double minX;
     private final double maxX;

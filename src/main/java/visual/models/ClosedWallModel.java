@@ -1,13 +1,12 @@
 package visual.models;
 
+import java.util.ArrayList;
+
 import geometry.MyPoint;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
-
 import visual.visualInformation.ClosedWallVisualInformation;
 import visual.visualInformation.VisualInformation;
-
-import java.util.ArrayList;
 
 public class ClosedWallModel extends Model {
     private final ArrayList<Line> lines;

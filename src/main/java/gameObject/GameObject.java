@@ -1,11 +1,11 @@
 package gameObject;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.VisualInformation;
-
-import java.io.Serializable;
-import java.util.Objects;
 
 public abstract class GameObject implements Serializable {
 

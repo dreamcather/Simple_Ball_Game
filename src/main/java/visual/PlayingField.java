@@ -1,12 +1,12 @@
 package visual;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
-
-import java.io.File;
-import java.net.MalformedURLException;
 
 public class PlayingField {
     private ImageView background;

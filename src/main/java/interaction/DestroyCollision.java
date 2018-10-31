@@ -19,10 +19,9 @@ public class DestroyCollision implements Interaction {
 
     @Override
     public void collision() {
-        if(player.isClosed()){
-            new RegularTwoBallCollision(player,prize).collide();
-        }
-        else {
+        if (player.isClosed()) {
+            new RegularTwoBallCollision(player, prize).collide();
+        } else {
             player.incrementPrizeCount();
             player.addLife();
             prize.setLiveStatus(false);

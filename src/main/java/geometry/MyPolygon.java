@@ -1,11 +1,11 @@
 package geometry;
 
+import java.io.Serializable;
+
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
-
-import java.io.Serializable;
 
 public class MyPolygon implements Serializable {
     private final MyLineSegment[] segments;

@@ -1,10 +1,10 @@
 package client;
 
-import game.State;
-
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+
+import game.State;
 
 public class ClientRMIClass extends UnicastRemoteObject implements ClientRMIInterface, Serializable {
     private final Client client;

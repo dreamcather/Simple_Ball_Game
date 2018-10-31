@@ -1,14 +1,5 @@
 package client;
 
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.util.Pair;
-import server.Bridge;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -16,6 +7,17 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Optional;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Pair;
+import server.Bridge;
 
 public class ClientGUI extends Application {
     private Client client;
@@ -33,7 +35,7 @@ public class ClientGUI extends Application {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
             client = new Client(bridge);
             try {
-                clientGame = new ClientGame(layout,client, this);
+                clientGame = new ClientGame(layout, client, this);
                 client.setControl(clientGame);
                 client.sendMe();
             } catch (IOException e) {
@@ -70,8 +72,7 @@ public class ClientGUI extends Application {
             clientGame.setClient(client);
             client.setControl(clientGame);
             client.sendMe();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             disconnect();
         }
     }
@@ -93,7 +94,13 @@ public class ClientGUI extends Application {
             ArrayList<Pair<String, Integer>> records = client.get10MaxRecords();
             StringBuilder recordsTable = new StringBuilder();
             for (int i = 0; i < records.size(); i++) {
-                recordsTable.append(i).append(1).append(": ").append(records.get(i).getKey()).append("  ").append(records.get(i).getValue()).append("\n");
+                recordsTable.append(i)
+                            .append(1)
+                            .append(": ")
+                            .append(records.get(i).getKey())
+                            .append("  ")
+                            .append(records.get(i).getValue())
+                            .append("\n");
             }
             recordsTable.append("\n\n You: ").append(playerName).append("  ").append(client.getPlayer().getScore());
             recordInfo.setHeaderText("Our winners");
@@ -137,9 +144,15 @@ public class ClientGUI extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        if (client != null)
-            client.remove();
-        client.exit();
+        if (client != null) {
+            try {
+                client.remove();
+                client.exit();
+            }
+            catch (Exception e){
+
+            }
+        }
     }
 
 }

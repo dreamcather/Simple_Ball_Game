@@ -7,10 +7,10 @@ public class BallVisualInformation extends VisualInformation {
     private final MyPoint position;
     private final int radius;
 
-    public BallVisualInformation(MyPoint point,int radius, GameObject gameObject) {
+    public BallVisualInformation(MyPoint point, int radius, GameObject gameObject) {
         super(gameObject);
         position = point;
-        this.radius=radius;
+        this.radius = radius;
     }
 
     public MyPoint getPosition() {
@@ -20,6 +20,5 @@ public class BallVisualInformation extends VisualInformation {
     public int getRadius() {
         return radius;
     }
-
 
 }

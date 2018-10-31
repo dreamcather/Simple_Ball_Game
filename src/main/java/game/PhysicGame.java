@@ -1,14 +1,14 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import gameObject.*;
 import geometry.AreaMap;
 import geometry.MyPoint;
 import interaction.DetectionVisitor;
 import server.BridgeClass;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class PhysicGame {
     private final ArrayList<GameObject> gameObjectList;
@@ -20,7 +20,7 @@ public class PhysicGame {
     private final BridgeClass bridgeClass;
 
     public PhysicGame(BridgeClass bridgeClass) {
-        this.bridgeClass =bridgeClass;
+        this.bridgeClass = bridgeClass;
         gameObjectList = new ArrayList<>();
         areaMap = new AreaMap();
         prizeCount = 0;

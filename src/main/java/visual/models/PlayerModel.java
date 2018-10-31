@@ -23,10 +23,12 @@ public class PlayerModel extends CircleModel {
         model.setCenterX(ballVisualInformation.getPosition().getX());
         model.setCenterY(ballVisualInformation.getPosition().getY());
         model.setRadius(((BallVisualInformation) visualInformation).getRadius());
-        if(closed!=ballVisualInformation.isClosed()) {
-            closed =ballVisualInformation.isClosed();
-            if (ballVisualInformation.isClosed()) model.setFill(closedPlayerColor);
-            else model.setFill(playerColor);
+        if (closed != ballVisualInformation.isClosed()) {
+            closed = ballVisualInformation.isClosed();
+            if (ballVisualInformation.isClosed())
+                model.setFill(closedPlayerColor);
+            else
+                model.setFill(playerColor);
         }
     }
 }

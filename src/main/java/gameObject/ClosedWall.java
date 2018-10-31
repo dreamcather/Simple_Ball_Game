@@ -1,11 +1,15 @@
 package gameObject;
 
-import geometry.*;
-import interaction.ObjectInteractionVisitor;
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
+
+import geometry.GeometricalCalculation;
+import geometry.MyPoint;
+import geometry.MyPolygon;
+import geometry.Vector;
+import interaction.ObjectInteractionVisitor;
 import visual.Camera;
 import visual.visualInformation.ClosedWallVisualInformation;
 import visual.visualInformation.VisualInformation;
@@ -90,8 +94,8 @@ public class ClosedWall extends GameObject {
         coordinates = resGeometry.getCoordinates();
         if (coordinates.length < 3)
             return null;
-        MyPoint[] resPointArray = new MyPoint[coordinates.length-1];
-        for (int i = 0; i < coordinates.length-1; i++) {
+        MyPoint[] resPointArray = new MyPoint[coordinates.length - 1];
+        for (int i = 0; i < coordinates.length - 1; i++) {
             resPointArray[i] = new MyPoint(coordinates[i]);
         }
         return new ClosedWallVisualInformation(resPointArray, this);

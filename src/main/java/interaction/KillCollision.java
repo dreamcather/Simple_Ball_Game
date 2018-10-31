@@ -19,10 +19,9 @@ public class KillCollision implements Interaction {
 
     @Override
     public void collision() {
-        if(player.isClosed()){
-            new RegularTwoBallCollision(player,enemy).collide();
-        }
-        else {
+        if (player.isClosed()) {
+            new RegularTwoBallCollision(player, enemy).collide();
+        } else {
             player.eraseLife();
             new RegularTwoBallCollision(player, enemy).collide();
         }

@@ -1,7 +1,7 @@
 package gameObject;
 
-import geometry.Vector;
 import control.MotionControl;
+import geometry.Vector;
 import interaction.ObjectInteractionVisitor;
 import javafx.scene.input.KeyCode;
 import visual.Camera;
@@ -19,7 +19,7 @@ public class Player extends Ball {
         super(_x, _y, _speed, xCoordinate, yCoordinate, radius, key);
         score = 0;
         lifeCount = 1;
-        closed =true;
+        closed = true;
         type = "P";
     }
 
@@ -35,8 +35,8 @@ public class Player extends Ball {
         this.lifeCount--;
     }
 
-    public void addLife(){
-        if(lifeCount<10)
+    public void addLife() {
+        if (lifeCount < 10)
             lifeCount++;
     }
 
@@ -44,12 +44,12 @@ public class Player extends Ball {
         score++;
     }
 
-    public void growUp(){
-        radius+=5;
+    public void growUp() {
+        radius += 5;
     }
 
-    private void changeClosedFlag(){
-        closed =!closed;
+    private void changeClosedFlag() {
+        closed = !closed;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class Player extends Ball {
             this.changeVector(motion);
             motionControl.setPosition(null);
         }
-        if(motionControl.getKey()== KeyCode.SPACE){
+        if (motionControl.getKey() == KeyCode.SPACE) {
             changeClosedFlag();
             motionControl.setKey(null);
         }
@@ -86,7 +86,10 @@ public class Player extends Ball {
 
     @Override
     public VisualInformation isVisible(Camera camera) {
-        BallVisualInformation visualInformation= (BallVisualInformation) super.isVisible(camera);
-        return new PlayerVisualInformation(visualInformation.getPosition(),visualInformation.getRadius(), closed,this);
+        BallVisualInformation visualInformation = (BallVisualInformation) super.isVisible(camera);
+        return new PlayerVisualInformation(visualInformation.getPosition(),
+                                           visualInformation.getRadius(),
+                                           closed,
+                                           this);
     }
 }

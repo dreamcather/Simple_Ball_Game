@@ -1,10 +1,12 @@
 package client;
 
+import java.io.IOException;
+import java.io.Serializable;
+
+import control.MotionControl;
 import game.State;
 import game.VisualGame;
 import geometry.MyPoint;
-import control.MotionControl;
-import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
@@ -13,9 +15,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import visual.Camera;
-
-import java.io.IOException;
-import java.io.Serializable;
 
 public class ClientGame implements EventHandler<MouseEvent>, Serializable {
     private final ClientGUI application;
@@ -64,18 +63,17 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         }
     }
 
-
     protected void update(State state) {
         try {
-            Platform.runLater(()->{
-            visualGame.update(state.getGameObjects());
-            camera.setPosition(state.getPlayer().getPosition());
-            score.setText("Score " + state.getPlayer().getScore());
-            lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
-            if (state.getPlayer().getLifeCount() <= 0) {
-                gameOver();
-            }
-        });
+            Platform.runLater(() -> {
+                visualGame.update(state.getGameObjects());
+                camera.setPosition(state.getPlayer().getPosition());
+                score.setText("Score " + state.getPlayer().getScore());
+                lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
+                if (state.getPlayer().getLifeCount() <= 0) {
+                    gameOver();
+                }
+            });
         } catch (Exception e) {
             disconnect();
         }
@@ -86,16 +84,15 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         this.client = client;
     }
 
-    public void handle(KeyEvent event){
+    public void handle(KeyEvent event) {
         motionControl = new MotionControl(event);
         client.sendMotion(motionControl);
 
     }
 
-    public void printMessage(String string){
-        textArea.setText(textArea.getText()+string+'\n');
+    public void printMessage(String string) {
+        textArea.setText(textArea.getText() + string + '\n');
     }
-
 
     @Override
     public void handle(MouseEvent event) {

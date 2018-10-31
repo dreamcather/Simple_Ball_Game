@@ -1,14 +1,5 @@
 package server;
 
-import client.ClientRMIInterface;
-import control.MotionControl;
-import game.PhysicGame;
-import game.State;
-import gameObject.GameObject;
-import gameObject.Player;
-import javafx.util.Pair;
-import save.Reader;
-
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -17,6 +8,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import client.ClientRMIInterface;
+import control.MotionControl;
+import game.PhysicGame;
+import game.State;
+import gameObject.GameObject;
+import gameObject.Player;
+import javafx.util.Pair;
+import save.Reader;
 
 public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private final PhysicGame physicGame;
@@ -40,7 +40,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
 
     public ArrayList<Pair<String, Integer>> get10MaxRecords() {
         String sql = "SELECT Name, Score FROM Record ORDER BY Score DESC LIMIT 10";
-        ArrayList<Pair<String,Integer>> recordPair = new ArrayList<>();
+        ArrayList<Pair<String, Integer>> recordPair = new ArrayList<>();
         Statement stmt;
         try {
             stmt = connect.createStatement();
@@ -55,13 +55,13 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     }
 
     @Override
-    public void sendClient(ClientRMIInterface clientRMIInterface,Integer id) {
-        clientMap.put(id,clientRMIInterface);
-        sendMessageAll("Player "+id+" joined");
+    public void sendClient(ClientRMIInterface clientRMIInterface, Integer id) {
+        clientMap.put(id, clientRMIInterface);
+        sendMessageAll("Player " + id + " joined");
     }
 
     private void sendMessageAll(String string) {
-        clientMap.forEach((k,v)-> {
+        clientMap.forEach((k, v) -> {
             try {
                 v.sendMessage(string);
             } catch (RemoteException e) {
@@ -105,7 +105,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
         Player player = playerMap.get(id);
         clientMap.remove(id);
         player.kill();
-        sendMessageAll("Player "+id+" left game");
+        sendMessageAll("Player " + id + " left game");
 
     }
 
@@ -116,9 +116,9 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     }
 
     public void update(ArrayList<GameObject> objectList) {
-        clientMap.forEach((k,v)-> executorService.submit(()->{
+        clientMap.forEach((k, v) -> executorService.submit(() -> {
             try {
-                v.update(new State(playerMap.get(k),objectList));
+                v.update(new State(playerMap.get(k), objectList));
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

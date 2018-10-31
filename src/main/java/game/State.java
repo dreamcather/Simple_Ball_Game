@@ -1,10 +1,10 @@
 package game;
 
-import gameObject.GameObject;
-import gameObject.Player;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import gameObject.GameObject;
+import gameObject.Player;
 
 public class State implements Serializable {
     private final Player player;

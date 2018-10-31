@@ -1,10 +1,10 @@
 package interaction;
 
+import gameObject.Ball;
 import gameObject.Wall;
 import geometry.GeometricalCalculation;
 import geometry.MyPoint;
 import geometry.Vector;
-import gameObject.Ball;
 
 public class RegularBallAndWallInteraction implements Interaction {
     private final Ball ball;

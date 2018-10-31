@@ -1,15 +1,15 @@
 package client;
 
+import java.rmi.NoSuchObjectException;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+
 import control.MotionControl;
 import game.State;
 import gameObject.Player;
 import javafx.util.Pair;
 import server.Bridge;
-
-import java.rmi.NoSuchObjectException;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
 public class Client {
     private final Bridge bridge;
@@ -36,10 +36,6 @@ public class Client {
         return null;
     }
 
-    public State getObjectList() throws RemoteException {
-        return bridge.getObjectList(id);
-    }
-
     public void remove() {
         try {
             bridge.remove(id);
@@ -64,9 +60,9 @@ public class Client {
         }
     }
 
-    public void sendMe(){
+    public void sendMe() {
         try {
-            bridge.sendClient(clientRMIInterface,id);
+            bridge.sendClient(clientRMIInterface, id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -81,7 +77,7 @@ public class Client {
         return null;
     }
 
-    public void setControl(ClientGame clientGame){
+    public void setControl(ClientGame clientGame) {
         this.clientGame = clientGame;
     }
 
@@ -89,9 +85,9 @@ public class Client {
         clientGame.printMessage(string);
     }
 
-    public void exit(){
+    public void exit() {
         try {
-            UnicastRemoteObject.unexportObject(clientRMIInterface,true);
+            UnicastRemoteObject.unexportObject(clientRMIInterface, true);
         } catch (NoSuchObjectException e) {
             e.printStackTrace();
         }

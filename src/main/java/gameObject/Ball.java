@@ -114,7 +114,7 @@ public abstract class Ball extends GameObject {
             MyPoint position = camera.transformPoint(getPosition());
             position.setX(position.getX() + camera.getOffset());
             position.setY(position.getY() + camera.getOffset());
-            return new BallVisualInformation(position, radius,this);
+            return new BallVisualInformation(position, radius, this);
         } else {
             Wall wall = new Wall(camera.transformPoint(getPosition()), camera.transformPoint(camera.getPosition()), 0);
             MyPoint res = camera.getPoint(camera.transformPoint(getPosition()), wall.lineSegment);
@@ -122,7 +122,7 @@ public abstract class Ball extends GameObject {
                 return null;
             res.setX(res.getX() + camera.getOffset());
             res.setY(res.getY() + camera.getOffset());
-            return new BallVisualInformation(res, radius,this);
+            return new BallVisualInformation(res, radius, this);
         }
     }
 }

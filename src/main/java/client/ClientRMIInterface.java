@@ -1,9 +1,9 @@
 package client;
 
-import game.State;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import game.State;
 
 public interface ClientRMIInterface extends Remote {
 

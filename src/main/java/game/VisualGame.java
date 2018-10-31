@@ -1,16 +1,17 @@
 package game;
 
-import gameObject.GameObject;
-import geometry.MyPoint;
-import javafx.scene.layout.AnchorPane;
-import visual.*;
-import visual.models.Model;
-import visual.models.VisualFactory;
-import visual.visualInformation.VisualInformation;
-
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import gameObject.GameObject;
+import geometry.MyPoint;
+import javafx.scene.layout.AnchorPane;
+import visual.Camera;
+import visual.PlayingField;
+import visual.models.Model;
+import visual.models.VisualFactory;
+import visual.visualInformation.VisualInformation;
 
 public class VisualGame {
     private VisualFactory visualFactory;

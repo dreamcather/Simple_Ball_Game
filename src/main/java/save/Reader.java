@@ -1,9 +1,12 @@
 package save;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 import game.PhysicGame;
 import geometry.MyPoint;
-
-import java.io.*;
 
 public class Reader {
 
