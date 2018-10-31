@@ -1,5 +1,6 @@
 package server;
 
+import client.ClientRMIInterface;
 import control.MotionControl;
 import game.State;
 import gameObject.Player;
@@ -25,5 +26,7 @@ public interface Bridge extends Remote {
 
     ArrayList<Pair<String, Integer>> get10MaxRecords() throws RemoteException;
 
-    void sendClient(ClientRMIInterface clientRMIInterface,Integer id) throws RemoteException;
+    void sendClient(ClientRMIInterface clientRMIInterface, Integer id) throws RemoteException;
+
+    void sendMessageAll(String string) throws RemoteException;
 }

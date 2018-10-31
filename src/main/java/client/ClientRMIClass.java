@@ -1,6 +1,4 @@
-package server;
-
-import client.Client;
+package client;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;

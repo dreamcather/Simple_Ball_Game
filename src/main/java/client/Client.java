@@ -5,16 +5,11 @@ import game.State;
 import gameObject.Player;
 import javafx.util.Pair;
 import server.Bridge;
-import server.ClientRMIClass;
-import server.ClientRMIInterface;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.ArrayList;
 
 public class Client implements Serializable {

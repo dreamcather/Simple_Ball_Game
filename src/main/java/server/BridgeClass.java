@@ -1,5 +1,6 @@
 package server;
 
+import client.ClientRMIInterface;
 import control.MotionControl;
 import game.PhysicGame;
 import game.State;
@@ -18,7 +19,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private final PhysicGame physicGame;
     private int clientCounter;
     private HashMap<Integer, Player> playerMap;
-    private HashMap<Integer,ClientRMIInterface> clientMap;
+    private HashMap<Integer, ClientRMIInterface> clientMap;
     private final Connection connect;
 
     private void insert(String name, int value) {
@@ -52,7 +53,18 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     @Override
     public void sendClient(ClientRMIInterface clientRMIInterface,Integer id) throws RemoteException {
         clientMap.put(id,clientRMIInterface);
-        clientRMIInterface.sendMessage("I work");
+        sendMessageAll("Player "+id+" joined");
+    }
+
+    @Override
+    public void sendMessageAll(String string) throws RemoteException {
+        clientMap.forEach((k,v)-> {
+            try {
+                v.sendMessage(string);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public BridgeClass(Connection connect) throws IOException {
