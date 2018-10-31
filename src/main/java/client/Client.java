@@ -5,21 +5,30 @@ import game.State;
 import gameObject.Player;
 import javafx.util.Pair;
 import server.Bridge;
+import server.ClientRMIClass;
 import server.ClientRMIInterface;
 
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.rmi.AlreadyBoundException;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.ArrayList;
 
-public class Client implements ClientRMIInterface, Serializable {
+public class Client implements Serializable {
     private final Bridge bridge;
     private int id;
+    transient private ClientGame clientGame;
+    private ClientRMIInterface clientRMIInterface;
 
     public Client(Bridge bridge) {
         this.bridge = bridge;
         try {
             id = bridge.getId();
-        } catch (RemoteException e) {
+            clientRMIInterface = new ClientRMIClass(this);
+        } catch (RemoteException | MalformedURLException | AlreadyBoundException e) {
             e.printStackTrace();
         }
     }
@@ -63,7 +72,7 @@ public class Client implements ClientRMIInterface, Serializable {
 
     public void sendMe(){
         try {
-            bridge.sendClient(this,id);
+            bridge.sendClient(clientRMIInterface,id);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -78,8 +87,11 @@ public class Client implements ClientRMIInterface, Serializable {
         return null;
     }
 
-    @Override
+    public void setControl(ClientGame clientGame){
+        this.clientGame = clientGame;
+    }
+
     public void sendMessage(String string) throws RemoteException {
-        System.out.println(string);
+        clientGame.printMessage(string);
     }
 }

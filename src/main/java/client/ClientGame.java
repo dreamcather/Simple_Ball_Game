@@ -7,14 +7,16 @@ import control.MotionControl;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import visual.Camera;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ClientGame implements EventHandler<MouseEvent> {
+public class ClientGame implements EventHandler<MouseEvent>, Serializable {
     private final ClientGUI application;
     private final Label score;
     private final Label lifeCounter;
@@ -23,6 +25,7 @@ public class ClientGame implements EventHandler<MouseEvent> {
     private AnimationTimer animationTimer;
     private VisualGame visualGame;
     private Camera camera;
+    private TextField textField;
 
     public ClientGame(AnchorPane panel, Client client, ClientGUI application) throws IOException {
         this.application = application;
@@ -30,7 +33,11 @@ public class ClientGame implements EventHandler<MouseEvent> {
         score = new Label("Score");
         score.setLayoutX(650);
         score.setLayoutY(50);
-        panel.getChildren().add(score);
+        textField = new TextField();
+        textField.setLayoutX(550);
+        textField.setLayoutY(250);
+        textField.setDisable(true);
+        panel.getChildren().addAll(score,textField);
         lifeCounter = new Label("Life");
         panel.getChildren().add(lifeCounter);
         lifeCounter.setLayoutX(650);
@@ -95,6 +102,10 @@ public class ClientGame implements EventHandler<MouseEvent> {
         motionControl = new MotionControl(event);
         client.sendMotion(motionControl);
 
+    }
+
+    public void printMessage(String string){
+        textField.setText(string);
     }
 
 

@@ -9,12 +9,13 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/gameObject/Player.java" line="10" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add ClientRMIClass">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add message from Server realization">
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Bridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Bridge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/BridgeClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/BridgeClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java" afterDir="false" />
     </list>
     <list id="29b9e346-2a33-4d5b-a40f-b9edd8f466d0" name="Add class Hero" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -93,7 +94,7 @@
           <entry key="class" value="26" />
           <entry key="fxml" value="5" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="1813" />
+          <entry key="java" value="1815" />
           <entry key="jpg" value="2" />
           <entry key="txt" value="19" />
           <entry key="xml" value="10" />
@@ -103,7 +104,7 @@
         <counts>
           <entry key="CLASS" value="26" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="1813" />
+          <entry key="JAVA" value="1815" />
           <entry key="Manifest" value="1" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="XML" value="15" />
@@ -119,16 +120,16 @@
         <counts>
           <entry key="class" value="7" />
           <entry key="dummy" value="129" />
-          <entry key="java" value="39912" />
-          <entry key="txt" value="1826" />
+          <entry key="java" value="40250" />
+          <entry key="txt" value="1857" />
           <entry key="xml" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="39912" />
-          <entry key="PLAIN_TEXT" value="1955" />
+          <entry key="JAVA" value="40250" />
+          <entry key="PLAIN_TEXT" value="1986" />
           <entry key="XML" value="28" />
         </counts>
       </usages-collector>
@@ -136,15 +137,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/BridgeClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            <state relative-caret-position="196">
+              <caret line="16" column="52" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#insert#0;class#BridgeClass#0" />
                 <element signature="method#get10MaxRecords#0;class#BridgeClass#0" />
+                <element signature="method#sendClient#0;class#BridgeClass#0" />
+                <element signature="method#BridgeClass#0;class#BridgeClass#0" />
                 <element signature="method#remove#0;class#BridgeClass#0" />
                 <element signature="method#sendRecord#0;class#BridgeClass#0" />
               </folding>
@@ -155,11 +158,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="190">
+              <caret line="34" column="57" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="34" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#start#0;class#Server#0" />
                 <element signature="method#stop#0;class#Server#0" />
               </folding>
             </state>
@@ -179,15 +181,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/Bridge.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
@@ -202,8 +195,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+            <state relative-caret-position="113">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#disconnect#0;class#ClientGUI#0" />
@@ -219,13 +212,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="93" column="38" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
+            <state relative-caret-position="23">
+              <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
               <folding>
+                <element signature="method#ClientGame#0;class#ClientGame#0" />
+                <element signature="method#disconnect#0;class#ClientGame#0" />
+                <element signature="method#gameOver#0;class#ClientGame#0" />
                 <element signature="e#1862#1863#0" expanded="true" />
                 <element signature="e#1900#1901#0" expanded="true" />
+                <element signature="method#update#0;class#ClientGame#0" />
+                <element signature="method#setClient#0;class#ClientGame#0" />
                 <element signature="method#handle#0;class#ClientGame#0" />
+                <element signature="method#handle#1;class#ClientGame#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -233,25 +253,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+            <state relative-caret-position="75">
+              <caret line="74" column="35" selection-start-line="74" selection-end-line="75" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getPlayer#0;class#Client#0" />
                 <element signature="method#get10MaxRecords#0;class#Client#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/visual/visualInformation/PlayerVisualInformation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#PlayerVisualInformation#0;class#PlayerVisualInformation#0" />
               </folding>
             </state>
           </provider>
@@ -335,12 +342,10 @@
         <option value="$PROJECT_DIR$/src/main/java/gameObject/Enemy.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/PhysicGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/models/CircleModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/ClientGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/control/MotionControl.java" />
         <option value="$PROJECT_DIR$/src/main/java/interaction/KillCollision.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/models/ClosedPlayerModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/models/VisualFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java" />
         <option value="$PROJECT_DIR$/src/main/java/geometry/AreaMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/visualInformation/BallVisualInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/save/Reader.java" />
@@ -350,11 +355,13 @@
         <option value="$PROJECT_DIR$/src/main/java/visual/models/PlayerModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/ClientRMIInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/ClientGUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/Bridge.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/BridgeClass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/ClientGUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/ClientGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java" />
       </list>
     </option>
   </component>
@@ -488,7 +495,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540973890216" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540976385086" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -717,13 +724,6 @@
       <workItem from="1536508742949" duration="8312000" />
       <workItem from="1537892145098" duration="2316000" />
       <workItem from="1537938348857" duration="2848000" />
-    </task>
-    <task id="LOCAL-00031" summary="correct ClosedWall vision">
-      <created>1539006252646</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1539006252646</updated>
     </task>
     <task id="LOCAL-00032" summary="add new Geometry library">
       <created>1539166301374</created>
@@ -1061,7 +1061,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540972603814</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="add message from Server realization">
+      <created>1540973928240</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1540973928240</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1121,20 +1128,20 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49757674" weight="0.32828283" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4628433" visible="true" weight="0.35016835" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.47253636" weight="0.3939394" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.45961228" visible="true" weight="0.35016835" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.47092083" weight="0.3939394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49919224" weight="0.32828283" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5371567" side_tool="true" visible="true" weight="0.35016835" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.54038775" side_tool="true" visible="true" weight="0.35016835" />
       <window_info anchor="bottom" id="Profiler" order="9" />
       <window_info anchor="bottom" id="Problems" order="10" />
       <window_info anchor="bottom" id="Application Servers" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32663316" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49919224" weight="0.32659933" />
-      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.48949918" weight="0.31986532" />
+      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.4878837" weight="0.31986532" />
       <window_info anchor="bottom" id="Inspection Results" order="16" sideWeight="0.49757674" weight="0.32996634" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24959612" />
@@ -1230,7 +1237,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="add two player for server" />
     <MESSAGE value="add more player for server" />
     <MESSAGE value="add remove player from Server" />
     <MESSAGE value="add reader for ClosedWall" />
@@ -1255,7 +1261,8 @@
     <MESSAGE value="add server GUI" />
     <MESSAGE value="refactor" />
     <MESSAGE value="add ClientRMIClass" />
-    <option name="LAST_COMMIT_MESSAGE" value="add ClientRMIClass" />
+    <MESSAGE value="add message from Server realization" />
+    <option name="LAST_COMMIT_MESSAGE" value="add message from Server realization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1510,13 +1517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/geometry/AreaMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1605,6 +1605,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Bridge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/ClientRMIInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1615,41 +1625,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/interaction/DestroyCollision.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#start#0;class#Server#0" />
-            <element signature="method#stop#0;class#Server#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="93" column="38" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
-          <folding>
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1900#1901#0" expanded="true" />
-            <element signature="method#handle#0;class#ClientGame#0" />
-          </folding>
+        <state relative-caret-position="273">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="113">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#disconnect#0;class#ClientGUI#0" />
@@ -1661,10 +1647,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+          <folding>
+            <element signature="method#ClientGame#0;class#ClientGame#0" />
+            <element signature="method#disconnect#0;class#ClientGame#0" />
+            <element signature="method#gameOver#0;class#ClientGame#0" />
+            <element signature="e#1862#1863#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="method#update#0;class#ClientGame#0" />
+            <element signature="method#setClient#0;class#ClientGame#0" />
+            <element signature="method#handle#0;class#ClientGame#0" />
+            <element signature="method#handle#1;class#ClientGame#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="34" column="57" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="34" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#stop#0;class#Server#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        <state relative-caret-position="75">
+          <caret line="74" column="35" selection-start-line="74" selection-end-line="75" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getPlayer#0;class#Client#0" />
@@ -1673,26 +1688,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/Bridge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/BridgeClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+        <state relative-caret-position="196">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#insert#0;class#BridgeClass#0" />
             <element signature="method#get10MaxRecords#0;class#BridgeClass#0" />
+            <element signature="method#sendClient#0;class#BridgeClass#0" />
+            <element signature="method#BridgeClass#0;class#BridgeClass#0" />
             <element signature="method#remove#0;class#BridgeClass#0" />
             <element signature="method#sendRecord#0;class#BridgeClass#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/ClientRMIClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
