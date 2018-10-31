@@ -35,7 +35,6 @@ public class Server extends Application {
         Naming.rebind("rmi://192.168.1.111/key", bridge);
 
         primaryStage.setTitle("Game");
-        Stage stage = primaryStage;
         BorderPane layout = new BorderPane();
         Scene scene = new Scene(layout, 300, 300);
         primaryStage.setScene(scene);

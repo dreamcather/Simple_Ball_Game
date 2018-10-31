@@ -25,7 +25,7 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
     private AnimationTimer animationTimer;
     private VisualGame visualGame;
     private Camera camera;
-    private TextArea textArea;
+    private final TextArea textArea;
 
     public ClientGame(AnchorPane panel, Client client, ClientGUI application) throws IOException {
         this.application = application;
