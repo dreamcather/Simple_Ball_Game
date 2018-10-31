@@ -23,7 +23,6 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
     private final Label lifeCounter;
     private Client client;
     private MotionControl motionControl;
-    private AnimationTimer animationTimer;
     private VisualGame visualGame;
     private Camera camera;
     private final TextArea textArea;
@@ -57,6 +56,8 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
 
     private void gameOver() {
         try {
+            client.remove();
+            client.exit();
             application.gameOver();
         } catch (Exception e) {
             e.printStackTrace();

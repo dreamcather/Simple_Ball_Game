@@ -22,12 +22,13 @@ public class ClientGUI extends Application {
     private Bridge bridge;
     private ClientGame clientGame;
     private Stage stage;
+    private AnchorPane layout;
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Game");
         stage = primaryStage;
-        AnchorPane layout = new AnchorPane();
+        layout = new AnchorPane();
         try {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
             client = new Client(bridge);
@@ -38,7 +39,6 @@ public class ClientGUI extends Application {
             } catch (IOException e) {
                 disconnect();
             }
-            clientGame.start();
             Scene scene = new Scene(layout, 750, 600);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -66,9 +66,10 @@ public class ClientGUI extends Application {
 
     private void createNewGame() {
         try {
-            client.remove();
             client = new Client(bridge);
             clientGame.setClient(client);
+            client.setControl(clientGame);
+            client.sendMe();
         }
         catch (Exception e){
             disconnect();
