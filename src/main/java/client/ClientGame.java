@@ -48,36 +48,21 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         int width = 500;
         visualGame = new VisualGame(panel, new MyPoint(50, 50), width, 1000, 1000);
         camera = visualGame.getCamera();
-        animationTimer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                update(null);
-            }
-        };
 
     }
 
     private void disconnect() {
-        stop();
         application.disconnect();
     }
 
     private void gameOver() {
         try {
-            stop();
             application.gameOver();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void start() {
-        //animationTimer.start();
-    }
-
-    private void stop() {
-        animationTimer.stop();
-    }
 
     protected void update(State state) {
         try {
@@ -98,7 +83,6 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
 
     public void setClient(Client client) {
         this.client = client;
-        start();
     }
 
     public void handle(KeyEvent event){

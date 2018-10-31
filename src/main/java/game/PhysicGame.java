@@ -17,7 +17,7 @@ public class PhysicGame {
     private final AreaMap areaMap;
     private final Timer timer;
     private final TimerTask timerTask;
-    private BridgeClass bridgeClass;
+    private final BridgeClass bridgeClass;
 
     public PhysicGame(BridgeClass bridgeClass) {
         this.bridgeClass =bridgeClass;

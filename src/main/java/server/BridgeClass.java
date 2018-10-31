@@ -21,10 +21,10 @@ import java.util.concurrent.Executors;
 public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private final PhysicGame physicGame;
     private int clientCounter;
-    private HashMap<Integer, Player> playerMap;
-    private HashMap<Integer, ClientRMIInterface> clientMap;
+    private final HashMap<Integer, Player> playerMap;
+    private final HashMap<Integer, ClientRMIInterface> clientMap;
     private final Connection connect;
-    private ExecutorService executorService;
+    private final ExecutorService executorService;
 
     private void insert(String name, int value) {
         String sql = "INSERT INTO Record(name,score) VALUES(?,?)";
