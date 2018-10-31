@@ -4,6 +4,7 @@ import gameObject.*;
 import geometry.AreaMap;
 import geometry.MyPoint;
 import interaction.DetectionVisitor;
+import server.BridgeClass;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -16,8 +17,10 @@ public class PhysicGame {
     private final AreaMap areaMap;
     private final Timer timer;
     private final TimerTask timerTask;
+    private BridgeClass bridgeClass;
 
-    public PhysicGame() {
+    public PhysicGame(BridgeClass bridgeClass) {
+        this.bridgeClass =bridgeClass;
         gameObjectList = new ArrayList<>();
         areaMap = new AreaMap();
         prizeCount = 0;
@@ -41,7 +44,7 @@ public class PhysicGame {
     }
 
     public void start() {
-        timer.scheduleAtFixedRate(timerTask, 0, 1);
+        timer.scheduleAtFixedRate(timerTask, 0, 16);
     }
 
     public void addEnemy(String string) {
@@ -82,7 +85,7 @@ public class PhysicGame {
     }
 
     public Player createPlayer() {
-        Player player = new Player(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+        Player player = new Player(1, 0, 3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
         MyPoint point;
         do {
             point = new MyPoint(Math.random() * 300, Math.random() * 300);
@@ -96,7 +99,7 @@ public class PhysicGame {
     private void createPrize() {
         Prize prize;
         do {
-            prize = new Prize(1, 0, 0.3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
+            prize = new Prize(1, 0, 3, Math.random() * 300, Math.random() * 300, 15, objectCounter);
         } while (areaMap.isBelong(prize.getPosition()));
         prizeCount++;
         objectCounter++;
@@ -141,6 +144,7 @@ public class PhysicGame {
         for (GameObject currentObject : gameObjectList) {
             currentObject.move();
         }
+        bridgeClass.update(getObjectList());
     }
 
     public synchronized ArrayList<GameObject> getObjectList() {

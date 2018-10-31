@@ -5,6 +5,7 @@ import game.VisualGame;
 import geometry.MyPoint;
 import control.MotionControl;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -38,7 +39,6 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         textArea.setLayoutY(250);
         textArea.setEditable(false);
         textArea.setDisable(true);
-        System.out.println(textArea.disabledProperty().toString());
         panel.getChildren().addAll(score, textArea);
         lifeCounter = new Label("Life");
         panel.getChildren().add(lifeCounter);
@@ -51,7 +51,7 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                update();
+                update(null);
             }
         };
 
@@ -72,16 +72,16 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
     }
 
     public void start() {
-        animationTimer.start();
+        //animationTimer.start();
     }
 
     private void stop() {
         animationTimer.stop();
     }
 
-    private void update() {
+    protected void update(State state) {
         try {
-            State state = client.getObjectList();
+            Platform.runLater(()->{
             visualGame.update(state.getGameObjects());
             camera.setPosition(state.getPlayer().getPosition());
             score.setText("Score " + state.getPlayer().getScore());
@@ -89,8 +89,10 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
             if (state.getPlayer().getLifeCount() <= 0) {
                 gameOver();
             }
+        });
         } catch (Exception e) {
-            disconnect();
+            //disconnect();
+            System.out.println(e);
         }
 
     }

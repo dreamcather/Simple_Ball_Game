@@ -6,13 +6,12 @@ import gameObject.Player;
 import javafx.util.Pair;
 import server.Bridge;
 
-import java.io.Serializable;
 import java.rmi.NoSuchObjectException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-public class Client implements Serializable {
+public class Client {
     private final Bridge bridge;
     private int id;
     transient private ClientGame clientGame;
@@ -96,5 +95,9 @@ public class Client implements Serializable {
         } catch (NoSuchObjectException e) {
             e.printStackTrace();
         }
+    }
+
+    public void update(State state) {
+        clientGame.update(state);
     }
 }

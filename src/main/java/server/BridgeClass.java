@@ -4,6 +4,7 @@ import client.ClientRMIInterface;
 import control.MotionControl;
 import game.PhysicGame;
 import game.State;
+import gameObject.GameObject;
 import gameObject.Player;
 import javafx.util.Pair;
 import save.Reader;
@@ -56,7 +57,6 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
         sendMessageAll("Player "+id+" joined");
     }
 
-    @Override
     public void sendMessageAll(String string) {
         clientMap.forEach((k,v)-> {
             try {
@@ -69,11 +69,11 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
 
     public BridgeClass(Connection connect) throws IOException {
         this.connect = connect;
-        physicGame = new PhysicGame();
-        new Reader("output.txt", physicGame);
         clientCounter = 0;
         playerMap = new HashMap<>();
         clientMap = new HashMap<>();
+        physicGame = new PhysicGame(this);
+        new Reader("output.txt", physicGame);
     }
 
     public Player getPlayer(int id) {
@@ -109,5 +109,22 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     public void sendRecord(int id, String name) {
         insert(name, playerMap.get(id).getScore());
 
+    }
+
+    public void update(ArrayList<GameObject> objectList) {
+        clientMap.forEach((k,v)->{
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        v.update(new State(playerMap.get(k),objectList));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            thread.run();
+
+        });
     }
 }

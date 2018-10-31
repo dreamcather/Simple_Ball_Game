@@ -28,5 +28,4 @@ public interface Bridge extends Remote {
 
     void sendClient(ClientRMIInterface clientRMIInterface, Integer id) throws RemoteException;
 
-    void sendMessageAll(String string) throws RemoteException;
 }
