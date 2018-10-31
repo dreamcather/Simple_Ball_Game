@@ -5,10 +5,13 @@ import game.State;
 import gameObject.Player;
 import javafx.util.Pair;
 import server.Bridge;
+import server.ClientRMIInterface;
+
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class Client {
+public class Client implements ClientRMIInterface, Serializable {
     private final Bridge bridge;
     private int id;
 
@@ -58,6 +61,14 @@ public class Client {
         }
     }
 
+    public void sendMe(){
+        try {
+            bridge.sendClient(this,id);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<Pair<String, Integer>> get10MaxRecords() {
         try {
             return bridge.get10MaxRecords();
@@ -65,5 +76,10 @@ public class Client {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void sendMessage(String string) throws RemoteException {
+        System.out.println(string);
     }
 }

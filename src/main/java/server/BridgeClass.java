@@ -8,6 +8,7 @@ import javafx.util.Pair;
 import save.Reader;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private final PhysicGame physicGame;
     private int clientCounter;
     private HashMap<Integer, Player> playerMap;
+    private HashMap<Integer,ClientRMIInterface> clientMap;
     private final Connection connect;
 
     private void insert(String name, int value) {
@@ -47,12 +49,19 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
         return recordPair;
     }
 
+    @Override
+    public void sendClient(ClientRMIInterface clientRMIInterface,Integer id) throws RemoteException {
+        clientMap.put(id,clientRMIInterface);
+        clientRMIInterface.sendMessage("I work");
+    }
+
     public BridgeClass(Connection connect) throws IOException {
         this.connect = connect;
         physicGame = new PhysicGame();
         new Reader("output.txt", physicGame);
         clientCounter = 0;
         playerMap = new HashMap<>();
+        clientMap = new HashMap<>();
     }
 
     public Player getPlayer(int id) {
