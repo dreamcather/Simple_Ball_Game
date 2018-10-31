@@ -15,6 +15,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private final PhysicGame physicGame;
@@ -22,6 +24,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     private HashMap<Integer, Player> playerMap;
     private HashMap<Integer, ClientRMIInterface> clientMap;
     private final Connection connect;
+    private ExecutorService executorService;
 
     private void insert(String name, int value) {
         String sql = "INSERT INTO Record(name,score) VALUES(?,?)";
@@ -57,7 +60,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
         sendMessageAll("Player "+id+" joined");
     }
 
-    public void sendMessageAll(String string) {
+    private void sendMessageAll(String string) {
         clientMap.forEach((k,v)-> {
             try {
                 v.sendMessage(string);
@@ -73,6 +76,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
         playerMap = new HashMap<>();
         clientMap = new HashMap<>();
         physicGame = new PhysicGame(this);
+        executorService = Executors.newCachedThreadPool();
         new Reader("output.txt", physicGame);
     }
 
@@ -112,19 +116,12 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     }
 
     public void update(ArrayList<GameObject> objectList) {
-        clientMap.forEach((k,v)->{
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        v.update(new State(playerMap.get(k),objectList));
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            thread.run();
-
-        });
+        clientMap.forEach((k,v)-> executorService.submit(()->{
+            try {
+                v.update(new State(playerMap.get(k),objectList));
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }));
     }
 }

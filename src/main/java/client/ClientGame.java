@@ -91,8 +91,7 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
             }
         });
         } catch (Exception e) {
-            //disconnect();
-            System.out.println(e);
+            disconnect();
         }
 
     }
