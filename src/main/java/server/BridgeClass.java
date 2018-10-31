@@ -84,10 +84,6 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
         return playerMap.get(id);
     }
 
-    public State getObjectList(int id) {
-        return new State(playerMap.get(id), physicGame.getObjectList());
-    }
-
     public void setMotionControl(MotionControl motionControl, int id) {
         Player player = playerMap.get(id);
         player.setMotionControl(motionControl);

@@ -24,13 +24,12 @@ public class ClientGUI extends Application {
     private Bridge bridge;
     private ClientGame clientGame;
     private Stage stage;
-    private AnchorPane layout;
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Game");
         stage = primaryStage;
-        layout = new AnchorPane();
+        AnchorPane layout = new AnchorPane();
         try {
             bridge = (Bridge) Naming.lookup("rmi://192.168.1.111/key");
             client = new Client(bridge);
