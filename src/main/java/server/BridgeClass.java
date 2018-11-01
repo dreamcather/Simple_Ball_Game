@@ -100,6 +100,7 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     public void remove(int id) {
         Player player = playerMap.get(id);
         clientMap.remove(id);
+        playerMap.remove(id);
         player.kill();
         sendMessageAll("Player " + id + " left game");
 
@@ -114,9 +115,17 @@ public class BridgeClass extends UnicastRemoteObject implements Bridge {
     public void update(ArrayList<GameObject> objectList) {
         clientMap.forEach((k, v) -> executorService.submit(() -> {
             try {
-                v.update(new State(playerMap.get(k), objectList));
+                Player curentPlayer = playerMap.get(k);
+                if(curentPlayer.getLifeCount()>0) {
+                    v.update(new State(playerMap.get(k), objectList));
+                }
+                else{
+                    v.gameOver();
+                    clientMap.remove(k);
+                }
+
             } catch (RemoteException e) {
-                e.printStackTrace();
+                remove(k);
             }
         }));
     }

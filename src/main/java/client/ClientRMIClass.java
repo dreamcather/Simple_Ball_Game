@@ -22,4 +22,9 @@ public class ClientRMIClass extends UnicastRemoteObject implements ClientRMIInte
     public void update(State state) throws RemoteException {
         client.update(state);
     }
+
+    @Override
+    public void gameOver() throws RemoteException {
+        client.gameOver();
+    }
 }

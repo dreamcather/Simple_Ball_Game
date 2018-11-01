@@ -87,14 +87,17 @@ public class Client {
 
     public void exit() {
         try {
-            if (clientRMIInterface != null)
-                UnicastRemoteObject.unexportObject(clientRMIInterface, true);
+            UnicastRemoteObject.unexportObject(clientRMIInterface, true);
         } catch (NoSuchObjectException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     public void update(State state) {
         clientGame.update(state);
+    }
+
+    public void gameOver() {
+        clientGame.gameOver();
     }
 }

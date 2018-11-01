@@ -53,14 +53,15 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
         application.disconnect();
     }
 
-    private void gameOver() {
+    protected void gameOver() {
+        Platform.runLater(() -> {
         try {
             client.remove();
-            client.exit();
             application.gameOver();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        });
     }
 
     protected void update(State state) {
@@ -70,9 +71,6 @@ public class ClientGame implements EventHandler<MouseEvent>, Serializable {
                 camera.setPosition(state.getPlayer().getPosition());
                 score.setText("Score " + state.getPlayer().getScore());
                 lifeCounter.setText("Life " + state.getPlayer().getLifeCount());
-                if (state.getPlayer().getLifeCount() <= 0) {
-                    gameOver();
-                }
             });
         } catch (Exception e) {
             disconnect();

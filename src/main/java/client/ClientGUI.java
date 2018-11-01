@@ -143,7 +143,6 @@ public class ClientGUI extends Application {
     public void stop() throws Exception {
         super.stop();
         if (client != null) {
-
             client.remove();
             client.exit();
         }
