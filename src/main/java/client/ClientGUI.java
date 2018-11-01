@@ -93,8 +93,7 @@ public class ClientGUI extends Application {
             ArrayList<Pair<String, Integer>> records = client.get10MaxRecords();
             StringBuilder recordsTable = new StringBuilder();
             for (int i = 0; i < records.size(); i++) {
-                recordsTable.append(i)
-                            .append(1)
+                recordsTable.append(i+1)
                             .append(": ")
                             .append(records.get(i).getKey())
                             .append("  ")
@@ -144,13 +143,9 @@ public class ClientGUI extends Application {
     public void stop() throws Exception {
         super.stop();
         if (client != null) {
-            try {
-                client.remove();
-                client.exit();
-            }
-            catch (Exception e){
 
-            }
+            client.remove();
+            client.exit();
         }
     }
 

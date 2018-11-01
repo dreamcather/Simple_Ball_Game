@@ -87,7 +87,8 @@ public class Client {
 
     public void exit() {
         try {
-            UnicastRemoteObject.unexportObject(clientRMIInterface, true);
+            if (clientRMIInterface != null)
+                UnicastRemoteObject.unexportObject(clientRMIInterface, true);
         } catch (NoSuchObjectException e) {
             e.printStackTrace();
         }
